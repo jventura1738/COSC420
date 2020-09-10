@@ -1,6 +1,6 @@
 # COSC420: High Performance Computing
 
-by Justin Ventura.  
+by Justin Ventura & Blaine Mason (team)
 
 *Dr. Joseph Anderson:* 
 http://faculty.salisbury.edu/~jtanderson/
