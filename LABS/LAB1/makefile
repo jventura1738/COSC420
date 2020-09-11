@@ -8,9 +8,10 @@ mc = mpicc
 flags = -lm -o
 me = mpiexec -n 
 
-run: Prime Hello
-	$(me) $(a1) ./Hello.o 
-	$(me) $(a1) ./Prime.o $(a2)
+run_Prime: Prime
+	-$(me) $(a1) ./Prime.o $(a2)
+run_Hello: Hello
+	$(me) $(a1) ./Hello.o
 Hello: hello.c
 	$(mc) hello.c $(flags) Hello.o
 Prime: Lab-1-prime.c

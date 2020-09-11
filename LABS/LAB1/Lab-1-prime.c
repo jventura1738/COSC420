@@ -35,7 +35,7 @@ int main(int argc, char** argv){
   for(i = start; i < upper; i++){
     if(N % i == 0){
       printf("Not Prime! One Factor is %lu and %d\n", N/i, i);
-      MPI_Abort(world, 1);
+      MPI_Abort(world, 0);
     }
   }
 
