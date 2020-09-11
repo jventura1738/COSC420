@@ -5,7 +5,7 @@ by Justin Ventura & Blaine Mason
 ## How to run the program:
 First enter: <code> make clean </code>\
 Enter into the terminal: <code> make run_Hello a1=<# nodes you wish to spawn></code>\
-Enter into the terminal: <code> make run_Prime a1=<# of nodes you wish to spawn> a2="N you want to test for primality" </code>
+Enter into the terminal: <code> make run_Prime a1=<# of nodes you wish to spawn> a2=<N you want to test for primality> </code>
 
 ## Questions to answer:
 
