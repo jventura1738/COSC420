@@ -3,9 +3,9 @@
 by Justin Ventura & Blaine Mason
 
 ## How to run the program:
-First enter: make clean\
-Enter into the terminal: make run_Hello ag1="number of nodes"\
-Enter into the terminal: make run_Prime ag1="number of nodes" ag2="N you want to test"
+First enter: <code> make clean </code>\
+Enter into the terminal: <code> make run_Hello a1=<# nodes you wish to spawn></code>\
+Enter into the terminal: <code> make run_Prime a1=<# of nodes you wish to spawn> a2="N you want to test for primality" </code>
 
 ## Questions to answer:
 
