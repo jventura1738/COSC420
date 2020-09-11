@@ -1,3 +1,5 @@
+// Justin Ventura & Blaine Mason
+// COSC420: Lab 1
 #include<stdio.h>
 #include<mpi.h>
 #include<stdlib.h>
