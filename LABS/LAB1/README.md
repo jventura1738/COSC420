@@ -2,6 +2,11 @@
 
 by Justin Ventura & Blaine Mason
 
+## How to run the program:
+First enter: make clean
+Enter into the terminal: make run_Hello ag1="number of nodes"
+Enter into the terminal: make run_Prime ag1="number of nodes" ag2="N you want to test"
+
 ## Questions to answer:
 
 ### (a) What is the theoretical time complexity of your sorting algorithms (best and worst case), in terms of the input size?
