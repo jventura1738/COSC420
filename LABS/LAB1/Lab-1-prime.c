@@ -1,3 +1,5 @@
+// Justin Ventura & Blaine Mason
+// COSC420 Lab 1: Lab-1-prime.c
 #include<stdio.h>
 #include<mpi.h>
 #include<stdlib.h>
