@@ -18,7 +18,10 @@ typedef struct {
   double* data;   // pointer to the data, a flat array
 } matrix;
 
+void initRandMatrix(matrix *A, int rows, int cols);
 void initMatrix(matrix *A, int rows, int cols);
 void printMatrix(matrix *A);
-void addMatrix(matrix *A, matrix *B, int world, int worldSize, int myRank);   
+double * addMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank);  
+double * subtractMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank);
+double * multiplyMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank)
 #endif
