@@ -1,4 +1,5 @@
 #include "matrix.h"
+
 int main(int argc, char** argv){
   MPI_Init(&argc, &argv); // pass through cli args
 
@@ -17,22 +18,24 @@ int main(int argc, char** argv){
   matrix A, B, C;
   initRandMatrix(&A, a1,  a2);
   initRandMatrix(&B, b1,  b2);
-  initMatrix(&C, a1,  b2);
 
   srand(time(NULL));
   if ( myRank == 0 ) {
-    printMatrix(&A);
-    puts("");
-    printMatrix(&B);
-    puts("");
+    //printMatrix(&A);
+    //puts("");
+    //printMatrix(&B);
+    //puts("");
     initMatrix(&C, a1,  b2);
   }
   
   //C.data = addMatrix(&A, &B, world, worldSize, myRank);
   C.data = multiplyMatrix(&A, &B, world, worldSize, myRank);
+  //printMatrix(&A);
+  //puts("");
+  //C.data = transpose(&A);
   if ( myRank == 0) {
 
-    printMatrix(&C);
+    //printMatrix(&C);
   
 
   }
