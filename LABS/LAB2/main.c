@@ -9,27 +9,32 @@ int main(int argc, char** argv){
   MPI_Comm_rank(world, &myRank);
   
   int a1 = atoi(argv[1]);
-  int a2 = atoi(argv[2]);  
+  int a2 = atoi(argv[2]); 
+
+  int b1 = atoi(argv[3]);
+  int b2 = atoi(argv[4]); 
 
   matrix A, B, C;
   initRandMatrix(&A, a1,  a2);
-  initRandMatrix(&B, a1,  a2);
-  initMatrix(&C, a1,  a2);
+  initRandMatrix(&B, b1,  b2);
+  initMatrix(&C, a1,  b2);
 
   srand(time(NULL));
   if ( myRank == 0 ) {
-    //printMatrix(&A);
-    //puts("");
-    //printMatrix(&B);
-    //puts("");
-    initMatrix(&C, a1,  a2);
+    printMatrix(&A);
+    puts("");
+    printMatrix(&B);
+    puts("");
+    initMatrix(&C, a1,  b2);
   }
   
-  C.data = addMatrix(&A, &B, world, worldSize, myRank);
+  //C.data = addMatrix(&A, &B, world, worldSize, myRank);
+  C.data = multiplyMatrix(&A, &B, world, worldSize, myRank);
   if ( myRank == 0) {
 
-    //printMatrix(&C);
+    printMatrix(&C);
   
+
   }
 
   MPI_Finalize();

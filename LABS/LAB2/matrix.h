@@ -23,5 +23,6 @@ void initMatrix(matrix *A, int rows, int cols);
 void printMatrix(matrix *A);
 double * addMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank);  
 double * subtractMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank);
-double * multiplyMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank)
+double * multiplyMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank);
+
 #endif

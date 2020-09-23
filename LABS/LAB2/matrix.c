@@ -1,3 +1,4 @@
+
 #include"matrix.h"
 
 void initRandMatrix(matrix *A, int rows, int cols){
@@ -116,25 +117,56 @@ double * multiplyMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int
     return 0;
 
 	}
+
+  if (worldSize > A->cols * B->rows) {
+
+    printf("yo momma SOOO fat....\n");
+    return 0;
+
+  }
+
+  srand(time(NULL) + myRank);
+  int i, j, k;
+  int nodes = A->rows*B->cols;
+  int *sendcts = (int*) malloc(worldSize*sizeof(int));
+  int *displcmts = (int*) malloc(worldSize*sizeof(int));
+
+  for(i=0; i<worldSize; i++){
+    sendcts[i] = nodes/worldSize; // number each gets
+    displcmts[i] = i*(nodes/worldSize); // start indicies
+  }
+  if( nodes % worldSize > 0 ){
+    //printf("N is not divisible by %d\n", worldSize);
+    int extra = nodes % worldSize;
+    sendcts[worldSize-1] += extra;
+  }
   
-  /*
-	for (size_t i = 0; i < A.row; i++) {
 
-		for (size_t j = 0; j < B.col; j++) {
+  int len = A->rows*B->cols;
+  double* final = malloc(len*sizeof(double));
+  if (myRank == 0){
+    for(i = 0; i < len; i++){
+      final[i] = 0;
+    }
+    puts("");
 
-			C.M[i * C.col + j] = 0; 
+    MPI_Scatterv(
+      A->data, sendcts, displcmts, MPI_DOUBLE,// send info
+      final, len, MPI_DOUBLE,   // recv info
+      0, world);  
+    MPI_Scatterv(
+      B->data, sendcts, displcmts, MPI_DOUBLE,// send info
+      final, len, MPI_DOUBLE,   // recv info
+      0, world);  
+  }
 
-			for (size_t k = 0; k < A.col; k++) {
+  for(j=0; j < B->cols; j++){
+    for(k=0; k < A->cols; k++){
+      final[myRank*B->cols + j] += ACCESS(A,myRank,k)*ACCESS(B,k,j);
+    }
+  }
+  return final;
 
-				C.M[i * C.col + j] += A.M[i * A.col + k] * B.M[k * B.col + j];
-
-			}
-
-		}
-
-	}
-  */
-
-	return C;
+	
 
 }

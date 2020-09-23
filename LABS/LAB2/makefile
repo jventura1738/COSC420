@@ -10,6 +10,6 @@ me = mpiexec -n
 
 gamer:
 	$(mc) main.c matrix.c -o main
-	$(me) $(a1) ./main $(a2) $(a3)
+	$(me) $(a1) ./main $(a2) $(a3) $(a4) $(a5) 
 clean:
 	rm -f *.o
