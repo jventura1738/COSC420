@@ -62,6 +62,8 @@ int main(int argc, char** argv) {
 
   }
 
+  /* ALG START */
+
   // Iterate the rows of A:
   for (i = 0; i < A.rows; i++) {
 
@@ -81,6 +83,8 @@ int main(int argc, char** argv) {
     }
 
   }
+
+  /* ALG END */ 
 
   printf("Resulting Matrix from A*B:\n");
   print_matrix(&C);
