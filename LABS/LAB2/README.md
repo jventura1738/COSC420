@@ -3,7 +3,7 @@
 by Justin Ventura & Blaine Mason
 
 ## How to run the program:
-<code>making a makefile</code>
+<code>make gamer a1="# of Nodes" a2="Rows of A" a3="Cols of A" a4="Rows of B" a5="Cols of B"</code>
 
 ## Questions to answer:
 

@@ -21,18 +21,16 @@ int main(int argc, char** argv){
 
   srand(time(NULL));
   if ( myRank == 0 ) {
-    //printMatrix(&A);
-    //puts("");
-    //printMatrix(&B);
-    //puts("");
+    printMatrix(&A);
+    puts("");
+    printMatrix(&B);
+    puts("");
     initMatrix(&C, a1,  b2);
   }
   
-  //C.data = addMatrix(&A, &B, world, worldSize, myRank);
+  C.data = addMatrix(&A, &B, world, worldSize, myRank);
+  printMatrix(&C);
   C.data = multiplyMatrix(&A, &B, world, worldSize, myRank);
-  //printMatrix(&A);
-  //puts("");
-  //C.data = transpose(&A);
   if ( myRank == 0) {
 
     //printMatrix(&C);

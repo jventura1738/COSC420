@@ -1,6 +1,6 @@
 
 #include"matrix.h"
-
+//Creates a random rxc matrix 
 void initRandMatrix(matrix *A, int rows, int cols){
   int i,j;
   A->rows = rows;
@@ -12,7 +12,7 @@ void initRandMatrix(matrix *A, int rows, int cols){
     }
   }
 }
-
+//Creates a rxc matrix with 0 as the value
 void initMatrix(matrix *A, int rows, int cols){
   int i,j;
   A->rows = rows;
@@ -24,7 +24,7 @@ void initMatrix(matrix *A, int rows, int cols){
     }
   }
 }
-
+//Prints out the matrix
 void printMatrix(matrix *A){
   int i,j;
   for(i=0; i < A->rows; i++){
@@ -43,69 +43,83 @@ double * addMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRa
     return 0;
     
   }
-  
+  int i;
   int len = A->rows * A->cols;
   int blockSize = (len) / worldSize;
+  int *sendcts = (int*) malloc(worldSize*sizeof(int));
+  int *displcmts = (int*) malloc(worldSize*sizeof(int));
+
+  for(i=0; i<worldSize; i++){
+    sendcts[i] = len/worldSize; // number each gets
+    displcmts[i] = i*(len/worldSize); // start indicies
+  }
+
+  if( len % worldSize > 0 ){
+    int extra = len % worldSize;
+    sendcts[worldSize-1] += extra; // small brain, easy
+  }
   double* C = malloc(len*sizeof(double));
-  //printf("Len: %d BlockSize: %d", len, blockSize);
-  //puts("");
-  
   double* localA = malloc(len*sizeof(double));
   double* localB = malloc(len*sizeof(double));
   double* localSoln = malloc(len*sizeof(double));
   
-
-  MPI_Scatter(A->data, blockSize, MPI_DOUBLE, localA, blockSize, MPI_DOUBLE, 0, world);
-  MPI_Scatter(B->data, blockSize, MPI_DOUBLE, localB, blockSize, MPI_DOUBLE, 0, world);
-  
-  int i;
-  //printf("I am node %d", myRank);
-  //puts("");
+  MPI_Scatterv(
+      A->data, sendcts, displcmts, MPI_DOUBLE,// send info
+      localA, len, MPI_DOUBLE,   // recv info
+      0, world);                          // misc info
+  MPI_Scatterv(
+      B->data, sendcts, displcmts, MPI_DOUBLE,// send info
+      localB, len, MPI_DOUBLE,   // recv info
+      0, world); 
   for(i = 0; i < blockSize; i++) {
     localSoln[i] = localA[i] + localB[i];
-    //printf("%f ", localSoln[i]);
   }
-  //puts("");
   
-  MPI_Gather(localSoln, blockSize, MPI_DOUBLE, C, blockSize, MPI_DOUBLE, 0, world);
-
+  MPI_Gatherv(localSoln, blockSize, MPI_DOUBLE, C, sendcts, displcmts, MPI_DOUBLE, 0, world);
   return C;
 
 }
 
 double * subtractMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank){
-  if ( (A->rows != B->rows) || (A->cols != B->cols) ) {
+    if ( (A->rows != B->rows) || (A->cols != B->cols) ) {
 
     printf("Matrices not same dimension dummy boi.\n");
     return 0;
     
   }
-  
+  int i;
   int len = A->rows * A->cols;
   int blockSize = (len) / worldSize;
+  int *sendcts = (int*) malloc(worldSize*sizeof(int));
+  int *displcmts = (int*) malloc(worldSize*sizeof(int));
+
+  for(i=0; i<worldSize; i++){
+    sendcts[i] = len/worldSize; // number each gets
+    displcmts[i] = i*(len/worldSize); // start indicies
+  }
+
+  if( len % worldSize > 0 ){
+    int extra = len % worldSize;
+    sendcts[worldSize-1] += extra; // small brain, easy
+  }
   double* C = malloc(len*sizeof(double));
-  //printf("Len: %d BlockSize: %d", len, blockSize);
-  //puts("");
-  
   double* localA = malloc(len*sizeof(double));
   double* localB = malloc(len*sizeof(double));
   double* localSoln = malloc(len*sizeof(double));
   
-
-  MPI_Scatter(A->data, blockSize, MPI_DOUBLE, localA, blockSize, MPI_DOUBLE, 0, world);
-  MPI_Scatter(B->data, blockSize, MPI_DOUBLE, localB, blockSize, MPI_DOUBLE, 0, world);
-  
-  int i;
-  //printf("I am node %d", myRank);
-  //puts("");
+  MPI_Scatterv(
+      A->data, sendcts, displcmts, MPI_DOUBLE,// send info
+      localA, len, MPI_DOUBLE,   // recv info
+      0, world);                          // misc info
+  MPI_Scatterv(
+      B->data, sendcts, displcmts, MPI_DOUBLE,// send info
+      localB, len, MPI_DOUBLE,   // recv info
+      0, world); 
   for(i = 0; i < blockSize; i++) {
     localSoln[i] = localA[i] - localB[i];
-    //printf("%f ", localSoln[i]);
   }
-  //puts("");
   
-  MPI_Gather(localSoln, blockSize, MPI_DOUBLE, C, blockSize, MPI_DOUBLE, 0, world);
-
+  MPI_Gatherv(localSoln, blockSize, MPI_DOUBLE, C, sendcts, displcmts, MPI_DOUBLE, 0, world);
   return C;
 }
 
@@ -115,36 +129,45 @@ double * multiplyMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int
     return 0;
 	}
   if (worldSize > A->cols * B->rows) {
-    printf("yo momma SOOO fat....\n");
+    printf("Just jokes....\n");
     return 0;
   }
-  int finalRows = A->rows;
-  int finalCols = B->cols;
-  matrix A2;
-  matrix B2;
-  initMatrix(&A2, 1,  A->cols);
-  initMatrix(&B2, B->rows,  1);
-  
-  srand(time(NULL) + myRank);
+  matrix Bt;
+  Bt = transpose(B);
   int i, j, k;
-  int len = finalRows*finalCols;
+  matrix row_vect, col_vect;
+  row_vect.rows = 1;
+  row_vect.cols = A->cols;
+  row_vect.rows = 1;
+  row_vect.cols = A->cols;
+  row_vect.data = malloc(A->cols * sizeof(double));
+  col_vect.data = malloc(A->cols * sizeof(double));
+  for (i = 0; i < A->cols; i++) {
+
+    row_vect.data[i] = 0;
+    col_vect.data[i] = 0;
+
+  }
+  srand(time(NULL) + myRank);
+  
+  int len = A->rows*Bt.rows;
   double* final = malloc(len*sizeof(double));
   if (myRank == 0){
     for(i = 0; i < len; i++){
+      
       final[i] = 0;
+      
     } 
   }
   
-  for(j=0; j < finalRows; j++){
-    for(k=0; k < finalCols; k++){
-      if(myRank == 0){
-        for(i= 0; i< A->cols; i++){
-          A2.data[i] = ACCESS(A,j,i);
-        }for(i= 0; i< B->rows; i++){
-          B2.data[i] = ACCESS(B,i,k);
+  for(i=0; i < A->rows; i++){
+    for(j=0; j < Bt.rows; j++){
+        for(k= 0; k< A->cols; k++){
+          row_vect.data[k] = ACCESS(A,i,k);
+          col_vect.data[k] = Bt.data[j * A->cols + k];
+          
         }
-      }
-      final[INDEX(B,j,k)] = innerProduct(&A2, &B2, world, worldSize, myRank);
+      final[INDEX(B,i,j)] = innerProduct(&row_vect, &col_vect, world, worldSize, myRank);
     }
   }
   
@@ -165,7 +188,6 @@ double innerProduct(matrix* A, matrix *B, MPI_Comm world, int worldSize, int myR
   }
 
   if( size % worldSize > 0 ){
-    //printf("N is not divisible by %d\n", worldSize);
     int extra = size % worldSize;
     sendcts[worldSize-1] += extra; // small brain, easy
   }
@@ -197,23 +219,26 @@ double innerProduct(matrix* A, matrix *B, MPI_Comm world, int worldSize, int myR
 
   if (myRank == 0) {
 
-    //printf("Inner Product: %d\n", sum);//yo momma gay lol
+    //printf("Inner Product: %d\n", sum);/
 
   }
   return sum;
 }
 
 
-double* transpose(matrix* A){
+matrix transpose(matrix* A){
+  matrix At;
+  At.rows = A->cols;
+  At.cols = A->rows;
+  At.data = malloc(A->rows * A->cols * sizeof(double));
   int i,j;
-  double* temp = malloc(A->rows*A->cols*sizeof(double)); 
 
   for(i = 0; i < A->cols; i++){
     for(j = 0; j < A->rows; j++){
-      temp[i*A->rows + j] = ACCESS(A, j, i);  
+      At.data[i*A->rows + j] = ACCESS(A, j, i);  
     }
   }
     
-  return temp;
+  return At;
 }
 

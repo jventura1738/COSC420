@@ -22,7 +22,7 @@ typedef struct {
 void initRandMatrix(matrix *A, int rows, int cols);
 void initMatrix(matrix *A, int rows, int cols);
 void printMatrix(matrix *A);
-double* transpose(matrix* A);
+matrix transpose(matrix* A);
 double * addMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank);  
 double * subtractMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank);
 double * multiplyMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank);
