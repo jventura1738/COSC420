@@ -1,4 +1,14 @@
-// Justin Ventura Serial Test File
+/*     -   COSC420: LAB2    -
+ * Justin Ventura Serial Test File
+ * 
+ * I just made this so that we could
+ * see if our hypothesis was true;
+ * tranposing B, then doing an inner
+ * product by row * row as opposed to 
+ * row * cols.
+ * 
+ * It worked!
+*/
 
 #include<stdio.h>
 #include<stdlib.h>

@@ -1,3 +1,6 @@
+// Justin Ventura & Blaine Mason
+// COSC420 Lab 2: matrix.c
+
 #ifndef MATRIX_H
 #define MATRIX_H
 
@@ -6,6 +9,7 @@
 #include<time.h>
 #include<math.h>
 #include<mpi.h>
+
 // NB: the A here needs to be a struct, not a pointer!
 #define INDEX(A,i,j) A->cols*i + j
 // now can do A.data[INDEX(A,i,j)]
@@ -19,12 +23,16 @@ typedef struct {
   double* data;   // pointer to the data, a flat array
 } matrix;
 
+/*
+ * Matrix fillers and operations.
+*/
 void initRandMatrix(matrix *A, int rows, int cols);
 void initMatrix(matrix *A, int rows, int cols);
 void printMatrix(matrix *A);
-double* transpose(matrix* A);
+matrix transpose(matrix* A);
 double * addMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank);  
 double * subtractMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank);
 double * multiplyMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank);
 double innerProduct(matrix* A, matrix *B, MPI_Comm world, int worldSize, int myRank);
+
 #endif
