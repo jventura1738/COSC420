@@ -15,7 +15,7 @@ by Justin Ventura & Blaine Mason
 
 - For matrix transpose, this is just O(N) as it has not been parallelized.
 
-- For matrix multiplication, it will require (N * M * K)/P time, where N := A.rows, M := Bt.rows, K := A.cols, and P is the # of nodes/processes being run.  The best and worst case will be N(N * M * K/P), or if we would like to be sneaky: O( (max(N, K, M))^3 / P ), hehe ;)
+- For matrix multiplication, it will require (N * M * K)/P time, where N := A.rows, M := Bt.rows, K := A.cols, and P is the # of nodes/processes being run.  The best and worst case will be N(N * M * K/P), or if we would like to be sneaky: O( (max(N, K, M))^3 / P )... hehe ;)
 
 ### (b) According to the data, does adding more nodes perfectly divide the time taken by the program?
 
