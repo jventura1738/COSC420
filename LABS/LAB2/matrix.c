@@ -261,6 +261,7 @@ double * multiplyMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int
       final[i] = 0;
 
     } 
+    
   }
 
   /*  - ALG START -  */
