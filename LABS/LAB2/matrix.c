@@ -250,7 +250,7 @@ double * multiplyMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int
 
   }
 
-  srand(time(NULL) + myRank);
+  srand(time(0) + myRank);
 
   // We will return this 'final'.
   int len = A->rows*Bt.rows;
@@ -350,12 +350,13 @@ double innerProduct(matrix* A, matrix *B, MPI_Comm world, int worldSize, int myR
     Final += localA[i] * localB[i];
 
   }
-
+  
   // Now collect all the results from each node, and use
   // MPI_SUM to simplify the work.
   int sum = 0;
   MPI_Reduce(&Final, &sum, 1, MPI_INT, MPI_SUM, 0, world);
-
+  free(localA);
+  free(localB);
   // Return the inner product :)
   return sum;
 }

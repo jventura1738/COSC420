@@ -30,19 +30,19 @@ int main(int argc, char** argv) {
   srand(time(NULL));
   if ( myRank == 0 ) {
 
-    printMatrix(&A);
-    puts("");
-    printMatrix(&B);
-    puts("");
+    //printMatrix(&A);
+    //puts("");
+    //printMatrix(&B);
+    //puts("");
     initMatrix(&C, a1,  b2);
 
   }
   
   // Add A and B:
-  C.data = addMatrix(&A, &B, world, worldSize, myRank);
+  //C.data = addMatrix(&A, &B, world, worldSize, myRank);
   if (myRank == 0) {
 
-    printMatrix(&C);
+    //printMatrix(&C);
 
   }
 
@@ -50,7 +50,7 @@ int main(int argc, char** argv) {
   C.data = multiplyMatrix(&A, &B, world, worldSize, myRank);
   if ( myRank == 0) {
 
-    printMatrix(&C);
+    //printMatrix(&C);
   
   }
 
