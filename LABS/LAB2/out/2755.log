@@ -1,0 +1,5 @@
+
+
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** JOB 2755 ON hpcl6-2 CANCELLED AT 2020-09-26T17:20:11 ***
+slurmstepd: error: *** STEP 2755.0 ON hpcl6-2 CANCELLED AT 2020-09-26T17:20:11 ***

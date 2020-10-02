@@ -1,5 +1,6 @@
 #include <stddef.h>
 #include <stdio.h>
+#include "mpi.h"
 
 size_t C(size_t n, size_t k) {
   size_t res = 1;
@@ -10,20 +11,35 @@ size_t C(size_t n, size_t k) {
   return (size_t)(res + 0.01);
 }
 
-int main(){
+int main(int argc, char** argv){
+  MPI_Init(&argc, &argv); // pass through cli args
+  int worldSize, myRank;
+
+  // This constant gets set by the MPI lib
+  MPI_Comm world = MPI_COMM_WORLD;
+  MPI_Comm_size(world, &worldSize);
+  MPI_Comm_rank(world, &myRank); 
   size_t i, j;
-  size_t n = 1000000000;
+  size_t n = 100000;
   size_t count = 0;
-  for(i = 0; i < n; i++){
+  int range, low, high;
+  range = n/worldSize;
+  if(myRank == 0){
+    low = 0;
+    high = low + range;
+  }else{
+    low = myRank*range;
+    high = low + range;
+  }
+  for(i = low; i < high; i++){
     for(j = 0; j <= i; j++){
-      printf("%ld\n", i);
       if (C(i, j) % 7 != 0){
-        //printf("%ld\n", C(i,j));
-	count += 1;
+        	count += 1;
       }
     }
-    printf("%ld", count);
-    puts("");
   }
+  printf("Node: %d Rows: %d - %d\n", myRank, low, high);
+  printf("%d count is: %ld\n", myRank, count);
+  MPI_Finalize();
   return 0;
 }

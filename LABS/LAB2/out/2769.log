@@ -1,0 +1,15 @@
+
+===================================================================================
+=   BAD TERMINATION OF ONE OF YOUR APPLICATION PROCESSES
+=   PID 92585 RUNNING AT hpcl6-2
+=   EXIT CODE: 9
+=   CLEANING UP REMAINING PROCESSES
+=   YOU CAN IGNORE THE BELOW CLEANUP MESSAGES
+===================================================================================
+slurmstepd: error: Detected 78 oom-kill event(s) in step 2769.0 cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.
+srun: error: hpcl6-2: task 0: Out Of Memory
+[mpiexec@hpcl6-2.salisbury.edu] HYDT_bscu_wait_for_completion (tools/bootstrap/utils/bscu_wait.c:76): one of the processes terminated badly; aborting
+[mpiexec@hpcl6-2.salisbury.edu] HYDT_bsci_wait_for_completion (tools/bootstrap/src/bsci_wait.c:23): launcher returned error waiting for completion
+[mpiexec@hpcl6-2.salisbury.edu] HYD_pmci_wait_for_completion (pm/pmiserv/pmiserv_pmci.c:218): launcher returned error waiting for completion
+[mpiexec@hpcl6-2.salisbury.edu] main (ui/mpich/mpiexec.c:344): process manager error waiting for completion
+slurmstepd: error: Detected 78 oom-kill event(s) in step 2769.batch cgroup. Some of your processes may have been killed by the cgroup out-of-memory handler.
