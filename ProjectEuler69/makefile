@@ -3,11 +3,11 @@
 gc = gcc -c
 go = gcc -o
 
-main: rel_prime.o
-	$(go) main rel_prime.o
+main: totient_max.o
+	$(go) main totient_max.o
 
-rel_prime.o: rel_prime.c
-	$(gc) rel_prime.c
+totient_max.o: totient_max.c
+	$(gc) totient_max.c
 
 clean:
 	rm -rf *.o main
