@@ -1,0 +1,25 @@
+Node: 0 Numbers: 1.000000 - 25001.000000
+0 count is: 122369.000000
+Node: 1 Numbers: 25000.000000 - 50000.000000
+1 count is: 123176.000000
+Node: 2 Numbers: 50000.000000 - 75000.000000
+2 count is: 124085.000000
+Node: 3 Numbers: 75000.000000 - 100000.000000
+3 count is: 92664.000000
+Node: 4 Numbers: 100000.000000 - 125000.000000
+4 count is: 0.000000
+Node: 5 Numbers: 125000.000000 - 150000.000000
+5 count is: 125255.000000
+Node: 6 Numbers: 150000.000000 - 175000.000000
+6 count is: 156570.000000
+Node: 7 Numbers: 175000.000000 - 200000.000000
+7 count is: 182665.000000
+Node: 8 Numbers: 200000.000000 - 225000.000000
+8 count is: 421131.000000
+Node: 9 Numbers: 225000.000000 - 250000.000000
+9 count is: 242879.000000
+Node: 10 Numbers: 250000.000000 - 275000.000000
+10 count is: 273265.000000
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** JOB 2869 ON hpcl1-1 CANCELLED AT 2020-10-04T16:25:04 ***
+slurmstepd: error: *** STEP 2869.0 ON hpcl1-1 CANCELLED AT 2020-10-04T16:25:04 ***

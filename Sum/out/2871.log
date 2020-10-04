@@ -1,0 +1,6 @@
+srun: Warning: can't honor --ntasks-per-node set to 4 which doesn't match the requested tasks 5 with the number of requested nodes 5. Ignoring --ntasks-per-node.
+2020202020202020202020202020202020202020Node: 0 Numbers: 1.000000 - 50001.000000
+0 count is: 245545.000000
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** JOB 2871 ON hpcl5-2 CANCELLED AT 2020-10-04T16:26:52 ***
+slurmstepd: error: *** STEP 2871.0 ON hpcl5-2 CANCELLED AT 2020-10-04T16:26:52 ***

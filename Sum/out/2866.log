@@ -1,0 +1,13 @@
+Node: 0 Numbers: 1.000000 - 50001.000000
+0 count is: 245545.000000
+Node: 1 Numbers: 50000.000000 - 100000.000000
+1 count is: 216749.000000
+Node: 2 Numbers: 100000.000000 - 150000.000000
+2 count is: 125255.000000
+Node: 3 Numbers: 150000.000000 - 200000.000000
+3 count is: 339235.000000
+Node: 4 Numbers: 200000.000000 - 250000.000000
+4 count is: 664010.000000
+slurmstepd: error: *** JOB 2866 ON hpcl1-1 CANCELLED AT 2020-10-04T16:15:04 ***
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+slurmstepd: error: *** STEP 2866.0 ON hpcl1-1 CANCELLED AT 2020-10-04T16:15:04 ***

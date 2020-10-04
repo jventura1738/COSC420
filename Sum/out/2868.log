@@ -1,0 +1,5 @@
+Node: 0 Numbers: 1.000000 - 50001.000000
+0 count is: 245545.000000
+slurmstepd: error: *** JOB 2868 ON hpcl6-2 CANCELLED AT 2020-10-04T16:23:27 ***
+slurmstepd: error: *** STEP 2868.0 ON hpcl6-2 CANCELLED AT 2020-10-04T16:23:27 ***
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
