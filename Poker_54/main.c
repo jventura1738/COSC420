@@ -1,5 +1,5 @@
 // Justin Ventura & Blaine Mason
-// Project Euler Problem 116
+// Project Euler Problem 54
 
 #include<stdio.h>
 #include<stdlib.h>
