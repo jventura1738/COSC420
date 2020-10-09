@@ -16,7 +16,7 @@ int main(int argc, char** argv){
     MPI_Comm_size(world, &worldSize);
     MPI_Comm_rank(world, &myRank);
     long int i, j, k, range, extra, low, high;
-    long int n = 1000000;
+    long int n = 100;
     long int sum = 0;
     long int Final_sum = 0;
     long int* mdrs = malloc(n*sizeof(long int));
@@ -44,14 +44,15 @@ int main(int argc, char** argv){
     }
     for(i = low; i < high; i++){
         //printf("%ld\n", i);
-        for(j = 2; j*j <= i; j++){
+        for(j = 2; j <= i; j++){
             //printf("%ld ", i/j);
             if(i % j == 0){
                 mdrs[i] = MAX(mdrs[i], mdrs[j] + mdrs[i/j]);
                 //printf("%ld ", i/j);s
             }
         }
-        //printf("%ld\n", mdrs[i]);
+        printf("MDRS(%ld)=%ld\n", i, mdrs[i]);
+
     }
     printf("Rank: %d is done\n", myRank);
     
