@@ -44,7 +44,7 @@ int main(int argc, char** argv){
     }
     for(i = low; i < high; i++){
         //printf("%ld\n", i);
-        for(j = 2; j <= i; j++){
+        for(j = 2; j*j <= i; j++){
             //printf("%ld ", i/j);
             if(i % j == 0){
                 mdrs[i] = MAX(mdrs[i], mdrs[j] + mdrs[i/j]);
