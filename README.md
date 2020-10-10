@@ -18,3 +18,6 @@ The course will study principles, practices, and implementations of parallel and
 
 This repository will include any labs, homeworks, projects, or other material related to the class which requires coding.  This also includes any optional work completed by myself for enrichment in the same studies/topics discussed and practiced in this class (COSC420).  There may also be any written work uploaded for the sake of being documented and saved for future reference.
 
+## Projects
+
+### Project Euler: 3 problems
