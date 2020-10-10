@@ -549,6 +549,10 @@ extern "C" {
             {
                 //printf("mid^2: %s\n", c_str(c_mult(mid,mid)));
                 //printf("a: %s\n", c_str(a));
+                destroy(left);
+                destroy(right);
+                destroy(mid);
+                destroy(two);
                 return 1; 
             }
             
@@ -563,7 +567,11 @@ extern "C" {
             {
                 right = c_mm(mid); 
             }
+            destroy(mid);
         }
+        destroy(left);
+        destroy(right);
+        destroy(two);
         return 0;
     }
 #else

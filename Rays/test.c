@@ -16,14 +16,17 @@ int main(){
   BigInteger* x = NULL;
   BigInteger* y = NULL;
   BigInteger* count = makeBigIntStr("0");
+  int temp;
 
   for(x = makeBigIntStr("101");  c_leeq(x, N); c_pp(x)){
     for(y = makeBigIntStr("101");  c_leeq(y, N); c_pp(y)){
-      //printf("Count: %d\n", c_neq(c_mod(c_div(c_mult(y,y), c_mult(x,x)), two), n));
-      if(c_neq(c_mod(c_div(c_mult(y,y), c_mult(x,x)), two), n)){
+      temp = c_neq(c_mod(c_div(c_mult(y,y), c_mult(x,x)), two), n);
+      if(temp){
         c_pp(count);
       }
     }
+    destroy(y);
+    printf("Count: %s\n", c_str(count));
   }
   printf("Count: %s\n", c_str(count));
 return 0;

@@ -27,7 +27,7 @@ int main(int argc, char** argv){
             low = (myRank*range);
             high = low + range;
         }
-    }
+    }   
     for(i = low; i < high; i++){
         if(i % 10 == 0){
             count++;

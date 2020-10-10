@@ -1,10 +1,10 @@
 main: BigIntegerSingleFile.o test.o
-	g++ -o test test.o BigIntegerSingleFile.o
+	./mpipp.sh -o test test.o BigIntegerSingleFile.o
 
 test.o: test.c
 	gcc -c -g test.c
 BigIntegerSingleFile.o: BigIntegerSingleFile.cpp
-	g++ -c -g BigIntegerSingleFile.cpp
+	g++ -c  BigIntegerSingleFile.cpp -g
 
 clean: 
 	rm *.o 

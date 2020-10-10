@@ -29,19 +29,27 @@ int main(int argc, char** argv){
 
 
 
-  long double n = 64000000;
+  long int n = 64000000;
   long double Final_sum = 0;
   long double i, temp, sum;
-  long double range, low, high;
-  range = n/worldSize;
+  long double range, low, high, extra;
+  range = n / worldSize;
+  extra = n % worldSize;
   if(myRank == 0){
-    low = 1;
-    high = low + range;
+      low = 1;
+      high = low + range-1;
+      printf("Rank: %d Low: %Lf High: %Lf\n", myRank, low, high);
   }else{
-    low = myRank*range;
-    high = low + range;
-  }
-
+      if(myRank == (worldSize - 1)){
+          low = (myRank*range);
+          high = low + range + extra;
+          printf("Rank: %d Low: %LfHigh: %Lf\n", myRank, low, high);
+      }else{
+          low = (myRank*range);
+          high = low + range;
+          printf("Rank: %d Low: %Lf High: %Lf\n", myRank, low, high);
+      }
+  }   
   for(i = low; i <= high; i++){
     temp = sqrtl(divisor(i));
     if(temp - floor(temp) == 0){
