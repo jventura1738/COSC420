@@ -31,10 +31,10 @@ long int DR(long int n) {
 
 }
 
-long int DR_of_prime_factors(long int n) {
+long int * prime_factors(long int n) {
 
     long int * factors = malloc(50 * sizeof(long int));
-    long int i, j, sum = 0, idx = 0;
+    long int i, idx = 0;
 
     // Print the number of 2s that divide n 
     while (n%2 == 0) {
@@ -63,14 +63,7 @@ long int DR_of_prime_factors(long int n) {
     if (n > 2) 
         factors[idx++] = n;
 
-    for (j = 0; j < idx; j++) {
-
-        sum += DR(factors[j]);
-
-    }
-
-    free(factors);
-    return sum;
+    return factors;
 
 }
 
@@ -93,6 +86,7 @@ int is_prime(int x) {
     return 1;
 
 }
+
 
 int main(int argc, char** argv) {
 
@@ -123,6 +117,7 @@ int main(int argc, char** argv) {
         }
     }
 
+
     for (i = low; i < high; i++) {
 
         long int max = 0;
@@ -143,17 +138,23 @@ int main(int argc, char** argv) {
 
             if (i % j == 0) {
 
-               //printf("%ld ", j);
+                long int * prime_1 = prime_factors(j);
+                long int * prime_2 = prime_factors(i/j);
+                long int z, sum1 = 0, sum2 = 0;
+                for (z = 0; prime_1[z]; z++) {
 
-                int test = DR(j) + DR(i/j);
+                    sum1 += DR(prime_1[z]);
+
+                }
+                for (z = 0; prime_2[z]; z++) {
+
+                    sum2 += DR(prime_2[z]);
+
+                }
+                long int test = MAX(DR(j), sum1) + MAX(DR(i/j), sum2);
                 if (test > max) {
  
                     max = test;
-                    // if (DR(i/j) == 1) {
-
-                    //     max -= 1;
-
-                    // }
  
                 }
 
@@ -162,11 +163,14 @@ int main(int argc, char** argv) {
         }
         //printf("%ld\n", j);
 
-        printf("MDRS(%ld)=%ld\n", i, max_of_three(max, DR(j), DR_of_prime_factors(j)));
+        printf("MDRS(%ld)=%ld\n", i, max);
         //printf("j=%ld, DR(%ld)=%ld\n", j, j, DR(j));
-        sum += max_of_three(max, DR(j), DR_of_prime_factors(j));
+        sum += max;
 
     }
+
+    /* --------------------------------------- */
+
 
     printf("Node %d has local sum = %ld\n", myRank, sum);
 
