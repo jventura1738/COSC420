@@ -185,11 +185,10 @@ We have S(1) = 1, S(10) = 221 and S(100) = 39826.
 Find S(5·10^6).
 
 **Approach**
-In order to solve this problem, the first step was to 
+In order to solve this problem, the first step was to understand and implement the Euclidean Algorithm for finding the GCD (greatest common divisor) of a number.  The algorithm is quite simple, and has a very nice recursive solution to it.  With a slight modification (adding a counter to track the number of steps taken in the algorithm), we were able to come up with a brute force solution.  Once we came up with our solution, we began parallelizing by splitting the range of numbers to different nodes.
 
 **Solving the Problem**
-Writing the algorithm took around three hours, but the tests were embarrasingly slow.  This is because we ran on the cluster first the O(n) search, for a N=1,000,000 and it never finished after a day.  So, after several tests with our O(sqrt(n)) method it ran N=1,000,000 quickly on the machine we were using in the lab.  Finally, after testing it on 10 nodes, after 45 minutes we found the correct answer!
-
+Writing the algorithm was pretty simple, as it has a nice recursive solution to it.  Once that was finished, we needed to parallelize the code since the brute force method is astronomically slow.  The total number of calculations required is pretty insane for the brute force method: O(N^2 * logN).  The N^2 comes from the fact that x, y pairs span from (1, 1), (1, 2), ... (2, 1), (2, 2), ... (N, 1) ... (1, N) ... (N, N), and that for each unique pair, the Euclidean Algorithm requires O(log N) calculations.  To parallelize, we took the basic approach of splitting the inner loop into blocks (the y coord of the pairs) for the nodes to have a distributed amount, then we used MPI file views to have the nodes report the results to a datafile.  Once the nodes were all done, the root would reduce the local sums to the final result, and that would be both printed to the console and written to a file.  
 
 ### What was Learned
 
