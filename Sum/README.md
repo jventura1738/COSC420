@@ -169,5 +169,27 @@ sys     5m17.033s
 
 **24 Nodes**
 
+## Problem 433: Steps in Euclid's Algorithm.
+
+**Description**
+Let E(x0, y0) be the number of steps it takes to determine the greatest common divisor of x0 and y0 with Euclid's algorithm. More formally:
+x1 = y0, y1 = x0 mod y0
+xn = y(n-1), y(n) = x(n-1) mod y(n-1)
+E(x0, y0) is the smallest n such that y(n) = 0.
+
+We have E(1,1) = 1, E(10,6) = 3 and E(6,10) = 4.
+
+Define S(N) as the sum of E(x,y) for 1 ≤ x,y ≤ N.
+We have S(1) = 1, S(10) = 221 and S(100) = 39826.
+
+Find S(5·10^6).
+
+**Approach**
+In order to solve this problem, the first step was to 
+
+**Solving the Problem**
+Writing the algorithm took around three hours, but the tests were embarrasingly slow.  This is because we ran on the cluster first the O(n) search, for a N=1,000,000 and it never finished after a day.  So, after several tests with our O(sqrt(n)) method it ran N=1,000,000 quickly on the machine we were using in the lab.  Finally, after testing it on 10 nodes, after 45 minutes we found the correct answer!
+
+
 ### What was Learned
 
