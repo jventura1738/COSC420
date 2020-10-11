@@ -173,13 +173,17 @@ sys     5m17.033s
 
 **Description**
 Let E(x0, y0) be the number of steps it takes to determine the greatest common divisor of x0 and y0 with Euclid's algorithm. More formally:
+
 x1 = y0, y1 = x0 mod y0
+
 xn = y(n-1), y(n) = x(n-1) mod y(n-1)
+
 E(x0, y0) is the smallest n such that y(n) = 0.
 
 We have E(1,1) = 1, E(10,6) = 3 and E(6,10) = 4.
 
 Define S(N) as the sum of E(x,y) for 1 ≤ x,y ≤ N.
+
 We have S(1) = 1, S(10) = 221 and S(100) = 39826.
 
 Find S(5·10^6).
@@ -189,6 +193,9 @@ In order to solve this problem, the first step was to understand and implement t
 
 **Solving the Problem**
 Writing the algorithm was pretty simple, as it has a nice recursive solution to it.  Once that was finished, we needed to parallelize the code since the brute force method is astronomically slow.  The total number of calculations required is pretty insane for the brute force method: O(N^2 * logN).  The N^2 comes from the fact that x, y pairs span from (1, 1), (1, 2), ... (2, 1), (2, 2), ... (N, 1) ... (1, N) ... (N, N), and that for each unique pair, the Euclidean Algorithm requires O(log N) calculations.  To parallelize, we took the basic approach of splitting the inner loop into blocks (the y coord of the pairs) for the nodes to have a distributed amount, then we used MPI file views to have the nodes report the results to a datafile.  Once the nodes were all done, the root would reduce the local sums to the final result, and that would be both printed to the console and written to a file.  
+
+**Results**
+As of 10/11/20 @ 3:31PM, our brute force solution is still running.  We have tested many cases with various #'s of nodes, and various N's.  It has always been correct, and there is no way the final result we are still waiting is wrong.  We are having the nodes print results to a file so that when it is finished, even if the MPI_Reduce overflows, we can sum the 24 node results ourselves and not have to false results due to overflow.  With full confidence, I believe that my algorithm is complete and works, despite being pretty slow.
 
 ### What was Learned
 
