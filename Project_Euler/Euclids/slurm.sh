@@ -1,6 +1,6 @@
 #!/bin/sh
 
-#SBATCH --job-name=Divisors   
+#SBATCH --job-name=Euclids  
 #SBATCH --nodes=20
 #SBATCH --ntasks-per-node=20
 #SBATCH --mem=12gb
@@ -10,4 +10,4 @@
 module load mpi/mpich-3.2-x86_64
 
 # For a C MPI project
-time mpirun ~/Documents/Github/Shared/COSC420/Reverse/main
+time mpirun ~/Documents/Github/Shared/COSC420/Project_Euler/Euclids/main
