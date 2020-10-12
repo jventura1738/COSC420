@@ -22,4 +22,4 @@ This repository will include any labs, homeworks, projects, or other material re
 
 ### Project Euler: 3 problems
 
-- Fun fact: I love it when I solve 3 problems just to find out they can't be parallized or I get integer overflow :(
+Please see the Project_Euler directory.  We solved 3 problems in parallel: #145, 211, and 433.
