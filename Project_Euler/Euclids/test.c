@@ -81,20 +81,22 @@ int main(int argc, char** argv) {
   if(myRank == 0){
       low = 1;
       high = low + range-2;
-      printf("Rank: %d Low: %ld High: %ld\n", myRank, low, high);
+      //printf("Rank: %d Low: %ld High: %ld\n", myRank, low, high);
   }else{
       if(myRank == (worldSize - 1)){
           low = (myRank*range);
           high = low + range + extra;
-          printf("Rank: %d Low: %ld High: %ld\n", myRank, low, high);
+          //printf("Rank: %d Low: %ld High: %ld\n", myRank, low, high);
       }else{
           low = (myRank*range);
           high = low + range -1;
-          printf("Rank: %d Low: %ld High: %ld\n", myRank, low, high);
+          //printf("Rank: %d Low: %ld High: %ld\n", myRank, low, high);
       }
   }   
 
   for (i = 1; i <= N; i++) {
+
+    printf("iter: %zu\n", i);
 
     for (j = low; j <= high; j++) {
 
