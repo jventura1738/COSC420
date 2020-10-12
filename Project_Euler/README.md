@@ -9,7 +9,7 @@ by Justin Ventura and Blaine Mason
 This project was one for the history books.  Over the course of the project we logged around 70-80 total hours working on solving, programming, and testing the problems we chose.  Although we only are submitting three problems, we came up with code(slow, but would yield the result) to solve serveral other problems across the range given.  There were certainly times when we felt on top of the world and times we felt buried alive.
 
 
-## Problem 145: How many reversible numbers are there below one-billion
+## Problem 145: How many reversible numbers are there below one-billion [20%'r]
 **Description**
 Some positive integers n have the property that the sum [ n + reverse(n) ] consists entirely of odd (decimal) digits. For instance, 36 + 63 = 99 and 409 + 904 = 1313. We will call such numbers reversible; so 36, 63, 409, and 904 are reversible. Leading zeroes are not allowed in either n or reverse(n).
 There are 120 reversible numbers below one-thousand.
@@ -71,7 +71,7 @@ user    0m20.584s
 
 sys     0m0.369s
 
-## Problem 211: Divisor Square Sum
+## Problem 211: Divisor Square Sum [50%'r]
 
 **Description**
 For a positive integer n, let σ2(n) be the sum of the squares of its divisors. For example,
@@ -169,7 +169,7 @@ sys     5m17.033s
 
 **24 Nodes**
 
-## Problem 433: Steps in Euclid's Algorithm.
+## Problem 433: Steps in Euclid's Algorithm [65%'r]
 
 **Description**
 Let E(x0, y0) be the number of steps it takes to determine the greatest common divisor of x0 and y0 with Euclid's algorithm. More formally:
@@ -197,7 +197,7 @@ Writing the algorithm was pretty simple, as it has a nice recursive solution to 
 **Results**
 As of 10/11/20 @ 3:31PM, our brute force solution is still running.  We have tested many cases with various #'s of nodes, and various N's.  It has always been correct, and there is no way the final result we are still waiting is wrong.  We are having the nodes print results to a file so that when it is finished, even if the MPI_Reduce overflows, we can sum the 24 node results ourselves and not have to false results due to overflow.  With full confidence, I believe that my algorithm is complete and works, despite being pretty slow.
 
-### What was Learned
+## What was Learned
 This was certainly more than just a project.  It was a test of confidence, patience, and will.  While doing mathematical research in order to answer these problems, we were able to learn coding tricks and mathematical strategies that don't seem very useful at first.  Even though we had completed more than just 3 problems, we could only turn in the required 3 due to some problems giving us issues that we attempted to address, but we could not due in the given time alotted.  For example, our very first obstacle was a problem that involved a very elegant solution using Dynamic Programming.  We were able to use dynamic programming to solve it, but then we realized that parallelizing our DP algorithm would be a near impossible nightmare.  With the bottom up approach, parallelizing is essentially inefficient because of the dependencies involved in the memoization.  While this task defeated us, we still applied a very useful technique that solved the problem in serial.  Our biggest obstacle was our 3rd choice for a problem in the project: #433.  The algorithm we had come up with was correct, but super slow, and even with parallization we were not able to have it finished in time.  Even though we were defeated once again, we still learned from both the mathematical research and the MPI programming involved (Euclidean Algorithm, MPI file views for node logging).  We had managed to solve 6 problems, only 3 of which could be submitted due to the project requirements.  Throughout the journey of solving all these problems, we learned mathematical techniques, some advanced number theory, recalled advanced programming techniques (such as DP), became much more familiar with the MPI library and parallelization techniques.  While we had been defeated many times during this project, we learned more than enough to make up for our losses.
 
 ### Relavent Motivational Quotes
