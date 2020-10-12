@@ -29,7 +29,7 @@ Node: 8 Numbers: 800000000 - 900000000
 Node: 9 Numbers: 900000000 - 1000000000
 
 **Solving the Problem**
-After lecture on Tuesday() we rushed into the lab to see if we could figure this one out.  Justin had recalled a program he wrote to test if a number was palindromic, so we used that for our solution.  We wrote an algorithm and tested our base cases, but we got too cocky and after testing for our end result, we forgot about the rule of trailing zeros.  That test took a total of three hours to run, and after parallelizing it and optimizing we found a solution in ~15 seconds.  Test cases and numerical results follow.  The algorithm in parallel is O($\frac{n}{p}$).
+After lecture on Tuesday() we rushed into the lab to see if we could figure this one out.  Justin had recalled a program he wrote to test if a number was palindromic, so we used that for our solution.  We wrote an algorithm and tested our base cases, but we got too cocky and after testing for our end result, we forgot about the rule of trailing zeros.  That test took a total of three hours to run, and after parallelizing it and optimizing we found a solution in ~15 seconds.  Test cases and numerical results follow.  The algorithm in parallel is O(n/p).
 
 **1 Node or Serial**
 
@@ -83,7 +83,7 @@ Find the sum of all n, 0 < n < 64,000,000 such that σ2(n) is a perfect square.
 Originally, our plan was to find all the factors of a given number n, square each factor, add them, and check if it is a perfect square.  Brute force attempts are often slow, so we knew this would not be the best way.  We took this as an opportunity to highlight the advantage of parallization.  Initially we found all the factors of a given number n by testing its divisibility with numbers 1-n.  That was O(n), and was not fast since it needed to be run 64,000,000 times.  After doing some research we found a method for only having to search from 1-sqrt(n), which carries the same logic as our first prime lab.
 
 **Solving the Problem**
-Writing the algorithm took around three hours, but the tests were embarrasingly slow.  This is because we ran on the cluster first the O(n) search, for a N=1,000,000 and it never finished after a day.  So, after several tests with our O(sqrt(n)) method it ran N=1,000,000 quickly on the machine we were using in the lab.  Finally, after testing it on 10 nodes, after 45 minutes we found the correct answer!  With the optimization to the factorization the algorithm in parallel is O($\frac{n\sqrt{n}}{p}$). 
+Writing the algorithm took around three hours, but the tests were embarrasingly slow.  This is because we ran on the cluster first the O(n) search, for a N=1,000,000 and it never finished after a day.  So, after several tests with our O(sqrt(n)) method it ran N=1,000,000 quickly on the machine we were using in the lab.  Finally, after testing it on 10 nodes, after 45 minutes we found the correct answer!  With the optimization to the factorization the algorithm in parallel is O(sqrt(n)/p). 
 
 **1 Node or Serial**
 
