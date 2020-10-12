@@ -197,6 +197,71 @@ Writing the algorithm was pretty simple, as it has a nice recursive solution to 
 **Results**
 As of 10/11/20 @ 3:31PM, our brute force solution is still running.  We have tested many cases with various #'s of nodes, and various N's.  It has always been correct, and there is no way the final result we are still waiting is wrong.  We are having the nodes print results to a file so that when it is finished, even if the MPI_Reduce overflows, we can sum the 24 node results ourselves and not have to false results due to overflow.  With full confidence, I believe that my algorithm is complete and works, despite being pretty slow.
 
+**UPDATE**
+As of 10/12/20 6:30PM, our program has finished, and come up witht the correct results!  While it had finished late, the answer was indeed correct as I had anticipated (submitted to Project Euler official website for confirmation).  See the output below with 24 processors on 1 computer:
+
+Rank: 0, Offset: 0 bytes.
+Rank: 2, Offset: 16 bytes.
+Rank: 3, Offset: 24 bytes.
+Rank: 4, Offset: 32 bytes.
+Rank: 5, Offset: 40 bytes.
+Rank: 6, Offset: 48 bytes.
+Rank: 7, Offset: 56 bytes.
+Rank: 8, Offset: 64 bytes.
+Rank: 9, Offset: 72 bytes.
+Rank: 10, Offset: 80 bytes.
+Rank: 11, Offset: 88 bytes.
+Rank: 12, Offset: 96 bytes.
+Rank: 13, Offset: 104 bytes.
+Rank: 14, Offset: 112 bytes.
+Rank: 15, Offset: 120 bytes.
+Rank: 16, Offset: 128 bytes.
+Rank: 17, Offset: 136 bytes.
+Rank: 18, Offset: 144 bytes.
+Rank: 19, Offset: 152 bytes.
+Rank: 20, Offset: 160 bytes.
+Rank: 21, Offset: 168 bytes.
+Rank: 22, Offset: 176 bytes.
+Rank: 23, Offset: 184 bytes.
+Rank: 1, Offset: 8 bytes.
+S(5000000)=326624372659664.
+
+real    2726m37.250s
+user    44280m59.454s
+sys     139m39.350s
+bash-4.2$
+
+------------------------------------
+data in file:
+
+bash-4.2$ hexdump -v -e '1/8 "%u"' -e '"\n"' datafile
+12938398851717
+14062929271577
+14429515257677
+14634809612719
+14771966365229
+14838173088727
+14918704685675
+14913624759926
+15012818134766
+14931610519003
+14900202949036
+14933083748037
+15030065155138
+14988311186631
+14894788975391
+14766719256526
+14735038928404
+14662083887437
+14615507321496
+14565709069075
+14532992133344
+14510651306224
+14505427150394
+14531241045515
+**326624372659664** # this is the reduced result.
+bash-4.2$ 
+
 ## What was Learned
 This was certainly more than just a project.  It was a test of confidence, patience, and will.  While doing mathematical research in order to answer these problems, we were able to learn coding tricks and mathematical strategies that don't seem very useful at first.  Even though we had completed more than just 3 problems, we could only turn in the required 3 due to some problems giving us issues that we attempted to address, but we could not due in the given time alotted.  For example, our very first obstacle was a problem that involved a very elegant solution using Dynamic Programming.  We were able to use dynamic programming to solve it, but then we realized that parallelizing our DP algorithm would be a near impossible nightmare.  With the bottom up approach, parallelizing is essentially inefficient because of the dependencies involved in the memoization.  While this task defeated us, we still applied a very useful technique that solved the problem in serial.  Our biggest obstacle was our 3rd choice for a problem in the project: #433.  The algorithm we had come up with was correct, but super slow, and even with parallization we were not able to have it finished in time.  Even though we were defeated once again, we still learned from both the mathematical research and the MPI programming involved (Euclidean Algorithm, MPI file views for node logging).  We had managed to solve 6 problems, only 3 of which could be submitted due to the project requirements.  Throughout the journey of solving all these problems, we learned mathematical techniques, some advanced number theory, recalled advanced programming techniques (such as DP), became much more familiar with the MPI library and parallelization techniques.  While we had been defeated many times during this project, we learned more than enough to make up for our losses.
 
