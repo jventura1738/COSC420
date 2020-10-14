@@ -1,0 +1,42 @@
+/*
+ * Justin Ventura & Blaine Mason
+ * COSC420 Lab 3: Gauss Jordan
+ *
+ * Dr. Joe Timothy Anderson
+*/
+
+int main(int argc, char ** argv) {
+  
+  // MPI Business.
+  MPI_Init(&argc, &argv);
+
+  // This constant gets set by the MPI lib
+  MPI_Comm world = MPI_COMM_WORLD;
+
+  int worldSize, myRank;
+  MPI_Comm_size(world, &worldSize);
+  MPI_Comm_rank(world, &myRank);
+
+  // TODO: read from file to get matrix & vect.
+
+  /*
+  * Gauss-Jordan Elimination Algorithm.
+  *
+  * Performs the standard Gauss-Jordan
+  * elimination algorithm for row reduction
+  * in order to solve the linear system of
+  *
+  * -> Ax = b
+  *
+  * In  -> n*m Matrix A
+  *        n*1 vector b
+  *        MPI information.
+  *
+  * Out -> The solution vector "x".
+  */
+
+  // TODO: Perform alg.
+
+
+  return 0;
+}

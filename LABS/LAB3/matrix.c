@@ -390,29 +390,17 @@ matrix transpose(matrix* A) {
   return At;
 }
 
-/*
- * Gauss-Jordan Elimination Method.
- *
- * Performs the standard Gauss-Jordan
- * elimination algorith for row reduction
- * in order to solve the linear system of
- *
- * -> Ax = b
- *
- * Parameters: n*m Matrix A
- *             n*1 vector b
- *             MPI information.
- *
- * Returns: Nothing.  The vector b will
- * contain the solution vector "x".
-*/
-void gauss_jordan(matrix* A, matrix *b, MPI_Comm world, int worldSize, int myRank) {
+
+void gauss_jordan(matrix* A, matrix *b) {
+
+  MPI_Init
 
   size_t k;
 
   for (size_t k = 0; k < A.rows; k++) {
 
-    // 
+    double * scaling = malloc(A.rows * sizeof(double));
+    
 
   }
 
