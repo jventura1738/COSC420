@@ -5,7 +5,7 @@
 
 //Creates a random rxc matrix 
 void initRandMatrix(matrix *A, int rows, int cols) {
-
+  srand(time(NULL));
   int i,j;
   A->rows = rows;
   A->cols = cols;
@@ -25,6 +25,7 @@ void initRandMatrix(matrix *A, int rows, int cols) {
 
 //Creates a rxc matrix with 0 as the value
 void initMatrix(matrix *A, int rows, int cols) {
+  
   int i,j;
   A->rows = rows;
   A->cols = cols;
@@ -250,7 +251,7 @@ double * multiplyMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int
 
   }
 
-  srand(time(0) + myRank);
+  srand(time(NULL));
 
   // We will return this 'final'.
   int len = A->rows*Bt.rows;
@@ -391,17 +392,30 @@ matrix transpose(matrix* A) {
 }
 
 
-void gauss_jordan(matrix* A, matrix *b) {
+void gauss_jordan(matrix* A, matrix *b, MPI_Comm world, int worldSize, int myRank) {
 
-  MPI_Init
 
-  size_t k;
+  size_t i, k, r, c;
 
-  for (size_t k = 0; k < A.rows; k++) {
-
-    double * scaling = malloc(A.rows * sizeof(double));
+  for (k = 0; k < A->rows; k++) {
     
-
+    double * scaling = malloc(A->rows * sizeof(double));
+    for(i = 0; i < A->rows; i++){
+      scaling[i] = ACCESS(A, i, k)/ACCESS(A,k,k);
+    }
+    for(r = 0; r < A->rows; r++){
+      if(r == k){
+        continue;
+      }
+      for(c = 0; c < A->cols; c++){
+        ACCESS(A, r, c) = ACCESS(A, r, c) - scaling[r]*ACCESS(A,k,c);
+      }
+      for(c = 0; c < b->cols; c++){
+        ACCESS(b, r, c) = ACCESS(b, r, c) - scaling[k]*ACCESS(b,k,c);
+      }  
+    }
   }
+
+  printMatrix(A);
 
 }

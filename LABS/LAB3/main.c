@@ -4,7 +4,8 @@
  *
  * Dr. Joe Timothy Anderson
 */
-
+#include<mpi.h>
+#include "matrix.h"
 int main(int argc, char ** argv) {
   
   // MPI Business.
@@ -36,7 +37,12 @@ int main(int argc, char ** argv) {
   */
 
   // TODO: Perform alg.
-
+  matrix A, b;
+  initRandMatrix(&A, 5, 5);
+  initRandMatrix(&b, 5, 1);
+  printMatrix(&A);
+  printMatrix(&b);
+  gauss_jordan(&A, &b, world, worldSize, 0);
 
   return 0;
 }

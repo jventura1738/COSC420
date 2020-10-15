@@ -16,7 +16,7 @@
 
 // use the above to shortcut accessing the array
 #define ACCESS(A,i,j) A->data[INDEX(A,i,j)]
-
+ 
 // C needs the "typedef"
 typedef struct {
   int rows, cols; // dimensions
@@ -34,5 +34,5 @@ double * addMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRa
 double * subtractMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank);
 double * multiplyMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank);
 double innerProduct(matrix* A, matrix *B, MPI_Comm world, int worldSize, int myRank);
-
+void gauss_jordan(matrix* A, matrix *b, MPI_Comm world, int worldSize, int myRank);
 #endif
