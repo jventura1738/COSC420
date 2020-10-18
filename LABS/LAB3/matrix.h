@@ -27,12 +27,14 @@ typedef struct {
  * Matrix fillers and operations.
 */
 void initRandMatrix(matrix *A, int rows, int cols);
+void copyMatrix(matrix *A, matrix *B);
 void initMatrix(matrix *A, int rows, int cols);
+void initIMatrix(matrix *A, int rows, int cols);
 void printMatrix(matrix *A);
 matrix transpose(matrix* A);
 double * addMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank);  
 double * subtractMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank);
 double * multiplyMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank);
 double innerProduct(matrix* A, matrix *B, MPI_Comm world, int worldSize, int myRank);
-void gauss_jordan(matrix* A, matrix *b, MPI_Comm world, int worldSize, int myRank);
+double* gauss_jordan(matrix* A, matrix *b, MPI_Comm world, int worldSize, int myRank);
 #endif

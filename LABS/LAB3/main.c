@@ -7,7 +7,7 @@
 #include<mpi.h>
 #include "matrix.h"
 int main(int argc, char ** argv) {
-  
+  srand(time(NULL));
   // MPI Business.
   MPI_Init(&argc, &argv);
 
@@ -37,12 +37,31 @@ int main(int argc, char ** argv) {
   */
 
   // TODO: Perform alg.
-  matrix A, b;
-  initRandMatrix(&A, 5, 5);
-  initRandMatrix(&b, 5, 1);
+  matrix A, b, aI, I, temp;
+  matrix newb;
+  initMatrix(&aI, 3, 3);
+  initMatrix(&temp, 3, 3);
+  initMatrix(&newb, 3, 1);
+  initRandMatrix(&A, 3, 3);
+  initRandMatrix(&b, 3, 1);
+  initIMatrix(&I, 3, 3);
   printMatrix(&A);
   printMatrix(&b);
-  gauss_jordan(&A, &b, world, worldSize, 0);
+  newb.data = gauss_jordan(&A, &b, world, worldSize, 0);
+  puts("");
+  printf("The new b vector is:\n");
+  printMatrix(&newb);
+  puts("");
+  aI.data = gauss_jordan(&A, &I, world, worldSize, 0);
+  printf("The A inverse:\n");
+  printMatrix(&aI);
+  puts("");
+
+  temp.data = multiplyMatrix(&A, &aI, world, worldSize, myRank);
+  printf("A*AI:\n");
+  printMatrix(&temp);
+  puts("");
+  
 
   return 0;
 }

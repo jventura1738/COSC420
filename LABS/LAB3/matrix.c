@@ -5,7 +5,7 @@
 
 //Creates a random rxc matrix 
 void initRandMatrix(matrix *A, int rows, int cols) {
-  srand(time(NULL));
+  
   int i,j;
   A->rows = rows;
   A->cols = cols;
@@ -22,7 +22,44 @@ void initRandMatrix(matrix *A, int rows, int cols) {
   }
 
 }
+void copyMatrix(matrix *A, matrix *B) { 
+  B->rows = A->rows;
+  B->cols = A->cols;
+  B->data = malloc(B->rows*B->cols*sizeof(double));
+  int i,j;
+  for(i=0; i < B->rows; i++) {
 
+    for(j=0; j < B->cols; j++) {
+
+      ACCESS(B,i,j) = ACCESS(A,i,j);
+
+    }
+
+  }
+  
+}
+void initIMatrix(matrix *A, int rows, int cols) {
+  
+  int i,j;
+  A->rows = rows;
+  A->cols = cols;
+  A->data = malloc(A->rows*A->cols*sizeof(double));
+
+  for(i=0; i < A->rows; i++) {
+
+    for(j=0; j < A->cols; j++) {
+      if(i == j){
+        ACCESS(A,i,j) = 1;
+      }else{
+        ACCESS(A,i,j) = 0;
+      }
+      
+
+    }
+
+  }
+  
+}
 //Creates a rxc matrix with 0 as the value
 void initMatrix(matrix *A, int rows, int cols) {
   
@@ -35,7 +72,7 @@ void initMatrix(matrix *A, int rows, int cols) {
 
     for(j=0; j < A->cols; j++) {
 
-      ACCESS(A,i,j) = 0;
+      ACCESS(A,i,j) = 0.0;
 
     }
 
@@ -346,7 +383,7 @@ double innerProduct(matrix* A, matrix *B, MPI_Comm world, int worldSize, int myR
       0, world);                               // misc info
 
   // Perform the inner product.
-  int Final = 0;
+  double Final = 0;
   for(i = 0; i < local_len; i++) {
 
     Final += localA[i] * localB[i];
@@ -355,8 +392,8 @@ double innerProduct(matrix* A, matrix *B, MPI_Comm world, int worldSize, int myR
   
   // Now collect all the results from each node, and use
   // MPI_SUM to simplify the work.
-  int sum = 0;
-  MPI_Reduce(&Final, &sum, 1, MPI_INT, MPI_SUM, 0, world);
+  double sum = 0;
+  MPI_Reduce(&Final, &sum, 1, MPI_DOUBLE, MPI_SUM, 0, world);
   free(localA);
   free(localB);
   // Return the inner product :)
@@ -392,30 +429,61 @@ matrix transpose(matrix* A) {
 }
 
 
-void gauss_jordan(matrix* A, matrix *b, MPI_Comm world, int worldSize, int myRank) {
-
-
+double* gauss_jordan(matrix* A, matrix *b, MPI_Comm world, int worldSize, int myRank) {
+  
   size_t i, k, r, c;
+  matrix a;
+  initMatrix(&a, A->rows, A->cols);
+  matrix q;
+  initMatrix(&q, b->rows, b->cols);
+  matrix* cA = &a;
+  matrix* cb = &q;
+  copyMatrix(A, cA);
+  copyMatrix(b, cb);
 
-  for (k = 0; k < A->rows; k++) {
+  for (k = 0; k < cA->rows; k++) {
     
-    double * scaling = malloc(A->rows * sizeof(double));
-    for(i = 0; i < A->rows; i++){
-      scaling[i] = ACCESS(A, i, k)/ACCESS(A,k,k);
+    double * scaling = malloc(cA->rows * sizeof(double));
+    for(i = 0; i < cA->rows; i++){
+      scaling[i] = ACCESS(cA, i, k)/ACCESS(cA,k,k);
     }
-    for(r = 0; r < A->rows; r++){
+    for(r = 0; r < cA->rows; r++){
       if(r == k){
         continue;
       }
-      for(c = 0; c < A->cols; c++){
-        ACCESS(A, r, c) = ACCESS(A, r, c) - scaling[r]*ACCESS(A,k,c);
+      for(c = 0; c < cA->cols; c++){
+        ACCESS(cA, r, c) = ACCESS(cA, r, c) - scaling[r]*ACCESS(cA,k,c);
       }
-      for(c = 0; c < b->cols; c++){
-        ACCESS(b, r, c) = ACCESS(b, r, c) - scaling[k]*ACCESS(b,k,c);
+      for(c = 0; c < cb->cols; c++){
+        ACCESS(cb, r, c) = ACCESS(cb, r, c) - scaling[r]*ACCESS(cb,k,c);
       }  
     }
   }
+  double* scalingL = malloc((cA->cols)*sizeof(double));
+  for(i = 0; i < cA->rows; i++){
+    for(k = 0; k < cA->cols; k++){
+      if(i == k){
+        scalingL[i] = ACCESS(cA,i,k);
+      } 
+    }
+  }
 
-  printMatrix(A);
+  for(i = 0; i < cA->rows; i++){
+    for(k = 0; k < cA->cols; k++){
+      ACCESS(cA, i, k) = ACCESS(cA, i, k)/scalingL[i];
+    }
+  }
+  if(cb->cols > 1){
+    for(i = 0; i < cb->rows; i++){
+      for(k = 0; k < cb->cols; k++){
+        ACCESS(cb, i, k) = ACCESS(cb, i, k) / scalingL[i];
+      }
+    }
+  }else{
+    for(i = 0; i < cb->rows; i++){
+      ACCESS(cb, i, 0) = ACCESS(cb, i, 0) / scalingL[i];
+    }
+  }
+  return cb->data;
 
 }
