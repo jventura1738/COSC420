@@ -429,8 +429,7 @@ matrix transpose(matrix* A) {
 }
 
 
-double* gauss_jordan(matrix* A, matrix *b, MPI_Comm world, int worldSize, int myRank) {
-  
+double * gauss_jordan(matrix* A, matrix *b, MPI_Comm world, int worldSize, int myRank) {
   size_t i, k, r, c;
   matrix a;
   initMatrix(&a, A->rows, A->cols);
@@ -440,50 +439,156 @@ double* gauss_jordan(matrix* A, matrix *b, MPI_Comm world, int worldSize, int my
   matrix* cb = &q;
   copyMatrix(A, cA);
   copyMatrix(b, cb);
-
-  for (k = 0; k < cA->rows; k++) {
-    
-    double * scaling = malloc(cA->rows * sizeof(double));
-    for(i = 0; i < cA->rows; i++){
-      scaling[i] = ACCESS(cA, i, k)/ACCESS(cA,k,k);
+  int *sendcts = (int*) malloc(worldSize*sizeof(int));
+  int *displcmts = (int*) malloc(worldSize*sizeof(int));
+  for(i=0; i<worldSize; i++){
+    sendcts[i] = (cA->rows/worldSize)*cA->cols; // number each gets
+  }
+  for(i = 0; i < (cA->rows % worldSize); i++){
+    sendcts[i] += cA->cols;
+  }
+  for(i=0; i<worldSize; i++){
+    if(i == 0){
+      displcmts[i] = 0; // start indicies
+    }else{
+      displcmts[i] = displcmts[i-1] + sendcts[i-1] ;
     }
-    for(r = 0; r < cA->rows; r++){
-      if(r == k){
+  }
+  int *sendctsB = (int*) malloc(worldSize*sizeof(int));
+  int *displcmtsB = (int*) malloc(worldSize*sizeof(int));
+  for(i=0; i<worldSize; i++){
+    sendctsB[i] = (cb->rows/worldSize)*cb->cols; // number each gets
+  }
+  for(i = 0; i < (cb->rows % worldSize); i++){
+    sendctsB[i] += cb->cols;
+  }
+  for(i=0; i<worldSize; i++){
+    if(i == 0){
+      displcmtsB[i] = 0; // start indicies
+    }else{
+      displcmtsB[i] = displcmtsB[i-1] + sendctsB[i-1] ;
+    }
+  }
+  
+  for (k = 0; k < cA->rows; k++) {
+    //dividing the work
+    double* local_arrA = malloc(sendcts[myRank]*sizeof(double));
+    double* local_arrB = malloc(sendctsB[myRank]*sizeof(double));
+    double* kth_A = malloc(cA->rows*sizeof(double));
+    double* kth_B = malloc(cb->rows*sizeof(double));
+    double * scaling = malloc(cA->rows * sizeof(double));
+    if(myRank == 0){
+      for(i = 0; i < cA->rows; i++){
+        scaling[i] = ACCESS(cA, i, k)/ACCESS(cA,k,k);
+      }
+      for(i = 0; i < cA->cols; i++){
+        kth_A[i] = ACCESS(cA, k, i);
+      }
+      for(i = 0; i < cb->cols; i++){
+        kth_B[i] = ACCESS(cb, k, i);
+      }
+    }
+    MPI_Bcast(scaling, cA->rows, MPI_DOUBLE, 0, world);
+    MPI_Scatterv(cA->data, sendcts, displcmts, MPI_DOUBLE, local_arrA, sendcts[myRank], MPI_DOUBLE, 0, world);
+    MPI_Scatterv(cb->data, sendctsB, displcmtsB, MPI_DOUBLE, local_arrB, sendctsB[myRank], MPI_DOUBLE, 0, world);
+    MPI_Bcast(kth_A, cA->rows, MPI_DOUBLE, 0, world);
+    //Broadcast the b's kth row 
+    MPI_Bcast(kth_B, cb->rows, MPI_DOUBLE, 0, world);
+    /*
+    if(k == 0){
+      printf("My Rank: %d\n", myRank);
+      for(i = 0; i < sendcts[myRank]; i++){
+        printf("local_arrA[%zu]: %f ", i, local_arrA[i]);
+      }
+      puts("");
+    } 
+    */
+
+    for(r = 0; r < sendcts[myRank]/cA->cols; r++){
+      if(k == r+(displcmts[myRank]/cA->cols)){
         continue;
       }
       for(c = 0; c < cA->cols; c++){
-        ACCESS(cA, r, c) = ACCESS(cA, r, c) - scaling[r]*ACCESS(cA,k,c);
+        local_arrA[INDEX(cA,r,c)] = local_arrA[INDEX(cA,r,c)] - scaling[r + (displcmts[myRank]/cA->cols)]*kth_A[c];
+        //printf("Numbers = %f\n", local_arrA[INDEX(cA,r,c)] - scaling[r + (displcmts[myRank]/cA->cols)]*kth_A[c]);
+        //printf("Scaling = %f\n", scaling[r + (displcmts[myRank]/cA->cols)]);
+        //printf("K = %f\n", kth_A[c]);
       }
       for(c = 0; c < cb->cols; c++){
-        ACCESS(cb, r, c) = ACCESS(cb, r, c) - scaling[r]*ACCESS(cb,k,c);
+        local_arrB[INDEX(cb, r, c)] = local_arrB[INDEX(cb, r, c)] - scaling[r + (displcmtsB[myRank]/cb->cols)]*kth_B[c];
+        //printf("Numbers = %f\n", local_arrB[INDEX(cb, r, c)] - scaling[r + (displcmtsB[myRank]/cb->cols)]*kth_B[c]);
       }  
     }
-  }
-  double* scalingL = malloc((cA->cols)*sizeof(double));
-  for(i = 0; i < cA->rows; i++){
-    for(k = 0; k < cA->cols; k++){
-      if(i == k){
-        scalingL[i] = ACCESS(cA,i,k);
-      } 
-    }
-  }
-
-  for(i = 0; i < cA->rows; i++){
-    for(k = 0; k < cA->cols; k++){
-      ACCESS(cA, i, k) = ACCESS(cA, i, k)/scalingL[i];
-    }
-  }
-  if(cb->cols > 1){
-    for(i = 0; i < cb->rows; i++){
-      for(k = 0; k < cb->cols; k++){
-        ACCESS(cb, i, k) = ACCESS(cb, i, k) / scalingL[i];
+    /*
+    printf("My Rank: %d K: %zu\n", myRank, k);
+    for(i = 0; i < sendcts[myRank]; i++){
+      if(i == 0){
+        printf("local_arrA[%zu]: %f ", i, local_arrA[i]);
+      }else{
+        printf("[%zu]: %f ", i, local_arrA[i]);
       }
     }
-  }else{
-    for(i = 0; i < cb->rows; i++){
-      ACCESS(cb, i, 0) = ACCESS(cb, i, 0) / scalingL[i];
+    */
+    MPI_Gatherv(local_arrA, sendcts[myRank], MPI_DOUBLE,
+                cA->data, sendcts, displcmts,
+                MPI_DOUBLE, 0, world);
+    MPI_Gatherv(local_arrB, sendctsB[myRank], MPI_DOUBLE,
+                cb->data, sendctsB, displcmtsB,
+                MPI_DOUBLE, 0, world);
+    /*
+    for(i = 0; i < sendcts[myRank]; i++){
+      if(i == 0){
+        printf("local_arrA[%zu]: %f ", i, cA->data[i]);
+      }else{
+        printf("[%zu]: %f ", i, cA->data[i]);
+      }
     }
+    puts("");
+    */
   }
+  /*
+  printf("My Rank: %d K: %zu\n", myRank, k);
+    for(i = 0; i < sendcts[myRank]; i++){
+      if(i == 0){
+        printf("local_arrA[%zu]: %f ", i, local_arrA[i]);
+      }else{
+        printf("[%zu]: %f ", i, local_arrA[i]);
+      }
+    }
+    puts("");
+  */
+  if(myRank == 0){
+    //printMatrix(cA);
+  }
+  if(myRank == 0){
+    double* scalingL = malloc((cA->cols)*sizeof(double));
+    for(i = 0; i < cA->rows; i++){
+      for(k = 0; k < cA->cols; k++){
+        if(i == k){
+          scalingL[i] = ACCESS(cA,i,k);
+        } 
+      }
+    }
+
+    for(i = 0; i < cA->rows; i++){
+      for(k = 0; k < cA->cols; k++){
+        ACCESS(cA, i, k) = ACCESS(cA, i, k)/scalingL[i];
+      }
+    }
+    if(cb->cols > 1){
+      for(i = 0; i < cb->rows; i++){
+        for(k = 0; k < cb->cols; k++){
+          ACCESS(cb, i, k) = ACCESS(cb, i, k) / scalingL[i];
+        }
+      }
+    }else{
+      for(i = 0; i < cb->rows; i++){
+        ACCESS(cb, i, 0) = ACCESS(cb, i, 0) / scalingL[i];
+      }
+    }
+
+  }
+  
   return cb->data;
 
 }

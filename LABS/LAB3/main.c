@@ -7,7 +7,7 @@
 #include<mpi.h>
 #include "matrix.h"
 int main(int argc, char ** argv) {
-  srand(time(NULL));
+  //srand(time(NULL));
   // MPI Business.
   MPI_Init(&argc, &argv);
 
@@ -37,31 +37,40 @@ int main(int argc, char ** argv) {
   */
 
   // TODO: Perform alg.
+  int n = 2000;
   matrix A, b, aI, I, temp;
   matrix newb;
-  initMatrix(&aI, 3, 3);
-  initMatrix(&temp, 3, 3);
-  initMatrix(&newb, 3, 1);
-  initRandMatrix(&A, 3, 3);
-  initRandMatrix(&b, 3, 1);
-  initIMatrix(&I, 3, 3);
-  printMatrix(&A);
-  printMatrix(&b);
-  newb.data = gauss_jordan(&A, &b, world, worldSize, 0);
-  puts("");
-  printf("The new b vector is:\n");
-  printMatrix(&newb);
-  puts("");
-  aI.data = gauss_jordan(&A, &I, world, worldSize, 0);
-  printf("The A inverse:\n");
-  printMatrix(&aI);
-  puts("");
-
+  initMatrix(&aI, n, n);
+  initMatrix(&temp, n, n);
+  initMatrix(&newb, n, 1);
+  initRandMatrix(&A, n, n);
+  initRandMatrix(&b, n, 1);
+  initIMatrix(&I, n, n);
+  if(myRank == 0){
+    //printMatrix(&A);
+    //printMatrix(&b);
+  }
+  newb.data = gauss_jordan(&A, &b, world, worldSize, myRank);
+  if(myRank == 0){
+    puts("");
+    printf("The new b vector is:\n");
+    printMatrix(&newb);
+    puts("");
+  }
+  /*
+  aI.data = gauss_jordan(&A, &I, world, worldSize, myRank);
+  if(myRank == 0){
+    printf("The A inverse:\n");
+    printMatrix(&aI);
+    puts("");
+  }
   temp.data = multiplyMatrix(&A, &aI, world, worldSize, myRank);
-  printf("A*AI:\n");
-  printMatrix(&temp);
-  puts("");
-  
-
+  if(myRank == 0){
+    printf("A*AI:\n");
+    printMatrix(&temp);
+    puts("");
+  }
+  */
+  MPI_Finalize();
   return 0;
 }
