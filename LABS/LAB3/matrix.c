@@ -506,12 +506,12 @@ double * gauss_jordan(matrix* A, matrix *b, MPI_Comm world, int worldSize, int m
     MPI_Scatterv(cb->data, sendctsB, displcmtsB, MPI_DOUBLE, local_arrB, sendctsB[myRank], MPI_DOUBLE, 0, world);
 
 
-    for(r = 0; r < sendcts[myRank]/cA->cols; r++){
+    for(r = 0; r < sendcts[myRank]/cA->rows; r++){
       if(k == r+(displcmts[myRank]/cA->cols)){
         continue;
       }
       for(c = 0; c < cA->cols; c++){
-        local_arrA[INDEX(cA,r,c)] = local_arrA[INDEX(cA,r,c)] - scaling[r + (displcmts[myRank]/cA->cols)]*kth_A[c];
+        local_arrA[INDEX(cA,r,c)] = local_arrA[INDEX(cA,r,c)] - scaling[r + (displcmts[myRank]/cA->rows)]*kth_A[c];
       }
       for(c = 0; c < cb->cols; c++){
         local_arrB[INDEX(cb, r, c)] = local_arrB[INDEX(cb, r, c)] - scaling[r + (displcmtsB[myRank]/cb->cols)]*kth_B[c];
