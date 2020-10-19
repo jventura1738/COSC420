@@ -361,12 +361,6 @@ double innerProduct(matrix* A, matrix *B, MPI_Comm world, int worldSize, int myR
 
   }
 
-  // This is for the block sizes.
-  if(myRank == 0){
-    int blockSize = ceil(size/worldSize);
-
-  }
-
   // Local arrays for the inner product.
   double local_len = sendcts[myRank];
   double* localA = malloc(local_len*sizeof(double));
@@ -472,7 +466,7 @@ double * gauss_jordan(matrix* A, matrix *b, MPI_Comm world, int worldSize, int m
   
   for (k = 0; k < cA->rows; k++) {
     //dividing the work
-    printf("K: %zu\n", k);
+    //printf("K: %zu\n", k);
     double* local_arrA = malloc(sendcts[myRank]*sizeof(double));
     double* local_arrB = malloc(sendctsB[myRank]*sizeof(double));
     double* kth_A = malloc(cA->rows*sizeof(double));

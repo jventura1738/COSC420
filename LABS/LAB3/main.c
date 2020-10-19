@@ -37,7 +37,7 @@ int main(int argc, char ** argv) {
   */
 
   // TODO: Perform alg.
-  int n = 2000;
+  int n =6;
   matrix A, b, aI, I, temp;
   matrix newb;
   initMatrix(&aI, n, n);
@@ -71,6 +71,30 @@ int main(int argc, char ** argv) {
     puts("");
   }
   */
+
+  // hexdump -v -e '5/4 "%3d"' -e '"\n"'  datafile
+
+  MPI_File fh;
+  int offset = myRank * sizeof(double) * (n / worldSize);
+
+
+  // if (myRank == worldSize - 1 && n % worldSize > 0) {
+
+
+
+  // }
+
+  MPI_File_open(world, "outfile",
+      MPI_MODE_CREATE | MPI_MODE_WRONLY, MPI_INFO_NULL, &fh);
+
+  /* NEW VERSION */
+  MPI_File_set_view(fh, offset, MPI_DOUBLE, MPI_DOUBLE, "native", MPI_INFO_NULL);
+  MPI_File_write(fh, newb.data, 3, MPI_DOUBLE, MPI_STATUS_IGNORE);
+
+  MPI_File_close(&fh);
+
   MPI_Finalize();
+
   return 0;
+
 }
