@@ -10,5 +10,4 @@ main.o: main.c matrix.h
 matrix.o: matrix.c matrix.h
 	$(mc) -c matrix.c -g -lm
 clean:
-	rm -f *.o
-	rm -f main
+	rm -f *.o main
