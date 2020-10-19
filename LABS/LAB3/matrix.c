@@ -472,6 +472,7 @@ double * gauss_jordan(matrix* A, matrix *b, MPI_Comm world, int worldSize, int m
   
   for (k = 0; k < cA->rows; k++) {
     //dividing the work
+    printf("K: %zu\n", k);
     double* local_arrA = malloc(sendcts[myRank]*sizeof(double));
     double* local_arrB = malloc(sendctsB[myRank]*sizeof(double));
     double* kth_A = malloc(cA->rows*sizeof(double));
