@@ -18,11 +18,13 @@ by Justin Ventura & Blaine Mason
 
 - For matrix multiplication, it will require (N * M * K)/P time, where N := A.rows, M := Bt.rows, K := A.cols, and P is the # of nodes/processes being run.  The best and worst case will be N(N * M * K/P), or if we would like to be sneaky: O( (max(N, K, M))^3 / P )... hehe ;)
 
+- For Gauss Jordan it will require
+
 ### (b) According to the data, does adding more nodes perfectly divide the time taken by the program?
-No, in our program the inner product will continue to run in parallel, but with the inner product the more nodes the slower the program runs(As we discussed in lecture).  I have a feeling there is a better way that exists to perform this computation, but I am satisfied with the learning processes of overcoming different roadblocks.
+
 
 ### (c) What are some real-world software examples that would need the above routines? Why? Would they benefit greatly from using your distributed code?
 
 
 ### (d) How could the code be improved in terms of usability, efficiency, and robustness?
- 
+ We believe overall that the codes computation of send counts and displacements could use some tidying up.  As the dimensions increase the computations take longer, so like matrix multiplication, there probably is some way of making the code more efficient. 

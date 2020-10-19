@@ -422,7 +422,11 @@ matrix transpose(matrix* A) {
   return At;
 }
 
-
+/*
+ * Gauss_Jordan.
+ * 
+ * This performs the gauss_jordan algorithm in parallel.
+*/
 double * gauss_jordan(matrix* A, matrix *b, MPI_Comm world, int worldSize, int myRank) {
   size_t i, k, r, c;
   matrix a;
@@ -433,6 +437,8 @@ double * gauss_jordan(matrix* A, matrix *b, MPI_Comm world, int worldSize, int m
   matrix* cb = &q;
   copyMatrix(A, cA);
   copyMatrix(b, cb);
+
+  //Below sendcts and displcmts are computed for matrix A
   int *sendcts = (int*) malloc(worldSize*sizeof(int));
   int *displcmts = (int*) malloc(worldSize*sizeof(int));
   for(i=0; i<worldSize; i++){
@@ -448,6 +454,8 @@ double * gauss_jordan(matrix* A, matrix *b, MPI_Comm world, int worldSize, int m
       displcmts[i] = displcmts[i-1] + sendcts[i-1] ;
     }
   }
+
+  //Below sendcts and displcmts are computed for matrix B(b)
   int *sendctsB = (int*) malloc(worldSize*sizeof(int));
   int *displcmtsB = (int*) malloc(worldSize*sizeof(int));
   for(i=0; i<worldSize; i++){
@@ -463,41 +471,40 @@ double * gauss_jordan(matrix* A, matrix *b, MPI_Comm world, int worldSize, int m
       displcmtsB[i] = displcmtsB[i-1] + sendctsB[i-1] ;
     }
   }
-  
   for (k = 0; k < cA->rows; k++) {
-    //dividing the work
-    //printf("K: %zu\n", k);
     double* local_arrA = malloc(sendcts[myRank]*sizeof(double));
     double* local_arrB = malloc(sendctsB[myRank]*sizeof(double));
     double* kth_A = malloc(cA->rows*sizeof(double));
     double* kth_B = malloc(cb->rows*sizeof(double));
     double * scaling = malloc(cA->rows * sizeof(double));
+
     if(myRank == 0){
       for(i = 0; i < cA->rows; i++){
         scaling[i] = ACCESS(cA, i, k)/ACCESS(cA,k,k);
       }
       for(i = 0; i < cA->cols; i++){
+        //kth row of A
         kth_A[i] = ACCESS(cA, k, i);
       }
       for(i = 0; i < cb->cols; i++){
+        //kth row of B(b)
         kth_B[i] = ACCESS(cb, k, i);
       }
     }
+
+    //MPI will BCAST on each iteration
+    //1.) scaling
+    //2.) kth_A
+    //3.) kth_B
     MPI_Bcast(scaling, cA->rows, MPI_DOUBLE, 0, world);
+    MPI_Bcast(kth_A, cA->rows, MPI_DOUBLE, 0, world);
+    MPI_Bcast(kth_B, cb->rows, MPI_DOUBLE, 0, world);
+    //MPI will Scatter on each iteration
+    //1.) cA->data
+    //2.) cb->data
     MPI_Scatterv(cA->data, sendcts, displcmts, MPI_DOUBLE, local_arrA, sendcts[myRank], MPI_DOUBLE, 0, world);
     MPI_Scatterv(cb->data, sendctsB, displcmtsB, MPI_DOUBLE, local_arrB, sendctsB[myRank], MPI_DOUBLE, 0, world);
-    MPI_Bcast(kth_A, cA->rows, MPI_DOUBLE, 0, world);
-    //Broadcast the b's kth row 
-    MPI_Bcast(kth_B, cb->rows, MPI_DOUBLE, 0, world);
-    /*
-    if(k == 0){
-      printf("My Rank: %d\n", myRank);
-      for(i = 0; i < sendcts[myRank]; i++){
-        printf("local_arrA[%zu]: %f ", i, local_arrA[i]);
-      }
-      puts("");
-    } 
-    */
+
 
     for(r = 0; r < sendcts[myRank]/cA->cols; r++){
       if(k == r+(displcmts[myRank]/cA->cols)){
@@ -505,56 +512,26 @@ double * gauss_jordan(matrix* A, matrix *b, MPI_Comm world, int worldSize, int m
       }
       for(c = 0; c < cA->cols; c++){
         local_arrA[INDEX(cA,r,c)] = local_arrA[INDEX(cA,r,c)] - scaling[r + (displcmts[myRank]/cA->cols)]*kth_A[c];
-        //printf("Numbers = %f\n", local_arrA[INDEX(cA,r,c)] - scaling[r + (displcmts[myRank]/cA->cols)]*kth_A[c]);
-        //printf("Scaling = %f\n", scaling[r + (displcmts[myRank]/cA->cols)]);
-        //printf("K = %f\n", kth_A[c]);
       }
       for(c = 0; c < cb->cols; c++){
         local_arrB[INDEX(cb, r, c)] = local_arrB[INDEX(cb, r, c)] - scaling[r + (displcmtsB[myRank]/cb->cols)]*kth_B[c];
-        //printf("Numbers = %f\n", local_arrB[INDEX(cb, r, c)] - scaling[r + (displcmtsB[myRank]/cb->cols)]*kth_B[c]);
       }  
     }
-    /*
-    printf("My Rank: %d K: %zu\n", myRank, k);
-    for(i = 0; i < sendcts[myRank]; i++){
-      if(i == 0){
-        printf("local_arrA[%zu]: %f ", i, local_arrA[i]);
-      }else{
-        printf("[%zu]: %f ", i, local_arrA[i]);
-      }
-    }
-    */
+    //MPI now gathers the data back
     MPI_Gatherv(local_arrA, sendcts[myRank], MPI_DOUBLE,
                 cA->data, sendcts, displcmts,
                 MPI_DOUBLE, 0, world);
     MPI_Gatherv(local_arrB, sendctsB[myRank], MPI_DOUBLE,
                 cb->data, sendctsB, displcmtsB,
                 MPI_DOUBLE, 0, world);
-    /*
-    for(i = 0; i < sendcts[myRank]; i++){
-      if(i == 0){
-        printf("local_arrA[%zu]: %f ", i, cA->data[i]);
-      }else{
-        printf("[%zu]: %f ", i, cA->data[i]);
-      }
-    }
-    puts("");
-    */
+    free(scaling);
+    free(local_arrA);
+    free(local_arrB);
+    free(kth_A);
+    free(kth_B);
   }
-  /*
-  printf("My Rank: %d K: %zu\n", myRank, k);
-    for(i = 0; i < sendcts[myRank]; i++){
-      if(i == 0){
-        printf("local_arrA[%zu]: %f ", i, local_arrA[i]);
-      }else{
-        printf("[%zu]: %f ", i, local_arrA[i]);
-      }
-    }
-    puts("");
-  */
-  if(myRank == 0){
-    //printMatrix(cA);
-  }
+  //The master node does the multiplying 
+  //after the matrix is put into row reduced form
   if(myRank == 0){
     double* scalingL = malloc((cA->cols)*sizeof(double));
     for(i = 0; i < cA->rows; i++){
@@ -581,9 +558,11 @@ double * gauss_jordan(matrix* A, matrix *b, MPI_Comm world, int worldSize, int m
         ACCESS(cb, i, 0) = ACCESS(cb, i, 0) / scalingL[i];
       }
     }
-
+    free(sendcts);
+    free(displcmts);
+    free(sendctsB);
+    free(displcmtsB);
   }
-  
-  return cb->data;
 
+  return cb->data;
 }
