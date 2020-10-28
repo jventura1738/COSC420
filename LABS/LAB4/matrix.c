@@ -1,7 +1,10 @@
 // Justin Ventura & Blaine Mason
 // COSC420 Lab 3: matrix.c
 
-#include"matrix.h"
+#include "matrix.h"
+
+#define MAX(a, b) (((a) > (b)) ? a : (b))
+#define MIN(a, b) (((a) < (b)) ? a : (b))
 
 //Creates a random rxc matrix 
 void initRandMatrix(matrix *A, int rows, int cols) {
@@ -163,6 +166,12 @@ double * addMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRa
   // Gather the results, and store them into C to return.
   MPI_Gatherv(localSoln, blockSize, MPI_DOUBLE, C, sendcts, displcmts, MPI_DOUBLE, 0, world);
 
+  free(sendcts);
+  free(displcmts);
+  free(localA);
+  free(localB);
+  free(localSoln);
+
   return C;
 
 }
@@ -227,6 +236,12 @@ double * subtractMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int
 
   // Gather the results, combine then return as C.
   MPI_Gatherv(localSoln, blockSize, MPI_DOUBLE, C, sendcts, displcmts, MPI_DOUBLE, 0, world);
+
+  free(sendcts);
+  free(displcmts);
+  free(localA);
+  free(localB);
+  free(localSoln);
 
   return C;
 
@@ -326,6 +341,10 @@ double * multiplyMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int
 
   }
 
+  free(Bt.data);
+  free(row_vect.data);
+  free(col_vect.data);
+
   // Finally :)
   return final;
 
@@ -390,6 +409,8 @@ double innerProduct(matrix* A, matrix *B, MPI_Comm world, int worldSize, int myR
   MPI_Reduce(&Final, &sum, 1, MPI_DOUBLE, MPI_SUM, 0, world);
   free(localA);
   free(localB);
+  free(sendcts);
+  free(displcmts);
   // Return the inner product :)
   return sum;
 }
@@ -566,3 +587,74 @@ double * gauss_jordan(matrix* A, matrix *b, MPI_Comm world, int worldSize, int m
 
   return cb->data;
 }
+
+
+double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank) {
+
+  /* Step 1: get the Euclidean Norm. */
+
+  int terms = MAX(v->cols, v->rows);
+  int nodes = MIN(terms, worldSize);
+  double final = 0.0;
+
+  int * sndcts = (int*) malloc(nodes*sizeof(int));
+  int * displs = (int*) malloc(nodes*sizeof(int));
+
+  int n;
+  for (n = 0; n < nodes; n++) {
+
+    sndcts[n] = 0;
+    displs[n] = 0;
+
+  }
+
+  n = 0;
+  while (n < terms) {
+
+    sndcts[n % nodes] += 1;
+    n += 1;
+
+  }
+  displs[0] = 0;
+  int displacement = 0;
+  for (n = 1; n < nodes; n++) {
+
+    displacement += sndcts[n-1];
+    displs[n] += displacement;
+
+  }
+
+  MPI_Bcast(v->data, terms, MPI_DOUBLE, 0, world);
+
+  //MPI_Scatterv(v->data, sndcts, displs, MPI_DOUBLE, &sndcts[myRank], MPI_DOUBLE, 0, world);
+
+  double local_sum = 0;
+
+  if (myRank < nodes) {
+
+    for (n = displs[myRank]; n < displs[myRank] + sndcts[myRank]; n++) {
+
+    //printf("Node: %d, n = %d, v[%d] = %f\n", myRank, n, n, v->data[n]);
+    local_sum += v->data[n] * v->data[n];
+
+    }
+
+  //printf("Node: %d, local_sum = %f\n", myRank, local_sum);
+
+  }
+
+  MPI_Reduce(&local_sum, &final, 1, MPI_DOUBLE, MPI_SUM, 0, world);
+
+  MPI_Barrier(world);
+
+  if (myRank == 0) {
+
+    final = sqrtf(final);
+    printf("\nSqrt of the sum of squares: %f\n\n", final);
+
+  }
+
+  return NULL;
+
+}
+

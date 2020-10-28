@@ -1,8 +1,8 @@
 #include "matrix.h"
-#include "mpi.h"
 
 int main(int argc, char** argv) {
 
+  srand(0);
   MPI_Init(&argc, &argv);
 
   // This constant gets set by the MPI lib
@@ -17,8 +17,40 @@ int main(int argc, char** argv) {
   MPI_Comm_size(world, &worldSize);
   MPI_Comm_rank(world, &myRank);
 
-  printf("test\n");
+  /* do work */
 
+  matrix A;
+  matrix e;
+  int z;
+  e.data = malloc(sizeof(double) * 3);
+  e.rows = 3;
+  e.cols = 1;
+  for (z = 0; z < 3; z++) e.data[z] = 1;
+
+  initRandMatrix(&A, 3, 3);
+  
+  matrix x;
+  x.data = multiplyMatrix(&A, &e, world, worldSize, myRank);
+  x.rows = e.rows;
+  x.cols = e.cols;
+  if (myRank == 0) {
+
+    puts("x:");
+    printMatrix(&x);
+
+  }
+  
+
+  normalize(&x, world, worldSize, myRank);
+
+  /* end work */
+
+  MPI_Barrier(world);
+
+  free(A.data);
+  free(e.data);
+  free(x.data);
   MPI_Finalize();
+
   return 0;
 }
