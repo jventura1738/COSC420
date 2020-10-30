@@ -1,4 +1,5 @@
 #include "matrix.h"
+#define DIM 4
 
 int main(int argc, char** argv) {
 
@@ -22,12 +23,12 @@ int main(int argc, char** argv) {
   matrix A;
   matrix e;
   int z;
-  e.data = malloc(sizeof(double) * 3);
-  e.rows = 3;
+  e.data = malloc(sizeof(double) * DIM);
+  e.rows = DIM;
   e.cols = 1;
-  for (z = 0; z < 3; z++) e.data[z] = 1;
+  for (z = 0; z < DIM; z++) e.data[z] = 1;
 
-  initRandMatrix(&A, 3, 3);
+  initRandMatrix(&A, DIM, DIM);
   
   matrix x;
   x.data = multiplyMatrix(&A, &e, world, worldSize, myRank);
@@ -41,7 +42,20 @@ int main(int argc, char** argv) {
   }
   
 
-  normalize(&x, world, worldSize, myRank);
+  double * test = normalize(&x, world, worldSize, myRank);
+
+  if (myRank == 0) {
+
+    int i;
+    for (i = 0; i < DIM; i++) {
+
+      printf("%f ", test[i]);
+
+    }
+
+    puts("");
+
+  }
 
   /* end work */
 

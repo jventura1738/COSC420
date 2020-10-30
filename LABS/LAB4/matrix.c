@@ -592,16 +592,17 @@ double * gauss_jordan(matrix* A, matrix *b, MPI_Comm world, int worldSize, int m
 double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank) {
 
   /* Step 1: get the Euclidean Norm. */
-
+  
   int terms = MAX(v->cols, v->rows);
   int nodes = MIN(terms, worldSize);
-  double final = 0.0;
 
-  int * sndcts = (int*) malloc(nodes*sizeof(int));
-  int * displs = (int*) malloc(nodes*sizeof(int));
+  double * normalized_v = (double*) malloc(sizeof(double) * terms);
+
+  int * sndcts = (int*) malloc(worldSize*sizeof(int));
+  int * displs = (int*) malloc(worldSize*sizeof(int));
 
   int n;
-  for (n = 0; n < nodes; n++) {
+  for (n = 0; n < worldSize; n++) {
 
     sndcts[n] = 0;
     displs[n] = 0;
@@ -626,35 +627,64 @@ double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank) {
 
   MPI_Bcast(v->data, terms, MPI_DOUBLE, 0, world);
 
-  //MPI_Scatterv(v->data, sndcts, displs, MPI_DOUBLE, &sndcts[myRank], MPI_DOUBLE, 0, world);
-
   double local_sum = 0;
-
   if (myRank < nodes) {
 
     for (n = displs[myRank]; n < displs[myRank] + sndcts[myRank]; n++) {
 
-    //printf("Node: %d, n = %d, v[%d] = %f\n", myRank, n, n, v->data[n]);
     local_sum += v->data[n] * v->data[n];
 
     }
 
-  //printf("Node: %d, local_sum = %f\n", myRank, local_sum);
-
   }
 
+  double final = 0.0;
   MPI_Reduce(&local_sum, &final, 1, MPI_DOUBLE, MPI_SUM, 0, world);
-
-  MPI_Barrier(world);
 
   if (myRank == 0) {
 
     final = sqrtf(final);
-    printf("\nSqrt of the sum of squares: %f\n\n", final);
+    printf("\nSqrt of the sum of squares: %f\n", final);
+    puts("Normalizing.\n");
 
   }
 
-  return NULL;
+  /* Step 2: Normalize v by dividing each entry of v by the L2Norm(v). */
+
+  MPI_Bcast(&final, 1, MPI_DOUBLE, 0, world);
+
+  double * local_v = (double*) malloc(sizeof(double) * displs[myRank]);
+  MPI_Scatterv(normalized_v, sndcts, displs, MPI_DOUBLE, local_v, sndcts[myRank], MPI_DOUBLE, 0, world);
+
+  if (myRank < nodes) {
+
+    for (n = 0; n < sndcts[myRank]; n++) {
+
+      //printf("Node: %d, entry: %f, final %f\n", myRank, v->data[n], final);
+      local_v[n] = v->data[displs[myRank] + n] / final;
+      //printf("Node: %d, local_v[%d] = %f\n", myRank, n, local_v[n]);
+    
+    }
+
+  }
+
+  MPI_Gatherv(local_v, sndcts[myRank], MPI_DOUBLE, normalized_v, sndcts, displs, MPI_DOUBLE, 0, world);
+
+
+  // if (myRank == 0) {
+
+  //   int z;
+  //   for (z = 0; z < terms; z++) {
+
+  //     printf("%f ", normalized_v[z]);
+
+  //   }
+
+  //   puts("");
+
+  // }
+
+  return normalized_v;
 
 }
 
