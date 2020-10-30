@@ -1,5 +1,5 @@
 #include "matrix.h"
-#define DIM 4
+#define DIM 3
 
 int main(int argc, char** argv) {
 
@@ -53,7 +53,7 @@ int main(int argc, char** argv) {
 
     }
 
-    puts("");
+    puts("\ngamer");
 
   }
 
@@ -64,6 +64,8 @@ int main(int argc, char** argv) {
   free(A.data);
   free(e.data);
   free(x.data);
+  free(test);
+
   MPI_Finalize();
 
   return 0;

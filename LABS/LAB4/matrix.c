@@ -604,8 +604,18 @@ double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank) {
   int n;
   for (n = 0; n < worldSize; n++) {
 
-    sndcts[n] = 0;
-    displs[n] = 0;
+    if (n >= nodes) {
+
+      sndcts[n] = 1;
+      displs[n] = n-1;
+
+    }
+    else {
+
+      sndcts[n] = 0;
+      displs[n] = 0;
+
+    }
 
   }
 
@@ -632,7 +642,7 @@ double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank) {
 
     for (n = displs[myRank]; n < displs[myRank] + sndcts[myRank]; n++) {
 
-    local_sum += v->data[n] * v->data[n];
+      local_sum += v->data[n] * v->data[n];
 
     }
 
@@ -662,11 +672,14 @@ double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank) {
 
       //printf("Node: %d, entry: %f, final %f\n", myRank, v->data[n], final);
       local_v[n] = v->data[displs[myRank] + n] / final;
-      //printf("Node: %d, local_v[%d] = %f\n", myRank, n, local_v[n]);
+      //printf("Node: %d, local_v[%d] = %f\n", myRank, displs[myRank] + n, local_v[n]);
     
     }
 
   }
+
+  //printf("Node %d made it!\n", myRank);
+  MPI_Barrier(world);
 
   MPI_Gatherv(local_v, sndcts[myRank], MPI_DOUBLE, normalized_v, sndcts, displs, MPI_DOUBLE, 0, world);
 
@@ -683,6 +696,9 @@ double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank) {
   //   puts("");
 
   // }
+
+  free(sndcts);
+  free(displs);
 
   return normalized_v;
 
