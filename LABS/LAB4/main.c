@@ -1,5 +1,5 @@
 #include "matrix.h"
-#define DIM 3
+#define DIM 10
 
 int main(int argc, char** argv) {
 
@@ -40,7 +40,6 @@ int main(int argc, char** argv) {
     printMatrix(&x);
 
   }
-  
 
   double * test = normalize(&x, world, worldSize, myRank);
 
@@ -52,8 +51,6 @@ int main(int argc, char** argv) {
       printf("%f ", test[i]);
 
     }
-
-    puts("\ngamer");
 
   }
 
