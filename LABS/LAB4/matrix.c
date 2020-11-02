@@ -195,6 +195,7 @@ double * subtractMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int
   // Variables
   int i;
   int len = A->rows * A->cols;
+
   int blockSize = (len) / worldSize;
   int *sendcts = (int*) malloc(worldSize*sizeof(int));
   int *displcmts = (int*) malloc(worldSize*sizeof(int));
@@ -216,6 +217,7 @@ double * subtractMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int
   double* localA = malloc(len*sizeof(double));
   double* localB = malloc(len*sizeof(double));
   double* localSoln = malloc(len*sizeof(double));
+
 
   // Scatter the blocks across the nodes.
   MPI_Scatterv(
@@ -591,6 +593,13 @@ double * gauss_jordan(matrix* A, matrix *b, MPI_Comm world, int worldSize, int m
 
 double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank) {
 
+  if(!v->data) {
+
+    printf("No vector to normalize buddy.\n");
+    return NULL;
+
+  }
+
   /* Step 1: get the Euclidean Norm. */
   
   int terms = MAX(v->cols, v->rows);
@@ -680,6 +689,7 @@ double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank) {
 
   MPI_Gatherv(local_v, sndcts[myRank], MPI_DOUBLE, normalized_v, sndcts, displs, MPI_DOUBLE, 0, world);
 
+  free(v->data);
   free(sndcts);
   free(displs);
 
