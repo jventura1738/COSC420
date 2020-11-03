@@ -605,6 +605,21 @@ double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank) {
   int terms = MAX(v->cols, v->rows);
   int nodes = MIN(terms, worldSize);
 
+  int y;
+
+  if (myRank == 0) {
+
+    puts("x:");
+    for (y = 0; y < terms; y++) {
+
+      printf("%f ", v->data[y]);
+
+    }
+
+    puts("");
+
+  }
+
   double * normalized_v = (double*) malloc(sizeof(double) * terms);
 
   int * sndcts = (int*) malloc(worldSize*sizeof(int));
@@ -671,14 +686,19 @@ double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank) {
   /* Step 2: Normalize v by dividing each entry of v by the L2Norm(v). */
 
   MPI_Bcast(&final, 1, MPI_DOUBLE, 0, world);
+  //printf("displs[%d] = %d\n", myRank, displs[myRank]);
+  //DISPLS[0] = 0, so local_v is empty
+  //So we cannot write to it
 
-  double * local_v = (double*) malloc(sizeof(double) * displs[myRank]);
+  double * local_v = (double*) malloc(sizeof(double) * sndcts[myRank]);
+  //printf("I created local_v\n");
   MPI_Scatterv(normalized_v, sndcts, displs, MPI_DOUBLE, local_v, sndcts[myRank], MPI_DOUBLE, 0, world);
 
   if (myRank < nodes) {
 
     for (n = 0; n < sndcts[myRank]; n++) {
 
+      //printf("local_v[%d] = %f\n", n, v->data[displs[myRank] + n] / final);
       local_v[n] = v->data[displs[myRank] + n] / final;
     
     }
@@ -689,7 +709,6 @@ double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank) {
 
   MPI_Gatherv(local_v, sndcts[myRank], MPI_DOUBLE, normalized_v, sndcts, displs, MPI_DOUBLE, 0, world);
 
-  free(v->data);
   free(sndcts);
   free(displs);
 

@@ -1,7 +1,7 @@
 #include "matrix.h"
-#define DIM 3
+#define DIM 50
 #define LIMIT 10
-#define VERBOSE 1
+#define VERBOSE 0
 
 int main(int argc, char** argv) {
 
@@ -32,6 +32,7 @@ int main(int argc, char** argv) {
   x.data = malloc(sizeof(double) * DIM);
   x.rows = e.rows;
   x.cols = e.cols;
+
   for (z = 0; z < DIM; z++) {
     
     e.data[z] = 1;
@@ -47,12 +48,21 @@ int main(int argc, char** argv) {
 
   }
   
-  while (count < LIMIT && !success) {
+  while ((count < LIMIT) && !success) {
+
+    // puts("x:");
+    // printMatrix(&x);
+
+    matrix temp;
+    temp.rows = x.rows;
+    temp.cols = x.cols;
+    temp.data = x.data;
 
     x.data = multiplyMatrix(&A, &x, world, worldSize, myRank);
     double * new_x = normalize(&x, world, worldSize, myRank);
-    free(x.data);
     x.data = new_x;
+
+    MPI_Bcast(x.data, DIM, MPI_DOUBLE, 0, world);
 
     if (myRank == 0 && VERBOSE) {
 
@@ -68,7 +78,7 @@ int main(int argc, char** argv) {
 
     }
 
-    double * test = subtractMatrix(&e, &x, world, worldSize, myRank);
+    double * test = subtractMatrix(&temp, &x, world, worldSize, myRank);
     
     MPI_Bcast(test, DIM, MPI_DOUBLE, 0, world);
 
@@ -79,8 +89,8 @@ int main(int argc, char** argv) {
 
     }
 
-    if (DIM - sum <= 0.0001) {
-
+    if (DIM - sum <= 0.000001) {
+      
       success = 1;
 
     }
