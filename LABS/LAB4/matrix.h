@@ -68,5 +68,6 @@ double * multiplyMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int
 double innerProduct(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank);
 double * gauss_jordan(matrix *A, matrix *b, MPI_Comm world, int worldSize, int myRank);
 double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank);
+double * eigen_vector_file(int DIM, MPI_Comm world, int worldSize, int myRank);
 
 #endif

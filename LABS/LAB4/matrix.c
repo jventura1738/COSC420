@@ -716,3 +716,144 @@ double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank) {
 
 }
 
+
+// Pass in DIM to match the matrix in in the file.
+double * eigen_vector_file(int DIM, MPI_Comm world, int worldSize, int myRank) {
+
+  // if(!v->data) {
+
+  //   printf("No vector to normalize buddy.\n");
+  //   return NULL;
+
+  // }
+
+  /* Step 1: get the Euclidean Norm. */
+  MPI_File fh;
+  matrix v, e;
+  initMatrix(&v, DIM, 1);
+  matrix A;
+  initMatrix(&A, DIM, DIM);
+
+  int terms = DIM;
+  int nodes = MIN(terms, worldSize);
+
+  int z, count = 0;
+  e.data = malloc(sizeof(double) * DIM);
+  e.rows = DIM;
+  e.cols = 1;
+  v.data = malloc(sizeof(double) * DIM);
+  v.rows = e.rows;
+  v.cols = e.cols;
+
+  for (z = 0; z < DIM; z++) {
+    
+    e.data[z] = 1;
+    v.data[z] = 1;
+
+  }
+  
+  int * send_cnts = malloc(sizeof(int) * worldSize);
+  int * disp_cnts = malloc(sizeof(int) * worldSize);
+  int i, disp = 0;
+
+  for (i = 0; i < worldSize; i++) {
+    send_cnts[i] = (DIM * DIM)/worldSize;
+    disp_cnts[i] = disp;
+    disp += (DIM * DIM)/worldSize;
+  }
+  if ((DIM * DIM) % worldSize > 0) {
+    send_cnts[worldSize-1] += (DIM*DIM) % worldSize; 
+  }
+
+  double * local_m = malloc(sizeof(double) * send_cnts[myRank]); 
+  
+  MPI_Offset offset = myRank * sizeof(double) * send_cnts[myRank];
+  // hexdump -v -e '5/4 "%3d"' -e '"\n"'  datafile
+  MPI_File_open(world, "outfile1",
+      MPI_MODE_RDONLY, MPI_INFO_NULL, &fh);
+  
+  MPI_File_read_at(fh, offset, local_m, send_cnts[myRank], MPI_DOUBLE, MPI_STATUS_IGNORE);
+  
+  //MPI_Scatterv(temp.data, send_cnts, disp_cnts, MPI_DOUBLE, local_m, send_cnts[myRank], MPI_DOUBLE, 0, world);
+  MPI_File_close(&fh);
+
+  MPI_Gatherv(local_m, send_cnts[myRank], MPI_DOUBLE, A.data, send_cnts, disp_cnts, MPI_DOUBLE, 0, world);
+  
+  double * normalized_v = (double*) malloc(sizeof(double) * terms);
+  
+  double local_sum = 0;
+  if (myRank < nodes) {
+    puts("I AM GAY 0");
+    int n;
+    for (n = disp_cnts[myRank]; n < 3; n++) {
+      puts("I AM GAY 1");
+      printf("v.data[%d], rank: %d, = %f", n, myRank, v.data[n]);
+      local_sum += v.data[n] * v.data[n];
+
+    }
+
+  }
+
+  double final = 0.0;
+  MPI_Reduce(&local_sum, &final, 1, MPI_DOUBLE, MPI_SUM, 0, world);
+
+  if (myRank == 0) {
+
+    final = sqrtf(final);
+    printf("\nSqrt of the sum of squares: %f\n", final);
+    puts("Normalizing.\n");
+
+  }
+  
+  /* Step 2: Normalize v by dividing each entry of v by the L2Norm(v). */
+
+  MPI_Bcast(&final, 1, MPI_DOUBLE, 0, world);
+
+  int LIMIT = 1;
+  while (count < LIMIT) {
+    //MatMult of A and x ---> x
+    v.data = multiplyMatrix(&A, &v, world, worldSize, myRank);
+    
+    //Write x to file
+    MPI_Offset offset = myRank * sizeof(double) * send_cnts[myRank];
+    MPI_File_open(world, "outfile1",
+        MPI_MODE_CREATE | MPI_MODE_WRONLY, MPI_INFO_NULL, &fh);
+    MPI_File_write_at(fh, offset, v.data, send_cnts[myRank], MPI_DOUBLE, MPI_STATUS_IGNORE);
+    MPI_File_close(&fh);
+    
+    //Read x from file
+    MPI_File_open(world, "outfile1",
+      MPI_MODE_RDONLY, MPI_INFO_NULL, &fh);
+    MPI_File_read_at(fh, offset, v.data, send_cnts[myRank], MPI_DOUBLE, MPI_STATUS_IGNORE);
+    MPI_File_close(&fh);
+
+
+    //Do the thing.
+    double * local_v = (double*) malloc(sizeof(double) * send_cnts[myRank]);
+    
+    if (myRank < nodes) {
+
+      int n;
+      for (n = 0; n < send_cnts[myRank]; n++) {
+
+        printf("local_v[%d] = %f\n", n, v.data[disp_cnts[myRank] + n] / final);
+        local_v[n] = v.data[disp_cnts[myRank] + n] / final;
+      
+      }
+
+    }
+
+    count++;
+
+  }
+
+  
+
+  MPI_Barrier(world);
+
+  free(send_cnts);
+  free(disp_cnts);
+
+  return normalized_v;
+
+}
