@@ -3,7 +3,6 @@
 #define LIMIT 10
 #define VERBOSE 0
 
-
 void writeToFile(matrix *A, MPI_Comm world, int worldSize, int myRank){
   MPI_File fh;
   initRandMatrix(A, DIM, DIM);
