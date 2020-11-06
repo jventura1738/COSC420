@@ -753,21 +753,6 @@ double * eigen_vector_file(int DIM, MPI_Comm world, int worldSize, int myRank) {
   free(disp_cnts);
   free(local_m);
 
-  // if (myRank == 0) {
-
-  //   int u;
-  //   for (u = 0; u < DIM*DIM; u++) {
-
-  //     printf("%f ", temp.data[u]);
-
-  //   }
-
-  //   puts("");
-
-  // }
-
-  printf("Node: %d made it out of FILE.", myRank);
-
   MPI_Barrier(world);
 
   matrix v;
@@ -784,8 +769,6 @@ double * eigen_vector_file(int DIM, MPI_Comm world, int worldSize, int myRank) {
 
   }
 
-  printf("Node: %d made it out of making V.", myRank);
-
   while ((count < LIMIT) && !success) {
 
     matrix temp;
@@ -798,20 +781,6 @@ double * eigen_vector_file(int DIM, MPI_Comm world, int worldSize, int myRank) {
     v.data = new_v;
 
     MPI_Bcast(v.data, DIM, MPI_DOUBLE, 0, world);
-
-    // if (myRank == 0 && VERBOSE) {
-
-    //   printf("v after pass %d:\n", count);
-    //   int i;
-    //   for (i = 0; i < DIM; i++) {
-
-    //     printf("%f ", x.data[i]);
-
-    //   }
-
-    //   puts("");
-
-    // }
 
     double * test = subtractMatrix(&temp, &v, world, worldSize, myRank);
     

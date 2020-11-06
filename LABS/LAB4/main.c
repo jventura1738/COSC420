@@ -195,7 +195,6 @@ int main(int argc, char** argv) {
   /* end work */
   initMatrix(&ree, DIM, 1);
 
-
   matrix A;
   initMatrix(&A, DIM, DIM);
   writeToFile(&A, world, worldSize, myRank);
@@ -205,7 +204,11 @@ int main(int argc, char** argv) {
     puts("MADE IT OUT ALIVE!");
     printMatrix(&ree);
   }
+
   MPI_Barrier(world);
+
+  // THIS IS THE RESULT
+  writeToFile(&ree, world, worldSize, myRank);
 
   // free(A.data);
   // free(e.data);
