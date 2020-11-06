@@ -11,30 +11,12 @@
 #include <stdlib.h>
 
 /*
- * <--------  MASTER NODE  -------->
- * 
- * This acts like a 'linked list' class
- * that keeps track of the a linked list.
-*/
-typedef struct {
-
-    // Number of nodes in list.
-    int count;
-
-    // Keeps track of front and back.
-    struct list_node * head;
-    struct list_node * tail;
-
-} master_node;
-
-
-/*
  * <--------  LIST   NODE  -------->
  * 
  * This acts like a 'linked list' class
  * that keeps track of the a linked list.
 */
-typedef struct {
+typedef struct list_node {
 
     // ID of the research paper.
     int ID;
@@ -45,51 +27,31 @@ typedef struct {
 } list_node;
 
 
+/*
+ * <--------  MASTER NODE  -------->
+ * 
+ * This acts like a 'linked list' class
+ * that keeps track of the a linked list.
+*/
+typedef struct master_node {
+
+    // Number of nodes in list.
+    int count;
+
+    // Keeps track of front and back.
+    list_node * head;
+    list_node * tail;
+
+} master_node;
+
+
 list_node * init_node(int id) {
 
-    list_node * new_node;
+    list_node * new_node = malloc(sizeof(list_node));
     new_node->ID = id;
     new_node->next = NULL;
 
     return new_node;
-
-}
-
-/*
- * APPEND FUNCTION
- * 
- * This function append a node with the
- * given id to the list (master).
- * 
- * NOTE: Automatically checks if this is
- * a duplicate.  Will not insert if this
- * is the case.
-*/
-void append(master_node * master, int id) {
-
-    if (in_list(master, id)) {
-
-        return; // no duplicates allowed.
-
-    }
-
-    struct list_node * new_node = init_node(id);
-
-    if (!master->head) {
-
-        master->head = new_node;
-        master->tail = new_node;
-        master->count = 1;
-
-    }
-    else {
-
-        list_node * temp = master->tail;
-        master->tail = new_node;
-        temp->next = new_node;
-        master->count++;
-
-    }
 
 }
 
@@ -106,8 +68,8 @@ int in_list(master_node * master, int id) {
 
     if (!master->head) {
 
-        // puts("Warning[ in_list() ]: list (master) is empty. (NULL)");
-        return NULL;
+        //puts("Warning[ in_list() ]: list (master) is empty. (NULL)");
+        return 0;
 
     }
     else {
@@ -131,6 +93,45 @@ int in_list(master_node * master, int id) {
     return 0;
 
 }
+
+/*
+ * APPEND FUNCTION
+ * 
+ * This function append a node with the
+ * given id to the list (master).
+ * 
+ * NOTE: Automatically checks if this is
+ * a duplicate.  Will not insert if this
+ * is the case.
+*/
+void append(master_node * master, int id) {
+
+    if (in_list(master, id) == 1) {
+
+        return; // no duplicates allowed.
+
+    }
+
+    list_node * new_node = init_node(id);
+
+    if (!master->head) {
+
+        master->head = new_node;
+        master->tail = new_node;
+        master->count = 1;
+
+    }
+    else {
+
+        list_node * temp = master->tail;
+        master->tail = new_node;
+        temp->next = new_node;
+        master->count++;
+
+    }
+
+}
+
 
 /*
  * PRINT LIST FUNCTION.
@@ -166,6 +167,7 @@ void clear(master_node * master) {
         master->head = temp->next;
         free(temp);
         master->count--;
+        temp = master->head;
 
     }
 
