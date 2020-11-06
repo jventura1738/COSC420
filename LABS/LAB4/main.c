@@ -92,7 +92,6 @@ int main(int argc, char** argv) {
   // matrix A;
   // matrix e;
   // matrix gamer;
-  matrix ree;
   // int z, count = 0, success = 0;
   // e.data = malloc(sizeof(double) * DIM);
   // e.rows = DIM;
@@ -192,7 +191,7 @@ int main(int argc, char** argv) {
 
   // }
 
-  /* end work */
+  matrix ree;
   initMatrix(&ree, DIM, 1);
 
   matrix A;
@@ -209,6 +208,8 @@ int main(int argc, char** argv) {
 
   // THIS IS THE RESULT
   writeToFile(&ree, world, worldSize, myRank);
+
+  /* end work */
 
   // free(A.data);
   // free(e.data);
