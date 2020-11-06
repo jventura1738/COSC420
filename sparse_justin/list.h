@@ -39,12 +39,15 @@ typedef struct master_node {
     int count;
 
     // Keeps track of front and back.
-    list_node * head;
-    list_node * tail;
+    list_node * head, * tail;
 
 } master_node;
 
-
+/*
+ * INIT NODE FUNCTION.
+ * 
+ * Allocates a new node on the heap.
+*/
 list_node * init_node(int id) {
 
     list_node * new_node = malloc(sizeof(list_node));

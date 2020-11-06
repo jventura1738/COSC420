@@ -5,7 +5,8 @@
  * - Justin Ventura
 */
 
-#include "list.h" // linked list class
+#include "list.h"  // linked list
+#include "KWBST.h" // binary search tree
 
 void init_master(master_node * master) {
 
@@ -30,6 +31,9 @@ int main (int argc, char ** argv) {
 
     print(&MASTER);
     clear(&MASTER);
+
+    keyword_node * ROOT = init_kwnode("hi");
+    printf("%s\n", ROOT->keyword);
 
     return 0;
 }
