@@ -746,8 +746,6 @@ double * eigen_vector_file(int DIM, MPI_Comm world, int worldSize, int myRank) {
   free(send_cnts);
   free(disp_cnts);
   free(local_m);
-
-  printf("node: %d is done FILES.\n", myRank);
   MPI_Barrier(world);
 
   matrix v;
@@ -764,11 +762,8 @@ double * eigen_vector_file(int DIM, MPI_Comm world, int worldSize, int myRank) {
 
   }
 
-  printf("node: %d is about to go in...\n", myRank);
-
   while ((count < LIMIT) && !success) {
 
-    puts("ITERATION");
     matrix temp;
     temp.rows = v.rows;
     temp.cols = v.cols;
@@ -808,8 +803,6 @@ double * eigen_vector_file(int DIM, MPI_Comm world, int worldSize, int myRank) {
     count++;
     
   }
-
-  printf("node %d is returning.\n", myRank);
 
   return v.data;
 
