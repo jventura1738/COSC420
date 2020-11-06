@@ -766,18 +766,25 @@ double * eigen_vector_file(int DIM, MPI_Comm world, int worldSize, int myRank) {
 
   // }
 
+  printf("Node: %d made it out of FILE.", myRank);
+
   MPI_Barrier(world);
 
   matrix v;
+  v.data = malloc(sizeof(double) * DIM);
+  v.row = DIM;
+  v.col = 1;
 
   int z, count = 0;
-  int LIMIT = 100;
+  int LIMIT = 1;
   int success = 0;
   for (z = 0; z < DIM; z++) {
     
     v.data[z] = 1;
 
   }
+
+  printf("Node: %d made it out of making V.", myRank);
 
   while ((count < LIMIT) && !success) {
 

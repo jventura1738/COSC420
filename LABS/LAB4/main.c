@@ -202,6 +202,7 @@ int main(int argc, char** argv) {
 
   ree.data = eigen_vector_file(DIM, world, worldSize, myRank);
   if(myRank == 0){
+    puts("MADE IT OUT ALIVE!");
     printMatrix(&ree);
   }
   MPI_Barrier(world);
