@@ -772,8 +772,8 @@ double * eigen_vector_file(int DIM, MPI_Comm world, int worldSize, int myRank) {
 
   matrix v;
   v.data = malloc(sizeof(double) * DIM);
-  v.row = DIM;
-  v.col = 1;
+  v.rows = DIM;
+  v.cols = 1;
 
   int z, count = 0;
   int LIMIT = 1;
