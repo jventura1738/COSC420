@@ -605,20 +605,20 @@ double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank) {
   int terms = MAX(v->cols, v->rows);
   int nodes = MIN(terms, worldSize);
 
-  int y;
+  // int y;
 
-  if (myRank == 0) {
+  // if (myRank == 0) {
 
-    puts("x:");
-    for (y = 0; y < terms; y++) {
+  //   puts("x:");
+  //   for (y = 0; y < terms; y++) {
 
-      printf("%f ", v->data[y]);
+  //     printf("%f ", v->data[y]);
 
-    }
+  //   }
 
-    puts("");
+  //   puts("");
 
-  }
+  // }
 
   double * normalized_v = (double*) malloc(sizeof(double) * terms);
 
