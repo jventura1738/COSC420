@@ -678,8 +678,7 @@ double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank) {
   if (myRank == 0) {
 
     final = sqrtf(final);
-    printf("\nSqrt of the sum of squares: %f\n", final);
-    puts("Normalizing.\n");
+    printf("\nEigen Value: %f\n", final);
 
   }
 

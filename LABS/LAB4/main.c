@@ -5,7 +5,6 @@
 
 void writeToFile(matrix *A, MPI_Comm world, int worldSize, int myRank){
   MPI_File fh;
-  initRandMatrix(A, DIM, DIM);
   int * send_cnts = malloc(sizeof(int) * worldSize);
   int * disp_cnts = malloc(sizeof(int) * worldSize);
   int i, disp = 0;
@@ -195,7 +194,12 @@ int main(int argc, char** argv) {
   initMatrix(&ree, DIM, 1);
 
   matrix A;
-  initMatrix(&A, DIM, DIM);
+  initRandMatrix(&A, DIM, DIM);
+  if (myRank == 0) {
+    printf("A initially:\n");
+    printMatrix(&A);
+    puts("");
+  }
   writeToFile(&A, world, worldSize, myRank);
 
   ree.data = eigen_vector_file(DIM, world, worldSize, myRank);
