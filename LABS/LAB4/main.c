@@ -195,17 +195,30 @@ int main(int argc, char** argv) {
 
   matrix A;
   initRandMatrix(&A, DIM, DIM);
+
   if (myRank == 0) {
     printf("A initially:\n");
     printMatrix(&A);
     puts("");
   }
-  writeToFile(&A, world, worldSize, myRank);
 
+  writeToFile(&A, world, worldSize, myRank);
   ree.data = eigen_vector_file(DIM, world, worldSize, myRank);
+
+  matrix top;
+  top.data = multiplyMatrix(&A, &ree, world, worldSize, myRank);
+  top.rows = DIM;
+  top.cols = 1;
+
+  double TOP = innerProduct(&top, &ree, world, worldSize, myRank);
+  double BOT = innerProduct(&ree, &ree, world, worldSize, myRank);
+
+  double eigen_value = TOP / BOT;
 
   if(myRank == 0){
     puts("MADE IT OUT ALIVE!");
+    printf("Eigenvalue: %f\n", eigen_value);
+    puts("Eigen Vector:")
     printMatrix(&ree);
   }
 

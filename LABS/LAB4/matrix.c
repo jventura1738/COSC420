@@ -678,7 +678,6 @@ double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank) {
   if (myRank == 0) {
 
     final = sqrtf(final);
-    printf("\nEigen Value: %f\n", final);
 
   }
 
