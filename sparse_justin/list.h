@@ -113,6 +113,11 @@ void append(master_node * master, int id) {
     }
 
     list_node * new_node = init_node(id);
+    if (!new_node) {
+
+        printf("Memory error: Could not append: %d.\n", id);
+
+    }
 
     if (!master->head) {
 
