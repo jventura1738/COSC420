@@ -23,7 +23,7 @@ void writeToFile(matrix *A, MPI_Comm world, int worldSize, int myRank){
   MPI_Scatterv(A->data, send_cnts, disp_cnts, MPI_DOUBLE, local_m, send_cnts[myRank], MPI_DOUBLE, 0, world);
   MPI_Offset offset = myRank * sizeof(double) * send_cnts[myRank];
   // hexdump -v -e '5/4 "%3d"' -e '"\n"'  datafile
-  MPI_File_open(world, "Ax",
+  MPI_File_open(world, "outfile",
       MPI_MODE_CREATE | MPI_MODE_WRONLY, MPI_INFO_NULL, &fh);
   MPI_File_write_at(fh, offset, local_m, send_cnts[myRank], MPI_DOUBLE, MPI_STATUS_IGNORE);
   MPI_File_close(&fh);
@@ -194,6 +194,12 @@ int main(int argc, char** argv) {
 
   /* end work */
   initMatrix(&ree, DIM, 1);
+
+
+  matrix A;
+  initMatrix(&A, DIM, DIM);
+  writeToFile(&A, world, worldSize, myRank);
+
   ree.data = eigen_vector_file(DIM, world, worldSize, myRank);
   if(myRank == 0){
     printMatrix(&ree);
