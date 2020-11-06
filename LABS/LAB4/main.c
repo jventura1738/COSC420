@@ -218,7 +218,7 @@ int main(int argc, char** argv) {
   if(myRank == 0){
     puts("MADE IT OUT ALIVE!");
     printf("Eigenvalue: %f\n", eigen_value);
-    puts("Eigen Vector:")
+    puts("Eigen Vector:");
     printMatrix(&ree);
   }
 
