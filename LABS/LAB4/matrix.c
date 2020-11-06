@@ -768,12 +768,12 @@ double * eigen_vector_file(int DIM, MPI_Comm world, int worldSize, int myRank) {
 
   MPI_Barrier(world);
 
-  matrix * v;
-  initMatrix(v, DIM, 1);
+  matrix v;
+  initMatrix(&v, DIM, 1);
 
   /* Step 1: get the Euclidean Norm. */
   
-  int terms = MAX(v->cols, v->rows);
+  int terms = MAX(v.cols, v.rows);
   int nodes = MIN(terms, worldSize);
 
   double * normalized_v = (double*) malloc(sizeof(double) * terms);
@@ -815,14 +815,14 @@ double * eigen_vector_file(int DIM, MPI_Comm world, int worldSize, int myRank) {
 
   }
 
-  MPI_Bcast(v->data, terms, MPI_DOUBLE, 0, world);
+  MPI_Bcast(v.data, terms, MPI_DOUBLE, 0, world);
 
   double local_sum = 0;
   if (myRank < nodes) {
 
     for (n = displs[myRank]; n < displs[myRank] + sndcts[myRank]; n++) {
 
-      local_sum += v->data[n] * v->data[n];
+      local_sum += v.data[n] * v.data[n];
 
     }
 
@@ -855,7 +855,7 @@ double * eigen_vector_file(int DIM, MPI_Comm world, int worldSize, int myRank) {
     for (n = 0; n < sndcts[myRank]; n++) {
 
       //printf("local_v[%d] = %f\n", n, v->data[displs[myRank] + n] / final);
-      local_v[n] = v->data[displs[myRank] + n] / final;
+      local_v[n] = v.data[displs[myRank] + n] / final;
     
     }
 
