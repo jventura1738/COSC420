@@ -803,6 +803,8 @@ double * eigen_vector_file(int DIM, MPI_Comm world, int worldSize, int myRank) {
     
   }
 
+  printf("node %d is returning.\n", myRank);
+
   return v.data;
 
 }

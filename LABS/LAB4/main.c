@@ -199,15 +199,20 @@ int main(int argc, char** argv) {
   writeToFile(&A, world, worldSize, myRank);
 
   ree.data = eigen_vector_file(DIM, world, worldSize, myRank);
+
   if(myRank == 0){
     puts("MADE IT OUT ALIVE!");
     printMatrix(&ree);
   }
 
+  printf("node %d is DONE!!!!\n", myRank);
+
   MPI_Barrier(world);
 
   // THIS IS THE RESULT
   writeToFile(&ree, world, worldSize, myRank);
+
+  printf("node %d is DONE DONE CUH.", myRank);
 
   /* end work */
 
