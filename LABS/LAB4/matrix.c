@@ -775,31 +775,29 @@ double * eigen_vector_file(int DIM, MPI_Comm world, int worldSize, int myRank) {
     temp.data = v.data;
 
     v.data = multiplyMatrix(&A, &v, world, worldSize, myRank);
-
-    puts("MATRIX MULT COMPLETE.");
-
     double * new_v = normalize(&v, world, worldSize, myRank);
-
-    puts("NORMALIZE COMPLETE.");
-
     v.data = new_v;
-
     MPI_Bcast(v.data, DIM, MPI_DOUBLE, 0, world);
 
-    double * test = subtractMatrix(&temp, &v, world, worldSize, myRank);
+    double * test = malloc(sizeof(double) * DIM);
+    int i, sum = 0, sum2;
 
-    puts("SUBTRACT COMPLETE.");
+    for (i = 0; i < DIM; i++) {
+
+      test[i] = temp.data[i] - v.data[i];
+
+    } 
     
     MPI_Bcast(test, DIM, MPI_DOUBLE, 0, world);
 
-    int i, sum = 0;
     for (i = 0; i < DIM; i++) {
 
       sum += test[i];
+      sum2 += temp.data[i];
 
     }
 
-    if (DIM - sum <= 0.000001) {
+    if (sum2 - sum <= 0.000001 || sum2 - sum >= -0.000001) {
       
       success = 1;
 
