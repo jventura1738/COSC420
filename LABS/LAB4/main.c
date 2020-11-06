@@ -205,14 +205,10 @@ int main(int argc, char** argv) {
     printMatrix(&ree);
   }
 
-  printf("node %d is DONE!!!!\n", myRank);
-
   MPI_Barrier(world);
 
   // THIS IS THE RESULT
   writeToFile(&ree, world, worldSize, myRank);
-
-  printf("node %d is DONE DONE CUH.", myRank);
 
   /* end work */
 
