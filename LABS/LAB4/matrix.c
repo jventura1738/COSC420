@@ -829,7 +829,7 @@ double * eigen_vector_file(int DIM, MPI_Comm world, int worldSize, int myRank) {
     
   }
 
-  return v;
+  return v.data;
   
   // /* Step 1: get the Euclidean Norm. */
   
