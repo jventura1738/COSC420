@@ -721,8 +721,8 @@ double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank) {
 double * eigen_vector_file(int DIM, MPI_Comm world, int worldSize, int myRank) {
 
   MPI_File fh;
-  matrix temp;
-  initMatrix(&temp, DIM, DIM);
+  matrix A;
+  initMatrix(&A, DIM, DIM);
   int * send_cnts = malloc(sizeof(int) * worldSize);
   int * disp_cnts = malloc(sizeof(int) * worldSize);
   int i, disp = 0;
@@ -747,128 +747,188 @@ double * eigen_vector_file(int DIM, MPI_Comm world, int worldSize, int myRank) {
   //MPI_Scatterv(temp.data, send_cnts, disp_cnts, MPI_DOUBLE, local_m, send_cnts[myRank], MPI_DOUBLE, 0, world);
   MPI_File_close(&fh);
 
-  MPI_Gatherv(local_m, send_cnts[myRank], MPI_DOUBLE, temp.data, send_cnts, disp_cnts, MPI_DOUBLE, 0, world);
+  MPI_Gatherv(local_m, send_cnts[myRank], MPI_DOUBLE, A.data, send_cnts, disp_cnts, MPI_DOUBLE, 0, world);
 
   free(send_cnts);
   free(disp_cnts);
   free(local_m);
 
-  if (myRank == 0) {
+  // if (myRank == 0) {
 
-    int u;
-    for (u = 0; u < DIM*DIM; u++) {
+  //   int u;
+  //   for (u = 0; u < DIM*DIM; u++) {
 
-      printf("%f ", temp.data[u]);
+  //     printf("%f ", temp.data[u]);
 
-    }
+  //   }
 
-    puts("");
+  //   puts("");
 
-  }
+  // }
 
   MPI_Barrier(world);
 
   matrix v;
-  initMatrix(&v, DIM, 1);
 
-  /* Step 1: get the Euclidean Norm. */
-  
-  int terms = MAX(v.cols, v.rows);
-  int nodes = MIN(terms, worldSize);
-
-  double * normalized_v = (double*) malloc(sizeof(double) * terms);
-
-  int * sndcts = (int*) malloc(worldSize*sizeof(int));
-  int * displs = (int*) malloc(worldSize*sizeof(int));
-
-  int n;
-  for (n = 0; n < worldSize; n++) {
-
-    if (n > nodes) {
-
-      sndcts[n] = 1;
-      displs[n] = n-1;
-
-    }
-    else {
-
-      sndcts[n] = 0;
-      displs[n] = 0;
-
-    }
-
-  }
-
-  n = 0;
-  while (n < terms) {
-
-    sndcts[n % nodes] += 1;
-    n += 1;
-
-  }
-  displs[0] = 0;
-  int displacement = 0;
-  for (n = 1; n < nodes; n++) {
-
-    displacement += sndcts[n-1];
-    displs[n] += displacement;
-
-  }
-
-  MPI_Bcast(v.data, terms, MPI_DOUBLE, 0, world);
-
-  double local_sum = 0;
-  if (myRank < nodes) {
-
-    for (n = displs[myRank]; n < displs[myRank] + sndcts[myRank]; n++) {
-
-      local_sum += v.data[n] * v.data[n];
-
-    }
-
-  }
-
-  double final = 0.0;
-  MPI_Reduce(&local_sum, &final, 1, MPI_DOUBLE, MPI_SUM, 0, world);
-
-  if (myRank == 0) {
-
-    final = sqrtf(final);
-    printf("\nSqrt of the sum of squares: %f\n", final);
-    puts("Normalizing.\n");
-
-  }
-
-  /* Step 2: Normalize v by dividing each entry of v by the L2Norm(v). */
-
-  MPI_Bcast(&final, 1, MPI_DOUBLE, 0, world);
-  //printf("displs[%d] = %d\n", myRank, displs[myRank]);
-  //DISPLS[0] = 0, so local_v is empty
-  //So we cannot write to it
-
-  double * local_v = (double*) malloc(sizeof(double) * sndcts[myRank]);
-  //printf("I created local_v\n");
-  MPI_Scatterv(normalized_v, sndcts, displs, MPI_DOUBLE, local_v, sndcts[myRank], MPI_DOUBLE, 0, world);
-
-  if (myRank < nodes) {
-
-    for (n = 0; n < sndcts[myRank]; n++) {
-
-      //printf("local_v[%d] = %f\n", n, v->data[displs[myRank] + n] / final);
-      local_v[n] = v.data[displs[myRank] + n] / final;
+  int z, count = 0;
+  int LIMIT = 100;
+  int success = 0;
+  for (z = 0; z < DIM; z++) {
     
-    }
+    v.data[z] = 1;
 
   }
 
-  MPI_Barrier(world);
+  while ((count < LIMIT) && !success) {
 
-  MPI_Gatherv(local_v, sndcts[myRank], MPI_DOUBLE, normalized_v, sndcts, displs, MPI_DOUBLE, 0, world);
+    matrix temp;
+    temp.rows = v.rows;
+    temp.cols = v.cols;
+    temp.data = v.data;
 
-  free(sndcts);
-  free(displs);
+    v.data = multiplyMatrix(&A, &v, world, worldSize, myRank);
+    double * new_v = normalize(&v, world, worldSize, myRank);
+    v.data = new_v;
 
-  return normalized_v;
+    MPI_Bcast(v.data, DIM, MPI_DOUBLE, 0, world);
+
+    // if (myRank == 0 && VERBOSE) {
+
+    //   printf("v after pass %d:\n", count);
+    //   int i;
+    //   for (i = 0; i < DIM; i++) {
+
+    //     printf("%f ", x.data[i]);
+
+    //   }
+
+    //   puts("");
+
+    // }
+
+    double * test = subtractMatrix(&temp, &v, world, worldSize, myRank);
+    
+    MPI_Bcast(test, DIM, MPI_DOUBLE, 0, world);
+
+    int i, sum = 0;
+    for (i = 0; i < DIM; i++) {
+
+      sum += test[i];
+
+    }
+
+    if (DIM - sum <= 0.000001) {
+      
+      success = 1;
+
+    }
+
+    free(test);
+
+    count++;
+    
+  }
+
+  return v;
+  
+  // /* Step 1: get the Euclidean Norm. */
+  
+  // int terms = MAX(v.cols, v.rows);
+  // int nodes = MIN(terms, worldSize);
+
+  // double * normalized_v = (double*) malloc(sizeof(double) * terms);
+
+  // int * sndcts = (int*) malloc(worldSize*sizeof(int));
+  // int * displs = (int*) malloc(worldSize*sizeof(int));
+
+  // int n;
+  // for (n = 0; n < worldSize; n++) {
+
+  //   if (n > nodes) {
+
+  //     sndcts[n] = 1;
+  //     displs[n] = n-1;
+
+  //   }
+  //   else {
+
+  //     sndcts[n] = 0;
+  //     displs[n] = 0;
+
+  //   }
+
+  // }
+
+  // n = 0;
+  // while (n < terms) {
+
+  //   sndcts[n % nodes] += 1;
+  //   n += 1;
+
+  // }
+  // displs[0] = 0;
+  // int displacement = 0;
+  // for (n = 1; n < nodes; n++) {
+
+  //   displacement += sndcts[n-1];
+  //   displs[n] += displacement;
+
+  // }
+
+  // MPI_Bcast(v.data, terms, MPI_DOUBLE, 0, world);
+
+  // double local_sum = 0;
+  // if (myRank < nodes) {
+
+  //   for (n = displs[myRank]; n < displs[myRank] + sndcts[myRank]; n++) {
+
+  //     local_sum += v.data[n] * v.data[n];
+
+  //   }
+
+  // }
+
+  // double final = 0.0;
+  // MPI_Reduce(&local_sum, &final, 1, MPI_DOUBLE, MPI_SUM, 0, world);
+
+  // if (myRank == 0) {
+
+  //   final = sqrtf(final);
+  //   printf("\nSqrt of the sum of squares: %f\n", final);
+  //   puts("Normalizing.\n");
+
+  // }
+
+  // /* Step 2: Normalize v by dividing each entry of v by the L2Norm(v). */
+
+  // MPI_Bcast(&final, 1, MPI_DOUBLE, 0, world);
+  // //printf("displs[%d] = %d\n", myRank, displs[myRank]);
+  // //DISPLS[0] = 0, so local_v is empty
+  // //So we cannot write to it
+
+  // double * local_v = (double*) malloc(sizeof(double) * sndcts[myRank]);
+  // //printf("I created local_v\n");
+  // MPI_Scatterv(normalized_v, sndcts, displs, MPI_DOUBLE, local_v, sndcts[myRank], MPI_DOUBLE, 0, world);
+
+  // if (myRank < nodes) {
+
+  //   for (n = 0; n < sndcts[myRank]; n++) {
+
+  //     //printf("local_v[%d] = %f\n", n, v->data[displs[myRank] + n] / final);
+  //     local_v[n] = v.data[displs[myRank] + n] / final;
+    
+  //   }
+
+  // }
+
+  // MPI_Barrier(world);
+
+  // MPI_Gatherv(local_v, sndcts[myRank], MPI_DOUBLE, normalized_v, sndcts, displs, MPI_DOUBLE, 0, world);
+
+  // free(sndcts);
+  // free(displs);
+
+  // return normalized_v;
 
   // /* Step 1: get the Euclidean Norm. */
 
