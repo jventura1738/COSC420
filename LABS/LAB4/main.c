@@ -196,7 +196,7 @@ int main(int argc, char** argv) {
   initMatrix(&ree, DIM, 1);
   ree.data = eigen_vector_file(DIM, world, worldSize, myRank);
   if(myRank == 0){
-    //printMatrix(&ree);
+    printMatrix(&ree);
   }
   MPI_Barrier(world);
 
