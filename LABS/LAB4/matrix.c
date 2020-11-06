@@ -1,5 +1,5 @@
 // Justin Ventura & Blaine Mason
-// COSC420 Lab 3: matrix.c
+// COSC420 Lab 4: matrix.c
 
 #include "matrix.h"
 
@@ -732,7 +732,7 @@ double * eigen_vector_file(int DIM, MPI_Comm world, int worldSize, int myRank) {
   
   MPI_Offset offset = myRank * sizeof(double) * send_cnts[myRank];
   // hexdump -v -e '5/4 "%3d"' -e '"\n"'  datafile
-  MPI_File_open(world, "outfile",
+  MPI_File_open(world, "Ax",
       MPI_MODE_RDONLY, MPI_INFO_NULL, &fh);
 
   MPI_File_read_at(fh, offset, local_m, send_cnts[myRank], MPI_DOUBLE, MPI_STATUS_IGNORE);

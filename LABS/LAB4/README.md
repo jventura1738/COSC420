@@ -29,3 +29,18 @@ The program project two, the file I/O and matrix logic will both be used in the 
 
 ### (d) How could the code be improved in terms of usability, efficiency, and robustness?
  Our memory management could have been better, also the naming and organization could use a tocuh up.  This is planned to occur in the project, where we will refine this class to ensure all edge cases are handled.  We are glad the lab is used in this project becuase it gives us an opportunity to work on both at the same time, but due to the length of time we were given, we could not polish everything by turn in. 
+ 
+ Sample Output:
+ 
+ A:
+5.00 9.00 10.00 5.00 1.00 
+10.00 6.00 2.00 1.00 4.00 
+4.00 1.00 5.00 9.00 8.00 
+2.00 9.00 6.00 3.00 6.00 
+4.00 10.00 7.00 6.00 5.00 
+X:
+0.48 
+0.37 
+0.43 
+0.42 
+0.52 
