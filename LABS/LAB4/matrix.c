@@ -768,6 +768,9 @@ double * eigen_vector_file(int DIM, MPI_Comm world, int worldSize, int myRank) {
 
   MPI_Barrier(world);
 
+  matrix * v;
+  initMatrix(&v, DIM, 1);
+
   /* Step 1: get the Euclidean Norm. */
   
   int terms = MAX(v->cols, v->rows);
