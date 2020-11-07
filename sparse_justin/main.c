@@ -33,7 +33,16 @@ int main (int argc, char ** argv) {
     clear(&MASTER);
 
     keyword_node * ROOT = init_kwnode("hi");
-    printf("%s\n", ROOT->keyword);
+    char * arr[5] = {"eigenvalue", "matrix", "dimension", "transpose", "inverse"};
+
+    for (i = 0; i < 5; i++) {
+
+        insert(ROOT, arr[i]);
+
+    }
+
+    in_order(ROOT);
+    puts("");
 
     return 0;
 }
