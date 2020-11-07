@@ -47,11 +47,71 @@ keyword_node * init_kwnode(char * word) {
 }
 
 /*
+ * INSERT NODE FUNCTION
  * 
+ * Insert a node into the BST with the given key.
 */
-void print(keyword_node * node) {
+keyword_node * insert(keyword_node * root, char * word) {
+ 
+    /* Otherwise, recur down the tree */
+    if (key < node->key)
+        node->left = insert(node->left, key);
+    else if (key > node->key)
+        node->right = insert(node->right, key);
+ 
+    /* return the (unchanged) node pointer */
+    return node;
 
-    printf("%s\n", node->keyword);
+}
+
+/*
+ * PRE-ORDER PRINT.
+ * 
+ * Print in pre-order (NLR).
+*/
+void pre_order(keyword_node * root) {
+
+    if (root) {
+
+        printf("%d ", root->keyword);
+        pre_order(root->left);
+        pre_order(root->right);
+
+    }
+
+}
+
+/*
+ * IN-ORDER PRINT.
+ * 
+ * Print in in-order (LNR).
+*/
+void in_order(keyword_node * root) {
+
+    if (root) {
+
+        in_order(root->left);
+        printf("%d ", root->keyword);
+        in_order(root->right);
+
+    }
+
+}
+
+/*
+ * POST-ORDER PRINT.
+ * 
+ * Print in POST-order (LRN).
+*/
+void post_order(keyword_node * root) {
+
+    if (root) {
+
+        post_order(root->left);
+        post_order(root->right);
+        printf("%d ", root->keyword);
+
+    }
 
 }
 
