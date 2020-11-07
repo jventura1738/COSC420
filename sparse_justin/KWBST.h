@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "list.h"
 
 /*
  * <--------  WORD   NODE  -------->
@@ -20,8 +21,11 @@
 */
 typedef struct keyword_node {
 
-    // assume 100 for now.
+    // Assume 100 for now.
     char keyword[100];
+
+    // List to all papers this is referenced
+    master_node * master;
 
     // These are the pointers for navigation.
     struct keyword_node * left, * right, * parent;
