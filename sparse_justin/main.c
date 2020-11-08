@@ -14,36 +14,30 @@ int main (int argc, char ** argv) {
     char * arr[3] = {"eigenvalue", "inverse", "EIGENVALUE"};
 
     int i;
-    for (i = 0; i < 6; i++) {
+    for (i = 0; i < 3; i++) {
 
         puts("ITERATION");
-        keyword_node * test = insert(ROOT, arr[i]);
-        puts("1");
-        if (test->MASTER == NULL) {
-
-            puts("pre");
-            init_master(test->MASTER);
-
-        }
-        puts("2");
-        append(test->MASTER, i);
+        insert(ROOT, arr[i]);
+        puts("inserting");
+        keyword_node * test = find(ROOT, arr[i]);
+        test->head = append(test->head, i);
+        printf("->%d \n", test->head->ID);
 
     }
 
+    puts("gamer:");
     in_order(ROOT);
     puts("");
 
-    // master_node MASTER;
-    // init_master(&MASTER);
+    // list_node * head = init_node(0);
+    // for (i = 0; i < 5; i++) {
 
-    // for (i = 0; i < 10; i++) {
-
-    //     append(&MASTER, i);
+    //     append(head, i);
 
     // }
 
-    // print(&MASTER);
-    // clear(&MASTER);
+    // print(head);
+    // clear(head);
 
     return 0;
 }

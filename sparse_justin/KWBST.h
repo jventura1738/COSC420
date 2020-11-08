@@ -25,7 +25,7 @@ typedef struct keyword_node {
     char keyword[100];
 
     // List to all papers this is referenced
-    master_node * MASTER;
+    list_node * head;
 
     // These are the pointers for navigation.
     struct keyword_node * left, * right;
@@ -79,6 +79,37 @@ keyword_node * insert(keyword_node * root, char * word) {
 
 }
 
+/*
+ * BST SEARCH FUNCTION.
+ * 
+ * Searches for a node given its key.
+*/
+keyword_node * find(keyword_node * root, char * key) {
+
+    if (root) {
+
+        if (strcasecmp(key, root->keyword) < 0) {
+
+            return find(root->left, key);
+
+        }
+        else if (strcasecmp(key, root->keyword) > 0) {
+
+            return find(root->right, key);
+
+        }
+        else {
+
+            return root;
+
+        }
+
+    }
+
+    return NULL;
+
+}
+
 
 /*
  * PRE-ORDER PRINT.
@@ -108,6 +139,7 @@ void in_order(keyword_node * root) {
 
         in_order(root->left);
         printf("%s ", root->keyword);
+        print(root->head);
         in_order(root->right);
 
     }

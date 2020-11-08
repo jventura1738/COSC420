@@ -28,36 +28,6 @@ typedef struct list_node {
 
 
 /*
- * <--------  MASTER NODE  -------->
- * 
- * This acts like a 'linked list' class
- * that keeps track of the a linked list.
-*/
-typedef struct master_node {
-
-    // Number of nodes in list.
-    int count;
-
-    // Keeps track of front and back.
-    list_node * head, * tail;
-
-} master_node;
-
-/*
- * INIT MASTER NODE.
- * 
- * Initializes the master node.
-*/
-void init_master(master_node * master) {
-
-    master = malloc(sizeof(master_node));
-    master->count = 0;
-    master->head = NULL;
-    master->tail = NULL;
-
-}
-
-/*
  * INIT NODE FUNCTION.
  * 
  * Allocates a new node on the heap.
@@ -71,6 +41,7 @@ list_node * init_node(int id) {
     return new_node;
 
 }
+
 
 /*
  * EXISTENCE CHECK FUNCTION.
@@ -121,7 +92,7 @@ int in_list(list_node * head, int id) {
  * a duplicate.  Will not insert if this
  * is the case.
 */
-void append(list_node * head, int id) {
+list_node * append(list_node * head, int id) {
 
     list_node * new_node = init_node(id);
     if (!new_node) {
@@ -133,11 +104,12 @@ void append(list_node * head, int id) {
     if (!head) {
 
         head = new_node;
+        return head;
 
     }
     else if (in_list(head, id) == 1) {
 
-        return; // no duplicates allowed.
+        return head; // no duplicates allowed.
 
     }
     else {
@@ -149,6 +121,7 @@ void append(list_node * head, int id) {
 
         }
         temp->next = new_node;
+        return head;
 
     }
 
@@ -163,6 +136,7 @@ void append(list_node * head, int id) {
 */
 void print(list_node * head) {
 
+    printf("test: %d ", head->ID);
     list_node * temp = head;
     while(temp) {
 
@@ -170,7 +144,6 @@ void print(list_node * head) {
         temp = temp->next;
 
     }
-
     puts("");
 
 }
@@ -181,15 +154,14 @@ void print(list_node * head) {
  * This function empties the list (master)
  * by deleting all elements.
 */
-void clear(master_node * master) {
+void clear(list_node * head) {
 
-    list_node * temp = master->head;
+    list_node * temp = head;
     while(temp) {
 
-        master->head = temp->next;
+        head = temp->next;
         free(temp);
-        master->count--;
-        temp = master->head;
+        temp = head;
 
     }
 
