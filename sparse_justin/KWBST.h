@@ -25,10 +25,10 @@ typedef struct keyword_node {
     char keyword[100];
 
     // List to all papers this is referenced
-    master_node * master;
+    master_node * MASTER;
 
     // These are the pointers for navigation.
-    struct keyword_node * left, * right, * parent;
+    struct keyword_node * left, * right;
 
 } keyword_node;
 
@@ -44,7 +44,6 @@ keyword_node * init_kwnode(char * word) {
     strcpy(new_node->keyword, word);
     new_node->left = NULL;
     new_node->right = NULL;
-    new_node->parent = NULL;
 
     return new_node;
 
@@ -63,23 +62,22 @@ keyword_node * insert(keyword_node * root, char * word) {
 
     }
 
-    /* Otherwise, recur down the tree */
-    if (strcmp(word, root->keyword) < 0) {
+    // Otherwise, recur down the tree
+    if (strcasecmp(word, root->keyword) < 0) {
 
         root->left = insert(root->left, word);
 
     }
-    else if (strcmp(word, root->keyword) > 0) {
+    else if (strcasecmp(word, root->keyword) > 0) {
 
         root->right = insert(root->right, word);
 
     }
  
-    /* return the (unchanged) node pointer */
+    // return the (unchanged) node pointer
     return root;
 
 }
-
 
 
 /*

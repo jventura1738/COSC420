@@ -8,41 +8,42 @@
 #include "list.h"  // linked list
 #include "KWBST.h" // binary search tree
 
-void init_master(master_node * master) {
-
-    //master = malloc(sizeof(master_node));
-    master->count = 0;
-    master->head = NULL;
-    master->tail = NULL;
-
-}
-
 int main (int argc, char ** argv) {
 
-    master_node MASTER;
-    init_master(&MASTER);
+    keyword_node * ROOT = init_kwnode("hi");
+    char * arr[3] = {"eigenvalue", "inverse", "EIGENVALUE"};
 
     int i;
-    for (i = 0; i < 10; i++) {
+    for (i = 0; i < 6; i++) {
 
-        append(&MASTER, i);
+        puts("ITERATION");
+        keyword_node * test = insert(ROOT, arr[i]);
+        puts("1");
+        if (test->MASTER == NULL) {
 
-    }
+            puts("pre");
+            init_master(test->MASTER);
 
-    print(&MASTER);
-    clear(&MASTER);
-
-    keyword_node * ROOT = init_kwnode("hi");
-    char * arr[5] = {"eigenvalue", "matrix", "dimension", "transpose", "inverse"};
-
-    for (i = 0; i < 5; i++) {
-
-        insert(ROOT, arr[i]);
+        }
+        puts("2");
+        append(test->MASTER, i);
 
     }
 
     in_order(ROOT);
     puts("");
+
+    // master_node MASTER;
+    // init_master(&MASTER);
+
+    // for (i = 0; i < 10; i++) {
+
+    //     append(&MASTER, i);
+
+    // }
+
+    // print(&MASTER);
+    // clear(&MASTER);
 
     return 0;
 }

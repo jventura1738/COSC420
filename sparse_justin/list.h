@@ -44,6 +44,20 @@ typedef struct master_node {
 } master_node;
 
 /*
+ * INIT MASTER NODE.
+ * 
+ * Initializes the master node.
+*/
+void init_master(master_node * master) {
+
+    master = malloc(sizeof(master_node));
+    master->count = 0;
+    master->head = NULL;
+    master->tail = NULL;
+
+}
+
+/*
  * INIT NODE FUNCTION.
  * 
  * Allocates a new node on the heap.
@@ -67,9 +81,9 @@ list_node * init_node(int id) {
  * 
  * NOTE: returns NULL when empty.
 */
-int in_list(master_node * master, int id) {
+int in_list(list_node * head, int id) {
 
-    if (!master->head) {
+    if (!head) {
 
         //puts("Warning[ in_list() ]: list (master) is empty. (NULL)");
         return 0;
@@ -77,7 +91,7 @@ int in_list(master_node * master, int id) {
     }
     else {
 
-        list_node * temp = master->head;
+        list_node * temp = head;
 
         while (temp) {
 
@@ -107,13 +121,7 @@ int in_list(master_node * master, int id) {
  * a duplicate.  Will not insert if this
  * is the case.
 */
-void append(master_node * master, int id) {
-
-    if (in_list(master, id) == 1) {
-
-        return; // no duplicates allowed.
-
-    }
+void append(list_node * head, int id) {
 
     list_node * new_node = init_node(id);
     if (!new_node) {
@@ -122,19 +130,25 @@ void append(master_node * master, int id) {
 
     }
 
-    if (!master->head) {
+    if (!head) {
 
-        master->head = new_node;
-        master->tail = new_node;
-        master->count = 1;
+        head = new_node;
+
+    }
+    else if (in_list(head, id) == 1) {
+
+        return; // no duplicates allowed.
 
     }
     else {
 
-        list_node * temp = master->tail;
-        master->tail = new_node;
+        list_node * temp = head;
+        while(temp->next) {
+
+            temp = temp->next;
+
+        }
         temp->next = new_node;
-        master->count++;
 
     }
 
@@ -147,9 +161,9 @@ void append(master_node * master, int id) {
  * Prints the list (master) from head
  * to tail.  Provides newline.
 */
-void print(master_node * master) {
+void print(list_node * head) {
 
-    list_node * temp = master->head;
+    list_node * temp = head;
     while(temp) {
 
         printf("%d ", temp->ID);
