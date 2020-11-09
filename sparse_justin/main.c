@@ -14,8 +14,8 @@ int main (int argc, char ** argv) {
     ROOT = insert(ROOT, "matrices");
     append(ROOT->MASTER, 0);
 
-    const int SIZE = 10;
-    char * arr[SIZE] = {"eigenvalue", "inverse", "EIGENVALUE", "diagonal", "eigen vector", "INVERSE", "linearly independent", "vector space", "gauss-jordan", "diagonal"};
+    const int SIZE = 7;
+    char * arr[7] = {"eigenvalue", "EIGENVALUE", "eigen vector", "linearly independent", "vector space", "gauss-jordan", "diagonal"};
 
     int i;
     for (i = 1; i <= SIZE; i++) {
