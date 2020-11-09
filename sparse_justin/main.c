@@ -16,12 +16,22 @@ int main (int argc, char ** argv) {
     int i;
     for (i = 0; i < 3; i++) {
 
-        // puts("ITERATION");
+        puts("ITERATION");
         insert(ROOT, arr[i]);
-        // puts("inserting");
+        puts("inserting");
         keyword_node * test = find(ROOT, arr[i]);
-        test->head = append(test->head, i);
-        // printf("->%d to %s\n", test->head->ID, test->keyword);
+        if (!test->MASTER) {
+
+            test->MASTER = init_master();
+
+        }
+        puts("before");
+        append(test->MASTER, i);
+        puts("after");
+        printf("ID: %d \n", test->MASTER->tail->ID);
+        printf("kw: %s", test->keyword);
+        printf("kw: %s, ID: %d \n", test->keyword, test->MASTER->tail->ID);
+        printf("->%d to %s\n", test->MASTER->head->ID, test->keyword);
 
     }
 

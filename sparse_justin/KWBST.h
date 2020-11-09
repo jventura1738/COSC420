@@ -25,27 +25,12 @@ typedef struct keyword_node {
     char keyword[100];
 
     // List to all papers this is referenced
-    list_node * head;
-    list_node * tail;
+    master_node * MASTER;
 
     // These are the pointers for navigation.
     struct keyword_node * left, * right;
 
 } keyword_node;
-
-/*
- * <----- BINARY SEARCH TREE -----> 
- * 
- * This keeps track of the tree, specifically
- * the root.
-*/
-// typedef struct BST {
-
-//     // Pointer to the root of the tree.
-//     keyword_node * root;
-
-// } BST;
-
 
 /*
  * INIT NODE FUNCTION.
@@ -153,7 +138,7 @@ void in_order(keyword_node * root) {
 
         in_order(root->left);
         printf("%s ", root->keyword);
-        print(root->head);
+        print(root->MASTER);
         in_order(root->right);
 
     }

@@ -45,6 +45,21 @@ typedef struct master_node {
 
 
 /*
+ *
+ * 
+*/
+master_node * init_master() {
+
+    master_node * master = (master_node*) malloc(sizeof(master_node));
+    master->head = NULL;
+    master->tail = NULL;
+    master->node_count = 0;
+
+    return master;
+
+}
+
+/*
  * INIT NODE FUNCTION.
  * 
  * Allocates a new node on the heap.
@@ -122,6 +137,8 @@ void append(master_node * master, int id) {
     if (!master->head) {
 
         master->head = new_node;
+        master->tail = new_node;
+        printf("id: %d \n", master->head->ID);
         return;
 
     }
@@ -132,15 +149,10 @@ void append(master_node * master, int id) {
     }
     else {
 
-        list_node * temp = master->head;
-
-        while(temp->next) {
-
-            temp = temp->next;
-
-        }
-
+        list_node * temp = master->tail;
+        master->tail = new_node;
         temp->next = new_node;
+        master->count++;
 
     }
 
