@@ -24,7 +24,8 @@ typedef struct keyword_node {
     // Assume 100 for now.
     char keyword[100];
 
-    // List to all papers this is referenced
+    // Pointer to the list of all paper IDs
+    // associated with this keyword.
     master_node * MASTER;
 
     // These are the pointers for navigation.
@@ -41,6 +42,9 @@ keyword_node * init_kwnode(char * word) {
 
     keyword_node * new_node = (keyword_node*) malloc(sizeof(keyword_node));
     strcpy(new_node->keyword, word);
+
+    new_node->MASTER = init_master();
+
     new_node->left = NULL;
     new_node->right = NULL;
 
@@ -157,6 +161,20 @@ void post_order(keyword_node * root) {
         post_order(root->left);
         post_order(root->right);
         printf("%s ", root->keyword);
+
+    }
+
+}
+
+void clear_tree(keyword_node * tree) {
+
+    if (tree) {
+
+        clear_tree(tree->left);
+        clear_tree(tree->right);
+        clear_list(tree->MASTER);
+        free(tree->MASTER);
+        free(tree);
 
     }
 

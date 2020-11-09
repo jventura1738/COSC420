@@ -45,8 +45,9 @@ typedef struct master_node {
 
 
 /*
- *
+ * INIT MASTER FUNCTION
  * 
+ * Allocates a new master node on the heap.
 */
 master_node * init_master() {
 
@@ -138,7 +139,6 @@ void append(master_node * master, int id) {
 
         master->head = new_node;
         master->tail = new_node;
-        printf("id: %d \n", master->head->ID);
         return;
 
     }
@@ -152,7 +152,7 @@ void append(master_node * master, int id) {
         list_node * temp = master->tail;
         master->tail = new_node;
         temp->next = new_node;
-        master->count++;
+        master->node_count++;
 
     }
 
@@ -180,13 +180,14 @@ void print(master_node * master) {
 
 }
 
+
 /*
  * CLEAR LIST FUNCTION.
  * 
  * This function empties the list (master)
  * by deleting all elements.
 */
-void clear(master_node * master) {
+void clear_list(master_node * master) {
 
     list_node * temp = master->head;
 

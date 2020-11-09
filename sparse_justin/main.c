@@ -10,33 +10,32 @@
 
 int main (int argc, char ** argv) {
 
-    keyword_node * ROOT = init_kwnode("hi");
-    char * arr[3] = {"eigenvalue", "inverse", "EIGENVALUE"};
+    keyword_node * ROOT = NULL;
+    ROOT = insert(ROOT, "matrices");
+    append(ROOT->MASTER, 0);
+
+    const int SIZE = 10;
+    char * arr[SIZE] = {"eigenvalue", "inverse", "EIGENVALUE", "diagonal", "eigen vector", "INVERSE", "linearly independent", "vector space", "gauss-jordan", "diagonal"};
 
     int i;
-    for (i = 0; i < 3; i++) {
+    for (i = 1; i <= SIZE; i++) {
 
-        puts("ITERATION");
-        insert(ROOT, arr[i]);
-        puts("inserting");
-        keyword_node * test = find(ROOT, arr[i]);
-        if (!test->MASTER) {
-
-            test->MASTER = init_master();
-
-        }
-        puts("before");
+        insert(ROOT, arr[i-1]);
+        keyword_node * test = find(ROOT, arr[i-1]);
         append(test->MASTER, i);
-        puts("after");
-        printf("ID: %d \n", test->MASTER->tail->ID);
-        printf("kw: %s", test->keyword);
-        printf("kw: %s, ID: %d \n", test->keyword, test->MASTER->tail->ID);
-        printf("->%d to %s\n", test->MASTER->head->ID, test->keyword);
+        //printf("-> %d to %s\n", test->MASTER->tail->ID, test->keyword);
+
+    }
+
+    if (!ROOT->MASTER->head) {
+
+        puts("BRUHHH");
 
     }
 
     in_order(ROOT);
     puts("");
+    clear_tree(ROOT);
 
     return 0;
 }
