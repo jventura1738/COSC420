@@ -6,7 +6,7 @@
 */
 
 #include "list.h"  // linked list
-#include "KWBST.h" // binary search tree
+#include "KWBST.h" // binary search tree for keywords
 
 int main (int argc, char ** argv) {
 
