@@ -13,8 +13,8 @@
 /*
  * <--------  LIST   NODE  -------->
  * 
- * This acts like a 'linked list' class
- * that keeps track of the a linked list.
+ * This acts like a 'linked list node'
+ * that keeps track of the ID of the word.
 */
 typedef struct list_node {
 
@@ -25,6 +25,23 @@ typedef struct list_node {
     struct list_node * next;
 
 } list_node;
+
+/*
+ * <--------  MASTER NODE  -------->
+ * 
+ * This acts like a 'linked list' class
+ * that keeps track of the a linked list.
+*/
+typedef struct master_node {
+
+    // Pointers to the head and tail of the linked list.
+    list_node * head;
+    list_node * tail;
+
+    // Count of nodes.
+    int node_count;
+
+} master_node; 
 
 
 /*
@@ -52,9 +69,9 @@ list_node * init_node(int id) {
  * 
  * NOTE: returns NULL when empty.
 */
-int in_list(list_node * head, int id) {
+int in_list(master_node * master, int id) {
 
-    if (!head) {
+    if (!master->head) {
 
         //puts("Warning[ in_list() ]: list (master) is empty. (NULL)");
         return 0;
@@ -62,7 +79,7 @@ int in_list(list_node * head, int id) {
     }
     else {
 
-        list_node * temp = head;
+        list_node * temp = master->head;
 
         while (temp) {
 
@@ -82,6 +99,7 @@ int in_list(list_node * head, int id) {
 
 }
 
+
 /*
  * APPEND FUNCTION
  * 
@@ -92,7 +110,7 @@ int in_list(list_node * head, int id) {
  * a duplicate.  Will not insert if this
  * is the case.
 */
-list_node * append(list_node * head, int id) {
+void append(master_node * master, int id) {
 
     list_node * new_node = init_node(id);
     if (!new_node) {
@@ -101,27 +119,28 @@ list_node * append(list_node * head, int id) {
 
     }
 
-    if (!head) {
+    if (!master->head) {
 
-        head = new_node;
-        return head;
+        master->head = new_node;
+        return;
 
     }
-    else if (in_list(head, id) == 1) {
+    else if (in_list(master, id)) {
 
-        return head; // no duplicates allowed.
+        return;
 
     }
     else {
 
-        list_node * temp = head;
+        list_node * temp = master->head;
+
         while(temp->next) {
 
             temp = temp->next;
 
         }
+
         temp->next = new_node;
-        return head;
 
     }
 
@@ -134,16 +153,17 @@ list_node * append(list_node * head, int id) {
  * Prints the list (master) from head
  * to tail.  Provides newline.
 */
-void print(list_node * head) {
+void print(master_node * master) {
 
-    printf("test: %d ", head->ID);
-    list_node * temp = head;
+    list_node * temp = master->head;
+
     while(temp) {
 
         printf("%d ", temp->ID);
         temp = temp->next;
 
     }
+
     puts("");
 
 }
@@ -154,14 +174,15 @@ void print(list_node * head) {
  * This function empties the list (master)
  * by deleting all elements.
 */
-void clear(list_node * head) {
+void clear(master_node * master) {
 
-    list_node * temp = head;
+    list_node * temp = master->head;
+
     while(temp) {
 
-        head = temp->next;
+        master->head = temp->next;
         free(temp);
-        temp = head;
+        temp = master->head;
 
     }
 

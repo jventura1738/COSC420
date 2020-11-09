@@ -16,28 +16,17 @@ int main (int argc, char ** argv) {
     int i;
     for (i = 0; i < 3; i++) {
 
-        puts("ITERATION");
+        // puts("ITERATION");
         insert(ROOT, arr[i]);
-        puts("inserting");
+        // puts("inserting");
         keyword_node * test = find(ROOT, arr[i]);
         test->head = append(test->head, i);
-        printf("->%d \n", test->head->ID);
+        // printf("->%d to %s\n", test->head->ID, test->keyword);
 
     }
 
-    puts("gamer:");
     in_order(ROOT);
     puts("");
-
-    // list_node * head = init_node(0);
-    // for (i = 0; i < 5; i++) {
-
-    //     append(head, i);
-
-    // }
-
-    // print(head);
-    // clear(head);
 
     return 0;
 }

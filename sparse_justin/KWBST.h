@@ -26,11 +26,25 @@ typedef struct keyword_node {
 
     // List to all papers this is referenced
     list_node * head;
+    list_node * tail;
 
     // These are the pointers for navigation.
     struct keyword_node * left, * right;
 
 } keyword_node;
+
+/*
+ * <----- BINARY SEARCH TREE -----> 
+ * 
+ * This keeps track of the tree, specifically
+ * the root.
+*/
+// typedef struct BST {
+
+//     // Pointer to the root of the tree.
+//     keyword_node * root;
+
+// } BST;
 
 
 /*
