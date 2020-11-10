@@ -26,4 +26,4 @@ This repository will include any labs, homeworks, projects, or other material re
 
 ### arXiv Search Engine [Pagerank, HITS]
 
-*This is still in the works*
+*'Ring' aka 'Research Bing.' This is still in the works.*
