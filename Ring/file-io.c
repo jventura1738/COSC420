@@ -1,12 +1,17 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
-typedef struct docnode{
+#include "KWBST.h"
+#include "list.h"
+
+typedef struct docnode {
+
     char id[30];
     char title[300];
     char authors[5000];
     int wordCount;
     char** abstract;
+
 } docnode;
 
 void rw(FILE* fh, FILE* fw, int z, docnode p){
@@ -140,14 +145,32 @@ int main(){
     FILE* fh;
     FILE* fw = fopen("arXiv/StructTest.txt", "w");
     
-    fh = fopen("arXiv/test.txt", "r");
+    fh = fopen("test.txt", "r");
     int c, z;
     z = 0;
     docnode* n;
     n = calloc(1, sizeof(docnode));
     nodeComp(fh,z, n);
-    printN(n);
-    /* while((c = fgetc(fh)) != EOF){
+    fclose(fh);
+    
+    keyword_node * ROOT = NULL;
+
+    int i;
+    for (i = 0; i < 256 && n->abstract[i]; i++) {
+
+        ROOT = insert(ROOT, n->abstract[i]);
+        append(ROOT->MASTER, atoi(n->id));
+
+    }
+
+    in_order(ROOT);
+    puts("");
+    clear_tree(ROOT);
+    
+    return 0;
+}
+
+/* while((c = fgetc(fh)) != EOF){
         printf("z = %d\n", z);
         rw(fh, fw, z);
         z++;
@@ -156,6 +179,3 @@ int main(){
         }
         
     } */
-    fclose(fh);
-    return 0;
-}
