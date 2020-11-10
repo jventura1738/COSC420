@@ -165,6 +165,16 @@ int main(){
     puts("");
     clear_tree(ROOT);
     
+
+    for (i = 0; i < 256 && n->abstract[i]; i++) {
+
+        free(n->abstract[i]);
+
+    }
+
+    free(n->abstract);
+    free(n);
+
     return 0;
 }
 
