@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include<ctype.h>
 typedef struct docnode{
     char id[30];
     char title[300];
@@ -102,7 +103,7 @@ void nodeComp(FILE* fh, int z, docnode* p){
     for(i=0;i<=(strlen(bigString));i++)
     {
         // if space or NULL found, assign NULL into newString[ctr]
-        if(bigString[i]==' '|| bigString[i]=='\0')
+        if(bigString[i]==' '|| bigString[i]=='\0' || isalpha(bigString[i]) == 0)
         {
             newString[ctr][j]='\0';
             ctr++;  //for next word
