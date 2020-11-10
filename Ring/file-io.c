@@ -2,6 +2,7 @@
 #include<stdlib.h>
 #include<string.h>
 #include<ctype.h>
+#include "KWBST.h"
 typedef struct docnode{
     char id[30];
     char title[300];
