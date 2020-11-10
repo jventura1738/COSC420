@@ -1,7 +1,10 @@
 // Justin Ventura & Blaine Mason
 // COSC420 Lab 3: matrix.c
 
-#include"matrix.h"
+#include "matrix.h"
+
+#define MAX(a, b) (((a) > (b)) ? a : (b))
+#define MIN(a, b) (((a) < (b)) ? a : (b))
 
 //Creates a random rxc matrix 
 void initRandMatrix(matrix *A, int rows, int cols) {
@@ -163,6 +166,12 @@ double * addMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRa
   // Gather the results, and store them into C to return.
   MPI_Gatherv(localSoln, blockSize, MPI_DOUBLE, C, sendcts, displcmts, MPI_DOUBLE, 0, world);
 
+  free(sendcts);
+  free(displcmts);
+  free(localA);
+  free(localB);
+  free(localSoln);
+
   return C;
 
 }
@@ -186,6 +195,7 @@ double * subtractMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int
   // Variables
   int i;
   int len = A->rows * A->cols;
+
   int blockSize = (len) / worldSize;
   int *sendcts = (int*) malloc(worldSize*sizeof(int));
   int *displcmts = (int*) malloc(worldSize*sizeof(int));
@@ -208,6 +218,7 @@ double * subtractMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int
   double* localB = malloc(len*sizeof(double));
   double* localSoln = malloc(len*sizeof(double));
 
+
   // Scatter the blocks across the nodes.
   MPI_Scatterv(
       A->data, sendcts, displcmts, MPI_DOUBLE, // send info
@@ -227,6 +238,12 @@ double * subtractMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int
 
   // Gather the results, combine then return as C.
   MPI_Gatherv(localSoln, blockSize, MPI_DOUBLE, C, sendcts, displcmts, MPI_DOUBLE, 0, world);
+
+  free(sendcts);
+  free(displcmts);
+  free(localA);
+  free(localB);
+  free(localSoln);
 
   return C;
 
@@ -326,6 +343,10 @@ double * multiplyMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int
 
   }
 
+  free(Bt.data);
+  free(row_vect.data);
+  free(col_vect.data);
+
   // Finally :)
   return final;
 
@@ -390,6 +411,8 @@ double innerProduct(matrix* A, matrix *B, MPI_Comm world, int worldSize, int myR
   MPI_Reduce(&Final, &sum, 1, MPI_DOUBLE, MPI_SUM, 0, world);
   free(localA);
   free(localB);
+  free(sendcts);
+  free(displcmts);
   // Return the inner product :)
   return sum;
 }
@@ -565,4 +588,220 @@ double * gauss_jordan(matrix* A, matrix *b, MPI_Comm world, int worldSize, int m
   }
 
   return cb->data;
+}
+
+
+double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank) {
+
+  if(!v->data) {
+
+    printf("No vector to normalize buddy.\n");
+    return NULL;
+
+  }
+
+  /* Step 1: get the Euclidean Norm. */
+  
+  int terms = MAX(v->cols, v->rows);
+  int nodes = MIN(terms, worldSize);
+
+  // int y;
+
+  // if (myRank == 0) {
+
+  //   puts("x:");
+  //   for (y = 0; y < terms; y++) {
+
+  //     printf("%f ", v->data[y]);
+
+  //   }
+
+  //   puts("");
+
+  // }
+
+  double * normalized_v = (double*) malloc(sizeof(double) * terms);
+
+  int * sndcts = (int*) malloc(worldSize*sizeof(int));
+  int * displs = (int*) malloc(worldSize*sizeof(int));
+
+  int n;
+  for (n = 0; n < worldSize; n++) {
+
+    if (n > nodes) {
+
+      sndcts[n] = 1;
+      displs[n] = n-1;
+
+    }
+    else {
+
+      sndcts[n] = 0;
+      displs[n] = 0;
+
+    }
+
+  }
+
+  n = 0;
+  while (n < terms) {
+
+    sndcts[n % nodes] += 1;
+    n += 1;
+
+  }
+  displs[0] = 0;
+  int displacement = 0;
+  for (n = 1; n < nodes; n++) {
+
+    displacement += sndcts[n-1];
+    displs[n] += displacement;
+
+  }
+
+  MPI_Bcast(v->data, terms, MPI_DOUBLE, 0, world);
+
+  double local_sum = 0;
+  if (myRank < nodes) {
+
+    for (n = displs[myRank]; n < displs[myRank] + sndcts[myRank]; n++) {
+
+      local_sum += v->data[n] * v->data[n];
+
+    }
+
+  }
+
+  double final = 0.0;
+  MPI_Reduce(&local_sum, &final, 1, MPI_DOUBLE, MPI_SUM, 0, world);
+
+  if (myRank == 0) {
+
+    final = sqrtf(final);
+
+  }
+
+  /* Step 2: Normalize v by dividing each entry of v by the L2Norm(v). */
+
+  MPI_Bcast(&final, 1, MPI_DOUBLE, 0, world);
+
+  double * local_v = (double*) malloc(sizeof(double) * sndcts[myRank]);
+  MPI_Scatterv(normalized_v, sndcts, displs, MPI_DOUBLE, local_v, sndcts[myRank], MPI_DOUBLE, 0, world);
+
+  if (myRank < nodes) {
+
+    for (n = 0; n < sndcts[myRank]; n++) {
+
+      local_v[n] = v->data[displs[myRank] + n] / final;
+    
+    }
+
+  }
+
+  MPI_Barrier(world);
+  MPI_Gatherv(local_v, sndcts[myRank], MPI_DOUBLE, normalized_v, sndcts, displs, MPI_DOUBLE, 0, world);
+
+  free(sndcts);
+  free(displs);
+
+  return normalized_v;
+
+}
+
+
+// Pass in DIM to match the matrix in in the file.
+double * eigen_vector_file(int DIM, MPI_Comm world, int worldSize, int myRank) {
+
+  MPI_File fh;
+  matrix A;
+  initMatrix(&A, DIM, DIM);
+  int * send_cnts = malloc(sizeof(int) * worldSize);
+  int * disp_cnts = malloc(sizeof(int) * worldSize);
+  int i, disp = 0;
+
+  for (i = 0; i < worldSize; i++) {
+    send_cnts[i] = (DIM * DIM)/worldSize;
+    disp_cnts[i] = disp;
+    disp += (DIM * DIM)/worldSize;
+  }
+  if ((DIM * DIM) % worldSize > 0) {
+    send_cnts[worldSize-1] += (DIM*DIM) % worldSize; 
+  }
+
+  double * local_m = malloc(sizeof(double) * send_cnts[myRank]); 
+  
+  MPI_Offset offset = myRank * sizeof(double) * send_cnts[myRank];
+  // hexdump -v -e '5/4 "%3d"' -e '"\n"'  datafile
+  MPI_File_open(world, "outfile",
+      MPI_MODE_RDONLY, MPI_INFO_NULL, &fh);
+
+  MPI_File_read_at(fh, offset, local_m, send_cnts[myRank], MPI_DOUBLE, MPI_STATUS_IGNORE);
+  //MPI_Scatterv(temp.data, send_cnts, disp_cnts, MPI_DOUBLE, local_m, send_cnts[myRank], MPI_DOUBLE, 0, world);
+  MPI_File_close(&fh);
+
+  MPI_Gatherv(local_m, send_cnts[myRank], MPI_DOUBLE, A.data, send_cnts, disp_cnts, MPI_DOUBLE, 0, world);
+
+  free(send_cnts);
+  free(disp_cnts);
+  free(local_m);
+  MPI_Barrier(world);
+
+  matrix v;
+  v.data = malloc(sizeof(double) * DIM);
+  v.rows = DIM;
+  v.cols = 1;
+
+  int z, count = 0;
+  int LIMIT = 1;
+  int success = 0;
+  for (z = 0; z < DIM; z++) {
+    
+    v.data[z] = 1;
+
+  }
+
+  while ((count < LIMIT) && !success) {
+
+    matrix temp;
+    temp.rows = v.rows;
+    temp.cols = v.cols;
+    temp.data = v.data;
+
+    v.data = multiplyMatrix(&A, &v, world, worldSize, myRank);
+    double * new_v = normalize(&v, world, worldSize, myRank);
+    v.data = new_v;
+    MPI_Bcast(v.data, DIM, MPI_DOUBLE, 0, world);
+
+    double * test = malloc(sizeof(double) * DIM);
+    int i, sum = 0, sum2;
+
+    for (i = 0; i < DIM; i++) {
+
+      test[i] = temp.data[i] - v.data[i];
+
+    } 
+    
+    MPI_Bcast(test, DIM, MPI_DOUBLE, 0, world);
+
+    for (i = 0; i < DIM; i++) {
+
+      sum += test[i];
+      sum2 += temp.data[i];
+
+    }
+
+    if (sum2 - sum <= 0.000001 || sum2 - sum >= -0.000001) {
+      
+      success = 1;
+
+    }
+
+    free(test);
+
+    count++;
+    
+  }
+
+  return v.data;
+
 }

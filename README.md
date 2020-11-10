@@ -23,3 +23,7 @@ This repository will include any labs, homeworks, projects, or other material re
 ### Project Euler: 3 problems
 
 *Please see the Project_Euler directory.  We solved 3 problems in parallel: #145, 211, and 433.*
+
+### arXiv Search Engine [Pagerank, HITS]
+
+*'Ring' aka 'Research Bing.' This is still in the works.*
