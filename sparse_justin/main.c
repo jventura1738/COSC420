@@ -27,12 +27,6 @@ int main (int argc, char ** argv) {
 
     }
 
-    if (!ROOT->MASTER->head) {
-
-        puts("BRUHHH");
-
-    }
-
     in_order(ROOT);
     puts("");
     clear_tree(ROOT);

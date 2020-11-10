@@ -33,7 +33,6 @@ typedef struct keyword_node {
 
 } keyword_node;
 
-
 /*
  * INIT NODE FUNCTION.
  * 
@@ -52,7 +51,6 @@ keyword_node * init_kwnode(char * word) {
     return new_node;
 
 }
-
 
 /*
  * INSERT NODE FUNCTION
@@ -83,7 +81,6 @@ keyword_node * insert(keyword_node * root, char * word) {
     return root;
 
 }
-
 
 /*
  * BST SEARCH FUNCTION.
@@ -134,7 +131,6 @@ void pre_order(keyword_node * root) {
 
 }
 
-
 /*
  * IN-ORDER PRINT.
  * 
@@ -152,7 +148,6 @@ void in_order(keyword_node * root) {
     }
 
 }
-
 
 /*
  * POST-ORDER PRINT.
