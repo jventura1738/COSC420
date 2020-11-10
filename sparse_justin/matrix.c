@@ -101,6 +101,51 @@ void printMatrix(matrix *A) {
 
 }
 
+
+
+/*
+ * LOAD ADJACENCY MATRIX FROM FILE
+ *
+ * Given a file name, uses the file to create an
+ * adjacency matrix.  Assumes the matrix A is
+ * already initialized.
+*/
+void file_load_adj(char* filename, int num_papers, matrix * A) {
+
+  FILE * fh = fopen("test.txt", "r");
+  if (!fh) {
+
+    exit(EXIT_FAILURE);
+
+  }
+  else {
+
+    char * line = NULL;
+    int len = 0;
+    int read;
+
+    while ((read = getline(&line, &len, fp)) != -1) {
+
+      printf("Retrieved line of length %zu:\n", read);
+      printf("%s", line);
+
+    }
+
+    fclose(fh);
+
+    if (line) {
+
+      free(line);
+
+    }
+
+  }
+
+}
+
+
+
+
 /*
  * Matrix Addition Method.
  * 

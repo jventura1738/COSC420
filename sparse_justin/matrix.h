@@ -31,6 +31,7 @@ void copyMatrix(matrix *A, matrix *B);
 void initMatrix(matrix *A, int rows, int cols);
 void initIMatrix(matrix *A, int rows, int cols);
 void printMatrix(matrix *A);
+void file_load_adj(char* filename, int num_papers, matrix * A);
 
 /* 
  * Matrix operations:
