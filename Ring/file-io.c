@@ -3,7 +3,6 @@
 #include<string.h>
 #include<ctype.h>
 #include "KWBST.h"
-#include "wlist.h"
 typedef struct docnode{
     char id[30];
     char title[300];
@@ -86,7 +85,7 @@ void nodeComp(FILE* fh, int z, docnode* p){
         fgets(buffer, sizeof buffer, fh);
         strcpy(p->authors, buffer);
         fgets(buffer, sizeof buffer, fh);
-        p->wordCount = atof(buffer);
+        p->wordCount = atoi(buffer);
     }else{
         fgets(buffer, sizeof buffer, fh);
         fgets(buffer, sizeof buffer, fh);
@@ -96,17 +95,17 @@ void nodeComp(FILE* fh, int z, docnode* p){
         fgets(buffer, sizeof buffer, fh);
         strcpy(p->authors, buffer);
         fgets(buffer, sizeof buffer, fh);
-        p->wordCount = atof(buffer);
+        p->wordCount = atoi(buffer);
     }
 
     char newString[p->wordCount][256];
     fgets(bigString, sizeof bigString, fh);
-
+    printf("%s ",  bigString);
     j=0; ctr=0;
     for(i=0;i<=(strlen(bigString));i++)
     {
         // if space or NULL found, assign NULL into newString[ctr]
-        if(bigString[i]==' '|| bigString[i]=='\0' || isalpha(bigString[i]) == 0)
+        if(bigString[i]==' ' || bigString[i]=='\0' || !((bigString[i] >= 'a' && bigString[i] <= 'z') || (bigString[i] >= 'A' && bigString[i] <= 'Z')))
         {
             newString[ctr][j]='\0';
             ctr++;  //for next word
@@ -119,7 +118,7 @@ void nodeComp(FILE* fh, int z, docnode* p){
         }
     }
     //puts("");
-    //printf("Strings or words after split by space are :\n");
+
     p->abstract = malloc(p->wordCount*256);
     for(j = 0; j < ctr; j++){
         p->abstract[j] = (char*)malloc(256);
@@ -135,75 +134,48 @@ void printN(docnode* p){
     printf("%s", p->authors);
     printf("%d\n", p->wordCount);
     int i;
-    for(i=0;i < 256 && p->abstract[i];i++){
+    for(i=0; i < 256*p->wordCount && p->abstract[i]; i++){
         printf(" %s ", p->abstract[i]);
     }
     puts("");
 }
-void writeWords(FILE* fh, FILE* fw, int z){
-    docnode* n = NULL;
+int main(){
+    FILE* fh;
+    FILE* fw = fopen("arXiv/StructTest.txt", "w");
+    
+    fh = fopen("arXiv/test.txt", "r");
+    int c, z;
+    z = 0;
+    docnode* n;
     n = calloc(1, sizeof(docnode));
     nodeComp(fh,z, n);
     printN(n);
-
+    fclose(fh);
+    
     keyword_node * ROOT = NULL;
 
-    printf("%s\n", n->id);
-    // //printf("%f\n", atof(n->id));
-
     int i;
-    // int count = 0;
-    // for (i = 0; i < 256 && n->abstract[i]; i++) {
-    //     ROOT = insert(ROOT, n->abstract[i]);
-    //     append(ROOT->MASTER, atof(n->id));
-    //     count++;
-    // }
-    
-    // //in_order(ROOT);
-    // //puts("");
-    // clear_tree(ROOT);
-    //printN(n);
-    
-    wmaster_node* master = winit_master();
-    for(i = 0; i < 256; i++){
-        if(n->abstract[i][0] ==' '|| n->abstract[i][0] =='\0' || isalpha(n->abstract[i][0]) == 0){
-            continue;
-        }
-        wappend(master, n->abstract[i]);
-        fprintf(fw, "%s\n", n->abstract[i]);
-        printf("%s\n", n->abstract[i]);
+    for (i = 0; i < 256*n->wordCount && n->abstract[i]; i++) {
+
+        ROOT = insert(ROOT, n->abstract[i]);
+        append(ROOT->MASTER, atoi(n->id));
+
     }
-    //wprint(master);
-    free(master);
-    for (i = 0; i < 256; i++) {
+
+    in_order(ROOT, fw);
+    puts("");
+    clear_tree(ROOT);
+    
+
+    for (i = 0; i < 256*n->wordCount && n->abstract[i]; i++) {
 
         free(n->abstract[i]);
 
     }
 
-    //free(n->abstract);
-    //free(n);
-}
-int main(){
-    FILE* fh;
-    FILE* fw = fopen("arXiv/StructTest.txt", "w");
-    //NEED TO MAKE FILE FOR WRITING
-    fh = fopen("arXiv/Alphabetized.txt", "r");
-    int c, z;
-    z = 0;
-    //writeWords(fh, fw, z);
-    //z++;
-    //writeWords(fh, fw, z);
-    while((c = fgetc(fh)) != EOF){
-        printf("z = %d\n", z);
-        writeWords(fh, fw, z);
-        z++;
-        if(feof(fh)){
-            break;
-        }
-    
-    }
-    
+    free(n->abstract);
+    free(n);
+
     return 0;
 }
 
