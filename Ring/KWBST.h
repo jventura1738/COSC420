@@ -140,14 +140,15 @@ void pre_order(keyword_node * root) {
  * 
  * Print in in-order (LNR).
 */
-void in_order(keyword_node * root) {
+void in_order(keyword_node * root, FILE* fw) {
 
     if (root) {
 
-        in_order(root->left);
+        in_order(root->left, fw);
         printf("%s ", root->keyword);
+        fprintf(fw, "%s\n", root->keyword);
         print(root->MASTER);
-        in_order(root->right);
+        in_order(root->right, fw);
 
     }
 
