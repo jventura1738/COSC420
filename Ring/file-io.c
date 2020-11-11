@@ -3,6 +3,7 @@
 #include<string.h>
 #include<ctype.h>
 #include "KWBST.h"
+#include "wlist.h"
 typedef struct docnode{
     char id[30];
     char title[300];
@@ -85,7 +86,7 @@ void nodeComp(FILE* fh, int z, docnode* p){
         fgets(buffer, sizeof buffer, fh);
         strcpy(p->authors, buffer);
         fgets(buffer, sizeof buffer, fh);
-        p->wordCount = atoi(buffer);
+        p->wordCount = atof(buffer);
     }else{
         fgets(buffer, sizeof buffer, fh);
         fgets(buffer, sizeof buffer, fh);
@@ -95,7 +96,7 @@ void nodeComp(FILE* fh, int z, docnode* p){
         fgets(buffer, sizeof buffer, fh);
         strcpy(p->authors, buffer);
         fgets(buffer, sizeof buffer, fh);
-        p->wordCount = atoi(buffer);
+        p->wordCount = atof(buffer);
     }
 
     char newString[p->wordCount][256];
@@ -139,42 +140,70 @@ void printN(docnode* p){
     }
     puts("");
 }
-int main(){
-    FILE* fh;
-    FILE* fw = fopen("arXiv/StructTest.txt", "w");
-    
-    fh = fopen("test.txt", "r");
-    int c, z;
-    z = 0;
-    docnode* n;
+void writeWords(FILE* fh, FILE* fw, int z){
+    docnode* n = NULL;
     n = calloc(1, sizeof(docnode));
     nodeComp(fh,z, n);
-    fclose(fh);
-    
+    printN(n);
+
     keyword_node * ROOT = NULL;
 
+    printf("%s\n", n->id);
+    // //printf("%f\n", atof(n->id));
+
     int i;
-    for (i = 0; i < 256 && n->abstract[i]; i++) {
-
-        ROOT = insert(ROOT, n->abstract[i]);
-        append(ROOT->MASTER, atoi(n->id));
-
-    }
-
-    in_order(ROOT);
-    puts("");
-    clear_tree(ROOT);
+    // int count = 0;
+    // for (i = 0; i < 256 && n->abstract[i]; i++) {
+    //     ROOT = insert(ROOT, n->abstract[i]);
+    //     append(ROOT->MASTER, atof(n->id));
+    //     count++;
+    // }
     
-
-    for (i = 0; i < 256 && n->abstract[i]; i++) {
+    // //in_order(ROOT);
+    // //puts("");
+    // clear_tree(ROOT);
+    //printN(n);
+    
+    wmaster_node* master = winit_master();
+    for(i = 0; i < 256; i++){
+        if(n->abstract[i][0] ==' '|| n->abstract[i][0] =='\0' || isalpha(n->abstract[i][0]) == 0){
+            continue;
+        }
+        wappend(master, n->abstract[i]);
+        fprintf(fw, "%s\n", n->abstract[i]);
+        printf("%s\n", n->abstract[i]);
+    }
+    //wprint(master);
+    free(master);
+    for (i = 0; i < 256; i++) {
 
         free(n->abstract[i]);
 
     }
 
-    free(n->abstract);
-    free(n);
-
+    //free(n->abstract);
+    //free(n);
+}
+int main(){
+    FILE* fh;
+    FILE* fw = fopen("arXiv/StructTest.txt", "w");
+    //NEED TO MAKE FILE FOR WRITING
+    fh = fopen("arXiv/Alphabetized.txt", "r");
+    int c, z;
+    z = 0;
+    //writeWords(fh, fw, z);
+    //z++;
+    //writeWords(fh, fw, z);
+    while((c = fgetc(fh)) != EOF){
+        printf("z = %d\n", z);
+        writeWords(fh, fw, z);
+        z++;
+        if(feof(fh)){
+            break;
+        }
+    
+    }
+    
     return 0;
 }
 
