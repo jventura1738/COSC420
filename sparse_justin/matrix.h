@@ -8,7 +8,7 @@
 #include<stdlib.h>
 #include<time.h>
 #include<math.h>
-#include<mpi.h>
+//#include<mpi.h>
 
 // NB: the A here needs to be a struct, not a pointer!
 #define INDEX(A,i,j) A->cols*i + j
@@ -62,13 +62,13 @@ void file_load_adj(char* filename, int num_papers, matrix * A);
  *      where a modified b will be the inverse.
 */
 
-matrix transpose(matrix *A);
-double * addMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank);  
-double * subtractMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank);
-double * multiplyMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank);
-double innerProduct(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank);
-double * gauss_jordan(matrix *A, matrix *b, MPI_Comm world, int worldSize, int myRank);
-double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank);
-double * eigen_vector_file(int DIM, MPI_Comm world, int worldSize, int myRank);
+// matrix transpose(matrix *A);
+// double * addMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank);  
+// double * subtractMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank);
+// double * multiplyMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank);
+// double innerProduct(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank);
+// double * gauss_jordan(matrix *A, matrix *b, MPI_Comm world, int worldSize, int myRank);
+// double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank);
+// double * eigen_vector_file(int DIM, MPI_Comm world, int worldSize, int myRank);
 
 #endif
