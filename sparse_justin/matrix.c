@@ -2,6 +2,7 @@
 // COSC420 Lab 3: matrix.c
 
 #include "matrix.h"
+#include <string.h>
 
 #define MAX(a, b) (((a) > (b)) ? a : (b))
 #define MIN(a, b) (((a) < (b)) ? a : (b))
@@ -112,44 +113,156 @@ void printMatrix(matrix *A) {
 */
 void file_load_adj(char* filename, int num_papers, matrix * A) {
 
-  FILE * fh = fopen("test.txt", "r");
+  FILE * fh = fopen(filename, "r");
   if (!fh) {
 
+    puts("[file err] Nice try noob LOOOOOL");
+    exit(EXIT_FAILURE);
+
+  }
+  else if (num_papers != A->rows || A->rows != A->cols) {
+
+    puts("[dim err] Nice try noob LOOOOOL");
     exit(EXIT_FAILURE);
 
   }
   else {
 
-    char * line = NULL;
+    char * line = malloc(20);
+    char * prev = malloc(20);
     size_t len = 0;
     size_t read;
 
-    int z;
-    int arr[num_papers];
-    for (z = 0; z < num_papers; z++) {
+    char * paper_arr[num_papers];
 
-      arr[z] = z;
+    int p_idx = 0;
+
+    while (fgets(line, 20, fh)) {
+
+      int q = 0;
+      while(line[q] != '\n' && line[q] != '\0') {
+
+        q++;
+
+      }
+      
+      if (line[q] == '\n') {
+
+        line[q] = '\0';
+
+      }
+
+      if (p_idx == 0) {
+
+        paper_arr[p_idx] = malloc(q);
+        strcpy(paper_arr[p_idx++], line);
+
+      }
+      
+      if (strcmp(line, "+++++") == 0) {
+
+        fgets(line, 20, fh);
+
+        int q = 0;
+        while(line[q] != '\n' && line[q] != '\0') {
+
+          q++;
+
+        }
+      
+        if (line[q] == '\n') {
+
+          line[q] = '\0';
+
+        }
+        paper_arr[p_idx] = malloc(q);
+        strcpy(paper_arr[p_idx++], line);
+
+      }
 
     }
 
-    int i = 0;
-    int j = 0;
+    int k;
+    for (k = 0; k < num_papers; k++) {
 
-    while ((read = getline(&line, &len, fh)) != -1) {
-
-      // printf("Retrieved line of length %zu:\n", read);
-      printf("%s", line);
+      printf("%s\n", paper_arr[k]);
 
     }
-    puts("");
+
+    puts("phase 2");
 
     fclose(fh);
+    FILE * fh = fopen(filename, "r");
+    p_idx = 0;
 
-    if (line) {
+    int i;
+    int j;
+    int counter = 0;
+    int add = 0; // 0 false, 1 true
+    while (fgets(line, 20, fh)) {
 
-      free(line);
+      int q = 0;
+      while(line[q] != '\n' && line[q] != '\0') {
+
+        q++;
+
+      }
+      
+      if (line[q] == '\n') {
+
+        line[q] = '\0';
+
+      }
+
+      if (counter == 0) {
+
+        i = 0;
+        j = 0;
+
+      }
+      else {
+
+        if (strcmp(prev, "+++++") == 0) {
+
+          for (q = 0; q < num_papers; q++) {
+
+            if (strcmp(paper_arr[q], line) == 0) {
+
+              i = q;
+              break;
+
+            }
+
+          }
+
+        }
+        else if ((strcmp(line, "-----") != 0) && (strcmp(line, "+++++") != 0)) {
+
+          for (q = 0; q < num_papers; q++) {
+
+            if (strcmp(paper_arr[q], line) == 0) {
+
+              j = q;
+              break;
+
+            }
+
+          }
+
+          ACCESS(A, i, j) = 1.0; 
+
+        }
+
+      }
+
+      counter++;
+      strcpy(prev, line);
 
     }
+    
+    fclose(fh);
+    free(line);
+    free(prev);
 
   }
 

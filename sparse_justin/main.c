@@ -9,11 +9,13 @@
 #include "KWBST.h"  // binary search tree for keywords
 #include "matrix.h" // matrix for floats
 
+
 int main (int argc, char ** argv) {
 
     matrix adj;
     int N = 10;
     initMatrix(&adj, N, N);
+
     file_load_adj("test.txt", N, &adj);
     printMatrix(&adj);
     puts("");
