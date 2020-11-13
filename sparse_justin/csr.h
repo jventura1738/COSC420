@@ -103,16 +103,16 @@ void to_csr(matrix * A, csr_matrix * graph) {
  * this will compute the product. This will
  * return a 1 x N vector.
 */
-float * csr_dot(csr_matrix * graph, float * v) {
+void csr_dot(csr_matrix * graph, float * v, float * final) {
 
     int i, j;
-    float * final = (float*) malloc(graph->nvertices * sizeof(float));
+    //float * final = (float*) malloc(graph->nvertices * sizeof(float));
 
     for(i = 0; i < graph->nvertices; i++) {
 
         final[i] = 0;
 
-        for(j = graph->node_offsets[i]; j < graph->node_offsets[i+1]; ++j) {
+        for(j = graph->node_offsets[i]; j < graph->node_offsets[i+1]; j++) {
 
             final[i] += v[graph->source_indices[j]];
 
@@ -120,7 +120,13 @@ float * csr_dot(csr_matrix * graph, float * v) {
 
     }
 
-    return final;
+    int z;
+    for (z = 0; z < graph->nvertices; z++) {
+
+        printf("%f ", final[z]);
+
+    }
+    puts("");
 
 }
 
@@ -140,6 +146,7 @@ void print_csr(csr_matrix * graph) {
         int low = graph->node_offsets[i];
         int hi = graph->node_offsets[i+1];
         printf("%d -> ", i);
+
         for(j = low; j < hi; j++) {
 
             printf("%d ", graph->source_indices[j]);

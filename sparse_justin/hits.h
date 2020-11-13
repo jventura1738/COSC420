@@ -36,7 +36,7 @@ void get_hub_scores(csr_matrix * graph, float * hubs) {
 
     }
 
-    hubs = csr_dot(graph, v);
+    csr_dot(graph, v, hubs);
 
 }
 
@@ -55,10 +55,9 @@ void get_auth_scores(csr_matrix * graph, float * hubs, float * auths) {
         auths[i] = 0;
 
     }
+    puts("");
 
-    if(graph->nedges == 0) return;
-
-    for(i = 0; i < graph->nvertices; i++){
+    for(i = 0; i < graph->nvertices; i++) {
 
         int low = graph->node_offsets[i];
         int hi = graph->node_offsets[i + 1];
@@ -70,6 +69,8 @@ void get_auth_scores(csr_matrix * graph, float * hubs, float * auths) {
         }
 
     }
+
+    puts("");
 
 }
 

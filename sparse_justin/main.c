@@ -14,34 +14,36 @@
 
 int main (int argc, char ** argv) {
 
-    matrix adj;
+    matrix * adj = (matrix*) malloc(sizeof(matrix));
     int N = 10;
-    initMatrix(&adj, N, N);
+    initMatrix(adj, N, N);
 
-    file_load_adj("test.txt", N, &adj);
-    printMatrix(&adj);
+    file_load_adj("test.txt", N, adj);
+    printMatrix(adj);
     puts("");
 
-    csr_matrix Graph;
+    csr_matrix * Graph = (csr_matrix*) malloc(sizeof(csr_matrix));
     puts("----------------------------");
-    to_csr(&adj, &Graph);
-    test_print(&Graph);
+    to_csr(adj, Graph);
+    test_print(Graph);
     puts("----------------------------");
-    print_csr(&Graph);
+    print_csr(Graph);
 
-    float * hubs = (float*) malloc(Graph.nvertices * sizeof(float));
-    float * auths = (float*) malloc(Graph.nvertices * sizeof(float));
+    float * hubs = (float*) malloc(Graph->nvertices * sizeof(float));
+    float * auths = (float*) malloc(Graph->nvertices * sizeof(float));
 
-    hits_alg(&Graph, hubs, auths);
+    hits_alg(Graph, hubs, auths);
+    puts("");
+
 
     int i;
-    for (i = 0; i < Graph.nvertices; i++) {
+    for (i = 0; i < Graph->nvertices; i++) {
 
         printf("%f ", hubs[i]);
 
     }
-    puts("\n");
-    for (i = 0; i < Graph.nvertices; i++) {
+    puts("");
+    for (i = 0; i < Graph->nvertices; i++) {
 
         printf("%f ", auths[i]);
 
