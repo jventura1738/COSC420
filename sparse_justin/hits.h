@@ -24,10 +24,10 @@
  * since this is not python, and I cannot
  * return lists of arrays.
 */
-void get_hub_scores(csr_matrix * graph, int * v, int * hubs) {
+void get_hub_scores(csr_matrix * graph, float * hubs) {
 
     int i;
-    int * v = (int*) malloc(sizeof(int) * graph->nvertices);
+    float * v = (float*) malloc(sizeof(float) * graph->nvertices);
 
     // making the e vect.
     for(i = 0; i < graph->nvertices; i++) {
@@ -40,14 +40,49 @@ void get_hub_scores(csr_matrix * graph, int * v, int * hubs) {
 
 }
 
+
 /*
  * GET AUTH SCORES FUNCTION
  * 
- * todo tomorrow
+ * Uses the hub scores to come up with the 
+ * auth scores. 
 */
-void get_auth_scores(csr_matrix * graph, int * v, float * auths) {
+void get_auth_scores(csr_matrix * graph, float * hubs, float * auths) {
 
-    puts("TODO");
+    int i, j;
+    for(i = 0; i < graph->nvertices; i++) {
+
+        auths[i] = 0;
+
+    }
+
+    if(graph->nedges == 0) return;
+
+    for(i = 0; i < graph->nvertices; i++){
+
+        int low = graph->node_offsets[i];
+        int hi = graph->node_offsets[i + 1];
+
+        for(j = low; j < hi; j++) {
+
+            auths[graph->source_indices[j]] += hubs[i];
+
+        }
+
+    }
+
+}
+
+
+/*
+ * HYPER-TEXT INDUCED TOPIC SEARCH
+ * 
+ * This is the actual algorithm.
+*/
+void hits_alg(csr_matrix * graph, float * hubs, float * auths) {
+
+    get_hub_scores(graph, hubs);
+    get_auth_scores(graph, hubs, auths);
 
 }
 

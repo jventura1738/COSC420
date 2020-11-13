@@ -8,7 +8,8 @@
 #include "list.h"   // linked list
 #include "KWBST.h"  // binary search tree for keywords
 #include "matrix.h" // matrix for floats
-#include "csr.h"
+#include "csr.h"    // compressed sparse row form
+#include "hits.h"   // hyper-text induced topic search
 
 
 int main (int argc, char ** argv) {
@@ -27,6 +28,25 @@ int main (int argc, char ** argv) {
     test_print(&Graph);
     puts("----------------------------");
     print_csr(&Graph);
+
+    float * hubs = (float*) malloc(Graph.nvertices * sizeof(float));
+    float * auths = (float*) malloc(Graph.nvertices * sizeof(float));
+
+    hits_alg(&Graph, hubs, auths);
+
+    int i;
+    for (i = 0; i < Graph.nvertices; i++) {
+
+        printf("%f ", hubs[i]);
+
+    }
+    puts("\n");
+    for (i = 0; i < Graph.nvertices; i++) {
+
+        printf("%f ", auths[i]);
+
+    }
+    puts("");
 
     puts("thank the lord");
 
