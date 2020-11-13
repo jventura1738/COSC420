@@ -2,6 +2,9 @@
 
 #include "matrix.h"
 
+#ifndef CSR_H
+#define CSR_H
+
 /*
  * COMPRESSED SPARSE ROW MATRIX STRUCT
  * 
@@ -65,7 +68,7 @@ void set_csr(csr_matrix * graph, int * dest, int * source, int nv, int ne) {
 void to_csr(matrix * A, csr_matrix * graph) {
 
     int node[A->rows+1];
-    int source[(A->rows * A->rows) + 1]; // max edges is n*n
+    int source[(A->rows * A->rows) + 1];
     int nv = A->rows;
     int ne = 0;
 
@@ -78,7 +81,7 @@ void to_csr(matrix * A, csr_matrix * graph) {
             int index = INDEX(A,i,j);
             if(A->data[index] != 0) {
 
-                source[ne] = j; //hold index of which connected node
+                source[ne] = j;
                 ne++;
 
             }
@@ -89,6 +92,35 @@ void to_csr(matrix * A, csr_matrix * graph) {
     }
 
     set_csr(graph, node, source, nv, ne);
+
+}
+
+
+/*
+ * SPARSE MATRIX MULTIPLICATION FUNCTION
+ * 
+ * Given a csr_matrix (N x N) and a vector,
+ * this will compute the product. This will
+ * return a 1 x N vector.
+*/
+int * csr_dot(csr_matrix * graph, int * v) {
+
+    int i, j;
+    int * final = (int*) malloc(graph->nvertices * sizeof(int));
+
+    for(i = 0; i < graph->nvertices; i++) {
+
+        final[i] = 0;
+
+        for(j = graph->node_offsets[i]; j < graph->node_offsets[i+1]; ++j) {
+
+            final[i] += v[graph->source_indices[j]];
+
+        }
+
+    }
+
+    return final;
 
 }
 
@@ -105,10 +137,10 @@ void print_csr(csr_matrix * graph) {
     int i, j;
     for(i = 0; i < graph->nvertices; i++) {
 
-        int lowerBound = graph->node_offsets[i];
-        int upperBound = graph->node_offsets[i+1];
+        int low = graph->node_offsets[i];
+        int hi = graph->node_offsets[i+1];
         printf("%d -> ", i);
-        for(j = lowerBound; j < upperBound; j++) {
+        for(j = low; j < hi; j++) {
 
             printf("%d ", graph->source_indices[j]);
 
@@ -137,6 +169,7 @@ void test_print(csr_matrix * graph) {
     }
 
     puts("\n");
+
     for(i = 0; i < graph->nedges; i++) {
 
         printf("%d  ", graph->source_indices[i]);
@@ -159,3 +192,5 @@ void clear_csr(csr_matrix * graph) {
     free(graph->source_indices);
 
 }
+
+#endif

@@ -26,6 +26,7 @@ void initRandMatrix(matrix *A, int rows, int cols) {
   }
 
 }
+
 void copyMatrix(matrix *A, matrix *B) { 
   B->rows = A->rows;
   B->cols = A->cols;
@@ -42,6 +43,7 @@ void copyMatrix(matrix *A, matrix *B) {
   }
   
 }
+
 void initIMatrix(matrix *A, int rows, int cols) {
   
   int i,j;
@@ -64,6 +66,7 @@ void initIMatrix(matrix *A, int rows, int cols) {
   }
   
 }
+
 //Creates a rxc matrix with 0 as the value
 void initMatrix(matrix *A, int rows, int cols) {
   
@@ -267,8 +270,6 @@ void file_load_adj(char* filename, int num_papers, matrix * A) {
   }
 
 }
-
-
 
 
 // /*
