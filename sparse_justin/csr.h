@@ -78,7 +78,7 @@ void to_csr(matrix * A, csr_matrix * graph) {
 
         for(j = 0; j < A->cols; j++) {
 
-            int index = INDEX(A,i,j);
+            int index = INDEX(A, i, j);
             if(A->data[index] != 0) {
 
                 col_ptrs[ne] = j;
@@ -137,7 +137,7 @@ void print_csr(csr_matrix * graph) {
     for(i = 0; i < graph->nvertices; i++) {
 
         int low = graph->source_rows[i];
-        int hi = graph->source_rows[i+1];
+        int hi = graph->source_rows[i + 1];
         printf("%d -> ", i);
 
         for(j = low; j < hi; j++) {
