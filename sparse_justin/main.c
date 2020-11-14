@@ -42,14 +42,14 @@ int main (int argc, char ** argv) {
 
     matrix result;
     double * d = (double*) malloc(sizeof(double) * Graph->nvertices);
-    init_vector(result, d, Graph->nvertices);
+    init_vector(&result, d, Graph->nvertices);
 
-    page_rank(Graph, result);
+    page_rank(Graph, &result);
 
     int z;
     for(z = 0; z < Graph->nvertices; z++) {
 
-        printf("%f ", result->data[z]);
+        //printf("%f ", result.data[z]);
 
     }
     puts("");

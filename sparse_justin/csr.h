@@ -121,14 +121,6 @@ void csr_dot(csr_matrix * graph, double * v, double * final) {
 
     }
 
-    int z;
-    for (z = 0; z < graph->nvertices; z++) {
-
-        printf("%f ", final[z]);
-
-    }
-    puts("");
-
 }
 
 

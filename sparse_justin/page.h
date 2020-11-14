@@ -13,7 +13,7 @@ void page_rank(csr_matrix * graph, matrix * result) {
 
   float vector[n];
   int i, converged = 0;
-  float err = 0.000001;
+  float err = 0.01;
 
   for(i = 0; i < n; i++) {
 
@@ -21,8 +21,8 @@ void page_rank(csr_matrix * graph, matrix * result) {
     result->data[i] = 0.0;
 
   }
-
-  while(converged == 0) {
+  int count = 0;
+  while(count < 10) {
 
     csr_dot(graph, vector, result->data);
 
@@ -54,7 +54,7 @@ void page_rank(csr_matrix * graph, matrix * result) {
 
         converged = 1;
 
-        if (abs(vector[z] - result->data[z]) > err) {
+        if (fabs(vector[z] - result->data[z]) > err) {
 
             converged = 0;
 
@@ -65,9 +65,11 @@ void page_rank(csr_matrix * graph, matrix * result) {
     for(z = 0; z < n; z++) {
 
       vector[i] = result->data[i];
+      printf("%f ", vector[i]);
 
     }
-
+    puts("");
+    count++;
   }
 
 }
