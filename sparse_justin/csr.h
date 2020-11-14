@@ -91,7 +91,7 @@ void to_csr(matrix * A, csr_matrix * graph) {
 
     }
 
-    set_csr(graph, col_ptrs, col_ptrs, nv, ne);
+    set_csr(graph, row_ptrs, col_ptrs, nv, ne);
 
 }
 
