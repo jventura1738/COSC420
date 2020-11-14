@@ -24,7 +24,6 @@ int main (int argc, char ** argv) {
     csr_matrix * Graph;
     matrix hub_vect, auth_vect;
 
-    if (myRank == 0) {
 
         matrix * adj = (matrix*) malloc(sizeof(matrix));
         int N = 10;
@@ -64,9 +63,7 @@ int main (int argc, char ** argv) {
         init_vector(&hub_vect, hubs, 10);
         init_vector(&auth_vect, auths, 10);
 
-    }
-
-    MPI_Bcast(hub_vect.data, Graph->nvertices, MPI_DOUBLE, 0, world);
+    // MPI_Bcast(hub_vect.data, Graph->nvertices, MPI_DOUBLE, 0, world);
     double * norm_hub = normalize(&hub_vect, world, worldSize, myRank);
 
     if (myRank == 0) {
