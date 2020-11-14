@@ -12,12 +12,9 @@ void page_rank(csr_matrix * graph, float * result){
 
   int n = graph->nvertices;
 
-  if(csr.nedges == 0) return;
-
   float vector[n];
   int i;
 
-  //init vectors
   for(i = 0; i < n; i++) {
 
     vector[i] = 1.0;
@@ -27,7 +24,7 @@ void page_rank(csr_matrix * graph, float * result){
 
   while(1) {
 
-    sparsemult_f(csr, vector, result, n);
+    csr_dot(graph, vector, result, n);
 
     float eigenValue = findmax(result, n);
     for(i = 0; i < n; i++) {

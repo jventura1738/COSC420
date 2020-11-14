@@ -148,8 +148,6 @@ void file_load_adj(char* filename, int num_papers, matrix * A) {
 
     char * line = malloc(20);
     char * prev = malloc(20);
-    size_t len = 0;
-    size_t read;
 
     char * paper_arr[num_papers];
 
@@ -213,10 +211,8 @@ void file_load_adj(char* filename, int num_papers, matrix * A) {
     FILE * fh = fopen(filename, "r");
     p_idx = 0;
 
-    int i;
-    int j;
+    int i, j;
     int counter = 0;
-    int add = 0; // 0 false, 1 true
     while (fgets(line, 20, fh)) {
 
       int q = 0;

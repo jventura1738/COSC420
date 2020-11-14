@@ -21,6 +21,7 @@ int main (int argc, char ** argv) {
     MPI_Comm_size(world, &worldSize);
     MPI_Comm_rank(world, &myRank);
 
+    csr_matrix * Graph;
     matrix hub_vect, auth_vect;
 
     if (myRank == 0) {
@@ -33,7 +34,7 @@ int main (int argc, char ** argv) {
         printMatrix(adj);
         puts("");
 
-        csr_matrix * Graph = (csr_matrix*) malloc(sizeof(csr_matrix));
+        Graph = (csr_matrix*) malloc(sizeof(csr_matrix));
         puts("----------------------------");
         to_csr(adj, Graph);
         test_print(Graph);
@@ -65,7 +66,7 @@ int main (int argc, char ** argv) {
 
     }
 
-    MPI_Bcast(hub_vect, Graph->nvertices, MPI_DOUBLE, 0, world);
+    MPI_Bcast(hub_vect->data, Graph->nvertices, MPI_DOUBLE, 0, world);
     double * norm_hub = normalize(&hub_vect, world, worldSize, myRank);
 
     if (myRank == 0) {
