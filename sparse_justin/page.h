@@ -13,7 +13,7 @@ void page_rank(csr_matrix * graph, matrix * result) {
 
   float vector[n];
   int i, converged = 0;
-  float err = 0.01;
+  float err = 0.1;
 
   for(i = 0; i < n; i++) {
 
@@ -23,16 +23,16 @@ void page_rank(csr_matrix * graph, matrix * result) {
   }
 
   int count = 0;
-  while(count < 10) {
+  while(converged == 0) {
 
     csr_dot(graph, vector, result->data);
 
-    for (i = 0; i < n; i++) {
+    // for (i = 0; i < n; i++) {
 
-        printf("%f ", result->data[i]);
+    //     printf("%f ", result->data[i]);
 
-    }
-    puts("");
+    // }
+    // puts("");
 
     float eigen_value = result->data[0];
     for (i = 1; i < n; i++) {
