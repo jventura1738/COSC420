@@ -66,7 +66,7 @@ int main (int argc, char ** argv) {
 
     }
 
-    MPI_Bcast(hub_vect->data, Graph->nvertices, MPI_DOUBLE, 0, world);
+    MPI_Bcast(hub_vect.data, Graph->nvertices, MPI_DOUBLE, 0, world);
     double * norm_hub = normalize(&hub_vect, world, worldSize, myRank);
 
     if (myRank == 0) {
