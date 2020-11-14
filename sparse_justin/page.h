@@ -73,7 +73,7 @@ void page_rank(csr_matrix * graph, matrix * result) {
 
     }
 
-    puts("v / eigen val")
+    puts("v / eigen val");
     for(z = 0; z < n; z++) {
 
       vector[z] = result->data[z];

@@ -67,7 +67,7 @@ void set_csr(csr_matrix * graph, int * row_ptr, int * col_ptr, int nv, int ne) {
 */
 void to_csr(matrix * A, csr_matrix * graph) {
 
-    int col_ptrs[A->rows+1];
+    int row_ptrs[A->rows+1];
     int col_ptrs[(A->rows * A->rows) + 1];
     int nv = A->rows;
     int ne = 0;
