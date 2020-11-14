@@ -7,7 +7,7 @@
 
 #include "list.h"   // linked list
 #include "KWBST.h"  // binary search tree for keywords
-#include "matrix.h" // matrix for floats
+#include "matrix.h" // matrix for doubles
 #include "csr.h"    // compressed sparse row form
 #include "hits.h"   // hyper-text induced topic search
 #include "mpi.h"    // MPI stuff
@@ -40,8 +40,8 @@ int main (int argc, char ** argv) {
         puts("----------------------------");
         print_csr(Graph);
 
-        float * hubs =  (float*) malloc(Graph->nvertices * sizeof(float));
-        floar * auths = (float*) malloc(Graph->nvertices * sizeof(float));
+        double * hubs =  (double*) malloc(Graph->nvertices * sizeof(double));
+        double * auths = (double*) malloc(Graph->nvertices * sizeof(double));
 
         hits_alg(Graph, hubs, auths);
         puts("");
@@ -66,7 +66,7 @@ int main (int argc, char ** argv) {
     }
 
     MPI_Barrier(world);
-    float * norm_hub = normalize(hub_vect, world, worldSize, myRank);
+    double * norm_hub = normalize(hub_vect, world, worldSize, myRank);
 
     if (myRank == 0) {
 
@@ -79,7 +79,7 @@ int main (int argc, char ** argv) {
 
     }
 
-    //float * norm_auth = normalize(auth_vect, world, worldSize, myRank);
+    //double * norm_auth = normalize(auth_vect, world, worldSize, myRank);
 
     puts("thank the lord");
     MPI_Finalize();

@@ -24,10 +24,10 @@
  * since this is not python, and I cannot
  * return lists of arrays.
 */
-void get_hub_scores(csr_matrix * graph, float * hubs) {
+void get_hub_scores(csr_matrix * graph, double * hubs) {
 
     int i;
-    float * v = (float*) malloc(sizeof(float) * graph->nvertices);
+    double * v = (double*) malloc(sizeof(double) * graph->nvertices);
 
     // making the e vect.
     for(i = 0; i < graph->nvertices; i++) {
@@ -47,7 +47,7 @@ void get_hub_scores(csr_matrix * graph, float * hubs) {
  * Uses the hub scores to come up with the 
  * auth scores. 
 */
-void get_auth_scores(csr_matrix * graph, float * hubs, float * auths) {
+void get_auth_scores(csr_matrix * graph, double * hubs, double * auths) {
 
     int i, j;
     for(i = 0; i < graph->nvertices; i++) {
@@ -80,7 +80,7 @@ void get_auth_scores(csr_matrix * graph, float * hubs, float * auths) {
  * 
  * This is the actual algorithm.
 */
-void hits_alg(csr_matrix * graph, float * hubs, float * auths) {
+void hits_alg(csr_matrix * graph, double * hubs, double * auths) {
 
     get_hub_scores(graph, hubs);
     get_auth_scores(graph, hubs, auths);

@@ -26,7 +26,7 @@ typedef struct {
 } matrix;
 
 /* Matrix initializers, copiers, printers. */
-void init_vector(matrix * v, float * data, int N); // N x 1.
+void init_vector(matrix * v, double * data, int N); // N x 1.
 void initRandMatrix(matrix *A, int rows, int cols);
 void copyMatrix(matrix *A, matrix *B);
 void initMatrix(matrix *A, int rows, int cols);

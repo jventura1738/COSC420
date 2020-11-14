@@ -14,7 +14,7 @@
  * This function initializes an N x 1
  * matrix as a vector.
 */
-void init_vector(matrix * v, float * vect, int N) {
+void init_vector(matrix * v, double * vect, int N) {
 
   v->rows = N;
   v->cols = 1;
@@ -777,6 +777,12 @@ double * gauss_jordan(matrix* A, matrix *b, MPI_Comm world, int worldSize, int m
 }
 
 
+/*
+ * VECTOR NORMALIZE FUNCTION
+ * 
+ * This function takes a vector and normalizes
+ * it to become a unit vector (length = 1).
+*/
 double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank) {
 
   if(!v->data) {
