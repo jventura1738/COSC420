@@ -59,12 +59,12 @@ void get_auth_scores(csr_matrix * graph, double * hubs, double * auths) {
 
     for(i = 0; i < graph->nvertices; i++) {
 
-        int low = graph->node_offsets[i];
-        int hi = graph->node_offsets[i + 1];
+        int low = graph->source_rows[i];
+        int hi = graph->source_rows[i + 1];
 
         for(j = low; j < hi; j++) {
 
-            auths[graph->source_indices[j]] += hubs[i];
+            auths[graph->source_cols[j]] += hubs[i];
 
         }
 

@@ -17,10 +17,10 @@
 typedef struct compressed_sparse_row {
 
     // Offsets for each "node."
-    int * node_offsets;
+    int * source_rows;
 
     // The actual matrix data.
-    int * source_indices;
+    int * source_cols;
 
     // This keeps track of |E|, |V|.
     int nvertices;
@@ -35,23 +35,23 @@ typedef struct compressed_sparse_row {
  * Allocates heap memory for the provided
  * csr_matrix.
 */
-void set_csr(csr_matrix * graph, int * dest, int * source, int nv, int ne) {
+void set_csr(csr_matrix * graph, int * row_ptr, int * col_ptr, int nv, int ne) {
 
     graph->nvertices = nv;
     graph->nedges = ne;
-    graph->node_offsets = (int*) malloc((graph->nvertices + 1) * sizeof(int));
-    graph->source_indices = (int*) malloc((graph->nedges + 1) * sizeof(int));
+    graph->source_rows = (int*) malloc((graph->nvertices + 1) * sizeof(int));
+    graph->source_cols = (int*) malloc((graph->nedges + 1) * sizeof(int));
 
     int i;
     for(i = 0; i < nv + 1; i++) {
 
-        graph->node_offsets[i] = dest[i];
+        graph->source_rows[i] = row_ptr[i];
 
     }
 
     for(i = 0; i < ne; i++) {
 
-        graph->source_indices[i] = source[i];
+        graph->source_cols[i] = col_ptr[i];
 
     }
 
@@ -67,31 +67,31 @@ void set_csr(csr_matrix * graph, int * dest, int * source, int nv, int ne) {
 */
 void to_csr(matrix * A, csr_matrix * graph) {
 
-    int node[A->rows+1];
-    int source[(A->rows * A->rows) + 1];
+    int col_ptrs[A->rows+1];
+    int col_ptrs[(A->rows * A->rows) + 1];
     int nv = A->rows;
     int ne = 0;
 
     int i, j;
-    node[0] = 0;
-    for(i = 0; i < A->rows; i++){
+    col_ptrs[0] = 0;
+    for(i = 0; i < A->rows; i++) {
 
-        for(j = 0; j < A->cols; j++){
+        for(j = 0; j < A->cols; j++) {
 
             int index = INDEX(A,i,j);
             if(A->data[index] != 0) {
 
-                source[ne] = j;
+                col_ptrs[ne] = j;
                 ne++;
 
             }
         }
 
-        node[i + 1] = ne;
+        col_ptrs[i + 1] = ne;
 
     }
 
-    set_csr(graph, node, source, nv, ne);
+    set_csr(graph, col_ptrs, col_ptrs, nv, ne);
 
 }
 
@@ -113,9 +113,9 @@ void csr_dot(csr_matrix * graph, double * v, double * final) {
 
         final[i] = 0;
 
-        for(j = graph->node_offsets[i]; j < graph->node_offsets[i+1]; j++) {
+        for(j = graph->source_rows[i]; j < graph->source_rows[i+1]; j++) {
 
-            final[i] += v[graph->source_indices[j]];
+            final[i] += 1.0 * v[graph->source_cols[j]];
 
         }
 
@@ -136,13 +136,13 @@ void print_csr(csr_matrix * graph) {
     int i, j;
     for(i = 0; i < graph->nvertices; i++) {
 
-        int low = graph->node_offsets[i];
-        int hi = graph->node_offsets[i+1];
+        int low = graph->source_rows[i];
+        int hi = graph->source_rows[i+1];
         printf("%d -> ", i);
 
         for(j = low; j < hi; j++) {
 
-            printf("%d ", graph->source_indices[j]);
+            printf("%d ", graph->source_cols[j]);
 
         }
 
@@ -164,7 +164,7 @@ void test_print(csr_matrix * graph) {
     int i;
     for(i = 0; i < graph->nvertices+1; i++) {
 
-        printf("%d  ", graph->node_offsets[i]);
+        printf("%d  ", graph->source_rows[i]);
 
     }
 
@@ -172,7 +172,7 @@ void test_print(csr_matrix * graph) {
 
     for(i = 0; i < graph->nedges; i++) {
 
-        printf("%d  ", graph->source_indices[i]);
+        printf("%d  ", graph->source_cols[i]);
 
     }
 
@@ -188,8 +188,8 @@ void test_print(csr_matrix * graph) {
 */
 void clear_csr(csr_matrix * graph) {
 
-    free(graph->node_offsets);
-    free(graph->source_indices);
+    free(graph->source_rows);
+    free(graph->source_cols);
 
 }
 
