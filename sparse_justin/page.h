@@ -37,6 +37,8 @@ void page_rank(csr_matrix * graph, matrix * result) {
 
     }
 
+    printf("eigen: %f\n", eigen_value);
+
     for(i = 0; i < n; i++) {
 
       result->data[i] /= eigen_value;
