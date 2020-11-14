@@ -785,6 +785,10 @@ double * gauss_jordan(matrix* A, matrix *b, MPI_Comm world, int worldSize, int m
 */
 double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank) {
 
+   /* Step 1: get the Euclidean Norm. */
+  int terms = MAX(v->cols, v->rows);
+  int nodes = MIN(terms, worldSize);
+  
   MPI_Bcast(v->data, terms, MPI_DOUBLE, 0, world);
 
   if(!v->data) {
@@ -793,10 +797,6 @@ double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank) {
     return NULL;
 
   }
-
-  /* Step 1: get the Euclidean Norm. */
-  int terms = MAX(v->cols, v->rows);
-  int nodes = MIN(terms, worldSize);
 
   double * normalized_v = (double*) malloc(sizeof(double) * terms);
 
