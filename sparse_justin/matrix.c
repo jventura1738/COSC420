@@ -788,15 +788,8 @@ double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank) {
    /* Step 1: get the Euclidean Norm. */
   int terms = MAX(v->cols, v->rows);
   int nodes = MIN(terms, worldSize);
-  
+
   MPI_Bcast(v->data, terms, MPI_DOUBLE, 0, world);
-
-  if(!v->data) {
-
-    printf("No vector to normalize buddy.\n");
-    return NULL;
-
-  }
 
   double * normalized_v = (double*) malloc(sizeof(double) * terms);
 
