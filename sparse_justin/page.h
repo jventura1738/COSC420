@@ -73,7 +73,7 @@ void page_rank(csr_matrix * graph, matrix * result) {
 
     for(z = 0; z < n; z++) {
 
-      vector[i] = result->data[i];
+      vector[i] = result->data[z];
       printf("%f ", vector[i]);
 
     }
