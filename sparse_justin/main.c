@@ -60,18 +60,18 @@ int main (int argc, char ** argv) {
         }
         puts("");
 
-        init_vector(hub_vect, hubs, 10);
-        init_vector(auth_vect, auths, 10);
+        init_vector(&hub_vect, hubs, 10);
+        init_vector(&auth_vect, auths, 10);
 
     }
 
     MPI_Barrier(world);
-    double * norm_hub = normalize(hub_vect, world, worldSize, myRank);
+    double * norm_hub = normalize(&hub_vect, world, worldSize, myRank);
 
     if (myRank == 0) {
 
         int z;
-        for (z = 0; z < hub_vect->rows; z++) {
+        for (z = 0; z < hub_vect.rows; z++) {
 
             printf("%f ", norm_hub[z]);
 
