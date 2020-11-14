@@ -70,6 +70,7 @@ int main (int argc, char ** argv) {
     if (myRank == 0) {
 
         int z;
+	puts("\n");
         for (z = 0; z < hub_vect.rows; z++) {
 
             printf("%f ", norm_hub[z]);
@@ -79,7 +80,7 @@ int main (int argc, char ** argv) {
 
         for (z = 0; z < auth_vect.rows; z++) {
 
-            printf("%f ", auth_hub[z]);
+            printf("%f ", norm_auth[z]);
 
         }
         puts("");
