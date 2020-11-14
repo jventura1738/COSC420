@@ -26,6 +26,13 @@ void page_rank(csr_matrix * graph, matrix * result) {
 
     csr_dot(graph, vector, result->data);
 
+    for (i = 0; i < n; i++) {
+
+        printf("%f ", result->data[i]);
+
+    }
+    puts("");
+
     float eigen_value = result->data[0];
     for (i = 1; i < n; i++) {
 
