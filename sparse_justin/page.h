@@ -21,6 +21,7 @@ void page_rank(csr_matrix * graph, matrix * result) {
     result->data[i] = 0.0;
 
   }
+
   int count = 0;
   while(count < 10) {
 
@@ -73,7 +74,7 @@ void page_rank(csr_matrix * graph, matrix * result) {
 
     for(z = 0; z < n; z++) {
 
-      vector[i] = result->data[z];
+      vector[z] = result->data[z];
       printf("%f ", vector[i]);
 
     }
