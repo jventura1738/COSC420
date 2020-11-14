@@ -65,6 +65,7 @@ int main (int argc, char ** argv) {
 
     // MPI_Bcast(hub_vect.data, Graph->nvertices, MPI_DOUBLE, 0, world);
     double * norm_hub = normalize(&hub_vect, world, worldSize, myRank);
+    double * norm_auth = normalize(&auth_vect, world, worldSize, myRank);
 
     if (myRank == 0) {
 
@@ -76,11 +77,18 @@ int main (int argc, char ** argv) {
         }
         puts("");
 
+        for (z = 0; z < auth_vect.rows; z++) {
+
+            printf("%f ", auth_hub[z]);
+
+        }
+        puts("");
+
     }
 
     //double * norm_auth = normalize(auth_vect, world, worldSize, myRank);
 
-    puts("thank the lord");
+    //puts("thank the lord");
     MPI_Finalize();
 
     return 0;
