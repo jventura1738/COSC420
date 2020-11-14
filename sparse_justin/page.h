@@ -27,7 +27,7 @@ void page_rank(csr_matrix * graph, matrix * result) {
 
     csr_dot(graph, vector, result->data);
 
-    puts("A * v:");
+    puts("A * v: ");
     for (i = 0; i < n; i++) {
 
         printf("%f ", result->data[i]);

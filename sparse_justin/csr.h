@@ -73,7 +73,7 @@ void to_csr(matrix * A, csr_matrix * graph) {
     int ne = 0;
 
     int i, j;
-    col_ptrs[0] = 0;
+    row_ptrs[0] = 0;
     for(i = 0; i < A->rows; i++) {
 
         for(j = 0; j < A->cols; j++) {
@@ -87,7 +87,7 @@ void to_csr(matrix * A, csr_matrix * graph) {
             }
         }
 
-        col_ptrs[i + 1] = ne;
+        row_ptrs[i + 1] = ne;
 
     }
 
@@ -111,9 +111,9 @@ void csr_dot(csr_matrix * graph, double * v, double * final) {
 
     for(i = 0; i < graph->nvertices; i++) {
 
-        final[i] = 0;
+        final[i] = 0.0;
 
-        for(j = graph->source_rows[i]; j < graph->source_rows[i+1]; j++) {
+        for(j = graph->source_rows[i]; j < graph->source_rows[i + 1]; j++) {
 
             final[i] += 1.0 * v[graph->source_cols[j]];
 
