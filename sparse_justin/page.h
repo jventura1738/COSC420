@@ -7,41 +7,64 @@
  * 
  * This computes the page rank.
 */
-
-void page_rank(csr_matrix * graph, float * result){
+void page_rank(csr_matrix * graph, matrix * result) {
 
   int n = graph->nvertices;
 
   float vector[n];
-  int i;
+  int i, converged = 0;
+  float err = 0.000001;
 
   for(i = 0; i < n; i++) {
 
     vector[i] = 1.0;
-    result[i] = 0.0;
+    result->data[i] = 0.0;
 
   }
 
-  while(1) {
+  while(converged == 0) {
 
-    csr_dot(graph, vector, result, n);
+    csr_dot(graph, vector, result->data);
 
-    float eigenValue = findmax(result, n);
-    for(i = 0; i < n; i++) {
+    float eigen_value = result->data[0];
+    for (i = 1; i < n; i++) {
 
-      result[i] /= eigenValue;
+        if (result->data[i] > eigen_value) {
 
-    }
+            eigen_value = result->data[i];
 
-    if(isEqual(vector, result, n) == 1) {
-
-      break;
+        }
 
     }
 
     for(i = 0; i < n; i++) {
 
-      vector[i] = result[i];
+      result->data[i] /= eigen_value;
+
+    }
+
+    // if(isEqual(vector, result) == 1) {
+
+    //   break;
+
+    // }
+
+    int z;
+    for (z = 0; z < n; z++) {
+
+        converged = 1;
+
+        if (abs(vector[z] - result->data[z]) > err) {
+
+            converged = 0;
+
+        }
+
+    }
+
+    for(z = 0; z < n; z++) {
+
+      vector[i] = result->data[i];
 
     }
 

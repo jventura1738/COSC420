@@ -106,7 +106,8 @@ void to_csr(matrix * A, csr_matrix * graph) {
 void csr_dot(csr_matrix * graph, double * v, double * final) {
 
     int i, j;
-    //double * final = (double*) malloc(graph->nvertices * sizeof(double));
+    // C is dumb sometimes
+    // double * final = (double*) malloc(graph->nvertices * sizeof(double));
 
     for(i = 0; i < graph->nvertices; i++) {
 
