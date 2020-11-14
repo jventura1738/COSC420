@@ -10,47 +10,79 @@
 #include "matrix.h" // matrix for floats
 #include "csr.h"    // compressed sparse row form
 #include "hits.h"   // hyper-text induced topic search
-
+#include "mpi.h"    // MPI stuff
 
 int main (int argc, char ** argv) {
 
-    matrix * adj = (matrix*) malloc(sizeof(matrix));
-    int N = 10;
-    initMatrix(adj, N, N);
+    MPI_Init(&argc, &argv);
+    MPI_Comm world = MPI_COMM_WORLD;
 
-    file_load_adj("test.txt", N, adj);
-    printMatrix(adj);
-    puts("");
+    int worldSize, myRank;
+    MPI_Comm_size(world, &worldSize);
+    MPI_Comm_rank(world, &myRank);
 
-    csr_matrix * Graph = (csr_matrix*) malloc(sizeof(csr_matrix));
-    puts("----------------------------");
-    to_csr(adj, Graph);
-    test_print(Graph);
-    puts("----------------------------");
-    print_csr(Graph);
+    matrix hub_vect, auth_vect;
 
-    float * hubs = (float*) malloc(Graph->nvertices * sizeof(float));
-    float * auths = (float*) malloc(Graph->nvertices * sizeof(float));
+    if (myRank == 0) {
 
-    hits_alg(Graph, hubs, auths);
-    puts("");
+        matrix * adj = (matrix*) malloc(sizeof(matrix));
+        int N = 10;
+        initMatrix(adj, N, N);
 
+        file_load_adj("test.txt", N, adj);
+        printMatrix(adj);
+        puts("");
 
-    int i;
-    for (i = 0; i < Graph->nvertices; i++) {
+        csr_matrix * Graph = (csr_matrix*) malloc(sizeof(csr_matrix));
+        puts("----------------------------");
+        to_csr(adj, Graph);
+        test_print(Graph);
+        puts("----------------------------");
+        print_csr(Graph);
 
-        printf("%f ", hubs[i]);
+        float * hubs =  (float*) malloc(Graph->nvertices * sizeof(float));
+        floar * auths = (float*) malloc(Graph->nvertices * sizeof(float));
+
+        hits_alg(Graph, hubs, auths);
+        puts("");
+
+        int i;
+        for (i = 0; i < Graph->nvertices; i++) {
+
+            printf("%f ", hubs[i]);
+
+        }
+        puts("");
+        for (i = 0; i < Graph->nvertices; i++) {
+
+            printf("%f ", auths[i]);
+
+        }
+        puts("");
+
+        init_vector(hub_vect, hubs, 10);
+        init_vector(auth_vect, auths, 10);
 
     }
-    puts("");
-    for (i = 0; i < Graph->nvertices; i++) {
 
-        printf("%f ", auths[i]);
+    MPI_Barrier(world);
+    float * norm_hub = normalize(hub_vect, world, worldSize, myRank);
+
+    if (myRank == 0) {
+
+        int z;
+        for (z = 0; z < hub_vect->rows; z++) {
+
+            printf("%f ", norm_hub[z]);
+
+        }
 
     }
-    puts("");
+
+    //float * norm_auth = normalize(auth_vect, world, worldSize, myRank);
 
     puts("thank the lord");
+    MPI_Finalize();
 
     return 0;
 }
