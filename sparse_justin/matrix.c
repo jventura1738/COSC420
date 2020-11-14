@@ -785,6 +785,8 @@ double * gauss_jordan(matrix* A, matrix *b, MPI_Comm world, int worldSize, int m
 */
 double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank) {
 
+  MPI_Bcast(v->data, terms, MPI_DOUBLE, 0, world);
+
   if(!v->data) {
 
     printf("No vector to normalize buddy.\n");
@@ -798,8 +800,8 @@ double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank) {
 
   double * normalized_v = (double*) malloc(sizeof(double) * terms);
 
-  int * sndcts = (int*) malloc(worldSize*sizeof(int));
-  int * displs = (int*) malloc(worldSize*sizeof(int));
+  int * sndcts = (int*) malloc(worldSize * sizeof(int));
+  int * displs = (int*) malloc(worldSize * sizeof(int));
 
   int n;
   for (n = 0; n < worldSize; n++) {
@@ -835,8 +837,6 @@ double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank) {
 
   }
 
-  MPI_Bcast(v->data, terms, MPI_DOUBLE, 0, world);
-
   double local_sum = 0;
   if (myRank < nodes) {
 
@@ -858,7 +858,6 @@ double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank) {
   }
 
   /* Step 2: Normalize v by dividing each entry of v by the L2Norm(v). */
-
   MPI_Bcast(&final, 1, MPI_DOUBLE, 0, world);
 
   double * local_v = (double*) malloc(sizeof(double) * sndcts[myRank]);

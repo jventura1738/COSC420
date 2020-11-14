@@ -76,6 +76,7 @@ int main (int argc, char ** argv) {
             printf("%f ", norm_hub[z]);
 
         }
+        puts("");
 
     }
 
