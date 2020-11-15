@@ -51,7 +51,7 @@ void page_rank(csr_matrix * graph, matrix * result) {
     double * p = (double*) malloc(sizeof(double) * n);
     for(i = 0; i < n; i++) {
 
-        p[i] = 1.0 / n;
+        p[i] = 1.0;
 
     }
 
