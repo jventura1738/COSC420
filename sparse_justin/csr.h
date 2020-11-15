@@ -118,17 +118,19 @@ void to_csr(matrix * A, csr_matrix * graph) {
 */
 void csr_dot(csr_matrix * graph, double * v, double * final) {
 
-    int i, j;
     // C is dumb sometimes
-    // double * final = (double*) malloc(graph->nvertices * sizeof(double));
-
-    for(i = 0; i < graph->nvertices; i++) {
+    int i, j;
+    for (i = 0; i < N; i++) {
 
         final[i] = 0.0;
 
-        for(j = graph->source_rows[i]; j < graph->source_rows[i + 1]; j++) {
+    }
 
-            final[i] += 1.0 * v[graph->source_cols[j]];
+    for (i = 0; i < graph->nvertices; i++) {
+
+        for (j = graph->source_rows[i]; j < graph->source_rows[i + 1]; j++) {
+
+            final[i] += source[j] * v[graph->source_cols[j]];
 
         }
 

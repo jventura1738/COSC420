@@ -12,80 +12,121 @@ void page_rank(csr_matrix * graph, matrix * result) {
     // dampening factor.
     float d = 0.85;
     int n = graph->nvertices;
+    int i, j;
 
-    return;
+    int out_link[n];
+    for(i = 0; i < n; i++) {
 
-    // double vector[n];
-    // int i, converged = 0;
-    // double err = 0.1;
+        out_link[i] =0;
 
-    // for(i = 0; i < n; i++) {
+    }
 
-    //     vector[i] = 1.0;
-    //     result->data[i] = 0.0;
+    int rowel = 0;
+    for(i = 0; i < n; i++) {
 
-    // }
+            if (graph->source_rows[i+1] != 0) {
 
-    // int count = 0;
-    // while(converged == 0) {
+                rowel = graph->source_rows[i+1] - graph->source_rows[i];
+                out_link[i] = rowel;
 
-    //     csr_dot(graph, vector, result->data);
+            }
 
-    //     puts("A * v: ");
-    //     for (i = 0; i < n; i++) {
+    }
 
-    //         printf("%f ", result->data[i]);
+    int curcol = 0;
+    for(i = 0; i < n; i++) {
 
-    //     }
-    //     puts("");
+        rowel = graph->source_rows[i+1] - graph->source_rows[i];
 
-    //     double eigen_value = result->data[0];
-    //     for (i = 1; i < n; i++) {
+        for (j=0; j<rowel; j++) {
 
-    //         if (result->data[i] > eigen_value) {
+            graph->source[curcol] = graph->source[curcol] / out_link[i];
+            curcol++;
 
-    //             eigen_value = result->data[i];
+        }
 
-    //         }
+    }
 
-    //     }
+    // Initialize p vector
+    double * p = (double*) malloc(sizeof(double) * n);
+    for(i = 0; i < n; i++) {
 
-    //     printf("eigen: %f\n", eigen_value);
+        p[i] = 1.0 / n;
 
-    //     for(i = 0; i < n; i++) {
+    }
 
-    //     result->data[i] /= eigen_value;
+    int looping = 1;
+    int k = 0;
+    float p_new[n];
 
-    //     }
+    while (looping) {
+    
+        // Initialize p_new as a vector of n 0.0 cells
+        for(i = 0; i < n; i++) {
 
-    //     // if(isEqual(vector, result) == 1) {
+            p_new[i] = 0.0;
 
-    //     //   break;
+        }
+        
+        rowel = 0;
+        curcol = 0;
+        
+        // Page rank modified algorithm 
+        for(i = 0; i < n; i++) {
 
-    //     // }
+            rowel = graph->source_rows[i+1] - graph->source_rows[i];
 
-    //     int z;
-    //     for (z = 0; z < n; z++) {
+            for (j = 0; j < rowel; j++) {
 
-    //         converged = 1;
+                p_new[graph->source_cols[curcol]] = p_new[graph->source_cols[curcol]] + graph->source[curcol] * p[i];
+                curcol++;
 
-    //         if (fabs(vector[z] - result->data[z]) > err) {
+            }
 
-    //             converged = 0;
+        }
 
-    //         }
+        /*DEBUG: print pnew
+        for (i=0; i<n; i++){
+        printf("%f ", p_new[i]);
+        }*/
 
-    //     }
+        // Adjustment to manage dangling elements 
+        for(i = 0; i < n; i++) {
 
-    //     puts("v / eigen val");
-    //     for(z = 0; z < n; z++) {
+            p_new[i] = d * p_new[i] + (1.0 - d) / n;
 
-    //     vector[z] = result->data[z];
-    //     printf("%f ", vector[i]);
+        }
 
-    //     }
-    //     puts("");
-    //     count++;
-    // }
+        /*DEBUG: print pnew after the damping factor multiplication
+        for (i=0; i<n; i++){
+        printf("%f ", p_new[i]);
+        }*/
+        
+        // TERMINATION: check if we have to stop
+        float error = 0.0;
+        for(i = 0; i < n; i++) {
+
+            error =  error + fabs(p_new[i] - p[i]);
+
+        }
+        //if two consecutive instances of pagerank vector are almost identical, stop
+        if (error < 0.000001) {
+
+            looping = 0;
+
+        }
+        
+        // Update p[]
+        for (i = 0; i < n; i++) {
+
+            p[i] = p_new[i];
+
+        }
+        
+        // Increase the number of iterations
+        k++;
+    }
+
+    result->data = p;
 
 }
