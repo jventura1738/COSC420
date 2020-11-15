@@ -11,9 +11,9 @@ void page_rank(csr_matrix * graph, matrix * result) {
 
   int n = graph->nvertices;
 
-  float vector[n];
+  double vector[n];
   int i, converged = 0;
-  float err = 0.1;
+  double err = 0.1;
 
   for(i = 0; i < n; i++) {
 
@@ -35,7 +35,7 @@ void page_rank(csr_matrix * graph, matrix * result) {
     }
     puts("");
 
-    float eigen_value = result->data[0];
+    double eigen_value = result->data[0];
     for (i = 1; i < n; i++) {
 
         if (result->data[i] > eigen_value) {
