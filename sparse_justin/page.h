@@ -55,38 +55,41 @@ void page_rank(csr_matrix * graph, matrix * result) {
 
     }
 
+    puts("");
     print_csr(graph);
     puts("");
 
     int looping = 1;
     int k = 0;
-    double p_new[n];
+    double * p_new = (double*) malloc(sizeof(double) * n);
 
     while (looping) {
     
         // Initialize p_new as a vector of n 0.0 cells
-        for(i = 0; i < n; i++) {
+        // for(i = 0; i < n; i++) {
 
-            p_new[i] = 0.0;
+        //     p_new[i] = 0.0;
 
-        }
+        // }
+
+        csr_dot(graph, p, p_new);
         
-        rowel = 0;
-        curcol = 0;
+        // rowel = 0;
+        // curcol = 0;
         
-        // Page rank modified algorithm 
-        for(i = 0; i < n; i++) {
+        // // Page rank modified algorithm 
+        // for(i = 0; i < n; i++) {
 
-            rowel = graph->source_rows[i+1] - graph->source_rows[i];
+        //     rowel = graph->source_rows[i+1] - graph->source_rows[i];
 
-            for (j = 0; j < rowel; j++) {
+        //     for (j = 0; j < rowel; j++) {
 
-                p_new[graph->source_cols[curcol]] += graph->source[curcol] * p[i];
-                curcol++;
+        //         p_new[graph->source_cols[curcol]] += graph->source[curcol] * p[i];
+        //         curcol++;
 
-            }
+        //     }
 
-        }
+        // }
 
         // Adjustment to manage dangling elements 
         for(i = 0; i < n; i++) {
