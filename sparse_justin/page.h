@@ -10,26 +10,26 @@
 void page_rank(csr_matrix * graph, matrix * result) {
 
     // dampening factor.
-    float d = 0.85;
+    double d = 0.85;
     int n = graph->nvertices;
     int i, j;
 
     int out_link[n];
     for(i = 0; i < n; i++) {
 
-        out_link[i] =0;
+        out_link[i] = 0;
 
     }
 
     int rowel = 0;
     for(i = 0; i < n; i++) {
 
-            if (graph->source_rows[i+1] != 0) {
+        if (graph->source_rows[i+1] != 0) {
 
-                rowel = graph->source_rows[i+1] - graph->source_rows[i];
-                out_link[i] = rowel;
+            rowel = graph->source_rows[i+1] - graph->source_rows[i];
+            out_link[i] = rowel;
 
-            }
+        }
 
     }
 
@@ -38,7 +38,7 @@ void page_rank(csr_matrix * graph, matrix * result) {
 
         rowel = graph->source_rows[i+1] - graph->source_rows[i];
 
-        for (j=0; j<rowel; j++) {
+        for (j = 0; j < rowel; j++) {
 
             graph->source[curcol] = graph->source[curcol] / out_link[i];
             curcol++;
@@ -57,7 +57,7 @@ void page_rank(csr_matrix * graph, matrix * result) {
 
     int looping = 1;
     int k = 0;
-    float p_new[n];
+    double p_new[n];
 
     while (looping) {
     
@@ -78,17 +78,12 @@ void page_rank(csr_matrix * graph, matrix * result) {
 
             for (j = 0; j < rowel; j++) {
 
-                p_new[graph->source_cols[curcol]] = p_new[graph->source_cols[curcol]] + graph->source[curcol] * p[i];
+                p_new[graph->source_cols[curcol]] += graph->source[curcol] * p[i];
                 curcol++;
 
             }
 
         }
-
-        /*DEBUG: print pnew
-        for (i=0; i<n; i++){
-        printf("%f ", p_new[i]);
-        }*/
 
         // Adjustment to manage dangling elements 
         for(i = 0; i < n; i++) {
@@ -97,13 +92,8 @@ void page_rank(csr_matrix * graph, matrix * result) {
 
         }
 
-        /*DEBUG: print pnew after the damping factor multiplication
-        for (i=0; i<n; i++){
-        printf("%f ", p_new[i]);
-        }*/
-        
         // TERMINATION: check if we have to stop
-        float error = 0.0;
+        double error = 0.0;
         for(i = 0; i < n; i++) {
 
             error =  error + fabs(p_new[i] - p[i]);
