@@ -93,7 +93,7 @@ void to_csr(matrix * A, csr_matrix * graph) {
 
             if(A->data[index] != 0) {
 
-                val[ne] = A->data[index];
+                vals[ne] = A->data[index];
                 col_ptrs[ne] = j;
                 ne++;
 
