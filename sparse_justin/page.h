@@ -55,6 +55,9 @@ void page_rank(csr_matrix * graph, matrix * result) {
 
     }
 
+    print_csr(graph);
+    puts("");
+
     int looping = 1;
     int k = 0;
     double p_new[n];
