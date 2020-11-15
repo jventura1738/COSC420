@@ -22,7 +22,7 @@
 typedef struct keyword_node {
 
     // Assume 100 for now.
-    char keyword[100];
+    char keyword[200];
 
     // Pointer to the list of all paper IDs
     // associated with this keyword.
@@ -84,7 +84,6 @@ keyword_node * insert(keyword_node * root, char * word) {
 
 }
 
-
 /*
  * BST SEARCH FUNCTION.
  * 
@@ -93,19 +92,22 @@ keyword_node * insert(keyword_node * root, char * word) {
 keyword_node * find(keyword_node * root, char * key) {
 
     if (root) {
-
+        //printf("Key: %ld \n", strlen(key));
         if (strcasecmp(key, root->keyword) < 0) {
-
+            //printf("Word 1: %s \n", root->keyword);
+            //printf("Word 1: %ld \n", strlen(root->keyword));
             return find(root->left, key);
 
         }
         else if (strcasecmp(key, root->keyword) > 0) {
-
+            //printf("Word 2: %s \n", root->keyword);
+            //printf("Word 2: %ld \n", strlen(root->keyword));
             return find(root->right, key);
 
         }
         else {
-
+            //printf("Word 3: %s \n", root->keyword);
+            //printf("Word 3: %ld \n", strlen(root->keyword));
             return root;
 
         }
@@ -125,7 +127,6 @@ keyword_node * find(keyword_node * root, char * key) {
 void pre_order(keyword_node * root) {
 
     if (root) {
-
         printf("%s ", root->keyword);
         pre_order(root->left);
         pre_order(root->right);
@@ -140,16 +141,13 @@ void pre_order(keyword_node * root) {
  * 
  * Print in in-order (LNR).
 */
-void in_order(keyword_node * root, FILE* fw) {
+void in_order(keyword_node * root) {
 
     if (root) {
-
-        in_order(root->left, fw);
+        in_order(root->left);
         printf("%s ", root->keyword);
-        fprintf(fw, "%s\n", root->keyword);
         print(root->MASTER);
-        in_order(root->right, fw);
-
+        in_order(root->right);
     }
 
 }

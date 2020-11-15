@@ -99,7 +99,7 @@ int win_list(wmaster_node * master, char*  word) {
 
         while (temp) {
 
-            if (strcasecmp(temp->word, word) == 0) {
+            if (strcmp(temp->word, word) == 0) {
 
                 return 1;
 
@@ -177,7 +177,7 @@ void wprint(wmaster_node * master) {
         temp = temp->next;
 
     }
-
+    free(temp);
 }
 
 

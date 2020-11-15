@@ -23,7 +23,7 @@ int main (int argc, char ** argv) {
         insert(ROOT, arr[i-1]);
         keyword_node * test = find(ROOT, arr[i-1]);
         append(test->MASTER, i);
-        //printf("-> %d to %s\n", test->MASTER->tail->ID, test->keyword);
+        printf("-> %f to %s\n", test->MASTER->tail->ID, test->keyword);
 
     }
 
