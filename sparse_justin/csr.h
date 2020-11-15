@@ -23,7 +23,7 @@ typedef struct compressed_sparse_row {
     int * source_cols;
 
     // The actual values.
-    int * source;
+    double * source;
 
     // This keeps track of |E|, |V|.
     int nvertices;
@@ -38,13 +38,13 @@ typedef struct compressed_sparse_row {
  * Allocates heap memory for the provided
  * csr_matrix.
 */
-void set_csr(csr_matrix * graph, int * row_ptr, int * col_ptr, float * vals, int nv, int ne) {
+void set_csr(csr_matrix * graph, int * row_ptr, int * col_ptr, double * vals, int nv, int ne) {
 
     graph->nvertices = nv;
     graph->nedges = ne;
     graph->source_rows = (int*) malloc((graph->nvertices + 1) * sizeof(int));
     graph->source_cols = (int*) malloc((graph->nedges + 1) * sizeof(int));
-    graph->source = (float*) malloc((graph->nedges + 1) * sizeof(float));
+    graph->source = (double*) malloc((graph->nedges + 1) * sizeof(double));
 
     int i;
     for(i = 0; i < nv + 1; i++) {
@@ -79,7 +79,7 @@ void to_csr(matrix * A, csr_matrix * graph) {
 
     int row_ptrs[A->rows+1];
     int col_ptrs[(A->rows * A->rows) + 1];
-    float val[(A->rows * A->rows) + 1];
+    double vals[(A->rows * A->rows) + 1];
     int nv = A->rows;
     int ne = 0;
 
