@@ -91,22 +91,32 @@ void page_rank(csr_matrix * graph, matrix * result) {
 
         // }
 
+        double sum = 0.0;
+
         // Adjustment to manage dangling elements 
         for(i = 0; i < n; i++) {
 
-            p_new[i] = d * p_new[i] + (1.0 - d) / n;
+            p_new[i] = d * p_new[i] + (1.0 - d);
+            sum += p_new[i];
 
         }
+
+        for(i = 0; i < n; i++) {
+
+            p_new[i] /= sum;
+
+        }
+
 
         // TERMINATION: check if we have to stop
         double error = 0.0;
         for(i = 0; i < n; i++) {
 
-            error =  error + fabs(p_new[i] - p[i]);
+            error += fabs(p_new[i] - p[i]);
 
         }
         //if two consecutive instances of pagerank vector are almost identical, stop
-        if (error < 0.000001) {
+        if (error < 0.0001) {
 
             looping = 0;
 
