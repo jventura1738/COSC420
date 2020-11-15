@@ -22,6 +22,9 @@ typedef struct compressed_sparse_row {
     // The actual matrix data.
     int * source_cols;
 
+    // The actual values.
+    int * source;
+
     // This keeps track of |E|, |V|.
     int nvertices;
     int nedges;
@@ -35,29 +38,32 @@ typedef struct compressed_sparse_row {
  * Allocates heap memory for the provided
  * csr_matrix.
 */
-void set_csr(csr_matrix * graph, int * row_ptr, int * col_ptr, int nv, int ne) {
+void set_csr(csr_matrix * graph, int * row_ptr, int * col_ptr, float * vals, int nv, int ne) {
 
     graph->nvertices = nv;
     graph->nedges = ne;
     graph->source_rows = (int*) malloc((graph->nvertices + 1) * sizeof(int));
     graph->source_cols = (int*) malloc((graph->nedges + 1) * sizeof(int));
+    graph->source = (float*) malloc((graph->nedges + 1) * sizeof(float));
 
     int i;
     for(i = 0; i < nv + 1; i++) {
 
         graph->source_rows[i] = row_ptr[i];
-        printf("%f ", graph->source_rows[i]);
 
     }
-    puts("");
 
     for(i = 0; i < ne; i++) {
 
         graph->source_cols[i] = col_ptr[i];
-        printf("%f ", graph->source_cols[i]);
 
     }
-    puts("");
+
+    for(i = 0; i < ne; i++) {
+
+        graph->source[i] = vals[i];
+
+    }
 
 }
 
@@ -73,6 +79,7 @@ void to_csr(matrix * A, csr_matrix * graph) {
 
     int row_ptrs[A->rows+1];
     int col_ptrs[(A->rows * A->rows) + 1];
+    float val[(A->rows * A->rows) + 1];
     int nv = A->rows;
     int ne = 0;
 
@@ -83,8 +90,10 @@ void to_csr(matrix * A, csr_matrix * graph) {
         for(j = 0; j < A->cols; j++) {
 
             int index = INDEX(A, i, j);
+
             if(A->data[index] != 0) {
 
+                val[ne] = A->data[index];
                 col_ptrs[ne] = j;
                 ne++;
 
@@ -95,7 +104,7 @@ void to_csr(matrix * A, csr_matrix * graph) {
 
     }
 
-    set_csr(graph, row_ptrs, col_ptrs, nv, ne);
+    set_csr(graph, row_ptrs, col_ptrs, vals, nv, ne);
 
 }
 
@@ -147,6 +156,7 @@ void print_csr(csr_matrix * graph) {
         for(j = low; j < hi; j++) {
 
             printf("%d ", graph->source_cols[j]);
+            printf("(%f) ", graph->source[j]);
 
         }
 
@@ -180,6 +190,13 @@ void test_print(csr_matrix * graph) {
     }
     puts("");
 
+    for(i = 0; i < graph->nedges; i++) {
+
+        printf("%f  ", graph->source[i]);
+
+    }
+    puts("");
+
 }
 
 
@@ -192,6 +209,7 @@ void clear_csr(csr_matrix * graph) {
 
     free(graph->source_rows);
     free(graph->source_cols);
+    free(graph->source);
 
 }
 
