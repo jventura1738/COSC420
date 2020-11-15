@@ -46,7 +46,7 @@ void set_csr(csr_matrix * graph, int * row_ptr, int * col_ptr, int nv, int ne) {
     for(i = 0; i < nv + 1; i++) {
 
         graph->source_rows[i] = row_ptr[i];
-        printf("%f ", source_rows[i]);
+        printf("%f ", graph->source_rows[i]);
 
     }
     puts("");
@@ -54,7 +54,7 @@ void set_csr(csr_matrix * graph, int * row_ptr, int * col_ptr, int nv, int ne) {
     for(i = 0; i < ne; i++) {
 
         graph->source_cols[i] = col_ptr[i];
-        printf("%f ", source_cols[i]);
+        printf("%f ", graph->source_cols[i]);
 
     }
     puts("");
