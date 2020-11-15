@@ -26,19 +26,19 @@ int main (int argc, char ** argv) {
     matrix hub_vect, auth_vect;
 
     matrix * adj = (matrix*) malloc(sizeof(matrix));
-    int N = 10;
+    int N = 100;
     initMatrix(adj, N, N);
 
-    file_load_adj("test.txt", N, adj);
-    printMatrix(adj);
+    file_load_adj("arxiv-citations.txt", N, adj);
+    //printMatrix(adj);
     puts("");
 
     Graph = (csr_matrix*) malloc(sizeof(csr_matrix));
     puts("----------------------------");
     to_csr(adj, Graph);
-    test_print(Graph);
+    // test_print(Graph);
     puts("----------------------------");
-    print_csr(Graph);
+    //print_csr(Graph);
 
     matrix result;
     init_vector(&result, NULL, Graph->nvertices);

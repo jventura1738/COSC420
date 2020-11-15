@@ -196,6 +196,12 @@ void file_load_adj(char* filename, int num_papers, matrix * A) {
 
       }
 
+      if(p_idx >= num_papers) {
+
+        break;
+
+      }
+
     }
 
     int k;
