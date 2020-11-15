@@ -46,14 +46,18 @@ void set_csr(csr_matrix * graph, int * row_ptr, int * col_ptr, int nv, int ne) {
     for(i = 0; i < nv + 1; i++) {
 
         graph->source_rows[i] = row_ptr[i];
+        printf("%f ", source_rows[i]);
 
     }
+    puts("");
 
     for(i = 0; i < ne; i++) {
 
         graph->source_cols[i] = col_ptr[i];
+        printf("%f ", source_cols[i]);
 
     }
+    puts("");
 
 }
 
@@ -167,15 +171,13 @@ void test_print(csr_matrix * graph) {
         printf("%d  ", graph->source_rows[i]);
 
     }
-
-    puts("\n");
+    puts("");
 
     for(i = 0; i < graph->nedges; i++) {
 
         printf("%d  ", graph->source_cols[i]);
 
     }
-
     puts("");
 
 }
