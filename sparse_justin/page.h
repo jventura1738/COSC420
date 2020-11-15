@@ -5,49 +5,67 @@
 /*
  * PAGE RANK ALGORITHM
  * 
- * This computes the page rank.
+ * This computes the page rank vector
+ * and stores it into result.
+ * 
+ * Algorithm:
+ * 
+ * p <- d(A * p) + (1 - d)e
+ * [repeat until converged]
+ * 
+ * s.t. d is the dampening factor
+ *      A is row stochastic csr_matrix
+ *      p & e vects of all ones
+ *      [p updates, however]
+ * 
+ * Stores the page rank probability 
+ * vector into 'result'.
 */
 void page_rank(csr_matrix * graph, matrix * result) {
 
-    // dampening factor.
+    // Dampening factor.
     double d = 0.85;
+
+    // Variables we will use later.
     int n = graph->nvertices;
     int i, j;
 
-    int out_link[n];
+
+    // Ensure the matrix is row stochastic.
+    int fix[n];
     for(i = 0; i < n; i++) {
 
-        out_link[i] = 0;
+        fix[i] = 0;
 
     }
 
-    int rowel = 0;
+    // 
+    int row_ptr = 0;
+    int col_idx = 0;
     for(i = 0; i < n; i++) {
 
         if (graph->source_rows[i+1] != 0) {
 
-            rowel = graph->source_rows[i+1] - graph->source_rows[i];
-            out_link[i] = rowel;
+            row_ptr = graph->source_rows[i+1] - graph->source_rows[i];
+            fix[i] = row_ptr;
 
         }
 
     }
-
-    int curcol = 0;
     for(i = 0; i < n; i++) {
 
-        rowel = graph->source_rows[i+1] - graph->source_rows[i];
+        row_ptr = graph->source_rows[i+1] - graph->source_rows[i];
 
-        for (j = 0; j < rowel; j++) {
+        for (j = 0; j < row_ptr; j++) {
 
-            graph->source[curcol] = graph->source[curcol] / out_link[i];
-            curcol++;
+            graph->source[col_idx] = graph->source[col_idx] / fix[i];
+            col_idx++;
 
         }
 
     }
 
-    // Initialize p vector
+    // Initialize vector of all ones.
     double * p = (double*) malloc(sizeof(double) * n);
     for(i = 0; i < n; i++) {
 
@@ -55,84 +73,51 @@ void page_rank(csr_matrix * graph, matrix * result) {
 
     }
 
-    puts("");
-    print_csr(graph);
-    puts("");
+    int not_converged = 1;
+    double * new_p = (double*) malloc(sizeof(double) * n);
 
-    int looping = 1;
-    int k = 0;
-    double * p_new = (double*) malloc(sizeof(double) * n);
+    while (not_converged) {
 
-    while (looping) {
-    
-        // Initialize p_new as a vector of n 0.0 cells
-        // for(i = 0; i < n; i++) {
+        csr_dot(graph, p, new_p);
 
-        //     p_new[i] = 0.0;
-
-        // }
-
-        csr_dot(graph, p, p_new);
-        
-        // rowel = 0;
-        // curcol = 0;
-        
-        // // Page rank modified algorithm 
-        // for(i = 0; i < n; i++) {
-
-        //     rowel = graph->source_rows[i+1] - graph->source_rows[i];
-
-        //     for (j = 0; j < rowel; j++) {
-
-        //         p_new[graph->source_cols[curcol]] += graph->source[curcol] * p[i];
-        //         curcol++;
-
-        //     }
-
-        // }
-
+        // This is based on the formula given by Dr. Anderson
+        // during lecture!
         double sum = 0.0;
-
-        // Adjustment to manage dangling elements 
         for(i = 0; i < n; i++) {
 
-            p_new[i] = d * p_new[i] + (1.0 - d);
-            sum += p_new[i];
+            new_p[i] = d * new_p[i] + (1.0 - d);
+            sum += new_p[i];
+
+        }
+        for(i = 0; i < n; i++) {
+
+            new_p[i] /= sum;
 
         }
 
-        for(i = 0; i < n; i++) {
-
-            p_new[i] /= sum;
-
-        }
-
-
-        // TERMINATION: check if we have to stop
+        // If the vector converges, stop iterating!
         double error = 0.0;
         for(i = 0; i < n; i++) {
 
-            error += fabs(p_new[i] - p[i]);
+            error += fabs(new_p[i] - p[i]);
 
         }
-        //if two consecutive instances of pagerank vector are almost identical, stop
-        if (error < 0.0001) {
+        if (error < 0.000001) {
 
-            looping = 0;
+            not_converged = 0;
 
         }
         
-        // Update p[]
+        // Update p vector.
         for (i = 0; i < n; i++) {
 
-            p[i] = p_new[i];
+            p[i] = new_p[i];
 
         }
         
-        // Increase the number of iterations
-        k++;
     }
 
+    // Store the resulting vector.
     result->data = p;
 
 }

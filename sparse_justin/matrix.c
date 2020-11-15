@@ -199,13 +199,11 @@ void file_load_adj(char* filename, int num_papers, matrix * A) {
     }
 
     int k;
-    for (k = 0; k < num_papers; k++) {
+    // for (k = 0; k < num_papers; k++) {
 
-      printf("%s\n", paper_arr[k]);
+    //   printf("%s\n", paper_arr[k]);
 
-    }
-
-    puts("phase 2");
+    // }
 
     fclose(fh);
     FILE * fh = fopen(filename, "r");
@@ -263,7 +261,7 @@ void file_load_adj(char* filename, int num_papers, matrix * A) {
 
           }
 
-          ACCESS(A, i, j) = 1.0; 
+          ACCESS(A, i, j) = 1.0;
 
         }
 
