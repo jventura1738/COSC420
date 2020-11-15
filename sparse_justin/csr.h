@@ -120,7 +120,7 @@ void csr_dot(csr_matrix * graph, double * v, double * final) {
 
     // C is dumb sometimes
     int i, j;
-    for (i = 0; i < N; i++) {
+    for (i = 0; i < graph->nvertices; i++) {
 
         final[i] = 0.0;
 
@@ -130,7 +130,7 @@ void csr_dot(csr_matrix * graph, double * v, double * final) {
 
         for (j = graph->source_rows[i]; j < graph->source_rows[i + 1]; j++) {
 
-            final[i] += source[j] * v[graph->source_cols[j]];
+            final[i] += graph->source[j] * v[graph->source_cols[j]];
 
         }
 
