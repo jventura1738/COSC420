@@ -32,6 +32,8 @@ WordsFinal.txt - Contains all of the words that exist in each abstract given, co
 With all honesty, we are extremely close to a working search engine that is works on a number of documents the user specifies.  If there is an extended due date, we pledge to have a working version by then.  Overall, we have put our blood, sweat, and tears into this project.  We estimate an ~6 hours a day for two weeks straight for the both of us.  We are exhausted, but also hungry to finish the project.  Furthermore, we want to rest up for a day, then have a working version ready.
 
 ## Example Run
+<pre>
+
 Get the users search:
 --> sdfdf
 
@@ -73,3 +75,4 @@ Hubs vector:
 1.000000 1.000000 1.000000 0.000000 1.000000 0.000000 1.000000 1.000000 0.000000
 Auths vector:
 1.000000 1.000000 1.000000 0.000000 0.000000 5.000000 1.000000 1.000000 1.000000
+</pre>
