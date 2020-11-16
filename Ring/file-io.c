@@ -60,10 +60,7 @@ void rw(FILE* fh, FILE* fw, int z){
     fprintf(fw, "\n");
 }
 int main(){
-    FILE* fh;
-    FILE* fw = fopen("arXiv/StructTest.txt", "w");
     
-    fh = fopen("arXiv/Alphabetized.txt", "r");
     int c, z, counter;
     z = 0;
     while((c = fgetc(fh)) != EOF){

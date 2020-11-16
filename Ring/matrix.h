@@ -8,7 +8,7 @@
 #include<stdlib.h>
 #include<time.h>
 #include<math.h>
-#include<mpi.h>
+#include "mpi.h"
 
 // NB: the A here needs to be a struct, not a pointer!
 #define INDEX(A,i,j) A->cols*i + j
@@ -26,11 +26,13 @@ typedef struct {
 } matrix;
 
 /* Matrix initializers, copiers, printers. */
+void init_vector(matrix * v, double * data, int N); // N x 1.
 void initRandMatrix(matrix *A, int rows, int cols);
 void copyMatrix(matrix *A, matrix *B);
 void initMatrix(matrix *A, int rows, int cols);
 void initIMatrix(matrix *A, int rows, int cols);
 void printMatrix(matrix *A);
+void file_load_adj(char* filename, int num_papers, matrix * A);
 
 /* 
  * Matrix operations:

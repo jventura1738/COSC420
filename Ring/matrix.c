@@ -2,9 +2,25 @@
 // COSC420 Lab 3: matrix.c
 
 #include "matrix.h"
+#include <string.h>
 
+// Macros OP
 #define MAX(a, b) (((a) > (b)) ? a : (b))
 #define MIN(a, b) (((a) < (b)) ? a : (b))
+
+/*
+ * INIT VECTOR FUNCTION
+ * 
+ * This function initializes an N x 1
+ * matrix as a vector.
+*/
+void init_vector(matrix * v, double * vect, int N) {
+
+  v->rows = N;
+  v->cols = 1;
+  v->data = vect;
+
+}
 
 //Creates a random rxc matrix 
 void initRandMatrix(matrix *A, int rows, int cols) {
@@ -25,6 +41,7 @@ void initRandMatrix(matrix *A, int rows, int cols) {
   }
 
 }
+
 void copyMatrix(matrix *A, matrix *B) { 
   B->rows = A->rows;
   B->cols = A->cols;
@@ -41,6 +58,7 @@ void copyMatrix(matrix *A, matrix *B) {
   }
   
 }
+
 void initIMatrix(matrix *A, int rows, int cols) {
   
   int i,j;
@@ -63,6 +81,7 @@ void initIMatrix(matrix *A, int rows, int cols) {
   }
   
 }
+
 //Creates a rxc matrix with 0 as the value
 void initMatrix(matrix *A, int rows, int cols) {
   
@@ -101,12 +120,198 @@ void printMatrix(matrix *A) {
 
 }
 
+
+
 /*
- * Matrix Addition Method.
+ * LOAD ADJACENCY MATRIX FROM FILE
+ *
+ * Given a file name, uses the file to create an
+ * adjacency matrix.  Assumes the matrix A is
+ * already initialized.
  * 
- * This takes two matrices, and performs matrix
- * addition in parallel.
+ * You can give the number of papers which
+ * will be loaded from the citation file.
 */
+void file_load_adj(char* filename, int num_papers, matrix * A) {
+
+  FILE * fh = fopen(filename, "r");
+  if (!fh) {
+
+    printf("[file_load_adj] -> Unable to open %s.\n", filename);
+    exit(EXIT_FAILURE);
+
+  }
+  else if (num_papers != A->rows || A->rows != A->cols) {
+
+    puts("[file_load_adj] -> matrix dimension mismatch.");
+    exit(EXIT_FAILURE);
+
+  }
+  else {
+
+    int MAX_BYTES = 20;
+    char * line = malloc(MAX_BYTES * sizeof(char));
+    char * prev = malloc(MAX_BYTES * sizeof(char));
+
+    char * paper_arr[num_papers];
+
+    int p_idx = 0;
+
+    while (fgets(line, MAX_BYTES, fh)) {
+
+      int q = 0;
+      while(line[q] != '\n' && line[q] != '\0') {
+
+        q++;
+
+      }
+      
+      if (line[q] == '\n') {
+
+        line[q] = '\0';
+
+      }
+
+      if (p_idx == 0) {
+
+        paper_arr[p_idx] = malloc(q * sizeof(char));
+        strcpy(paper_arr[p_idx++], line);
+
+      }
+      
+      if (strcmp(line, "+++++") == 0) {
+
+        fgets(line, MAX_BYTES, fh);
+
+        int q = 0;
+        while(line[q] != '\n' && line[q] != '\0') {
+
+          q++;
+
+        }
+      
+        if (line[q] == '\n') {
+
+          line[q] = '\0';
+
+        }
+        paper_arr[p_idx] = malloc(q * sizeof(char));
+        strcpy(paper_arr[p_idx++], line);
+
+      }
+
+      if(p_idx >= num_papers) {
+
+        break;
+
+      }
+
+    }
+
+    int k;
+    for (k = 0; k < num_papers; k++) {
+
+      printf("%s\n", paper_arr[k]);
+
+    }
+
+    fclose(fh);
+    FILE * fh = fopen(filename, "r");
+    p_idx = 0;
+
+    int i, j;
+    int done = 0;
+    int counter = 0;
+    while (fgets(line, MAX_BYTES, fh) && !done) {
+
+      int q = 0;
+      while(line[q] != '\n' && line[q] != '\0') {
+
+        q++;
+
+      }
+      
+      if (line[q] == '\n') {
+
+        line[q] = '\0';
+
+      }
+      
+      // First Iteration.
+      if (counter == 0) {
+
+        i = 0;
+        j = 0;
+
+      }
+
+      // All others.
+      else {
+
+        if (strcmp(prev, "+++++") == 0) {
+
+          for (q = 0; q < num_papers; q++) {
+
+            if (strncmp(paper_arr[q], line, MAX_BYTES) == 0) {
+
+              i = q;
+              break;
+
+            }
+
+          }
+
+          // Last paper.
+          if (q == num_papers) {
+
+            done = 1;
+
+          }
+
+        }
+        else if ((strcmp(line, "-----") != 0) && (strcmp(line, "+++++") != 0)) {
+
+          for (q = 0; q < num_papers; q++) {
+
+            if (strncmp(paper_arr[q], line, MAX_BYTES) == 0) {
+
+              j = q;
+              break;
+
+            }
+
+          }
+
+          if (q < num_papers) {
+
+            ACCESS(A, i, j) = 1.0;
+
+          }
+
+        }
+
+      }
+
+      counter++;
+      strcpy(prev, line);
+
+    }
+    
+    fclose(fh);
+    free(line);
+    free(prev);
+
+  }
+
+}
+
+
+ /*
+  * Matrix Addition Method.
+  * 
+  * This takes two matrices, and performs matrix
+  * addition in parallel.
+ */
 double * addMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank){
 
   // This is the requirement.
@@ -177,10 +382,10 @@ double * addMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRa
 }
 
 /*
- * Matrix Subtraction Method.
- * 
- * This takes two matrices, and performs matrix
- * subtraction in parallel.
+  * Matrix Subtraction Method.
+  * 
+  * This takes two matrices, and performs matrix
+  * subtraction in parallel.
 */
 double * subtractMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank) {
 
@@ -250,31 +455,31 @@ double * subtractMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int
 }
 
 /*
- * Matrix Multiplication Method.
- * 
- * This takes two matrices, and performs matrix
- * multiplication in parallel (the inner products
- * themselves are in parallel).
- * 
- * Algorithm:
- * 
- * - Assert the correct matrices.
- * - Create bt as Transpose of B.
- * - Then grab each row of A.
- * - Inner_Prod that row by each in B. 
- * - Repeat until all rows in A done.
- * - Store each result into the final.
- * - Return final.
+  * Matrix Multiplication Method.
+  * 
+  * This takes two matrices, and performs matrix
+  * multiplication in parallel (the inner products
+  * themselves are in parallel).
+  * 
+  * Algorithm:
+  * 
+  * - Assert the correct matrices.
+  * - Create bt as Transpose of B.
+  * - Then grab each row of A.
+  * - Inner_Prod that row by each in B. 
+  * - Repeat until all rows in A done.
+  * - Store each result into the final.
+  * - Return final.
 */
 double * multiplyMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int myRank) {
 
   // This is the requirement.
   if (A->cols != B->rows) {
 
-		printf("matrices must have A.col == B.row");
+    printf("matrices must have A.col == B.row");
     return 0;
 
-	}
+  }
 
   // Don't use more nodes than we have possible
   // entries in the matrix :)
@@ -316,7 +521,7 @@ double * multiplyMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int
       final[i] = 0;
 
     } 
-    
+  
   }
 
   /*  - ALG START -  */
@@ -353,10 +558,10 @@ double * multiplyMatrix(matrix *A, matrix *B, MPI_Comm world, int worldSize, int
 }
 
 /*
- * Vector Inner-Product Method.
- * 
- * This takes two matrices (as vectors), and performs the
- * inner product in parallel.
+  * Vector Inner-Product Method.
+  * 
+  * This takes two matrices (as vectors), and performs the
+  * inner product in parallel.
 */
 double innerProduct(matrix* A, matrix *B, MPI_Comm world, int worldSize, int myRank) {
 
@@ -372,7 +577,7 @@ double innerProduct(matrix* A, matrix *B, MPI_Comm world, int worldSize, int myR
 
     sendcts[i] = size/worldSize; // number each gets
     displcmts[i] = i*(size/worldSize); // start indicies
-  
+
   }
 
   if(size % worldSize > 0) {
@@ -404,7 +609,7 @@ double innerProduct(matrix* A, matrix *B, MPI_Comm world, int worldSize, int myR
     Final += localA[i] * localB[i];
 
   }
-  
+
   // Now collect all the results from each node, and use
   // MPI_SUM to simplify the work.
   double sum = 0;
@@ -418,10 +623,10 @@ double innerProduct(matrix* A, matrix *B, MPI_Comm world, int worldSize, int myR
 }
 
 /*
- * Matrix Transpose Method.
- * 
- * This performs the transpose of a matrix
- * in serial.
+  * Matrix Transpose Method.
+  * 
+  * This performs the transpose of a matrix
+  * in serial.
 */
 matrix transpose(matrix* A) {
 
@@ -446,9 +651,9 @@ matrix transpose(matrix* A) {
 }
 
 /*
- * Gauss_Jordan.
- * 
- * This performs the gauss_jordan algorithm in parallel.
+  * Gauss_Jordan.
+  * 
+  * This performs the gauss_jordan algorithm in parallel.
 */
 double * gauss_jordan(matrix* A, matrix *b, MPI_Comm world, int worldSize, int myRank) {
   size_t i, k, r, c;
@@ -591,39 +796,24 @@ double * gauss_jordan(matrix* A, matrix *b, MPI_Comm world, int worldSize, int m
 }
 
 
+/*
+ * VECTOR NORMALIZE FUNCTION
+ * 
+ * This function takes a vector and normalizes
+ * it to become a unit vector (length = 1).
+*/
 double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank) {
 
-  if(!v->data) {
-
-    printf("No vector to normalize buddy.\n");
-    return NULL;
-
-  }
-
-  /* Step 1: get the Euclidean Norm. */
-  
+   /* Step 1: get the Euclidean Norm. */
   int terms = MAX(v->cols, v->rows);
   int nodes = MIN(terms, worldSize);
 
-  // int y;
-
-  // if (myRank == 0) {
-
-  //   puts("x:");
-  //   for (y = 0; y < terms; y++) {
-
-  //     printf("%f ", v->data[y]);
-
-  //   }
-
-  //   puts("");
-
-  // }
+  MPI_Bcast(v->data, terms, MPI_DOUBLE, 0, world);
 
   double * normalized_v = (double*) malloc(sizeof(double) * terms);
 
-  int * sndcts = (int*) malloc(worldSize*sizeof(int));
-  int * displs = (int*) malloc(worldSize*sizeof(int));
+  int * sndcts = (int*) malloc(worldSize * sizeof(int));
+  int * displs = (int*) malloc(worldSize * sizeof(int));
 
   int n;
   for (n = 0; n < worldSize; n++) {
@@ -659,8 +849,6 @@ double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank) {
 
   }
 
-  MPI_Bcast(v->data, terms, MPI_DOUBLE, 0, world);
-
   double local_sum = 0;
   if (myRank < nodes) {
 
@@ -682,7 +870,6 @@ double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank) {
   }
 
   /* Step 2: Normalize v by dividing each entry of v by the L2Norm(v). */
-
   MPI_Bcast(&final, 1, MPI_DOUBLE, 0, world);
 
   double * local_v = (double*) malloc(sizeof(double) * sndcts[myRank]);
@@ -693,7 +880,7 @@ double * normalize(matrix *v, MPI_Comm world, int worldSize, int myRank) {
     for (n = 0; n < sndcts[myRank]; n++) {
 
       local_v[n] = v->data[displs[myRank] + n] / final;
-    
+  
     }
 
   }
@@ -729,7 +916,7 @@ double * eigen_vector_file(int DIM, MPI_Comm world, int worldSize, int myRank) {
   }
 
   double * local_m = malloc(sizeof(double) * send_cnts[myRank]); 
-  
+
   MPI_Offset offset = myRank * sizeof(double) * send_cnts[myRank];
   // hexdump -v -e '5/4 "%3d"' -e '"\n"'  datafile
   MPI_File_open(world, "outfile",
@@ -755,7 +942,7 @@ double * eigen_vector_file(int DIM, MPI_Comm world, int worldSize, int myRank) {
   int LIMIT = 1;
   int success = 0;
   for (z = 0; z < DIM; z++) {
-    
+  
     v.data[z] = 1;
 
   }
@@ -780,7 +967,7 @@ double * eigen_vector_file(int DIM, MPI_Comm world, int worldSize, int myRank) {
       test[i] = temp.data[i] - v.data[i];
 
     } 
-    
+  
     MPI_Bcast(test, DIM, MPI_DOUBLE, 0, world);
 
     for (i = 0; i < DIM; i++) {
@@ -791,7 +978,7 @@ double * eigen_vector_file(int DIM, MPI_Comm world, int worldSize, int myRank) {
     }
 
     if (sum2 - sum <= 0.000001 || sum2 - sum >= -0.000001) {
-      
+    
       success = 1;
 
     }
@@ -799,7 +986,7 @@ double * eigen_vector_file(int DIM, MPI_Comm world, int worldSize, int myRank) {
     free(test);
 
     count++;
-    
+  
   }
 
   return v.data;
