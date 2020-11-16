@@ -396,7 +396,6 @@ void buildTree(){
             docnode* n = NULL;
             n = calloc(1, sizeof(docnode));
             nodeComp(fr2, count, n);
-            printf("gay -> %s", n->id);
             keyword_node * TEMPROOT = NULL;
             /*
             * Build tree with the words in the abstract
