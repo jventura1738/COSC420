@@ -1,0 +1,53 @@
+plasm-ph/9607001
+Ionization equilibrium of hot hydrogen plasma
+A.Y.Potekhin (Ioffe Phys.-Tech. Institute, http://www.ioffe.rssi.ru)
+76     
+  -  1  10^4  10^6  A  accurate  analytic  and  and  and  are  at  at  atoms.  calculated  compared  convergent  degree  densities  energy  energy  equation  equilibrium  for  formalism  free  free  function  g/cc  hydrogen  internal  ionization  ionization  is  is  is  is  K  method.  minimization  model  models.  modified  occupation  of  of  of  other  partition  plasma  probability  problem.  proposed  results  simple  solving  state  studied  T  temperatures  the  the  The  The  the  The  to  up  using  viscous,  which  with  yields 
++++++
+plasm-ph/9607002
+Localized structures of electromagnetic waves in hot   electron-positronplasmas
+S. Kartal, N. Tsintsadze, V.I. Berezhiani
+58     
+  (EM)  a  certain  completely  conditions  dynamics  electromagnetic  electron-positron  EM  EM  EM  expelled  explored.  field  finding  forms  from  hot  in  investigated.  is  is  is  is  It  localized  localized  location.  of  of  of  of  plasma  plasma  possibility  propagation  region  relativistically  shown  soliton-like  solving  stable  stationary  strong  structures  structures  that  the  The  The  the  under  wave  wave  waves 
++++++
+plasm-ph/9512001
+Power Balance in the ITER Plasma and Divertor
+D. E. Post, B. Braams, J. Mandrekas, W. Stacey and N. Putvinskaya
+114     
+  %  (~0.1  100  100  50  50  50  acceptably  and  and  and  are  Argon  Argon,  as  at  atomic  be  be  bremstrahlung  by  Calculations  center,  components  deposited  divertor  divertor  edge  enhanced  etc.)  facing  first  from  from  from  heat  heating  impurities  in  in  indicate  injection  inside  is  It  ITER  layer  leaving  levels  loads  losses  low  most  MW  MW  MW  MW  MW.  Neon  of  of  of  of  of  on  on  or  out  over  planned  plasma  plasma  plasma  plasma  plasma,  plates.  power  power  processes  radiation  radiation  radiation  radiation  reduce  scrape-off  separatrix  side  spread  such  that  the  the  the  the  the  the  the  the  The  the  the  there  to  to  to  to  to  use  wall  walls  will 
++++++
+plasm-ph/9512002
+Experimental Divertor Similarity Database Parameters
+I. H. Hutchinson, B. LaBombard, and B. Lipschultz (Plasma Fusion   Center, MIT)
+51     
+  A  able  Alcator  and  and  are  as  as  be  C-Mod  characterizing  compare  differences  different  dimensionless  divertor  divertors  Examples  experimentally-determined  for  from  given.  is  is  levels  objective  of  of  of  operation  operation.  parameters  physical  possible  proposed  regime  represent.  set  similarities  the  The  the  they  to  to  to  unambiguously  understand 
++++++
+plasm-ph/9503001
+Stellarator News, Issue 38, March 1995
+James A. Rome
+229                                             
+  (0.7-MW  ****  ****  ****  ****  ****  .  .  .  1.8  10^20  11;  140-GHz  140-GHz  1995  5/10.  8  =  =  a  a  A.  agrees  Alfven-heating  Alternate  an  analytical  and  and  and  are  are  are  are  aspects  Assment  at  at  at  at  at  at  axis  be  beta  boundary  by  calculated  calculations:  camera,  community,  comparable  Concepts.  conditions  conditions  configuration  Congress  currents  currents  cyclotron  density  determe  divertor  Division,  ECRH  edge  Edge  edge,  Editor  electron  electron  Energy  equations.  Equilibrium  equilibrium  even  Exerpts  experimental  external  field  First  flow  flow  for  for  from  Fusion  H-alpha  harmonic  harmonic  heating  helical  help  high  in  in  In  in  in  international  iotabar  iotabar=5/m  is  is  island  issue  James  journal  Laboratory,  light  low  low-valued  m  m^-3  magnetic  March  National  News,  not  O-mode  O-mode  Oak  observed  of  of  of  of  of  of  of  of  Office  on  on  on  on  particle  perturbations  plasma  plasma  plasma  power)  presented  probes,  Published  quasi-symmetric  quasi-symmetric  quasi-symmetric  report  resolved  resonances  results  Ridge  Rome,  second  second  shown  significant  Stellarator  stellarator  stellarators  stellarators  structure  studies  studies  Technology  television  the  the  the  the  the  the  the  The  the  the  The  the  The  the  the  to  to  to  Topological  torsatron.  TPX  transport  turbulence  turbulent-driven  U-3M  U-3M  U.S.  under  vacuum  various  W7-AS  W7-AS  W7-AS,  W7-AS.  with  with  with  with  with 
++++++
+plasm-ph/9503002
+Narrowing of Bennett Hole in Collisional Plasma
+E. V. Podivilov, D. A. Shapiro, M. G. Stepanov
+88     
+  a  as  Bennett  by  calculated.  calculation  cause  Chandrasekhar's  coefficients  collision  collisional  conditions  Coulomb  dependence  dependence  detuning  distribution  down  edge  effect  effect  Estimations  falling  field  field  first  for  found  frequency  frequency  gas-discharge  high-current  hole  hole  in  in  included  increases.  induced  Influence  into  ionic  ionic  is  is  is  is  is  It  laser  narrows  observable  of  of  of  of  of  of  of  on  on  Physical  plasma  plasma.  profile  profile  quite  show  space  that  that  the  The  the  the  the  the  the  the  the  the  time.  transport  under  velocity 
++++++
+plasm-ph/9604001
+Electrostatic Ion Perturbations in Unmagnetized Plasma Shear Flow
+A.D. Rogava, G.D. Chagelishvili, and V.I. Berezhiani
+110     
+  ($T_i{\ll}T_e$)  (ion-sound  (with  acoustic  also  an  are  are  arising  by  by  characterized  class  component),  considered.  course  described.  described.  dispersion,  due  due  dynamics,  effects,  electron-ion  electrostatic  electrostatic  energy  energy  evolution  examined.  exchange  extraction  flow  flow  flow,  for  in  in  induces  influence  intense  into  investigated  ion  ion  ion-sound  is  is  is  is  It  It  linear  mean  mean  medium  motion  New  New  non-isothermal  non-normality  nonperiodic,  of  of  of  of  of  of  of  oscillations.  perturbations  perturbations  perturbations  perturbations,  physical  plasma  plasma  quasineutrality  rising  shear  shear  shown  shown  that  that  the  the  The  the  the  the  the  the  the  the  the  The  the  to  to  turn  unmagnetized,  velocity  violation  vortical  waves  waves). 
++++++
+plasm-ph/9604002
+Relativistic ponderomotive force, uphill acceleration, and transition to   chaos
+D. Bauer, P. Mulser, W.-H. Steeb (Theoretical Quantum Electronics   (TQE), TH Darmstadt, Germany)
+94         
+  52.20.Dq,05.45.+b,52.35.Mw,52.60.+h  a  a  a  a  a  a  above  acceleration  analytical  and  and  arbitrary  are  are  be  by  can  can  center  chaos,  charge  covariant  cycle-averaged  deduced  described  different;  equation  exists  for  for  force  force.  forces  formulae  from  further  in  in  In  intensity  is  is  It  Lagrangian  latter,  longer  longitudinal  motion  motion  no  number(s):  occur.  of  of  of  oscillation  owing  PACS  point  ponderomotive  ponderomotive  ponderomotive  presented.  regular  relativistic  secular  shown  standing  Starting  strength  that  the  the  the  the  the  the  there  threshold  to  to  transition  transverse  travelling  uphill  wave  wave  waves 
++++++
+plasm-ph/9604003
+Special-relativistic model flows of viscous fluid
+A.D. Rogava
+79     
+  (Jacobi's  (velocity  a  acting  analytical  and  and  are  are  are  by  cases  considered:  Considering  Couette  Couette  distribution  elliptic  expressed  expressed  flow  flow  flow,  flow.  flows  fluid  fluid  fluid  for  for  force,  found  friction  functions  functions  functions).  higher  immovable  in  incompressible  most  motion  of  of  of  of  on  only  plane  plane  Poiseiulle  Poiseuille  profiles)  regular  results  simple  simple  special-relativistic  the  The  the  the  the  the  the  the  the  the  they  through  transcendental  Two,  velocity  viscous,  wall.  we 

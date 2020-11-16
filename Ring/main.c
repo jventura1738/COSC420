@@ -2,14 +2,14 @@
 #include<stdlib.h>
 #include <string.h>
 #include<ctype.h>
-#include "list.h"   // linked list
-#include "KWBST.h"  // binary search tree for keywords
+#include "include/list.h"   // linked list
+#include "include/KWBST.h"  // binary search tree for keywords
 #include "matrix.h" // matrix for doubles
-#include "csr.h"    // compressed sparse row form
-#include "hits.h"   // hyper-text induced topic search
-#include "page.h"   // page rank algorithm for CSR
+#include "include/csr.h"    // compressed sparse row form
+#include "include/hits.h"   // hyper-text induced topic search
+#include "include/page.h"   // page rank algorithm for CSR
 #include "mpi.h"    // MPI stuff
-#include "interface.h"
+#include "include/interface.h"
 
 
 int main(int argc, char ** argv){
@@ -41,6 +41,61 @@ int main(int argc, char ** argv){
     printf("============================================\n");
     printf("Return Results Here!\n");
 
+    //PageRank
+    csr_matrix * Graph;
+    //matrix hub_vect, auth_vect;
+
+    matrix * adj = (matrix*) malloc(sizeof(matrix));
+    int N = 9;
+    initMatrix(adj, N, N);
+
+    file_load_adj("arXiv/temp_citations.txt", N, adj);
+    puts("adj matrix");
+    printMatrix(adj);
+    puts("");
+
+    Graph = (csr_matrix*) malloc(sizeof(csr_matrix));
+    puts("----------------------------");
+    to_csr(adj, Graph);
+    puts("line 1: rowptrs, line 2: col idx, line 3: vals");
+    test_print(Graph);
+    puts("----------------------------");
+    print_csr(Graph);
+
+    matrix result;
+    init_vector(&result, NULL, Graph->nvertices);
+
+    page_rank(Graph, &result);
+
+    puts("\nPage rank vector:");
+
+    int z;
+    for(z = 0; z < Graph->nvertices; z++) {
+
+        printf("%f ", result.data[z]);
+
+    }
+
+    double * hub_vect = (double*) malloc(Graph->nvertices * sizeof(double));
+    double * auth_vect = (double*) malloc(Graph->nvertices * sizeof(double));
+
+    hits_alg(Graph, hub_vect, auth_vect);
+
+    puts("Hubs vector:");
+    for(z = 0; z < Graph->nvertices; z++) {
+
+        printf("%f ", hub_vect[z]);
+
+    }
+    puts("");
+
+    puts("Auths vector:");
+    for(z = 0; z < Graph->nvertices; z++) {
+
+        printf("%f ", auth_vect[z]);
+
+    }
+    puts("");
 
     /*
      * - Grab all articles with the words that match.

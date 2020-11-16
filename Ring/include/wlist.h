@@ -4,8 +4,8 @@
  * - Justin Ventura
 */
 
-#ifndef LIST_H
-#define LIST_H
+#ifndef WLIST_H
+#define WLIST_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -16,15 +16,15 @@
  * This acts like a 'linked list node'
  * that keeps track of the ID of the word.
 */
-typedef struct list_node {
+typedef struct wlist_node {
 
     // ID of the research paper.
-    double ID;
+    char* ID;
 
     // Points to the next node in the list.
-    struct list_node * next;
+    struct wlist_node * next;
 
-} list_node;
+} wlist_node;
 
 /*
  * <--------  MASTER NODE  -------->
@@ -32,16 +32,16 @@ typedef struct list_node {
  * This acts like a 'linked list' class
  * that keeps track of the a linked list.
 */
-typedef struct master_node {
+typedef struct wmaster_node {
 
     // Pointers to the head and tail of the linked list.
-    list_node * head;
-    list_node * tail;
+    wlist_node * head;
+    wlist_node * tail;
 
     // Count of nodes.
     int node_count;
 
-} master_node; 
+} wmaster_node; 
 
 
 /*
@@ -49,9 +49,9 @@ typedef struct master_node {
  * 
  * Allocates a new master node on the heap.
 */
-master_node * init_master() {
-
-    master_node * master = (master_node*) malloc(sizeof(master_node));
+wmaster_node * winit_master() {
+    
+    wmaster_node * master = (wmaster_node*) malloc(sizeof(wmaster_node));
     master->head = NULL;
     master->tail = NULL;
     master->node_count = 0;
@@ -65,10 +65,10 @@ master_node * init_master() {
  * 
  * Allocates a new node on the heap.
 */
-list_node * init_node(double id) {
+wlist_node * winit_node(char*  ID) {
 
-    list_node * new_node = malloc(sizeof(list_node));
-    new_node->ID = id;
+    wlist_node * new_node = malloc(sizeof(wlist_node));
+    new_node->ID = ID;
     new_node->next = NULL;
 
     return new_node;
@@ -85,7 +85,7 @@ list_node * init_node(double id) {
  * 
  * NOTE: returns NULL when empty.
 */
-int in_list(master_node * master, double id) {
+int win_list(wmaster_node * master, char*  ID) {
 
     if (!master->head) {
 
@@ -95,11 +95,11 @@ int in_list(master_node * master, double id) {
     }
     else {
 
-        list_node * temp = master->head;
+        wlist_node * temp = master->head;
 
         while (temp) {
 
-            if (temp->ID == id) {
+            if (strcmp(temp->ID, ID) == 0) {
 
                 return 1;
 
@@ -126,15 +126,17 @@ int in_list(master_node * master, double id) {
  * a duplicate.  Will not insert if this
  * is the case.
 */
-void append(master_node * master, double id) {
+void wappend(wmaster_node * master, char*  ID) {
 
-    list_node * new_node = init_node(id);
+    wlist_node * new_node = winit_node(ID);
     if (!new_node) {
 
-        printf("Memory error: Could not append: %f.\n", id);
+        printf("Memory error: Could not append: %s.\n", ID);
 
     }
-
+    if (!master) {
+        master = winit_master();
+    }
     if (!master->head) {
 
         master->head = new_node;
@@ -142,14 +144,14 @@ void append(master_node * master, double id) {
         return;
 
     }
-    else if (in_list(master, id)) {
+    else if (win_list(master, ID)) {
 
         return;
 
     }
     else {
 
-        list_node * temp = master->tail;
+        wlist_node * temp = master->tail;
         master->tail = new_node;
         temp->next = new_node;
         master->node_count++;
@@ -165,19 +167,17 @@ void append(master_node * master, double id) {
  * Prints the list (master) from head
  * to tail.  Provides newline.
 */
-void print(master_node * master) {
+void wprint(wmaster_node * master) {
 
-    list_node * temp = master->head;
+    wlist_node * temp = master->head;
 
     while(temp) {
 
-        printf("%f ", temp->ID);
+        printf("%s\n", temp->ID);
         temp = temp->next;
 
     }
-
-    //puts("");
-
+    free(temp);
 }
 
 
@@ -187,9 +187,9 @@ void print(master_node * master) {
  * This function empties the list (master)
  * by deleting all elements.
 */
-void clear_list(master_node * master) {
+void wclear_list(wmaster_node * master) {
 
-    list_node * temp = master->head;
+    wlist_node * temp = master->head;
 
     while(temp) {
 

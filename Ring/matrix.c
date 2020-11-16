@@ -149,7 +149,7 @@ void file_load_adj(char* filename, int num_papers, matrix * A) {
   }
   else {
 
-    int MAX_BYTES = 20;
+    int MAX_BYTES = 25;
     char * line = malloc(MAX_BYTES * sizeof(char));
     char * prev = malloc(MAX_BYTES * sizeof(char));
 
@@ -209,11 +209,11 @@ void file_load_adj(char* filename, int num_papers, matrix * A) {
     }
 
     int k;
-    for (k = 0; k < num_papers; k++) {
+    // for (k = 0; k < num_papers; k++) {
 
-      printf("%s\n", paper_arr[k]);
+    //   printf("%s\n", paper_arr[k]);
 
-    }
+    // }
 
     fclose(fh);
     FILE * fh = fopen(filename, "r");
@@ -244,7 +244,6 @@ void file_load_adj(char* filename, int num_papers, matrix * A) {
         j = 0;
 
       }
-
       // All others.
       else {
 

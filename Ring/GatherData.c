@@ -3,12 +3,14 @@
 #include<stdlib.h>
 #include<string.h>
 #include<ctype.h>
-#include "include/list.h"   // linked list
-#include "include/KWBST.h"  // binary search tree for keywords
-#include "include/matrix.h" // matrix for doubles
-#include "include/csr.h"    // compressed sparse row form
-#include "include/hits.h"   // hyper-text induced topic search
-#include "include/page.h"   // page rank algorithm for CSR
+//#include "list.h"   // linked list
+#include "wlist.h"  // word linked list
+#include "KWBST.h"  // binary search tree for keywords
+#include "matrix.h" // matrix for doubles
+//#include "include/csr.h"    // compressed sparse row form
+//#include "hits.h"   // hyper-text induced topic search
+//#include "page.h"   // page rank algorithm for CSR
+#include "preprocess.h" 
 #include "mpi.h"    // MPI stuff
 
 
@@ -95,6 +97,7 @@ void nodeComp(FILE* fh, int z, docnode* p){
     if(z == 0){
         fgets(idBuffer, sizeof idBuffer, fh);
         strcpy(p->id, idBuffer);
+        printf("%s\n", idBuffer);
         fgets(buffer, sizeof buffer, fh);
         strcpy(p->title, buffer);
         fgets(buffer, sizeof buffer, fh);
@@ -103,8 +106,9 @@ void nodeComp(FILE* fh, int z, docnode* p){
         p->wordCount = atof(buffer);
     }else{
         fgets(trash, sizeof trash, fh);
-        fgets(buffer, sizeof buffer, fh);
-        strcpy(p->id, buffer);
+        fgets(idBuffer, sizeof idBuffer, fh);
+        strcpy(p->id, idBuffer);
+        printf("%s\n", idBuffer);
         fgets(title, sizeof title, fh);
         strcpy(p->title, title);
         fgets(buffer, sizeof buffer, fh);
@@ -148,7 +152,9 @@ void nodeComp(FILE* fh, int z, docnode* p){
 *   OUT: The words from the given abstract are 
 *        outputted to a file.
 */
-void writeWordsFromAbstracts(FILE* fh, FILE* fw){
+void writeWordsFromAbstracts(){
+    FILE* fh = fopen("arXiv/List_of_Abstracts.txt", "r");
+    FILE* fw = fopen("arXiv/Words.txt", "w");
     int z = 0;
     int c;
     while((c = fgetc(fh)) != EOF){
@@ -156,7 +162,7 @@ void writeWordsFromAbstracts(FILE* fh, FILE* fw){
         n = calloc(1, sizeof(docnode));
         nodeComp(fh,z, n);
         keyword_node * ROOT = NULL;
-        printf("%s\n", n->id);
+        //printf("%s\n", n->id);
 
         if(n->wordCount < 30){
             return;
@@ -165,11 +171,11 @@ void writeWordsFromAbstracts(FILE* fh, FILE* fw){
         int count = 0;
         for (i = 0; i < 256*n->wordCount && n->abstract[i]; i++) {
             ROOT = insert(ROOT, n->abstract[i]);
-            append(ROOT->MASTER, atof(n->id));
+            wappend(ROOT->MASTER, n->id);
             count++;
         }
         
-        in_order(ROOT);
+        //in_order(ROOT, fw);
         clear_tree(ROOT);
         free(n->abstract);
         free(n);
@@ -179,7 +185,8 @@ void writeWordsFromAbstracts(FILE* fh, FILE* fw){
             break;
         }
     }
-    
+    fclose(fh);
+    fclose(fw);
 }
 /*
 * readWriteAbstracts:
@@ -190,14 +197,14 @@ void writeWordsFromAbstracts(FILE* fh, FILE* fw){
 void readWriteAbstracts(){
     int z = 0;
     FILE* fh = fopen("arXiv/Alphabetized.txt", "r");
-    FILE* ids = fopen("arXiv/tempID.txt", "r");
+    FILE* ids = fopen("arXiv/IDs.txt", "r");
     FILE* fw = fopen("arXiv/List_of_Abstracts.txt", "w");
     char bigString[640000];
     char buffer[100000];
     char buferID[100];
     char id[25];
     int i,j,ctr,k, x, c, cc;
-    while((cc = fgetc(ids))!= EOF){
+    while((cc = fgetc(ids)) != EOF){
         id[0] = cc;
         fgets(id+1, sizeof id, ids);
         FILE* fh = fopen("arXiv/Alphabetized.txt", "r");
@@ -210,7 +217,7 @@ void readWriteAbstracts(){
                 fgets(buferID + 1, sizeof buferID, fh);
                 if(strcmp(buferID, id) != 0){
                     z++;
-                    //printf("BUFFER: %s\n", buferID);
+                    printf("BUFFER: %s\n", buferID);
                     fgets(buffer, sizeof buffer, fh);
                     fgets(buffer, sizeof buffer, fh);
                     fgets(buffer, sizeof buffer, fh);
@@ -233,8 +240,11 @@ void readWriteAbstracts(){
             }else{
                 fgets(buffer, sizeof buffer, fh);
                 fgets(buferID, sizeof buferID, fh);
-                //printf("ID: %s\n", id);
-                //printf("BUFFER: %s\n", buferID);
+                if(strcmp(buferID, "+++++\n") == 0){
+                    return;
+                }
+                printf("ID: %s\n", id);
+                printf("BUFFER: %s\n", buferID);
                 if(strcmp(buferID, id) != 0){
                     //printf("BUFFER: %s\n", buferID);
                     z++;
@@ -259,8 +269,14 @@ void readWriteAbstracts(){
                     fprintf(fw, "%s", buffer);
                 }
             }
+            for(i = 0; i < 100000; i++){
+                buffer[i] = '\0';
+            }
+            for(i = 0; i < 100; i++){
+                buferID[i] = '\0';
+            }
             j=0; ctr=0;
-            fgets(bigString, sizeof bigString, fh);
+            fgets(bigString, sizeof bigString, fh); //ABSTRACT
             char newString[800][800];
             for(i = 0; i < 800; i++){
                 for(j = 0; j < 800; j++){
@@ -301,13 +317,17 @@ void readWriteAbstracts(){
             if(feof(fh)){
                 break;
             }
+            
         }
+
         if(feof(ids)){
             break;
         }
         fclose(fh);
 
     }
+    fclose(ids);
+    fclose(fw);
 }
 /*
 * cleanFile:
@@ -315,13 +335,15 @@ void readWriteAbstracts(){
 *   OUT: A text file with common words removed from the 
 *        list of words in the abstract.
 */
-void cleanFile(FILE* fr, FILE* fw){
+void cleanFile(){
+    FILE* fr = fopen("arXiv/Words.txt", "r");
+    FILE* fw = fopen("arXiv/WordsFinal.txt", "w");
     int c, i;
     int z = 0;
     char word[200];
     while((c = fgetc(fr)) != EOF){
         word[0] = c;
-        printf("z = %d\n", z);
+        //printf("z = %d\n", z);
         fgets(word+1, sizeof(word), fr);
         if((isalpha(c) != 0 || word[0] == '\n') && strcasecmp(word, "the\n") != 0 && strcasecmp(word, "and\n") != 0 && strcasecmp(word, "their\n") != 0 && strlen(word) != 2 &&
         strcasecmp(word, "for\n") != 0 && strcasecmp(word, "is\n") != 0 && strcasecmp(word, "of\n") != 0 && strcasecmp(word, "are\n") != 0 && strcasecmp(word, "at\n") != 0 &&
@@ -329,7 +351,7 @@ void cleanFile(FILE* fr, FILE* fw){
         && strcasecmp(word, "its\n") != 0 && strcasecmp(word, "to\n") != 0){
             fprintf(fw, "%s", word);
         }else{
-            printf("%s", word);
+            //printf("%s", word);
         }
         z++;
         if(feof(fr)){
@@ -351,8 +373,8 @@ void buildTree(){
     int c,z, count;
     z = 0;
     char buffer[100];
-    FILE* fr = fopen("arXiv/FinalList.txt", "r");
-    FILE* fr2 = fopen("arXiv/test.txt", "r");
+    FILE* fr = fopen("arXiv/WordsFinal.txt", "r");
+    FILE* fr2 = fopen("arXiv/List_of_Abstracts.txt", "r");
     FILE* fw = fopen("arXiv/BST.txt", "w");
     keyword_node* ROOT = NULL;
     while((c = fgetc(fr)) != EOF){
@@ -364,16 +386,17 @@ void buildTree(){
         int wordcnt = 0;
         int realcount = 0;
         count = 0;
-        FILE* fr2 = fopen("arXiv/test.txt", "r");
+        FILE* fr2 = fopen("arXiv/List_of_Abstracts.txt", "r");
         /*
         * Actual bounds are 1000, but for now we will use the first 10 documents
         */
-        while(count < 100){
+        fprintf(fw, "%s : ", strtok(buffer, "\n"));
+        while(count < 9){
             //printf("%s\n", buffer);
             docnode* n = NULL;
             n = calloc(1, sizeof(docnode));
             nodeComp(fr2, count, n);
-            //printf("%s", n->id);
+            printf("gay -> %s", n->id);
             keyword_node * TEMPROOT = NULL;
             /*
             * Build tree with the words in the abstract
@@ -382,7 +405,7 @@ void buildTree(){
             for (i = 0; i < 256*n->wordCount && n->abstract[i]; i++) {
                 TEMPROOT = insert(TEMPROOT, n->abstract[i]);
                 //printf("N ABSTRACT: %s\n", n->abstract[i]);
-                append(TEMPROOT->MASTER, atof(n->id));
+                wappend(TEMPROOT->MASTER, n->id);
                 wordcnt++;
             }
             /*
@@ -401,8 +424,9 @@ void buildTree(){
             keyword_node * test = find(TEMPROOT, buffer);
             //printf("Word : %s \n", test->keyword);
             if(test->keyword){
-                append(test->MASTER, atof(n->id));        
-                fprintf(fw,"%f ", test->MASTER->tail->ID);
+                wappend(test->MASTER, n->id);
+                printf("%s\n", n->id);
+                fprintf(fw,"%s ", strtok(test->MASTER->tail->ID,"\n"));
             }
             free(n->abstract);
             free(n);
@@ -412,7 +436,8 @@ void buildTree(){
             realcount = 0;
         
         }
-        fprintf(fw, "to %s\n", buffer);
+        fprintf(fw, "\n");
+        
         in_order(ROOT);
         puts("");
         clear_tree(ROOT);
@@ -431,6 +456,90 @@ void buildTree(){
        
     fclose(fr);
 }
+// void buildTree(){
+//     int c,z, count;
+//     z = 0;
+//     char buffer[100];
+//     FILE* fr = fopen("arXiv/WordsFinal.txt", "r");
+//     FILE* fw = fopen("arXiv/BST.txt", "w");
+//     keyword_node* ROOT = NULL;
+//     while((c = fgetc(fr)) != EOF){
+//         printf("z = %d\n", z);
+//         buffer[0] = c;
+//         fgets(buffer+1, sizeof buffer, fr);
+//         //printf("%s\n", buffer);
+//         insert(ROOT, buffer);
+//         int wordcnt = 0;
+//         int realcount = 0;
+//         count = 0;
+//         FILE* fr2 = fopen("arXiv/List_of_Abstracts.txt", "r");
+//         /*
+//         * Actual bounds are 1000, but for now we will use the first 10 documents
+//         */
+//         while(count < 9){
+//             //printf("%s\n", buffer);
+//             docnode* n = NULL;
+//             n = calloc(1, sizeof(docnode));
+//             nodeComp(fr2, count, n);
+//             //printf("%s", n->id);
+//             keyword_node * TEMPROOT = NULL;
+//             /*
+//             * Build tree with the words in the abstract
+//             */
+//             int i;
+//             for (i = 0; i < 256*n->wordCount && n->abstract[i]; i++) {
+//                 TEMPROOT = insert(TEMPROOT, n->abstract[i]);
+//                 //printf("N ABSTRACT: %s\n", n->abstract[i]);
+//                 append(TEMPROOT->MASTER, atof(n->id));
+//                 wordcnt++;
+//             }
+//             /*
+//             * Remove edge cases
+//             */
+//             int j;
+//             for(j = 0; isalpha(buffer[j]) != 0; j++){
+//                 realcount++;
+//             }
+//             if(count == 0 && strlen(buffer) != realcount){
+//                 buffer[strlen(buffer) - 1] = '\0';
+//             }
+//             /*
+//             * Find Word
+//             */
+//             keyword_node * test = find(TEMPROOT, buffer);
+//             //printf("Word : %s \n", test->keyword);
+//             if(test->keyword){
+//                 printf("%s\n", test->keyword);
+//                 append(test->MASTER, atof(n->id));        
+//                 fprintf(fw,"%f ", test->MASTER->tail->ID);
+//             }
+//             free(n->abstract);
+//             free(n);
+//             clear_tree(TEMPROOT);
+//             //printf("%d \n", count);
+//             count++;
+//             realcount = 0;
+        
+//         }
+//         fprintf(fw, "to %s\n", buffer);
+//         in_order(ROOT);
+//         puts("");
+//         clear_tree(ROOT);
+//         fclose(fr2);
+//         //ROOT = insert(ROOT, buffer);
+
+//         //keyword_node * test = find(ROOT, buffer);
+//         //append(test->MASTER, 0);
+//         //printf("-> %f to %s\n", test->MASTER->tail->ID, test->keyword);
+//         if(feof(fr)){
+//             break;
+//         }
+//         z++;
+//     }
+    
+       
+//     fclose(fr);
+// }
 /*
 * Flow of operations:
 *   Start:
@@ -446,14 +555,36 @@ void buildTree(){
 *            '->Fin.
 */
 int main (int argc, char ** argv) {
+    //Preparing Everything
+    int n = 10;
+    printf("--------------------------\n");
+    printf("| Begining preprocessing |\n");
+    printf("--------------------------\n");
+    printf("Gathering the first %d documents...", n);
+    //format_citations_preprocess("arXiv/arxiv-citations.txt", n);
+    printf(" Done.\n");
+    printf("Writing all the abstracts from the ids gathered...");
+    //readWriteAbstracts();
+    printf(" Done.\n");
 
-    MPI_Init(&argc, &argv);
+    printf("Writing all the words from each abstract...");
+    writeWordsFromAbstracts();
+    printf(" Done.\n");
+    printf("Cleaning the text of unkown symbols and common words...");
+    //cleanFile();
+    printf(" Done.\n");
+    buildTree();
+    printf("Building the BST for each word, ids contaning the word, sorted by PageRank...");
+    printf(" Done.\n"); 
+
+    /* MPI_Init(&argc, &argv);
     MPI_Comm world = MPI_COMM_WORLD;
 
     int worldSize, myRank;
     MPI_Comm_size(world, &worldSize);
     MPI_Comm_rank(world, &myRank);
 
+    //PageRank
     csr_matrix * Graph;
     matrix hub_vect, auth_vect;
 
@@ -485,12 +616,7 @@ int main (int argc, char ** argv) {
     }
     puts("");
 
-
-
-
-
-
-    // MPI_Finalize();
+    MPI_Finalize(); */
     
 
     return 0;

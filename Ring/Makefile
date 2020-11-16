@@ -3,10 +3,10 @@
 mc = mpicc 
 flags = -lm 
 
-main: unique.o matrix.o
-	$(mc) -o ligma UniqueWords.c matrix.c $(flags)
-matrix.o: data.c matrix.h
-	$(mc) -c matrix.c -g $(flags)
+main: main.o matrix.o
+	$(mc) -o run main.c matrix.c $(flags)
+main.o: main.c 
+	$(mc) -c main.c -g $(flags)
 matrix.o: matrix.c matrix.h
 	$(mc) -c matrix.c -g $(flags)
 clean:

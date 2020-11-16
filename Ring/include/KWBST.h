@@ -10,7 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "list.h"
+#include "wlist.h"
 
 /*
  * <--------  WORD   NODE  -------->
@@ -26,7 +26,7 @@ typedef struct keyword_node {
 
     // Pointer to the list of all paper IDs
     // associated with this keyword.
-    master_node * MASTER;
+    wmaster_node * MASTER;
 
     // These are the pointers for navigation.
     struct keyword_node * left, * right;
@@ -44,7 +44,7 @@ keyword_node * init_kwnode(char * word) {
     keyword_node * new_node = (keyword_node*) malloc(sizeof(keyword_node));
     strcpy(new_node->keyword, word);
 
-    new_node->MASTER = init_master();
+    new_node->MASTER = winit_master();
 
     new_node->left = NULL;
     new_node->right = NULL;
@@ -146,7 +146,7 @@ void in_order(keyword_node * root) {
     if (root) {
         in_order(root->left);
         printf("%s ", root->keyword);
-        print(root->MASTER);
+        wprint(root->MASTER);
         in_order(root->right);
     }
 
@@ -181,7 +181,7 @@ void clear_tree(keyword_node * tree) {
 
         clear_tree(tree->left);
         clear_tree(tree->right);
-        clear_list(tree->MASTER);
+        wclear_list(tree->MASTER);
         free(tree->MASTER);
         free(tree);
 
