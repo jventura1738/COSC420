@@ -3,21 +3,22 @@ Current State: *ALPHA*
 
 ## To compile:
 <code>make</code>
+
 <code>./run</code>
 
-##Status of Ring
+## Status of Ring
 - Currently no matter the word you enter, all that will print is the PageRank and Hits data for the current subset of articles.
 - This is intentional, due to the fact we still have to read the ids for each word from our BST.
   - Hope to complete on Monday.
 - A "GatherData.c" exists and is used to generate the metadata.
   - There will be no use of this as of now due to the existing bugs, but will exist in next release.
 
-##Known Bugs
+## Known Bugs
 - Mild lack of support for IDs that countain words, need to just keep them as char instead of atof().
 - Issues within the Alphabetized.txt file that occured when an abstract was too long to fit in the buffer.
   -This causes every other implementation to not work, after this is fixed, GatherData.c "should" be fully functional.
 
-##arXiv Files
+## arXiv Files
 BST.txt - Holds the word occuring in every abstract in the subset, and the id that uses the word in the articles abstract.
 FinalList.txt - Ignore for now.
 IDs.txt - Contains the IDs for the subset used in the demo.
@@ -27,10 +28,10 @@ Words.txt - Empty for now.
 WordsFinal.txt - Contains all of the words that exist in each abstract given, common words are removed 
 *Logo that MD won't use*
 
-##Future Outlook
+## Future Outlook
 With all honesty, we are extremely close to a working search engine that is works on a number of documents the user specifies.  If there is an extended due date, we pledge to have a working version by then.  Overall, we have put our blood, sweat, and tears into this project.  We estimate an ~6 hours a day for two weeks straight for the both of us.  We are exhausted, but also hungry to finish the project.  Furthermore, we want to rest up for a day, then have a working version ready.
 
-##Example Run
+## Example Run
 Get the users search:
 --> sdfdf
 
