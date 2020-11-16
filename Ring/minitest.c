@@ -47,16 +47,20 @@ int main(int argc, char ** argv) {
   // puts("");
   // printf("%f\n", sum);
 
-  int word_count;
-  char ** input = get_user_input(&word_count);
+  // int word_count;
+  // char ** input = get_user_input(&word_count);
 
-  int i = 0;
-  for (i = 0; i < word_count; i++) {
+  // int i = 0;
+  // for (i = 0; i < word_count; i++) {
 
-    printf("%s ")
+  //   printf("%s ", input[i]);
+  //   free(input[i]);
 
-  }
-  puts("");
+  // }
+  // puts("");
+
+  // free(input);
 
   return 0;
+
 }

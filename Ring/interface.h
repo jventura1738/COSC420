@@ -45,9 +45,9 @@ char ** get_user_input(int * word_count) {
 
   // Read user input.
   char * input = (char*) malloc(BYTE_LIMIT);
+
   printf("--> ");
   scanf("%[^\n]%*c", input);
-  printf("%s\n", input);
 
   // For tokenizing.
   int num_words = 1;
@@ -76,7 +76,6 @@ char ** get_user_input(int * word_count) {
     if (input[i] == ' ') {
 
       word_sizes[j] = k;
-      printf("%d\n", word_sizes[j]);
       j++;
       k = 0;
 
@@ -100,16 +99,16 @@ char ** get_user_input(int * word_count) {
 
   while (token) {
 
-    result_ptr[j] = (char*) malloc(word_sizes[j] * sizeof(char));
-    printf("token: %s, length: %d\n", token, word_sizes[j]);
+    result_ptr[j] = (char*) malloc(word_sizes[j]);
     strcpy(result_ptr[j], token);
     token = strtok(NULL, delim);
     j++;
 
   }
   puts("");
+  free(input);
 
-  word_count = &num_words;
+  *word_count = num_words;
   return result_ptr;
 
 }
