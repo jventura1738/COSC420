@@ -8,7 +8,7 @@
 #include "include/csr.h"    // compressed sparse row form
 #include "include/hits.h"   // hyper-text induced topic search
 #include "include/page.h"   // page rank algorithm for CSR
-#include "mpi.h"    // MPI stuff
+//#include "mpi.h"    // MPI stuff
 #include "include/interface.h"
 
 
@@ -50,6 +50,9 @@ int main(int argc, char ** argv){
     initMatrix(adj, N, N);
 
     file_load_adj("arXiv/temp_citations.txt", N, adj);
+
+    puts("-----");
+
     puts("adj matrix");
     printMatrix(adj);
     puts("");
@@ -62,17 +65,17 @@ int main(int argc, char ** argv){
     puts("----------------------------");
     print_csr(Graph);
 
-    matrix result;
-    init_vector(&result, NULL, Graph->nvertices);
+    matrix pagerank;
+    init_vector(&pagerank, NULL, Graph->nvertices);
 
-    page_rank(Graph, &result);
+    page_rank(Graph, &pagerank);
 
     puts("\nPage rank vector:");
 
     int z;
     for(z = 0; z < Graph->nvertices; z++) {
 
-        printf("%f ", result.data[z]);
+        printf("%f ", pagerank.data[z]);
 
     }
 
@@ -97,12 +100,13 @@ int main(int argc, char ** argv){
     }
     puts("");
 
+    //assign_scores(hub_vect, auth_vect, pagerank.data);
+
     /*
      * - Grab all articles with the words that match.
      * - Print the most relevant ones based on page_rank.
      * - 
     */
-    
-    
+       
     return 0;
 }

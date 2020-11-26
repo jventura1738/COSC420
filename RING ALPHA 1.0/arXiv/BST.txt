@@ -1,0 +1,591 @@
+A : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604002 plasm-ph/9604003 
+accurate : plasm-ph/9607001 
+analytic : plasm-ph/9607001 
+atoms : plasm-ph/9607001 
+calculated : plasm-ph/9607001 plasm-ph/9503001 plasm-ph/9503002 
+compared : plasm-ph/9607001 
+cc : plasm-ph/9607001 
+convergent : plasm-ph/9607001 
+degree : plasm-ph/9607001 
+densities : plasm-ph/9607001 
+energy : plasm-ph/9607001 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 
+equation : plasm-ph/9607001 plasm-ph/9604002 
+equilibrium : plasm-ph/9607001 plasm-ph/9503001 plasm-ph/9503002 
+formalism : plasm-ph/9607001 
+free : plasm-ph/9607001 
+function : plasm-ph/9607001 
+hydrogen : plasm-ph/9607001 
+internal : plasm-ph/9607001 
+ionization : plasm-ph/9607001 
+method : plasm-ph/9607001 
+minimization : plasm-ph/9607001 
+model : plasm-ph/9607001 
+models : plasm-ph/9607001 
+modified : plasm-ph/9607001 
+occupation : plasm-ph/9607001 
+other : plasm-ph/9607001 
+partition : plasm-ph/9607001 
+plasma : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 
+probability : plasm-ph/9607001 
+problem : plasm-ph/9607001 
+proposed : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9512002 
+results : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604003 
+simple : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604003 
+solving : plasm-ph/9607001 plasm-ph/9607002 
+state : plasm-ph/9607001 plasm-ph/9607002 
+studied : plasm-ph/9607001 plasm-ph/9607002 
+temperatures : plasm-ph/9607001 plasm-ph/9607002 
+up : plasm-ph/9607001 plasm-ph/9607002 
+using : plasm-ph/9607001 plasm-ph/9607002 
+viscous : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604003 
+which : plasm-ph/9607001 plasm-ph/9607002 
+with : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604001 
+yields : plasm-ph/9607001 plasm-ph/9607002 
+EM : 
+certain : plasm-ph/9607002 
+completely : plasm-ph/9607002 
+conditions : plasm-ph/9607002 plasm-ph/9503001 plasm-ph/9503002 
+dynamics : plasm-ph/9607002 plasm-ph/9604001 
+electromagnetic : plasm-ph/9607002 
+electron : plasm-ph/9607002 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 
+positron : plasm-ph/9607002 
+expelled : plasm-ph/9607002 
+explored : plasm-ph/9607002 
+field : plasm-ph/9607002 plasm-ph/9503001 plasm-ph/9503002 
+finding : plasm-ph/9607002 
+forms : plasm-ph/9607002 
+from : plasm-ph/9607002 plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604002 
+hot : plasm-ph/9607002 
+investigated : plasm-ph/9607002 plasm-ph/9604001 
+It : plasm-ph/9607002 plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604002 
+localized : plasm-ph/9607002 
+like : plasm-ph/9607002 
+location : plasm-ph/9607002 
+plasma : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 
+possibility : plasm-ph/9607002 
+propagation : plasm-ph/9607002 
+region : plasm-ph/9607002 
+proposed : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9512002 
+relativistically : plasm-ph/9607002 
+shown : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+results : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604003 
+soliton : plasm-ph/9607002 
+simple : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604003 
+solving : plasm-ph/9607001 plasm-ph/9607002 
+stable : plasm-ph/9607002 
+stationary : plasm-ph/9607002 
+state : plasm-ph/9607001 plasm-ph/9607002 
+strong : plasm-ph/9607002 
+structures : plasm-ph/9607002 
+that : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+studied : plasm-ph/9607001 plasm-ph/9607002 
+temperatures : plasm-ph/9607001 plasm-ph/9607002 
+under : plasm-ph/9607002 plasm-ph/9503002 
+wave : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604002 plasm-ph/9604003 
+up : plasm-ph/9607001 plasm-ph/9607002 
+using : plasm-ph/9607001 plasm-ph/9607002 
+viscous : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604003 
+waves : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+which : plasm-ph/9607001 plasm-ph/9607002 
+with : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604001 
+yields : plasm-ph/9607001 plasm-ph/9607002 
+P90�� : 
+acceptably : 
+Argon : plasm-ph/9512001 
+as : plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503002 
+atomic : plasm-ph/9512001 
+be : plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9604002 
+bremstrahlung : plasm-ph/9512001 
+by : plasm-ph/9512001 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+Calculations : plasm-ph/9512001 plasm-ph/9503001 
+center : plasm-ph/9512001 plasm-ph/9604002 
+components : plasm-ph/9512001 
+deposited : plasm-ph/9512001 
+divertor : plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9503002 
+edge : plasm-ph/9512001 plasm-ph/9503001 plasm-ph/9503002 
+enhanced : plasm-ph/9512001 
+etc : plasm-ph/9512001 
+facing : plasm-ph/9512001 
+first : plasm-ph/9512001 plasm-ph/9503001 plasm-ph/9503002 
+from : plasm-ph/9607002 plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604002 
+heat : plasm-ph/9512001 
+heating : plasm-ph/9512001 plasm-ph/9503001 plasm-ph/9503002 
+impurities : plasm-ph/9512001 
+indicate : plasm-ph/9512001 plasm-ph/9512002 
+injection : plasm-ph/9512001 plasm-ph/9512002 
+inside : plasm-ph/9512001 plasm-ph/9512002 
+It : plasm-ph/9607002 plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604002 
+ITER : plasm-ph/9512001 plasm-ph/9512002 
+layer : plasm-ph/9512001 plasm-ph/9512002 
+leaving : plasm-ph/9512001 plasm-ph/9512002 
+levels : plasm-ph/9512001 plasm-ph/9512002 
+loads : plasm-ph/9512001 plasm-ph/9512002 
+losses : plasm-ph/9512001 plasm-ph/9512002 
+low : plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9503002 
+most : plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9604003 
+MW : plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9604002 
+Neon : plasm-ph/9512001 plasm-ph/9512002 
+off : plasm-ph/9512001 plasm-ph/9512002 
+or : plasm-ph/9512001 plasm-ph/9512002 
+out : plasm-ph/9512001 plasm-ph/9512002 
+over : plasm-ph/9512001 plasm-ph/9512002 
+planned : plasm-ph/9512001 plasm-ph/9512002 
+plasma : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 
+plates : plasm-ph/9512001 plasm-ph/9512002 
+power : plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9503002 
+processes : plasm-ph/9512001 plasm-ph/9512002 
+radiation : plasm-ph/9512001 plasm-ph/9512002 
+reduce : plasm-ph/9512001 plasm-ph/9512002 
+scrape : plasm-ph/9512001 plasm-ph/9512002 
+separatrix : plasm-ph/9512001 plasm-ph/9512002 
+side : plasm-ph/9512001 plasm-ph/9512002 
+spread : plasm-ph/9512001 plasm-ph/9512002 
+such : plasm-ph/9512001 plasm-ph/9512002 
+that : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+there : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9604002 plasm-ph/9604003 
+use : plasm-ph/9512001 plasm-ph/9512002 
+wall : plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9604003 
+walls : plasm-ph/9512001 plasm-ph/9512002 
+will : plasm-ph/9512001 plasm-ph/9512002 
+P�1�� : 
+able : 
+Alcator : plasm-ph/9512002 
+as : plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503002 
+be : plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9604002 
+Mod : plasm-ph/9512002 
+characterizing : plasm-ph/9512002 
+compare : plasm-ph/9512002 
+differences : plasm-ph/9512002 
+determined : plasm-ph/9512002 
+different : plasm-ph/9512002 plasm-ph/9604002 
+dimensionless : plasm-ph/9512002 
+divertor : plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9503002 
+divertors : plasm-ph/9512002 
+Examples : plasm-ph/9512002 
+experimentally : plasm-ph/9512002 
+from : plasm-ph/9607002 plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604002 
+given : plasm-ph/9512002 
+indicate : plasm-ph/9512001 plasm-ph/9512002 
+injection : plasm-ph/9512001 plasm-ph/9512002 
+inside : plasm-ph/9512001 plasm-ph/9512002 
+levels : plasm-ph/9512001 plasm-ph/9512002 
+It : plasm-ph/9607002 plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604002 
+ITER : plasm-ph/9512001 plasm-ph/9512002 
+layer : plasm-ph/9512001 plasm-ph/9512002 
+leaving : plasm-ph/9512001 plasm-ph/9512002 
+loads : plasm-ph/9512001 plasm-ph/9512002 
+losses : plasm-ph/9512001 plasm-ph/9512002 
+low : plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9503002 
+objective : plasm-ph/9512002 
+most : plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9604003 
+MW : plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9604002 
+Neon : plasm-ph/9512001 plasm-ph/9512002 
+operation : plasm-ph/9512002 
+off : plasm-ph/9512001 plasm-ph/9512002 
+parameters : plasm-ph/9512002 
+or : plasm-ph/9512001 plasm-ph/9512002 
+out : plasm-ph/9512001 plasm-ph/9512002 
+over : plasm-ph/9512001 plasm-ph/9512002 
+physical : plasm-ph/9512002 plasm-ph/9503002 plasm-ph/9604001 
+possible : plasm-ph/9512002 
+planned : plasm-ph/9512001 plasm-ph/9512002 
+plasma : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 
+plates : plasm-ph/9512001 plasm-ph/9512002 
+proposed : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9512002 
+power : plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9503002 
+processes : plasm-ph/9512001 plasm-ph/9512002 
+regime : plasm-ph/9512002 
+radiation : plasm-ph/9512001 plasm-ph/9512002 
+reduce : plasm-ph/9512001 plasm-ph/9512002 
+represent : plasm-ph/9512002 
+set : plasm-ph/9512002 
+scrape : plasm-ph/9512001 plasm-ph/9512002 
+separatrix : plasm-ph/9512001 plasm-ph/9512002 
+similarities : plasm-ph/9512002 
+side : plasm-ph/9512001 plasm-ph/9512002 
+spread : plasm-ph/9512001 plasm-ph/9512002 
+such : plasm-ph/9512001 plasm-ph/9512002 
+that : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+they : plasm-ph/9512002 plasm-ph/9604003 
+there : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9604002 plasm-ph/9604003 
+unambiguously : plasm-ph/9512002 
+understand : plasm-ph/9512002 
+use : plasm-ph/9512001 plasm-ph/9512002 
+wall : plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9604003 
+walls : plasm-ph/9512001 plasm-ph/9512002 
+will : plasm-ph/9512001 plasm-ph/9512002 
+P�1�� : 
+MW : 
+GHz : plasm-ph/9503001 
+agrees : plasm-ph/9503001 
+Alfven : plasm-ph/9503001 
+Alternate : plasm-ph/9503001 
+alpha : plasm-ph/9503001 plasm-ph/9503002 
+an : plasm-ph/9503001 plasm-ph/9604001 
+analytical : plasm-ph/9503001 plasm-ph/9604002 plasm-ph/9604003 
+aspects : plasm-ph/9503001 
+Assment : plasm-ph/9503001 
+axis : plasm-ph/9503001 
+be : plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9604002 
+beta : plasm-ph/9503001 
+boundary : plasm-ph/9503001 
+by : plasm-ph/9512001 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+calculated : plasm-ph/9607001 plasm-ph/9503001 plasm-ph/9503002 
+calculations : plasm-ph/9512001 plasm-ph/9503001 
+camera : plasm-ph/9503001 
+community : plasm-ph/9503001 
+comparable : plasm-ph/9503001 
+Concepts : plasm-ph/9503001 
+conditions : plasm-ph/9607002 plasm-ph/9503001 plasm-ph/9503002 
+configuration : plasm-ph/9503001 
+Congress : plasm-ph/9503001 
+currents : plasm-ph/9503001 plasm-ph/9503002 
+cyclotron : plasm-ph/9503001 plasm-ph/9503002 
+density : plasm-ph/9503001 plasm-ph/9503002 
+determe : plasm-ph/9503001 plasm-ph/9503002 
+divertor : plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9503002 
+Division : plasm-ph/9503001 plasm-ph/9503002 
+ECRH : plasm-ph/9503001 plasm-ph/9503002 
+edge : plasm-ph/9512001 plasm-ph/9503001 plasm-ph/9503002 
+Editor : plasm-ph/9503001 plasm-ph/9503002 
+electron : plasm-ph/9607002 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 
+Energy : plasm-ph/9607001 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 
+equations : plasm-ph/9503001 plasm-ph/9503002 
+Equilibrium : plasm-ph/9607001 plasm-ph/9503001 plasm-ph/9503002 
+even : plasm-ph/9503001 plasm-ph/9503002 
+Exerpts : plasm-ph/9503001 plasm-ph/9503002 
+experimental : plasm-ph/9503001 plasm-ph/9503002 
+external : plasm-ph/9503001 plasm-ph/9503002 
+field : plasm-ph/9607002 plasm-ph/9503001 plasm-ph/9503002 
+First : plasm-ph/9512001 plasm-ph/9503001 plasm-ph/9503002 
+flow : plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604003 
+from : plasm-ph/9607002 plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604002 
+Fusion : plasm-ph/9503001 plasm-ph/9503002 
+heating : plasm-ph/9512001 plasm-ph/9503001 plasm-ph/9503002 
+harmonic : plasm-ph/9503001 plasm-ph/9503002 
+helical : plasm-ph/9503001 plasm-ph/9503002 
+help : plasm-ph/9503001 plasm-ph/9503002 
+high : plasm-ph/9503001 plasm-ph/9503002 
+international : plasm-ph/9503001 plasm-ph/9503002 
+iotabar : plasm-ph/9503001 plasm-ph/9503002 
+island : plasm-ph/9503001 plasm-ph/9503002 
+issue : plasm-ph/9503001 plasm-ph/9503002 
+James : plasm-ph/9503001 plasm-ph/9503002 
+journal : plasm-ph/9503001 plasm-ph/9503002 
+Laboratory : plasm-ph/9503001 plasm-ph/9503002 
+light : plasm-ph/9503001 plasm-ph/9503002 
+low : plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9503002 
+magnetic : plasm-ph/9503001 plasm-ph/9503002 
+March : plasm-ph/9503001 plasm-ph/9503002 
+mode : plasm-ph/9503001 plasm-ph/9503002 
+National : plasm-ph/9503001 plasm-ph/9503002 
+News : plasm-ph/9503001 plasm-ph/9503002 
+not : plasm-ph/9503001 plasm-ph/9503002 
+Oak : plasm-ph/9503001 plasm-ph/9503002 
+observed : plasm-ph/9503001 plasm-ph/9503002 
+Office : plasm-ph/9503001 plasm-ph/9503002 
+particle : plasm-ph/9503001 plasm-ph/9503002 
+perturbations : plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 
+plasma : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 
+power : plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9503002 
+presented : plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604002 
+probes : plasm-ph/9503001 plasm-ph/9503002 
+Published : plasm-ph/9503001 plasm-ph/9503002 
+valued : plasm-ph/9503001 plasm-ph/9503002 
+quasi : plasm-ph/9503001 plasm-ph/9503002 
+symmetric : plasm-ph/9503001 plasm-ph/9503002 
+report : plasm-ph/9503001 plasm-ph/9503002 
+resolved : plasm-ph/9503001 plasm-ph/9503002 
+resonances : plasm-ph/9503001 plasm-ph/9503002 
+results : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604003 
+Ridge : plasm-ph/9503001 plasm-ph/9503002 
+Rome : plasm-ph/9503001 plasm-ph/9503002 
+second : plasm-ph/9503001 plasm-ph/9503002 
+shown : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+significant : plasm-ph/9503001 plasm-ph/9503002 
+Stellarator : plasm-ph/9503001 plasm-ph/9503002 
+stellarators : plasm-ph/9503001 plasm-ph/9503002 
+structure : plasm-ph/9503001 plasm-ph/9503002 
+studies : plasm-ph/9503001 plasm-ph/9503002 
+P�4�� : 
+as : 
+alpha : plasm-ph/9503001 plasm-ph/9503002 
+Bennett : plasm-ph/9503002 
+by : plasm-ph/9512001 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+calculated : plasm-ph/9607001 plasm-ph/9503001 plasm-ph/9503002 
+calculation : plasm-ph/9503002 
+cause : plasm-ph/9503002 
+Chandrasekhar : plasm-ph/9503002 
+coefficients : plasm-ph/9503002 
+collision : plasm-ph/9503002 
+collisional : plasm-ph/9503002 
+conditions : plasm-ph/9607002 plasm-ph/9503001 plasm-ph/9503002 
+Coulomb : plasm-ph/9503002 
+dependence : plasm-ph/9503002 
+current : plasm-ph/9503002 
+currents : plasm-ph/9503001 plasm-ph/9503002 
+cyclotron : plasm-ph/9503001 plasm-ph/9503002 
+density : plasm-ph/9503001 plasm-ph/9503002 
+detuning : plasm-ph/9503002 
+determe : plasm-ph/9503001 plasm-ph/9503002 
+distribution : plasm-ph/9503002 plasm-ph/9604003 
+discharge : plasm-ph/9503002 
+down : plasm-ph/9503002 
+divertor : plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9503002 
+Division : plasm-ph/9503001 plasm-ph/9503002 
+edge : plasm-ph/9512001 plasm-ph/9503001 plasm-ph/9503002 
+ECRH : plasm-ph/9503001 plasm-ph/9503002 
+effect : plasm-ph/9503002 
+Editor : plasm-ph/9503001 plasm-ph/9503002 
+Estimations : plasm-ph/9503002 
+electron : plasm-ph/9607002 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 
+Energy : plasm-ph/9607001 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 
+equations : plasm-ph/9503001 plasm-ph/9503002 
+Equilibrium : plasm-ph/9607001 plasm-ph/9503001 plasm-ph/9503002 
+falling : plasm-ph/9503002 
+even : plasm-ph/9503001 plasm-ph/9503002 
+Exerpts : plasm-ph/9503001 plasm-ph/9503002 
+experimental : plasm-ph/9503001 plasm-ph/9503002 
+external : plasm-ph/9503001 plasm-ph/9503002 
+field : plasm-ph/9607002 plasm-ph/9503001 plasm-ph/9503002 
+first : plasm-ph/9512001 plasm-ph/9503001 plasm-ph/9503002 
+flow : plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604003 
+found : plasm-ph/9503002 plasm-ph/9604003 
+frequency : plasm-ph/9503002 
+gas : plasm-ph/9503002 
+from : plasm-ph/9607002 plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604002 
+Fusion : plasm-ph/9503001 plasm-ph/9503002 
+high : plasm-ph/9503001 plasm-ph/9503002 
+harmonic : plasm-ph/9503001 plasm-ph/9503002 
+heating : plasm-ph/9512001 plasm-ph/9503001 plasm-ph/9503002 
+helical : plasm-ph/9503001 plasm-ph/9503002 
+help : plasm-ph/9503001 plasm-ph/9503002 
+hole : plasm-ph/9503002 
+included : plasm-ph/9503002 
+increases : plasm-ph/9503002 
+induced : plasm-ph/9503002 
+Influence : plasm-ph/9503002 plasm-ph/9604001 
+into : plasm-ph/9503002 plasm-ph/9604001 
+international : plasm-ph/9503001 plasm-ph/9503002 
+ionic : plasm-ph/9503002 
+iotabar : plasm-ph/9503001 plasm-ph/9503002 
+It : plasm-ph/9607002 plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604002 
+island : plasm-ph/9503001 plasm-ph/9503002 
+issue : plasm-ph/9503001 plasm-ph/9503002 
+laser : plasm-ph/9503002 
+James : plasm-ph/9503001 plasm-ph/9503002 
+journal : plasm-ph/9503001 plasm-ph/9503002 
+Laboratory : plasm-ph/9503001 plasm-ph/9503002 
+narrows : plasm-ph/9503002 
+light : plasm-ph/9503001 plasm-ph/9503002 
+low : plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9503002 
+magnetic : plasm-ph/9503001 plasm-ph/9503002 
+March : plasm-ph/9503001 plasm-ph/9503002 
+mode : plasm-ph/9503001 plasm-ph/9503002 
+observable : plasm-ph/9503002 
+National : plasm-ph/9503001 plasm-ph/9503002 
+News : plasm-ph/9503001 plasm-ph/9503002 
+not : plasm-ph/9503001 plasm-ph/9503002 
+Oak : plasm-ph/9503001 plasm-ph/9503002 
+observed : plasm-ph/9503001 plasm-ph/9503002 
+Office : plasm-ph/9503001 plasm-ph/9503002 
+Physical : plasm-ph/9512002 plasm-ph/9503002 plasm-ph/9604001 
+particle : plasm-ph/9503001 plasm-ph/9503002 
+perturbations : plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 
+plasma : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 
+profile : plasm-ph/9503002 
+power : plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9503002 
+presented : plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604002 
+probes : plasm-ph/9503001 plasm-ph/9503002 
+Published : plasm-ph/9503001 plasm-ph/9503002 
+quite : plasm-ph/9503002 
+quasi : plasm-ph/9503001 plasm-ph/9503002 
+report : plasm-ph/9503001 plasm-ph/9503002 
+resolved : plasm-ph/9503001 plasm-ph/9503002 
+resonances : plasm-ph/9503001 plasm-ph/9503002 
+results : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604003 
+Ridge : plasm-ph/9503001 plasm-ph/9503002 
+Rome : plasm-ph/9503001 plasm-ph/9503002 
+show : plasm-ph/9503002 
+second : plasm-ph/9503001 plasm-ph/9503002 
+space : plasm-ph/9503002 
+shown : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+significant : plasm-ph/9503001 plasm-ph/9503002 
+that : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+symmetric : plasm-ph/9503001 plasm-ph/9503002 
+Stellarator : plasm-ph/9503001 plasm-ph/9503002 
+stellarators : plasm-ph/9503001 plasm-ph/9503002 
+structure : plasm-ph/9503001 plasm-ph/9503002 
+studies : plasm-ph/9503001 plasm-ph/9503002 
+time : plasm-ph/9503002 
+transport : plasm-ph/9503002 
+under : plasm-ph/9607002 plasm-ph/9503002 
+velocity : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+valued : plasm-ph/9503001 plasm-ph/9503002 
+T : 
+acoustic : plasm-ph/9604001 
+also : plasm-ph/9604001 
+an : plasm-ph/9503001 plasm-ph/9604001 
+arising : plasm-ph/9604001 
+by : plasm-ph/9512001 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+characterized : plasm-ph/9604001 
+class : plasm-ph/9604001 
+component : plasm-ph/9604001 
+considered : plasm-ph/9604001 plasm-ph/9604003 
+course : plasm-ph/9604001 
+described : plasm-ph/9604001 plasm-ph/9604002 
+dispersion : plasm-ph/9604001 
+due : plasm-ph/9604001 
+dynamics : plasm-ph/9607002 plasm-ph/9604001 
+effects : plasm-ph/9604001 
+electron : plasm-ph/9607002 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 
+electrostatic : plasm-ph/9604001 
+energy : plasm-ph/9607001 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 
+evolution : plasm-ph/9604001 
+examined : plasm-ph/9604001 
+exchange : plasm-ph/9604001 
+extraction : plasm-ph/9604001 
+flow : plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604003 
+ll : plasm-ph/9604001 
+ion : plasm-ph/9604001 
+induces : plasm-ph/9604001 
+influence : plasm-ph/9503002 plasm-ph/9604001 
+intense : plasm-ph/9604001 
+into : plasm-ph/9503002 plasm-ph/9604001 
+investigated : plasm-ph/9607002 plasm-ph/9604001 
+It : plasm-ph/9607002 plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604002 
+isothermal : plasm-ph/9604001 
+linear : plasm-ph/9604001 
+sound : plasm-ph/9604001 
+mean : plasm-ph/9604001 
+medium : plasm-ph/9604001 
+motion : plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+New : plasm-ph/9604001 
+non : plasm-ph/9604001 
+normality : plasm-ph/9604001 
+nonperiodic : plasm-ph/9604001 
+oscillations : plasm-ph/9604001 
+perturbations : plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 
+physical : plasm-ph/9512002 plasm-ph/9503002 plasm-ph/9604001 
+plasma : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 
+quasineutrality : plasm-ph/9604001 
+rising : plasm-ph/9604001 
+shear : plasm-ph/9604001 
+shown : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+with : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604001 
+that : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+turn : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+unmagnetized : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+velocity : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+violation : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+vortical : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+waves : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+Dq : 
+above : plasm-ph/9604002 
+acceleration : plasm-ph/9604002 
+analytical : plasm-ph/9503001 plasm-ph/9604002 plasm-ph/9604003 
+arbitrary : plasm-ph/9604002 
+averaged : plasm-ph/9604002 
+be : plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9604002 
+by : plasm-ph/9512001 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+center : plasm-ph/9512001 plasm-ph/9604002 
+chaos : plasm-ph/9604002 
+charge : plasm-ph/9604002 
+covariant : plasm-ph/9604002 
+cycle : plasm-ph/9604002 
+deduced : plasm-ph/9604002 
+described : plasm-ph/9604001 plasm-ph/9604002 
+different : plasm-ph/9512002 plasm-ph/9604002 
+Mw : plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9604002 
+equation : plasm-ph/9607001 plasm-ph/9604002 
+exists : plasm-ph/9604002 
+force : plasm-ph/9604002 plasm-ph/9604003 
+forces : plasm-ph/9604002 
+formulae : plasm-ph/9604002 
+from : plasm-ph/9607002 plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604002 
+further : plasm-ph/9604002 
+intensity : plasm-ph/9604002 
+It : plasm-ph/9607002 plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604002 
+Lagrangian : plasm-ph/9604002 
+latter : plasm-ph/9604002 
+longer : plasm-ph/9604002 
+longitudinal : plasm-ph/9604002 
+motion : plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+no : plasm-ph/9604002 
+number : plasm-ph/9604002 
+occur : plasm-ph/9604002 
+oscillation : plasm-ph/9604002 
+owing : plasm-ph/9604002 
+PACS : plasm-ph/9604002 
+point : plasm-ph/9604002 
+ponderomotive : plasm-ph/9604002 
+presented : plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604002 
+regular : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604002 plasm-ph/9604003 
+relativistic : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604002 plasm-ph/9604003 
+secular : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604002 plasm-ph/9604003 
+shown : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+standing : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604002 plasm-ph/9604003 
+Starting : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604002 plasm-ph/9604003 
+strength : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604002 plasm-ph/9604003 
+that : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+there : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9604002 plasm-ph/9604003 
+threshold : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604002 plasm-ph/9604003 
+transition : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604002 plasm-ph/9604003 
+transverse : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604002 plasm-ph/9604003 
+travelling : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604002 plasm-ph/9604003 
+uphill : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604002 plasm-ph/9604003 
+turn : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+unmagnetized : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+wave : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604002 plasm-ph/9604003 
+velocity : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+violation : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+vortical : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+waves : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+Jacobi : 
+acting : plasm-ph/9604003 
+analytical : plasm-ph/9503001 plasm-ph/9604002 plasm-ph/9604003 
+by : plasm-ph/9512001 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+cases : plasm-ph/9604003 
+considered : plasm-ph/9604001 plasm-ph/9604003 
+Considering : plasm-ph/9604003 
+Couette : plasm-ph/9604003 
+distribution : plasm-ph/9503002 plasm-ph/9604003 
+elliptic : plasm-ph/9604003 
+expressed : plasm-ph/9604003 
+flow : plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604003 
+flows : plasm-ph/9604003 
+fluid : plasm-ph/9604003 
+force : plasm-ph/9604002 plasm-ph/9604003 
+found : plasm-ph/9503002 plasm-ph/9604003 
+friction : plasm-ph/9604003 
+functions : plasm-ph/9604003 
+higher : plasm-ph/9604003 
+immovable : plasm-ph/9604003 
+incompressible : plasm-ph/9604003 
+most : plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9604003 
+motion : plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+only : plasm-ph/9604003 
+plane : plasm-ph/9604003 
+Poiseiulle : plasm-ph/9604003 
+Poiseuille : plasm-ph/9604003 
+profiles : plasm-ph/9604003 
+regular : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604002 plasm-ph/9604003 
+results : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604003 
+relativistic : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604002 plasm-ph/9604003 
+velocity : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+simple : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604003 
+secular : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604002 plasm-ph/9604003 
+shown : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9503001 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+special : plasm-ph/9604003 
+standing : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604002 plasm-ph/9604003 
+Starting : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604002 plasm-ph/9604003 
+strength : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604002 plasm-ph/9604003 
+that : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9503002 plasm-ph/9604001 plasm-ph/9604002 plasm-ph/9604003 
+they : plasm-ph/9512002 plasm-ph/9604003 
+there : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9512001 plasm-ph/9512002 plasm-ph/9604002 plasm-ph/9604003 
+through : plasm-ph/9604003 
+threshold : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604002 plasm-ph/9604003 
+transcendental : plasm-ph/9604003 
+Two : plasm-ph/9604003 
+transition : plasm-ph/9607001 plasm-ph/9607002 plasm-ph/9604002 plasm-ph/9604003 
+transvers : 

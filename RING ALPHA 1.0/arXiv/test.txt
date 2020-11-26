@@ -1,0 +1,599 @@
+0704.0001
+Calculation of prompt diphoton production cross sections at Tevatron and   LHC energies
+C. Bal\'azs, E. L. Berger, P. M. Nadolsky, C.-P. Yuan
+143       
+  (LHC).  A  a  accuracy.  agreement  All  all-orders  and  and  and  are  are  are  are  as  as  at  at  at  at  be  boson  calculation  calculation  can  CDF  chromodynamics  Collider  colliders.  contrasted  contributions  data  data.  decay  demonstrated  detailed  differential  diphoton  diphoton  Distributions  distributions  DO  energy  enhanced  events.  Fermilab  for  for  for  from  from  from  from  fully  gluon  gluon-(anti)quark,  gluon-gluon  Good  hadron  Hadron  Higgs  in  in  included,  initial-state  is  is  is  is  judicious  Large  LHC,  logarithmic  made  massive  more  most  next-to-leading  next-to-next-to-leading  obtained  of  of  of  of  of  of  of  of  order  pairs  pairs  pairs  perturbative  perturbative  phase  photon  Predictions  predictions  presented  processes  produced  produced  production  QCD  quantum  quark-antiquark,  radiation  region  reliable.  resummation  selection  sensitivity  showing  shown  signal  space  specified  subprocesses  tests  Tevatron,  that  the  the  the  the  The  the  the  the  the  the  those  to  valid  well  which  with  with  with 
++++++
+0704.0002
+Sparsity-certifying Graph Decompositions
+Ileana Streinu and Louis Theran
+118     
+  $(k,\ell)$-pebble  $(k,\ell)$-pebble  $(k,\ell)$-sparse  a  a  a  a  a  algorithm,  algorithmic  algorithms  algorithms  also  also  and  and  and  and  and  and  and  and  and  appear  arboricity.  attention  based  between  by  certifies  characterization  characterization  colored  colors,  colors.  concerning  connections  decomposition  decompositions  describe  exposes  family  family  Gabow  Gabow,  game  game  game  generalize  give  graph  graphs  graphs  graphs.  have  Hendrickson.  in  in  In  increased  instances  it  Lee  new  new  new  obtain  of  of  of  of  of  of  of  of  on  our  Our  particular,  pebble  pebbles  present  previous  previous  problems  proof  received  recent  results  rigidity  signal  solutions  sparse  sparse  sparsity  Special  Streinu  strengthen  that  the  the  the  the  the  theory  to  tree  Tutte-Nash-Williams  use  We  We  Westermann  with  with  work 
++++++
+0704.0003
+The evolution of the Earth-Moon system based on the dark matter field   fluid model
+Hongjun Pan
+147       
+  -4.38  10^(-22)  10^(-22)  2004,  259000  4.39  4.5  about  about  acceleration  ago,  agrees  agrees  also  American  and  and  and  angular  at  average  be  behavior  beyond  billion  by  by  cause  closest  constant  current  dark  dark  data  derived  described  described  distance  Division  Earth  Earth-Moon  Earth-Moon  Earth-Moon  Earth-Moon  evidence.  evolution  evolution  evolution  far  field  field  Field  fluid  fluid  for  fossil  friction  from  general  geological  in  is  is  is  is  km  limit.  Mars's  matter  matter  may  Meeting  model  model  model  model  Moon  Moon-Earth  not  of  of  of  of  of  of  of  of  Particle  pattern  Physical  predicts  primary  proposed  rad  rate  result  Roche's  rotation  s^(-1)m^(-1).  s^(-2).  slowing  Society.  suggests  system  system  system  system  system.  that  that  The  the  the  the  the  the  the  The  the  the  the  the  the  the  the  The  the  The  The  This  this  this  tidal  to  very  was  well  which  with  with  with  x  x 
++++++
+0704.0004
+A determinant of Stirling cycle numbers counts unlabeled acyclic   single-source automata
+David Callan
+38     
+  a  a  a  acyclic  and  automata  automata.  bijection  certain  counts  cycle  derived  determinant  determinant.  evaluate  from  involution  involves  lattice  marked  numbers  of  paths  proof  show  sign-reversing  single-source  Stirling  that  the  The  these  to  to  unlabeled 
++++++
+0704.0005
+From dyadic $\Lambda_{\alpha}$ to $\Lambda_{\alpha}$
+Wael Abu-Shammala and Alberto Torchinsky
+40     
+  $\alpha\ge  $\Lambda_{\alpha}$  $H^p(R^N)$  0$,  a  and  atoms.  compute  consequence  described  description  dyadic  dyadic  grid.  Hardy  how  in  In  is  norm,  of  of  of  paper  result  show  spaces  special  terms  the  the  the  the  This  this  to  using 
++++++
+0704.0006
+Bosonic characters of atomic Cooper pairs across resonance
+Y. H. Pong and C. K. Law
+146     
+  $(k_F  (ODLRO).  1$,  90%  \ge  a  a  a  a  a)^{-1}  also  An  and  annihilation  Another  are  are  associated  at  atoms  atoms  atoms  BCS  Bose  bosonic  bosonic  both  by  by  by  characters,  chosen  composite  condensates.  controlled  Cooper  Cooper  correction  corresponding  corresponds  creation  definition.  definitions  definitions  described  enhancement  examined  examined.  example  factor  Fermi  Feshbach  for  for  found  found  function  function  function  gas  gas.  give  given  in  interaction  is  is  is  is  is  It  its  length,  long  molecular  more  more  negative  occupy  ODLRO  of  of  of  of  of  of  off-diagonal  On  One  one  operators.  order  pair  pair  pair  pair  paired  paired  particle  projected  projection  quantified  range  reflect  resonance.  results,  scattering  side  similar  state.  strengths  study  than  than  that  that  the  the  The  the  the  the  the  the  the  three-dimensional  to  to  tunable  Two  two-particle  uniform  wave  wave  wave  We  we  where  which  which  with  with  with 
++++++
+0704.0007
+Polymer Quantum Mechanics and its Continuum Limit
+Alejandro Corichi, Tatjana Vukasinac and Jose A. Zapata
+159       
+  a  A  a  an  and  and  and  and  approach  appropriate  arises  as  as  as  aspects  attention  back  been  between  canonical  commutation  consider  consider  continuum  cosmological  cosmology.  derive  description  description.  different  discrete  due  examples  explore  first  followed  free  from  from  gained  gravity  harmonic  has  has  has  Here  in  In  In  in  in  In  including  interest,  its  known  known  limit  limit.  loop  loop  mechanics  mechanics  mechanics.  model.  namely,  non-standard  of  of  of  of  of  of  one  one,  ordinary  ordinary  ordinary  oscillator,  paper  part  particle  particular,  parts.  physics.  Planck  polymer  polymer  polymer  polymer  possible  process  quantum  quantum  quantum  quantum  quantum  quantum  rather  recent  recover  relation  relation  relations  representation  representation  reverse  scale  Schroedinger  Schroedinger  Schroedinger  second  sector  several  show  simple  some  starting  starts  symmetric  systems,  that  the  the  the  the  the  the  the  the  the  the  the  the  The  the  the  the  the  theory  theory  theory  theory,  this  this  to  to  tries  two  We  we  we  we  which  with 
++++++
+0704.0008
+Numerical solution of shock and ramp compression for general material   properties
+Damian C. Swift
+134     
+  a  a  a  A  accuracy.  analytic  and  and  and  and  and  and  and  and  applications  as  basic  be  between  calculate  calculations  calculations  capture  composite  compression,  coupled  decompression,  deformation  developed  devised  different  dynamic  dynamics  effect  effects  equations  Example  experiments,  experiments,  flexible  for  for  for  formulation  found  general  generalizing  high  histories  illustrating  impacts,  in  in  in  induced  interactions  interface  loading  loading.  made  matched  material  material  materials.  metals,  methods  methods  methods  models  much  Numerical  numerical  of  of  of  of  of  of  on  paths,  phase  physics  planar  plastic  previous  quasi-isentropic  ramp  ramp  ramp  represent  requiring  response  results  robust,  scalar  shock  shock  shock  shock-induced  shock-release  simulations.  solution  solutions  solve  spatially-resolving  state.  such  temperatures  the  the  the  the  The  The  the  These  to  to  to  to  to  to  transition.  typical  was  were  were  were  were  with  without 
++++++
+0704.0009
+The Spitzer c2d Survey of Large, Nearby, Insterstellar Clouds. IX. The   Serpens YSO Population As Observed With IRAC and MIPS
+Paul Harvey, Bruno Merin, Tracy L. Huard, Luisa M. Rebull, Nicholas   Chapman, Neal J. Evans II, Philip C. Myers
+284       
+  .001  0.85  235  260  2MASS  51  a  A  a  a  a  accreting  actively  additional  also  An  an  analysis  and  and  and  and  and  and  and  appear  are  area  as  assumed  at  at  background  background  be  be  be  be  between  bona  both  both  by  by  by  by  c2d  can  can  clustered  clustering  color-color  combined  combined  compare  confidence  confidence  contamination  correlation  covered  criteria  data  data  debris  deg^2  describe  diagrams  discuss  discuss  disk  disks  disks  disks.  distance  distinguish  down  even  exhibit  extends  extensive  extra-galactic  extra-galactic  extra-galactic  extra-galactic  few  fide  field  find  find  fit  fit  for  for  for  from  from  from  from  from  function  function  high  highly  identified  in  In  in  in  inability  infrared  IRAC  IRAC  is  isolating  lack  later  least  Legacy  less-evolved  limit  low  lower  lower  lower  Lsun  luminosities.  luminosity  many  matches  may  MIPS  MIPS  MIPS.  modeling  models  more  more  nominally  objects  objects  objects  objects,  objects.  observations  observed  of  of  of  of  of  of  of  of  of  of  of  of  of  of  of  or  other  our  our  our  our  our  outside  own  particular  passive  pc.  photometry.  population  population  possibly  present  present  previous  properties  properties  properties,  range  region.  resulting  results  results,  same  seen  Serpens  Serpens  Serpens  set  set  set  set  set.  sets  several  shows  some  source  sources  spatial  Spitzer  Spitzer  stages  star+disks.  star-forming  star/disk/envelope  stellar  studies  studies.  subset  such  systems  table  than  than  that  that  that  that  that  that  the  the  the  the  The  the  the  the  the  the  the  the  the  the  the  the  the  then  theoretical  These  this  those  to  to  to  to  to  two  two-point  very  very  was  We  We  We  We  We  we  We  wide  with  with  with  with  with  x  X-ray  young  YSO  YSO's  YSO's  YSO's  YSO's  YSO's  YSO's, 
++++++
+0704.0010
+Partial cubes: structures, characterizations, and constructions
+Sergei Ovchinnikov
+110         
+  a  an  and  and  and  and  and  and  and  and  arbitrary  are  are  are  are  are  are  bipartite  by  by  calculated.  Cartesian  characterizations  characterize  construct  contraction  cubes  cubes  cubes  cubes  cubes.  defined  dimension.  dimensions  Djokovi\'{c}'s  employed  established  expansion  finite  from  given.  graph  graphs  hypercubes.  important  in  in  in  In  in  isometric  isometric  known  lattice  means  means  New  new  new  obtained  of  of  of  of  of  of  of  of  old  on  ones.  operations  operations  paper  paper  partial  partial  partial  Partial  partial  particular,  pasting,  play  processes  product  proofs  relations  results  role  semicubes,  some  Structures  structures  subgraphs  the  The  the  the  the  theory  these  These  to  to  utilized 
++++++
+0704.0011
+Computing genus 2 Hilbert-Siegel modular forms over $\Q(\sqrt{5})$ via   the Jacquet-Langlands correspondence
+Clifton Cunningham and Lassina Dembele
+51     
+  $\Q(\sqrt{5})$.  algorithm  an  are  class  computing  cusp  eigenforms  eigenforms.  eigensystems  examples  examples,  field  fields  for  forms  from  give  Hecke  Hilbert  Hilbert-Siegel  Hilbert-Siegel  identify  illustrative  In  In  in  lifts  narrow  number  of  of  one.  over  paper  possible  present  quadratic  quadratic  real  some  that  the  this  those  using  we  We 
++++++
+0704.0012
+Distribution of integral Fourier Coefficients of a Modular Form of Half   Integral Weight Modulo Primes
+Dohoon Choi
+86     
+  $f(z)  $p  $p$.  $p\geq5$,  5$.  :=  \geq  \in  \mathbb{Z}[[q]]$  \sum_{n=0}^{\infty}  ^n  a  a_f(n)q  also  an  analogue  and  and  applications  As  Bracket,  Bruinier  certain  class  classified  conjecture  cusp  derive  distribution  distribution  does  extend  for  for  for  for  forms  forms  half  Hurwitz  In  integral  main  modular  moduli  modulo  modulo  Newman's  not  number.  odd  of  of  of  of  of  Ono  our  overpartitions.  paper,  pasting,  primes  primes  primes  properties,  property  Rankin-Cohen  Recently,  result  S_{\lambda+1/2}(\Gamma_0(N),\chi)\cap  satisfy  singular  study  that  theorem  this  this  to  traces  using  We  we  we 
++++++
+0704.0013
+$p$-adic Limit of Weakly Holomorphic Modular Forms of Half Integral   Weight
+Dohoon Choi and YoungJu Choie
+105     
+  $\Gamma_{0}(4N)$  $L$-functions  $N=1,2,4$.  $p=2,3,5,7$.  $SL_2(\mathbb{Z})$  a  A  also  among  and  applications  are  are  As  at  based  Borcherds  certain  coefficient  coefficients  coefficients  congruences  congruences  congruences  congruences  Eisentein  exponents,  extend  for  for  forms  forms  forms  forms  Fourier  Fourier  Fourier  Furthermore,  half  half  holomorphic  Ikeda  In  integral  integral  integral  is  lifting.  limit  linear  Maass  modular  modular  modular  modular  obtain  obtained  obtained  of  of  of  of  of  of  of  of  of  of  of  of  of  on  on  on  on  p-adic  paper,  point  proof  quotient  relations  result  series  Serre  Serre  Siegel  Space  studied.  the  the  the  the  the  these  this  to  using  values  we  we  weakly  weight 
++++++
+0704.0014
+Iterated integral and the loop product
+Koichi Fujii
+30     
+  a  and  and  article  bar  based  between  Chen's  complex.  cyclic  differential  discuss  extend  forms  In  integrals  iterated  of  on  relation  string  the  the  the  theory  this  topology 
++++++
+0704.0015
+Fermionic superstring loop amplitudes in the pure spinor formalism
+Christian Stahn
+56     
+  amplitudes  amplitudes,  and  and  and  as  calculate  different  evaluate  explores  expressed  factors  formulation  four  four-point  in  integrals  integrals  involving  kinematic  leads  loop  manifestly  massless  methods  modular  of  of  one-loop  paper  pure  pure  Ramond  spinor  spinor  states.  superspace.  superstring  supersymmetric  ten-dimensional  The  the  the  the  them  then  these  This  to  to  to  two  two-loop 
++++++
+0704.0016
+Lifetime of doubly charmed baryons
+Chao-Hsi Chang, Tong Li, Xue-Qian Li and Yu-Ming Wang
+118     
+  $\Omega_{cc}^{+}$.  $\Xi_{cc}^{++}$  $\Xi_{cc}^{+}$,  accurate  all  also  and  are  are  are  are  at  authors  baryons  be  be  be  by  by  by  Cabibbo-suppressed  calculate  carefully  charmed  clarified  collaboration,  confirms  consistent  contributions  diagrams  diquark  discrepancy  doubly  elements  evaluate  evaluated  experiment  experiment,  explored.  future  generally  hadronic  harmonic  However,  if  In  in  included.  lack  larger  level  lifetimes  lifetimes  limit  matrix  measurement.  mechanism  model.  model.  more  must  non-relativistic  non-spectator  numerical  obtained  of  of  on  one  order  oscillator  other  Our  predictions  quark  recent  results  SELEX  SELEX  set  simple  some  still  than  that  the  the  the  the  the  the  the  The  the  the  the  the  the  the  the  theoretical  there  This  this  to  unknown  upper  used  value  we  We  where  who  with  work, 
++++++
+0704.0017
+Spectroscopic Observations of the Intermediate Polar EX Hydrae in   Quiescence
+Nceba Mhlahlo, David H. Buckley, Vikram S. Dhillon, Steven B. Potter,   Brian Warner and Patric A. Woudt
+239     
+  &  (1999),  (2002)  (2004)  (2005)  (broad-base  (IP)  (narrow  1991  2001  a  accretion  accretion  accretion  accretion  accretion  agreement  al.  al.  al.  along  an  an  and  and  and  and  appears  are  are  as  as  at  at  Belle  Belle  circulating  close  close  component)  component),  confirmed  confirming  consistent  consistent  corotation  curtain  curtain  curtain  curtains  detected  disc  disc  disc  disc,  distance  Doppler  due  during  during  dwarf  dwarf  edge  edge,  emission  et  et  et  evidence  Evidence  EX  EX  EX  extend  extending  falling  far  field  findings  first  flow  for  for  for  from  from  from  from  funnel  Furthermore,  halpha  have  have  hbeta  hgamma  Hya  Hya  Hya,  in  in  in  in  in  Intermediate  IP.  is  It  King  km/s  km/s.  km/s.  large  lines  lobe  lobe  magnetosphere  material  material  material  material  model  model.  modulated  near  near  Norton  observations  observed,  of  of  of  of  of  of  of  of  of  of  of  of  onto  origin  originated  outburst.  outer  outer  outer  overflow  overflow  Polar  predict  predictions  present  presented.  produced  pulsation  quiescence  quiescence  radial  radial  radius  radius.  result  Results  revealed  Roche  Roche  rotation  spectroscopic  spin  spin  spin  Spin-modulated  stream  suggesting  system.  that  that  that  the  the  the  the  the  the  the  the  The  the  the  the  the  the  the  the  the  the  the  the  the  the  theoretical  These  These  this  those  those  time  to  to  to  to  to  tomograms  velocities  velocities  velocities  velocities  velocities  was  was  well  were  were  which  while  white  white  with  with  with  with  with  Wynn  ~1000  ~500 
++++++
+0704.0018
+In quest of a generalized Callias index theorem
+Andreas Gustavsson
+72     
+  (loop-)space.  a  agreement  all  an  an  applied  as  as  be  be  Callias  can  can  compute  computing  dimension  dimensions.  even-dimensional  Evidence  exponential  find  for  formulated  function.  give  how  in  in  in  index  index  index,  Letter  moduli  odd  of  of  of  old  prescription  problem  problem  problem.  regulator  regulator  results  self-dual  show  space  strings  that  that  the  the  the  the  the  think  this  this  to  to  used  using  We  We  We  We 
++++++
+0704.0019
+Approximation for extinction probability of the contact process based on   the Gr\"obner basis
+Norio Konno
+31     
+  a  a  approximations  basis.  by  contact  extinction  for  for  getting  give  Gr\"obner  In  in  method  new  note  of  of  one-dimensional  probability  process  series  the  the  the  this  using 
++++++
+0704.0020
+Measurement of the Hadronic Form Factor in D0 --> K- e+ nue Decays
+The BABAR Collaboration, B. Aubert, et al
+128     
+  +/-  +/-  +/-  +/-  +/-  -->  -->  -->  -->  -->  0.005  0.007  0.007  0.007  0.012.  0.927  75  =  =  a  also  analysis  and  and  and  are  at  at  average  BABAR  be  be  been  been  BR(D0  BR(D0  branching  by  calculations.  collider.  compared  corresponding  D0  D0  data  decay  decay  decay  detector  determined  e+  e+  electron-positron  external  f+(0)=0.727  f+(q2)  factor  factor  fb(-1)  for  form  form  fraction,  From  from  hadronic  has  has  in  in  independent  inputs,  is  K-  K-  K-  K-  K-  measured  measured  model  normalization  Norton  nue  nue)/BR(D0  of  of  of  PEPII  pi+)  pi+),  pi+,  present  q2=0  RD  recorded  relative  respectively.  results,  shape  statistical,  systematic,  the  the  The  the  the  The  the  the  the  the  the  theoretical  these  to  to  to  uncertainties  use  using  value  We  where  with 
++++++
+0704.0021
+Molecular Synchronization Waves in Arrays of Allosterically Regulated   Enzymes
+Vanessa Casagrande, Yuichi Togashi, Alexander S. Mikhailov
+65     
+  a  analysis  and  and  approximation  at  based  become  bifurcations  can  can  catalytic  coherent  complex  concentrations  considered  cycles  develop.  enzyme  enzymes  enzymic  formation  fraction,  from  high  Hopf  in  in  indicates  individual  investigated.  is  mean-field  molecular  observed  of  of  of  on  pattern  patterns  patterns  presence  product-activated  reaction  result  show  simulations  Spatiotemporal  Stochastic  synchronization  system.  that  that  that  the  The  the  the  the  turnover  wave 
++++++
+0704.0022
+Stochastic Lie group integrators
+Simon J.A. Malham and Anke Wiese
+214     
+  a  a  a  a  a  accurate  action  action,  after  algebra  algebra  along  also  an  an  an  and  and  and  and  approximate  approximation  approximation  are  as  as  autonomous  back  back  back  based  become  body  both  by  by  by  call  Castell--Gaines  Castell--Gaines  closed  construct  corresponding  corresponding  counterparts.  demonstrate  deterministic  differential  differential  differential  dimensional  dynamics  ensuring  equations  evolves  exponential  exponential  fields  finite  flow  flow  flow  flow  for  free  Further,  generated  generates  Given  group  group  group  group  group  group  if  in  in  independent  integration  integrator  integrator  integrator.  integrators  involve  Lastly  Lie  Lie  Lie  Lie  Lie  Lie  Lie  Lie  Lie  lies  manifold  manifold,  manifold,  manifold.  manifold.  map.  methods  methods  methods  methods  methods.  more  multiplicative  Munthe-Kaas  Munthe-Kaas  noise  non-commutative  nonlinear  of  on  on  on  operations  ordinary  ordinary  our  our  perturbed  present  present  processes.  pull  pull  push  rigid  satellite  schemes  schemes  schemes  schemes.  series.  show  simulating  smooth  solution  some  stochastic  stochastic  stochastic  stochastic  stochastic  stochastic  stochastic  stochastic  stochastic  subsequently  such  such  Taylor  than  that  that  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  their  then  then  These  They  thus  to  to  to  to  to  to  to  transport  truncated  two  underlying  underlying  underwater  uniformly  use  using  vector  vehicle  via  via  via  We  we  We  We  we  We  we  we  whose 
++++++
+0704.0023
+ALMA as the ideal probe of the solar chromosphere
+M. A. Loukitcheva, S. K. Solanki and S. White
+219     
+  (resolution  0.8-5.0  1.5-8  12  3.5  50-150  a  a  a  adequate  ALMA,  ALMA,  also  amplitudes  an  and  and  and  and  and  and  and  and  appropriate  arcsec)  are  array  as  as  at  at  at  atmosphere  atmosphere.  be  being  between  between  BIMA  both  by  by  Carlsson  carried  chromosphere  chromosphere  chromosphere,  chromospheric  clean  comparison  comprehensive  Computations  cool  demonstrate  distinguishing  due  dynamic  dynamic  dynamic  dynamic  dynamics,  emission  extremely  far  features  for  for  for  frequencies  from  from  gas,  have  have  Here  high  higher  hot  However  in  in  in  in  in  initial  intensive  internetwork  is  is  its  K  long-standing  longer  look  mHz  millimeter  millimeter  mm  mm  mm.  model  model  models  nature  network  observations  observations  observations  obtained  of  of  of  of  of  of  of  of  of  of  of  of  oscillations  oscillations  out  out  output  periods  point  potential  potential  problem.  processes  properly  property  provided  provided  quiet  range  reacting  regions.  remains  required  research.  resolution  resolution,  resolve  results  reveal  rival  sensitive  separation  short-period  signatures  significant  simulations.  solar  solar  solar  solar  sophisticated  spatial  spite  Stein  structuring  such  suggests  Sun  tendency  that  that  that  the  the  the  the  the  the  the  the  The  the  the  the  the  the  The  the  the  the  the  the  this  thus  Thus,  to  to  to  to  to  toward  understood,  unique  velocities  very  wavelengths  wavelengths  wavelengths,  we  will  will  will  with  with  with  with  with 
++++++
+0704.0024
+Formation of quasi-solitons in transverse confined ferromagnetic film   media
+A.A. Serga, M. Kostylev, and B. Hillebrands
+124         
+  a  a  a  along  amplitude  and  and  and  and  are  are  at  behavior  both  Brillouin  by  by  confinement  confinement.  decreases  dipolar  dynamic  dynamic  edges.  edges.  effective  evolution  experiments  ferrimagnetic  film  for  formation  formed  found  important  in  In  In  influenced  instability  interaction  it  lateral  light  linear  longitudinally  magnetization  magnetization  magnetized  near  new  nonlinear  numerical  observed  observed.  of  of  of  of  of  of  of  oscillations  packet  pinning  place  propagating  pulse  quasi-2D  regime  regime  scattering  shape  show  side  simulation  so-called  space-resolved  spin  spin-wave  stable  stripe  stripes  strongly  structure,  takes  technique.  that  that  the  The  the  the  the  the  the  the  The  the  the  the  the  the  the  their  Thus,  time-  transversal  using  walls  was  was  was  wave  waveforms  waveforms  waveguide  waveguide  which 
++++++
+0704.0025
+Spectroscopic Properties of Polarons in Strongly Correlated Systems by   Exact Diagrammatic Monte Carlo Method
+A. S. Mishchenko (1 and 2) and N. Nagaosa (1 and 3) ((1) CREST, Japan   Science and Technology Agency, (2) Russian Research Centre ``Kurchatov   Institute'', (3) The University of Tokyo)
+89     
+  advances  analytic  and  and  and  and  and  approximation-free  by  calculation  Carlo  conductivity  continuation  correlated  coupled  Diagrammatic  different  electron-phonon  enable  exact  excited  exciton,  exciton-polaron,  frequencies.  Frohlich  function  function  Green  ground  ground  hole  imaginary  in  in  in  interacting  Jahn-Teller  Lehmann  Matsubara  methods  model.  Monte  novel  numeric  obtained  of  of  of  of  of  on  optical  Optimization,  perform  phonons  polaron,  polaron,  present  present  properties,  pseudo  Rashba-Pekar  real  recent  results  spectral  state  states  Stochastic  strongly  structure,  systems  systems:  t-J  the  the  the  the  the  times  to  unbiased  understanding  We  We  which 
++++++
+0704.0026
+Placeholder Substructures II: Meta-Fractals, Made of Box-Kites, Fill   Infinite-Dimensional Skies
+Robert P. C. de Marrais
+98     
+  "Box-Kites"  "recipes"  "Sky"  "strut  (CDP)  (N  (S)  (the  (ZDs)  --  2  2,  4  4)  8  a  a  a  an  and  and  and,  Any  approaches  as  as  at  bit-manipulation  blocks  building  by  called  can  Cayley-Dickson  Class  complexity.  constant"  context  derived  ensemble  figures  for  fractal  fractals  from  fundamental  generates  genus  greater  hypercomplex  infinite,  integer  interpreted  into  is  it  least  meta-fractal  N  N-dimensional  networks.  not  numbers  octahedral  of  of  of  of  of  of  one  or  or  others  power  power  Process  provide  Remarkably  represent  rules  simple  singularities  than  the  the  the  thereby,scale-free  tools  transforming  vertex  when  within  Wolfram's  ZDs). 
++++++
+0704.0027
+Filling-Factor-Dependent Magnetophonon Resonance in Graphene
+M. O. Goerbig, J.-N. Fuchs, K. Kechedzhi, Vladimir I. Fal'ko
+100     
+  (+,1)  (-,1)  (associated  ->  ->  0  0,  30  a  a  acquired  and  and  at  at  B_0  be  be  brought  by  can  can  circularly  coupling  dependence  describe  detect  directly,  effect  electron-phonon  experimentally  field  filling-factor  fine  G-band  Gamma-point  graphene  graphene  in  in  in  in  in-plane  inter-Landau-level  inter-Landau-level  into  is  is  is  it  It  its  lattice  lattice  magnetic  material.  measure  mode  modes.  most  of  of  one  optical  peculiar  phonon  polarized  pronounced  Raman  resonance  resonance  spectrum)  strength  structure  T.  the  the  the  the  the  the  The  the  this  this  to  to  transitions  transitions  used  used  We  when  when  with  with  with 
++++++
+0704.0028
+Pfaffians, hafnians and products of real linear functionals
+P\'eter E. Frenkel
+59     
+  (this  `real  a  a  and  and  and  bound  called  constant'  determinants  Euclidean  functionals  hafnian  hafnian  improve  inequalities  inequality  is  Lieb's  linear  linear  lower  matrices.  measure  norm  of  of  of  of  of  on  on  on  permanents  pfaffian  polarization  positive  problem).  product  prove  R\'ev\'esz  real  Sarantopoulos  semi-definite  sometimes  space  subject  the  the  the  the  to  use  versions  We 
++++++
+0704.0029
+Understanding the Flavor Symmetry Breaking and Nucleon Flavor-Spin   Structure within Chiral Quark Model
+Zhan Shu, Xiao-Lin Chen and Wei-Zhen Deng
+97     
+  $\XQM$  $\XQM$,  $\XQM$,  a  a  a  a  are  boson  boson  boson  bosons.  breaking  breaking  by  can  can  caused  constituent  constituent  derived  determined.  emission  emission  emission  emit  flavor  flavor  flavor-spin  flavor-spin  from  from  From  functions  give  Goldstone  Goldstone  Goldstone  Goldstone  Hamiltonian  implied  In  In  in  in  in  in  inner  intepret  interpretation  intrinsic  is  model  nucleon  nucleon  nucleon.  obtained  of  of  of  of  paper,  probabilities  process  process  quark  quark  quarks  quarks  reasonable  simplified  structure  structure.  structure.  study  symmetry  symmetry  the  the  the  The  the  the  the  the  the  Then  this  to  to  transition  used  wave  we 
++++++
+0704.0030
+Tuning correlation effects with electron-phonon interactions
+J.P.Hague and N.d'Ambrumenil
+118     
+  (1)  (2)  (3)  A  a  a  and  arrangement  band  band  band/Mott  be  behavior  compete  conductivity  conductivity.  correlation  correlations  crossover  depends  distortions  DMFT.  double  driven  effect  effects  electron-phonon  electron-phonon  electrons,  energy  energy  features  find  for  form  form  frequencies  frequency  from  function  function,  function,  has  hybrid  in  in  In  in  including  instantaneous  interactions  interesting  investigate  itinerant  kondo  larger  leading  low  models  Mott  observable  of  of  of  of  on  on  on  optical  optical  peak  phonon  phonon  regime  regime  resistivity  results  scales,  sensitively  several  should  show  similar  Since  slightly  spectral  spectral  spectral  static  such  than  that  the  the  the  the  The  the  the  the  the  the  the  the  the  through  to  to  tuning  using  wave  we  we  We  where 
++++++
+0704.0031
+Crystal channeling of LHC forward protons with preserved distribution in   phase space
+V. M. Biryukov (Serpukhov, IHEP)
+112     
+  (x,  0.1  100  7  90%  a  a  a  a  a  a  accelerator  accuracy  adaptation  adapted  analysis  and  angle.  angles  application  are  at  be  bent  broad  by  can  can  channel  Collider,  criterion  critical  crystal  crystal  crystal  crystal  crystal  crystal  diffractively  distribution  distribution  divergence  down  downstream.  E)  efficiency  emerging  feasible  for  for  for  for  forward  from  Hadron  high  improving  In  in  interaction  it  Large  lattice  LHC.  makes  measuring  microrad.  of  of  particles  point  precision.  preserved  preserved  Proton  protons  protons  sampled-and-hold  scattered  set  show  simulations  steered  TeV  that  the  the  the  the  the  the  This  This  times  to  to  transmission  trap  traps  using  very  We  We  with  with  with  x',  y',  y, 
++++++
+0704.0032
+Probing non-standard neutrino interactions with supernova neutrinos
+A. Esteban-Pretel, R. Tom\`as and J. W. F. Valle
+160     
+  $\bar\nu_e$  $\bar\nu_e$  $\nu_e$  %,  (i)  (ii)  (iii)  (NSI,  (SN).We  10^{-5}$.  a  a  a  a  a  above  analyze  and  and  attention  burst.  can  Cherenkov  consider  conversion.  conversions,  deleptonised  dependence  detectability  detecting  detection  detector,  dramatic  due  due  Earth  effect  effects  effects  effects;  either  electron  envelope  envelope,  exhibit  features  few  few$\times  finally,  find  flavor-changing  for  for  for  fraction  framework,  future  galactic  in  in  in  in  inclusion  inner  interactions  internal  layers.  matter  may  Megaton  modulation  most  neutrino  neutrino  neutrinos  neutronization  non-standard  non-universal  NSI  NSI  NSI  NSI  NSI-induced  NSI-induced  occurs  of  of  of  of  of  of  of  of  of  on  or,  passage  paying  place  possibility  possibility  possible  probing  produced  propagation  resonant  resonant  shock  short)  small  SN  SN  solar  special  spectrum  spectrum  strengths  study  supernova  take  that  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  This  three-neutrino  through  through  through  through  through  time  to  to  to  very  water  waves  We  We  We  which 
++++++
+0704.0033
+Convergence of the discrete dipole approximation. I. Theoretical   analysis
+Maxim A. Yurkin, Valeri P. Maltsev, Alfons G. Hoekstra
+136     
+  (DDA).  a  a  a  a  a  a  analysis  and  and  any  applicability.  approximation  are  are  bounded  by  carried  common  consequences  convergence  convergence  convergence.  cubically  cubically  d  d,  d.  d.  DDA  DDA  DDA  decreases  developments  dipole  dipole  discrete  discuss  enough  errors  errors  Extensive  Finally  for  for  for  for  for  for  for  for  hence  importance  in  in  in  in  in  increasing  is  is  is  large  latter  linear  linear  linear  measured  Moreover,  much  new  non-cubically  non-cubically  number  numerical  of  of  of  of  of  of  of  of  of  out  particles  performed  prove  quadratic  quadratic  quantity  range  range  range  relative  rigorous  scatterers  scatterers.  shaped  shaped  shaped.  significantly  simulations  size  size,  small  smaller  smaller  sum  term  term  term  than  than  that  the  the  the  the  The  the  the  the  the  their  theoretical  Therefore,  We  We  we  were  when  wide 
++++++
+0704.0034
+Origin of adaptive mutants: a quantum measurement?
+Vasily Ogryzko
+21     
+  1990.  a  arXiv:q-bio/0701050,  common  containing  correspondence  in  is  Nature  of  paper  sent  supplement  text  the  the  This  to 
++++++
+0704.0035
+Convergence of the discrete dipole approximation. II. An extrapolation   technique to increase the accuracy
+Maxim A. Yurkin, Valeri P. Maltsev, Alfons G. Hoekstra
+99     
+  5  a  A  accuracy  allows  also  an  and  and  approximation  based  be  case.  cases  computations.  cubically  decrease  demonstrated.  different  dipole  directly  discrete  discretization  discretization  discretizations.  empirically  error  error,  errors  especially  estimates  extensive  extraordinary  extrapolation  extrapolation  extrapolation  Finally  for  for  for  illustrated  improvement  improves  magnitude  many  method  of  of  of  of  of  of  on  one  order  particles.  performance  performance  propose  propose  propose  proven  quality  reaching  refining  reliable.  scatterers  separate  shape  shaped  simple  simulations  studied  technique  technique  test  test  that  the  The  the  The  the  this  this  to  to  two  using  was  was  we  We  We  were  which 
++++++
+0704.0036
+A remark on the number of steady states in a multiple futile cycle
+Liming Wang and Eduardo D. Sontag
+155     
+  (1)  (2)  (3)  (4)  (if  (if  (in  2n-1  a  a  a  analytically  and  and  and  are  are  are  are  at  at  at  at  behaviors  biological  bistability  by  can  cascades,  cell  changing  conditions,  conditions,  cycle  cycle,  direct  dynamic  even)  far  feedbacks.  for  for  for  for  from  general  generate  how  implies  in  In  including  is  is  is  is  itself  least  levels  like  MAPK  Michaelis-Menten  Michaelis-Menten  more  most  most  most  motif  motif  multisite  multisite  n  n  n  n+1  n+1  n=2,  near  never  number  number  odd)  of  of  of  of  of  one  or  paper,  parameter  parameters  parameters  parameters.  particular,  phosphorylation-dephosphorylation  phosphorylation-dephosphorylation  positive  positive  positive  quasi-steady  quasi-steady  ranges,  repeatedly  show  signaling.  single  some  standard  standard  state  state  state.  states  states  states  states);  states;  states;  steady  steady  steady  steady  steady  steady  steady  study  than  that  that  the  the  the  the  The  the  there  there  there  there  there  this  this  This  three  ultrasensitivity  used  varies  variety  waves  we  We 
++++++
+0704.0037
+The discrete dipole approximation for simulation of light scattering by   particles much larger than the wavelength
+Maxim A. Yurkin, Valeri P. Maltsev, Alfons G. Hoekstra
+178     
+  (DDA)  160  2  2  40  64  a  a  a  ability  allows  an  and  and  and  and  and  and  and  and  angle-resolved  Approximation  are  are  are  are  available  both  both  by  by  capabilities  cluster  cluster  compared  Computational  computer  computer  computers,  considered  Current  DDA  DDA  dependence  describe  Dipole  dipoles  Discrete  discussed.  distinctive  Errors  exact  feature  for  for  for  from  generally  improvement  in  In  incident  increase  increase  index  integral  investigate  is  it  large  large  larger  light  light  light,  like  limitations  m  m,  m=1.05  main  manuscript  manuscript.  Mie  more  much  no  number  Numerical  of  of  of  of  of  of  of  of  of  of  on  on  ones  optimized  over  parallelize  parameters  particles  particles,  possible  presented  processes  processors.  program  program  publicly  quantities  reaching  refractive  required  respectively  results  scattering  scattering  scattering  scattering  show  simulate  simulate  simulation  simulations  simulations.  single  size  spheres  steeply  such  systematic  than  than  that  that  that  The  the  the  the  the  the  the  the  the  the  the  theory.  this  this  times  to  to  to  to  up  values  very  wavelength  ways  we  weeks  which  with  with  with  with  x  x 
++++++
+0704.0038
+The discrete dipole approximation: an overview and recent developments
+Maxim A. Yurkin, Alfons G. Hoekstra
+99     
+  (DDA),  a  a  a  among  and  and  and  any  application  approximation  arbitrarily  are  aspects,  based  being  both  by  context  critical  DDA  DDA  developments  developments,  dipole  discrete  discuss  discussed.  electric  equations  field.  Finally,  for  for  framework  future  general  general  historical  importance  in  integral  is  is  its  latter  light  light  method  method  method.  methods  numerical  of  of  of  of  of  of  of  of  on  other  particles.  position  possible  practical  present  put  recent  review  review  scattering  scattering  shaped  shown  simulate  simulation  taking  the  the  the  the  the  the  the  the  the  the  the  theory  to  viewpoint  We  We  We 
++++++
+0704.0039
+Scalar radius of the pion and zeros in the form factor
+Jose A. Oller and Luis Roca
+166     
+  0.04  0.05  0.07  \la  \la  \la  \la  \pi\pi  \pi\pi  \pi\pi  A  a  accounted  an  an  and  Another  asymptotic  behaviour  between  both  by  by  calculated  changes  continuity  contribution  corresponding  determination  determinations  discrepancy  energy  equations,  error  error  experimental  factor  factor  factor  factor,  fm^2.  fm^2.  fm^2.  for  for  for,  form  form  form  form  from  given  I=0  I=0  important  important  imposing  in  in  in  in  input  is  is  is  is  is  is  isospin(I)  large  larger  low  main  method  Muskhelishvili-Omn\`es  non-strange  not  null  obtains  of  of  of  of  of  of  Omn\`es  Once  one  our  our  phase  phase  phase  pion  pion  pion  plays  precise  precision,  present  present  QCD.  quadratic  r^2\ra^\pi_s,  r^2\ra^\pi_s=0.61\pm  r^2\ra^\pi_s=0.75\pm  r^2\ra_s^\pi=0.65\pm  radius,  reanalyze  Recently,  representation  required.  resulting  resulting  results.  role  S-wave  S-wave  scalar  scalar  scalar  scalar  scattering.  settled  shifts,  shifts.  show  solving  some  source  T-matrices  than  that  the  the  The  the  The  the  the  the  the  the  the  the  the  then  then  this  This  tiny  to  uncertainties  under  using  value  value  values,  very  We  yet  Yndur\'ain's  Yndur\'ain, 
++++++
+0704.0040
+Multilinear function series in conditionally free probability with   amalgamation
+Mihai Popa
+59     
+  a  an  analogue  and  and  are  As  by  by  cases  central  complex-valued  conditional  conditional  conditionally  constructed  expectations.  framework,  free  freeness  freeness  function  imposing  In  in  independence,  is  limit  meaningful  means  monotonic  multilinear  notion  of  of  of  of  of  paper  positive  positivity  presents  R-transform  replaced  results,  series.  several  states  the  the  the  the  the  theorem  this  version 
++++++
+0704.0041
+Quantum Group of Isometries in Classical and Noncommutative Geometry
+Debashish Goswami
+183     
+  (called  (possibly  \cite{hajac}  `quantum  a  a  a  a  a  a  a  a  a  a  a  acting  action  along  also  and  and  and  and  and  and  as  assumptions.  bigger  by  by  by  category  category  category,  certain  classical  commutative  compact  compact  compact  construct  context,  defined  defined  described  description  double  equivariant  existence  explicit  fact,  families  for  forms  formulate  generalization  give  given  group  group  group  group  group)  group.  groups  groups  Hilbert  holomorphic  identify  in  in  in  In  in  introducing  is  isometric  isometrically  isometries  isometries  isometries',  isometry  isometry  isometry  isometry  line  manifold  manifold  manifold  manifold,  namely  natural  natural  noncommutative  noncommutative  noncommutative  noncommutative  noncommutative)  notion  notion  object  object  obtain  of  of  of  of  of  of  of  of  of  of  of  of  of  of  of  on  on  on  on  or  proving  quantum  quantum  quantum  quantum  quantum  quantum  quantum  quantum  quantum  regularity  representation  respect  Riemannian  Riemannian  satisfying  smooth  smooth  smoothly  Soltan.  space  spectral  spectral  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  then  this  to  tori,  torus  torus.  triple  triples,  unitary  universal  universal  universal  We  We  we  We  which  with  with 
++++++
+0704.0042
+General System theory, Like-Quantum Semantics and Fuzzy Sets
+Ignazio Licata
+92     
+  .  a  account  an  and  are  arising  be  between  by  can  coherence.  conclusion  considering  context  deep  done  example  extend  for  formal  formalism  from  fuzzy  general  going  here  how  in  In  into  is  is  is  It  It  It  logical  logical  manifold,  more  observer  of  of  of  of  of  openness  outlined  possibility  possible  propose  propositions  quantum  quantum  quantum  quantum  quantum  relation  relationship  requirements  semantics  sets  show  so  structure  system.  systemics  systems  taking  the  the  the  the  the  the  the  the  the  theory.  theory.  to  to  to  truth-values  useful  using  we  We 
++++++
+0704.0043
+Nonequilibrium entropy limiters in lattice Boltzmann methods
+R.A. Brownlee, A.N. Gorban, J. Levesley
+176     
+  "trimming")  (entropy  (entropy  (i)  (ii)  (LBM).  -  100*100  1:2  1D  2000  2D  7500  a  a  a  a  accurate  additional  affect  All  an  and  and  and  and  and  and  and  applicable  are  are  are  are  artificial  as  athermal  based  based  behind  benefits:  between  blurring  Boltzmann  both  but  cavity  classical  coarse  construct  constructed  construction  constructions  control  density  differences,  dissipation  do  do  do  elements  entropic  entropy  entropy  entropy  entropy  entropy  entropy.  erase  estimate  examples:  families  field  filtering  filtering).  finite  finite  finite  flux  for  for  for  for  for  for  general,  grid.  idea  In  initial  introduced  is  lattice  LBM  LBM  LBM  lid-driven  limiter  limiter  limiters  limiters  limiters  limiters  limiters:  main  methods  methods,  non-entropic  nonequilibrium  nonequilibrium  nonequilibrium  nonequilibrium  nonequilibrium  not  numbers  numerical  of  of  of  of  of  of  of  of  of  of  on  on  on  on  oscillations  physical  possible.  production  properties  provide  quantity  quasiequilibria.  ratio  Re  restriction  Reynolds  same  scalar  schemes  shock  shocks,  smooth  solutions.  some  spurious  system  tested  The  the  the  the  the  the  the  The  There  These  they  to  transform  tubes  two  volumes  We  We  with  without 
++++++
+0704.0044
+Astrophysical gyrokinetics: kinetic and fluid turbulent cascades in   magnetized weakly collisional plasmas
+A. A. Schekochihin (Oxford), S. C. Cowley (Culham), W. Dorland   (Maryland), G. W. Hammett (Princeton), G. G. Howes (Iowa), E. Quataert   (Berkeley), T. Tatsuno (Maryland)
+269     
+  "dissipation  "inertial  (KAW)  (solar  a  a  a  A  a  a  a  above  accretion  again  Alfvenic  Alfvenic  along  and  and  and  and  and  and  and  and  and  anisotropic  applications  are  are  are  are  are  are  associated  assumptions  astrophysical  Astrophysical  at  at  at  at  be  be  between  both  both  brings  brings  by  by  by  cannot  cascade  cascade  cascade  cascade  CASCADE  cascade  cascade  cascades.  cascades:  clusters,  collisional  collisional  collisional  collisionless  collisionless  collisions.  compared  component.  compressive  converted  converted  cyclotron  damped  damped  depends  derived  detail.  develops  discussed  disks).  distinct  done  each  electron  electron  electron  Electron  energy  energy  energy  energy  entropy  equation  equations  equations  equations.  field  field  fluctuations  fluctuations,  fluctuations,  fluctuations.  fluctuations.  fluid-like  for  for  framework  frequencies  frequency.  galaxy  governed  governed  gyroscale  gyroscale  gyroscale,  gyroscales,  has  heat,  heat.  heating.  In  in  In  in  in  In  in  inertial-range  injected  interaction  interstellar  into  into  into  ion  ion  ion  ion  ion  ion  is  is  is  Its  KAW  key  kinetic  kinetic  KINETIC  kinetic  kinetic-Alfven-wave  Kolmogorov-style  latter  leads  linear  lines  low  magnetic  mean  medium,  more  moving  nature  obey  of  of  of  of  of  of  of  on  outer  passive  passive  phase  phase-space  physically  physics  plasma  plasma  plasmas  present  problem  range"  range"  ranges,  reduced  relations  respect  RMHD  RMHD  scale  scale  scale  scales  scales  scales,  scaling  set  similarly  space  space  space-physical  splits  systematically  that  that  that  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  The  the  The  the  the  The  The  the  the  the  theoretical  there  these  to  to  to  to  to  to  to  tractable  turbulence  turbulence  two  two  ultimately  velocity.  was  wave-particle  We  which  which  which  wind,  with  with  with 
++++++
+0704.0045
+Evolution of solitary waves and undular bores in shallow-water flows   over a gradual slope with bottom friction
+G.A. El, R.H.J. Grimshaw, A.M. Kamchatnov
+205     
+  a  a  a  action  additional  adiabatic  adiabatic  also  amplitude  amplitude.  an  an  and  and  and  and  and  approach  approach  are  averaging  be  be  bore  bore  bores,  bottom  bottom  bottom  but  by  can  can  cannot  certain  Chezy  combined  consideration.  considers  development  different  due  effect  effects  enables  equation.  equations.  essentially  evolution  evolution  factors  for  framework  framework  friction  friction  friction,  from  general  generally  global  gradual  growth,  importantly,  imposes  improve  in  in  in  in  in  In  initial  integrable  interactions  is  is  isolated  isolated  it  known  Korteweg-de  law,  lead  leading  media.  method,  modeled  non-local  nonlinear  nonlinear  not  of  of  of  of  of  of  of  of  of  of  of  of  on  on  on  only  over  paper  particular,  periodic  periodic  perturbed  predicted  presence  propagation  propagation  propagation  propagation  recent  restrictions  results  same  set  shallow-water  shown  slope  slowly  so  solitary  solitary  solitary  solitary  solitary  solitary  study  substantially  system  that  that  that  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  theory  these  This  this  This  This  to  to  to  to  to  topography  topography  traditional  trains  under  undular  undular  undular  unsteady  us  use  using  variable  variable  variable-coefficient  varying  Vries  wave  wave  wave  wave  wave  waves  waves  waves  We  which  which  Whitham  with  with 
++++++
+0704.0046
+A limit relation for entropy and channel capacity per unit cost
+I. Csiszar, F. Hiai and D. Petz
+82     
+  a  a  analytic  and  and  arrived  as  at  Both  capacity  certain  channel  channels.  clarifies  classical-quantum  conjecture  conjecture  conjecture.  cost  density  Diosi,  entropy  entropy  Feldmann  first  for  for  generalization  goes  In  in  infinity.  is  is  is  it  Kosloff  large  law  lead  limit  matrices.  mechanical  mixtures  model,  numbers.  of  of  of  of  one  paper  per  proof  proofs  proven  quantum  quantum  relation  relative  second  size  stating  system  that  the  The  The  The  the  the  the  the  the  this  to  to  to  unit 
++++++
+0704.0047
+Intelligent location of simultaneously active acoustic emission sources:   Part I
+T. Kosel and I. Grabec
+174         
+  a  a  a  a  accuracy  accuracy  achieved  acoustic  acoustic  acoustic  acoustic  acoustic  active  aircraft  aircraft  an  analysis  and  and  and  and  antenna  applicability  area,  article  attenuation  avoided.  based  blind  by  by  by  comparable  complicated  comprises  continuous  conventional  data.  delay  depends  described  describes  different  difficult  dimensions  discusses  emission  emission  emission  emission  emission  estimation  examples.  for  frame  frame  from  general  general  have  I,  II  in  in  intelligent  intelligent  intelligent  intelligent  intelligent  is  is  is  is  is  is  learning  location  location  location  location  location  locator  locator  locator  Locator  locator  locator.  method  method,  method.  more  network,  neural  non-destructive  non-destructive  obtained  of  of  of  of  of  of  of  of  of  on  on  on  on  Part  Part  paths  performance  problem  problem  promising  properties  ray  regression  sensor  separation,  shown  simultaneously  since  solves  sonic  sound  source  source  sources.  specimen,  specimens.  stored  structures  structures  test  tested  tested  testing  testing.  Tests  that  that  the  the  The  the  The  the  the  The  The  the  the  the  the  the  the  This  This  time  to  topography  triangulation  two  velocity  was  which  while 
++++++
+0704.0048
+Inference on white dwarf binary systems using the first round Mock LISA   Data Challenges data sets
+Alexander Stroeer, John Veitch, Christian Roever, Ed Bloomer, James   Clark, Nelson Christensen, Martin Hendry, Chris Messenger, Renate Meyer,   Matthew Pitkin, Jennifer Toher, Richard Umstaetter, Alberto Vecchio and   Graham Woan
+115     
+  (MLDC)  a  able  accuracy  accurate,  accurately  additional  additionally  also  an  an  analysis  and  and  and  and  approach  approach.  automatic  binaries.  by  Carlo  Carlo  Carlo  Chain  Chain  Chain  Challenges  coherent  coherent  consisting  Data  data  demonstrate  demonstrate  detection  detection,  determine  dwarf  end-to-end  evaluation.  first  for  for  for  frequency  from  grid-based  implemented  in  in  increased  information  interest.  is  is  is  level  LISA  Markov  Markov  Markov  Mock  Monte  Monte  Monte  noise  of  of  of  of  on  on  our  our  parameters  Part  pipeline  post-processing  pre-processing  report  round  routine  secure  selected  sets  signal  signal  signal  signal  single  source  supplemented  that  that  the  the  the  the  the  the  the  to  unit  unit  We  We  We  We  white  window  with 
++++++
+0704.0049
+An algorithm for the classification of smooth Fano polytopes
+Mikkel {\O}bro
+63     
+  6-polytopes  7-polytopes.  72256  7622  a  algorithm  algorithm  algorithm  an  and  any  are  been  classes  classes  classification  classify  d-polytopes  d-polytopes  d.  d.  d<=7.  Fano  Fano  Fano  Fano  for  for  given  has  input  integer  is  isomorphism  isomorphism  list  Markov  namely  number,  of  of  of  of  positive  present  produces  single  smooth  smooth  smooth  smooth  that  The  the  The  the  the  There  to  used 
++++++
+0704.0050
+Intelligent location of simultaneously active acoustic emission sources:   Part II
+T. Kosel and I. Grabec
+141         
+  (AE)  (BSS)  (ICA)  A  a  acoustic  acoustic  acoustic  acoustic  Acoustic  active  AE  AE  aircraft  aluminum  an  an  analysis  analysis  analysis  analysis.  and  and  and  and  applicability  are  band  been  blind  blind  by  by  characterization  characterization  component  components  continuous  defects  delay  demonstrate  describes  developing  difficult  discusses  emission  emission  emission  emission  emission  estimation  for  for  frame  from  generate  has  I  ICA  II  in  independent  independent  independent  intelligent  is  is  is  is  locate  location  location  locator,  materials.  method  mixing  mixture  mode  non-destructive  of  of  of  of  of  of  of  of  of  often  on  paper  Part  Part  problem  problems.  promising  purpose  Recently,  separation  separation  separation,  signal  signals  signals.  simultaneously  solve  source  source  sources  sources  sources  sources.  specimen.  statistically  structures  tested  testing  The  the  the  The  the  these  this  time  to  to  to  two  two  unknown.  used  used  various  various  when 
++++++
+0704.0051
+Visualizing Teleportation
+Scott M. Cohen
+77     
+  a  a  a  a  A  after  aimed  allowing  and  and  are  are  arises  at  basic  described,  description,  direct  discussion  explained  explaining  fascinating  first  graphical  ideas  ideas  in  information  intuitive  is  is  lay  locator,  method  naturally.  non-scientists.  novel  of  of  of  of  of  of  of  of  out  phenomenon.  physicists  physics  picturing  processing  providing  providing  quantum  quantum  quantum  simple  states  teleportation  teleportation  teleportation  terms,  the  The  The  these  this  to  understanding  used  visualization  way  which  which 
++++++
+0704.0052
+Quantum Field Theory on Curved Backgrounds. II. Spacetime Symmetries
+Arthur Jaffe (1) and Gordon Ritter (1) ((1) Harvard University)
+90     
+  (including  a  a  analytically  and  and  Anti-de  associated  by  consider  construct  continuation  continue  either  Euclidean  example  field  field  first  for  generated  group  group  groups,  have  hyperbolic  illustrated  in  interacting  is  is  is  isometry  isometry  Lorentzian  Lorentzian  manifold,  manifold.  method  of  of  of  of  on  on  one-parameter  one-parameter  or  quantizations.  quantum  quantum  representation  Riemannian  scalar  self-adjoint  self-adjoint  semigroups  show  Sitter  space,  space-time  space-times.  space.  static  static  study  subgroups  symmetries  that  The  the  the  the  the  the  theories)  theory  theory  thus  to  unitary  unitary  unitary  We  We  We  which 
++++++
+0704.0053
+A Global Approach to the Theory of Special Finsler Manifolds
+Nabil L. Youssef, S. H. Abed and A. Soleiman
+173     
+  $C$-reducible,  $C^{0}$-recurrent,  $C^{h}$-recurrent,  $C^{v}$-recurrent,  $C_{2}$-like,  $h$-isotropic,  $P$-reducible,  $p$-scalar  $P$-symmetric,  $P^{*}$-Finsler,  $P_{2}$-like,  $R_{3}$-like,  $s$-$ps$-curvature.  $S^{v}$-recurrent  $S^{v}$-recurrent,  $S_{3}$-like,  $S_{4}$-like,  (or  a  a  a  aim  Although  an  and  and  and  and  and  and  appendix  approach  are  are  are  are  are  As  Berwald,  between  by-product,  commonly  comparison  concerning  considered  considered.  constant  coordinates)  counterpart  curvature  curvature,  curvature,  curvature,  deduced.  definitions  definitions  different  entirely  fields  fields  Finsler  Finsler  Finsler  Finsler  Finsler  for  found.  free  from  general  global  global  global  global,  globally  globally  identities  important  in  interesting  intrinsically,  introduce  introduced.  investigate  investigation  is  is  known  Landesberg,  Landesberg,  literature,  local  local  local  local  locally  manifolds  manifolds  manifolds.  manifolds:  Many  many  Minkowskian,  most  most  new  obtained.  of  of  of  of  of  of  of  of  of  of  of  of  of  order,  our  our  paper  present  presentation  presenting  properties  proved  provide  provide;  quasi-$C$-reducible,  reasons,  relationships  results  results,  scalar  second  semi-$C$-reducible,  several  spaces  special  special  special  special  special  tensor  tensor  the  the  The  the  the  the  the  the  the  the  the  the  The  theory  these  to  torsion  types  used  Various  we  We 
++++++
+0704.0054
+The Hardy-Lorentz Spaces $H^{p,q}(R^n)$
+Wael Abu-Shammala and Alberto Torchinsky
+43     
+  $0<p\le  $0<q\le  $H^{p,q}(R^n)$,  1$,  \infty$.  acting  and  and  atomic  behavior  by-product,  consider  decomposition  discuss  elements  Hardy-Lorentz  In  in  integrals  interpolation  of  of  on  operators  other  paper  properties,  singular  spaces  spaces,  the  the  the  the  their  them.  these  this  We  we 
++++++
+0704.0055
+Potassium intercalation in graphite: A van der Waals density-functional   study
+Eleni Ziambaras, Jesper Kleis, Elsebeth Schroder, and Per Hyldgaard
+154     
+  (2004)].  (DFT)  (vdW-DF)  246401  92,  [Phys.  a  a  a  absorption  account  accounted  adsorption  agreement  Also  and  and  and  and  and  approach  approach,  are  are  as  atoms  binding  binding  binding  bonding  bulk  by  by  by  calculations.  compared  compound  consistent  crystal  crystal,  density  density  der  description  description,  DFT  dispersive  elastic  energies  energy  energy,  energy,  experiments.  fair  first-principles  for  For  formation  formation  found  found  from  functional  functional  graphite  graphite  graphite  graphite  graphite  graphite  However,  in  in  in  included  interactions.  intercalate  intercalation  interlayer  investigate  investigated  is  is  is  is  is  layer  Lett.  modulus  nonlocal  of  of  of  of  ordinary  parameters  parameters  potassium  potassium  Potassium  potassium-graphite  potassium-intercalated  pure  reasonably  reported.  reported.  requires  response.  Rev.  seamlessly  semilocal  semilocal  separation,  soften  stabilize  structural  sub-surface  such  the  the  the  the  the  The  The  the  the  the  the  The  the  theory  theory.  This  thus  to  to  to  traditional  traditional  use  use  van  vdW-DF  vdW-DF  Waals  weakly  well  with  with  with 
++++++
+0704.0056
+Phase diagram of Gaussian-core nematics
+Santi Prestipino and Franz Saija
+85     
+  a  a  a  a  a  After  also  Among  and  are  as  as  calculations.  candidate  careful  columnar  crystal  crystal  determine  eleven  ellipsoidal  energy  exact  features  for  for  free  Gaussian  help  identifying  interacting  intermediate  is  law.  liquid  made  many  melting  melting  model  model  nematic  of  of  of  of  of  of  of  parallel  particles  phase  phases  pressure  pressure-driven  prominent  reentrant  relevant  repulsive  scrutiny  simple  solid  stabilization  structures,  study  system  temperature  temperatures.  the  the  the  the  the  the  this  through  values,  various  via  we  We  with 
++++++
+0704.0057
+High-spin to low-spin and orbital polarization transitions in   multiorbital Mott systems
+Philipp Werner and Andrew J. Millis
+117     
+  a  a  a  a  able  access  an  and  and  and  and  are  as  Away  boundaries  can  can  captures  computed  Coulomb  coupling  coupling  coupling  couplings  crystal  crystal  crystal  developed  drive  dynamical  e_g  electrons  essential  exchange  field  field  field  field  fillings  find  from  function  half-filling,  holes  Hund  Hund  impurity  in  in  induce  insulating  interplay  into  is  location  low  mean  model  Mott  Mott  novel  of  of  of  of  of  or  orbital  orbital  orbitals  phase  phase  physics  recently  repulsion,  selective  shell.  single  site  solver  splitting  splitting  splitting.  stabilize  state.  strong  study  susceptibility.  system  systems  temperatures.  that  the  the  the  the  the  the  the  The  the  theory  to  two  two-orbital  use  vanishing  We  We  We  which  which  with  with 
++++++
+0704.0058
+Intelligent Life in Cosmology
+Frank J. Tipler
+167     
+  (actually  (Simpson,  a  a  accelerating,  acceleration  all  and  and  antimatter  argue  argue  arguments  available  be  But  claims.  common,  consensus  consequence  develop  die  Dobzhanski,  end  end  evolution  evolved  exceedingly  excess  existed  experiments  Fermi  Finally,  First,  for  form  founders  have  here.  I  I  I  I  I  I  I  I  if  if  if  improbable.  in  in  in  indeed  intelligent  intelligent  intelligent  intelligent  intelligent  is  is  is  is  it  life  life  life  life  life,  matter  Mayr)  mechanical  Modern  of  of  of  of  of  of  of  of  of  opinion  out.  over  Paradox:  present  principle  proposition  quantum  rare  rare,  requires  requires  resources  Second,  several  shall  shall  shall  shall  shall  shall  shall  shall  show  show  suggest  summarize  survival  survive  Synthesis  teleology!)  test  that  that  that  that  that  that  that,  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  then  these  they  they'd  Third,  though  three  time  time.  times  to  to  to  to  to  too  torsion  unitarity  universe  universe.  universe.  universe.  up  use  very  visible  were 
++++++
+0704.0059
+The Mass and Radius of the Unseen M-Dwarf Companion in the Single-Lined   Eclipsing Binary HAT-TR-205-013
+T. G. Beatty, J. M. Fernandez, D. W. Latham, G. A. Bakos, G. Kovacs,   R. W. Noyes, R. P. Stefanik, G. Torres, M. E. Everett, C. W. Hergenrother
+246     
+  $a  $e=0.012  $M/R^2$  $M_{\rm  $M_{\rm  $P=2.230736  $R_{\rm  $R_{\rm  $V_{\rm  0.000010$  0.0014$  0.006$  0.010$  0.021$.  0.0351  0.04$  0.124  0.13$  0.167  0.30  1.0$  1.04  1.28  28.9  7.54  =  =  =  =  =  =  =  =  \kms,  \msun  \msun.  \pm  \pm  \pm  \pm  \pm  \pm  \pm  \pm  \pm  \rsun  \rsun,  \rsun.  \sin  a  a  a  a  a  above  aligned  an  analysis  and  and  and  and  and  and  and  and  assume  AU.  axis  axis  axis.  A}  A}  B  be  been  been  binaries.  binary  binary  both  broadening,  B}  B}  can  characteristics  circular,  circularized,  components  consistent  consists  constant.  constrains  curve  curve  days,  demonstrate  derive  derived  describe  diagram  double-lined  eclipses  eclipsing  eclipsing  end  F7V  For  for  for  from  from  from  from  generally  gives  gravity  group,  has  has  HAT-TR-205-013  HAT-TR-205-013,  HAT-TR-205-013,  i_{\rm  in  in  in  indistinguishable  individual  is  late  leads  lies  light  light  line  line  low  Lyon  M-dwarf  mass-radius  mass-radius  mass-radius  masses  masses,  method  models  observed  of  of  of  of  of  of  of  offers  opportunity  orbit  orbit  orbit  orbit,  orbit.  orbital  Our  Our  Our  Our  period  primary  primary  primary's  radii  radius  radius  relation.  result  results  rotation  rot}  rot}  secondary  secondary  secondary,  secondary.  semimajor  semimajor  short,  single-lined  single-lined  single-lined  spectroscopic  spectroscopic  star  stellar  study  surface  synchronized  system's  that  that  the  the  the  the  the  the  The  the  the  the  the  the  the  the  the  the  the  the  the  the  The  the  then  theoretical  This  tidally  to  to  to  to  total  undergoing  unique  very  We  we  we  We  which  with  with  with  with 
++++++
+0704.0060
+Coulomb excitation of unstable nuclei at intermediate energies
+C.A. Bertulani, G. Cardella, M. De Napoli, G. Raciti, and E. Rapisarda
+76     
+  $E1$  $E2$  ($E_{lab}\sim10-500$  10  10  500  and  and  and  are  are  are  as  as  as  as  at  at  B  be  beam  both  collisions  Coulomb  Coulomb  cross  discussed.  distortion  effects  energies  energies,  energy  excitation  facilities  for  for  for  found  high  Implications  in  intermediate  investigate  is  It  larger  less  low  low-lying  lower  MeV/nucleon  MeV/nucleon).  MeV/nucleon.  MeV/nucleon.  much  nuclei  of  of  radioactive  relevant  Retardation  sections  shown  states  studies  than  that  the  the  the  to  transitions  unstable 
++++++
+0704.0061
+Intersection Bodies and Generalized Cosine Transforms
+Boris Rubin
+146         
+  $\lam$-intersection  $\lam$-intersection  $k$-intersection  $L_p$-spaces.  (in  a  a  A.  also  analysis.  and  and  and  and  and  and  application  apply  are  are  article  associated  balls  between  bodies  bodies  bodies  bodies  bodies,  bodies.  bodies.  call  certain  characterizations  class  class  context  cosine  cosine  cosine  different  dimensional  examples  facts  family  finite-dimensional  focus  Fourier  generalized  generalized  generalized  geometric  give  given.  in  In  include  integral-geometric  interrelation  intersection  Intersection  investigation  invoking  is  kinds  known  Koldobsky)  latter  lower  main  masses  New  new  objects  obtained  of  of  of  of  of  of  of  of  of  of  of  of  of  of  of  onto  particular,  preserve  proofs.  Radon  Radon  relevant  remarkable  represent  restrictions  result  review  sections  sections  sense  show  some  spherical  star  structure.  study  subspaces  subspaces  that  the  the  the  the  The  the  the  The  their  their  them  this  this  this  to  to  transforms  transforms  transforms  transforms,  transforms,  unit  we  we  We  We  which 
++++++
+0704.0062
+On-line Viterbi Algorithm and Its Relationship to Random Walks
+Rastislav \v{S}r\'amek, Bro\v{n}a Brejov\'a, Tom\'a\v{s} Vina\v{r}
+113     
+  $\Theta(m\log  $m$-state  $n$  $O(mn)$  (HMMs)  (such  a  a  algorithm  algorithm  algorithm  algorithm.  also  analysis  analysis  and  and  as  as  as  be  both  can  chromosomes)  Classical  classical  compared  complete  continuous  data  decode  decoding  demonstrate  DNA  DNA  expected  experimentally  finding  for  for  for  for  gene  genome  hidden  HMM  HMM  HMMs  human  impractical  In  in  introduce  is  length  linear  long  low  Markov  maximum  memory  models  much  n)$,  of  of  of  on  on  on  on-line  on-line  Our  paper,  performance  real  requires  sequence  sequences  sequences.  significant  simple  simulated  slow-down  smaller  space,  space.  star  streams.  suggests  than  that  the  the  the  the  the  this  to  to  two-state  used  Viterbi  Viterbi  Viterbi  Viterbi  we  We  which  with 
++++++
+0704.0063
+Experimental efforts in search of 76Ge Neutrinoless Double Beta Decay
+Somnath Choudhury
+120     
+  76Ge,  76Ge.  a  a  a  a  a  allow  and  and  approach  approaches  are  article  as  been  beta  beta  beta  beta  beyond  brief  brief  decay  decay  decay  decay  decay  detailed  discussed.  double  double  double  double  early  efforts  existence  experiment  experimental  experiments  experiments  findings  first  Following  from  from  future  give  has  Heidelberg-Moscow  IGEX  in  in  indications  into  introduction  is  is  is  Majorana  mode  mode  model.  most  neutrinoless  neutrinoless  neutrinoless  Neutrinoless  non-accelerator  of  of  of  of  of  of  of  of  of  of  one  ongoing  particle  physics  physics  possible  presented  process  regime  results  review  reviewed.  search  sensitive  standard  study  substantiate  take  the  the  the  the  the  the  the  the  the  the  the  Then  This  to  to  us  very  very  which  which 
++++++
+0704.0064
+Nilpotent symmetry invariance in the superfield formulation: the   (non-)Abelian 1-form gauge theories
+R. P. Malik (Bhu)
+161     
+  (3  (4,  (4D)  (anti-)BRST  (BRST)  (i)  (ii)  (non-)Abelian  (non-)Abelian  (with  +  0,  1)-dimensional  1,  1-form  1-form  2)-dimensional  2,  3)  4D  4D  =  \bar\theta.  \mu  \theta  a  a  above  above  above  above  and  and  and  and  anti-BRST  are  are  as  as  Becchi-Rouet-Stora-Tyutin  by  capture  clarified  connected  considered  coordinates  deal  defined  densities  densities,  domain  for  formalism  formalism.  formalism.  four  four  framework  framework  gauge  gauge  gauge  geometrical  geometrical  Grassmannian  great  in  in  in  In  interpretations  invariance  invariance,  invariance.  investigation  is  key  Lagrangian  Lagrangian  language  nilpotent  nilpotent  nilpotent  of  of  of  of  of  of  of  of  of  of  of  of  off-shell  on  on-shell  One  orbit  ordinary  our  pair  parametrized  particular,  points,  present  provide  quantities  results  simplification  Some  spacetime  specific  subtle  superfield  superfield  superfield  supermanifold  symmetry  symmetry  symmetry  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  theories  theories  theories,  understanding  variables  we  We  well  where  with  within  within 
++++++
+0704.0065
+Littlewood-Richardson polynomials
+A. I. Molev
+182     
+  A  a  a  a  a  a  A.  A.  algebra  algebra  also  an  an  an  analogues  and  and  and  apparent  apply  are  author.  B.  basis  basis  by  by  by  by  by  calculation  calculation  call  Casimir  classes  coefficients  coefficients.  combinatorial  combinatorics  comprised  constructed  corresponding  depending  describe  distinguished  earlier  elements  equivariant  expansion  family  first  for  for  for  for  for  formula  formula  formula  formula.  from  functions  functions.  G.  general  give  given  Graham.  Grassmannians  immanants  implies  in  in  in  in  infinite  introduce  is  is  Knutson  Lie  linear  Littlewood-Richardson  Littlewood-Richardson  manifestly  manifestly  modifying  multiplication  new  not  of  of  of  of  of  of  of  of  of  of  of  of  of  Okounkov  Olshanski.  on  on  parameters  parameters.  polynomials  polynomials  polynomials  polynomials.  positive  positive  product  property  property  provides  puzzles  quantum  result  ring  rings  rot}  rule  rule  rule  Sagan  Schubert  Schur  sense  sequence  stability  stability  structure  structure  such  such  symmetric  T.  Tao  that  the  the  the  the  the  the  the  the  the  the  the  The  the  the  the  The  the  the  The  their  these  this  to  use  using  W.  was  was  We  We  We  We  we  which  which  which 
++++++
+0704.0066
+Lagrangian quantum field theory in momentum picture. IV. Commutation   relations for free fields
+Bozhidar Z. Iliev (Institute for Nuclear Research and Nuclear Energy,   Bulgarian Academy of Sciences, Sofia, Bulgaria)
+208     
+  (algebraic)  (scalar,  (with  a  a  a  a  admissible  all  all  an  and  and  and  and  and  are  are  are  are  as  as  As  as  As  be  bilinear  calculating  case.  changes  class  class  class  commutation  commutation  commutation  commutation  concept  condition  conditions  considered  containing  contradict  corresponding  data.  do  dynamical  dynamical  dynamical  dynamical  effective  employed  entail  equations  equations.  equations/relations  existing  existing  fields  for  for  for  for  free  from  fulfillment  general  generalizations  Heisenberg  Heisenberg  Heisenberg  implies  imposed  impossible.  in  in  in  introduction  is  is  is  it  known  Lagrangian  Lagrangians).  last  makes  mathematical  mean  mentioned  mentioned  most  narrow  normal  normal  not  of  of  of  of  of  of  of  of  of  of  of  of  of  of  on  ones  ones  only  operators  or  ordering  ordering.  paracommutation  particular,  pointed  pointed  possible  Possible  problem  procedure  procedure  quantum  redefinition  redefinition  reduced  relations  relations  relations  relations  relations.  relations;  requirement  requirement  respect  restriction  satisfy  similar  simultaneous  solved  some  some  sources  special  specific  spinor  standard  that  That  that  that  the  the  the  the  the  the  the  the  the  the  the  the  the  The  the  the  the  The  The  the  the  the  the  the  the  The  the  their  theory  these  This  to  to  to  to  to  turn  uniqueness  uniqueness  vacuum  vacuum  validity  values.  variables  variables  variables  variables,  vector)  via 
++++++
+0704.0067
+Order of Epitaxial Self-Assembled Quantum Dots: Linear Analysis
+Lawrence H. Friedman
+197     
+  (about  (SAQDs)  a  a  a  a  a  a  a  about  addition,  allowed  also  analysis  analysis  Analytic  analytic  and  and  and  and  and  and  and  and  and  anisotropy  are  are  are  are  are  are  as  as  aspects  at  atomic-scale  based  by  characterize  commonly  correlation  correlation  correlation  correlation  corresponding  corresponding  development  devices  devices.  diffusion.  diverge  dot  dots  dots)  effect  electronic  Epitaxial  equations.  explicit  film  film-height  findings  fluctuations  for  for  for  for  form  formation  formation  formation  formulas  found  functions  have  height.  Here  however,  implications  important  In  in  Initial  interest  is  is  is  is  It  its  lasers,  lengths  lengths  lengths  likely  linear  linked;  logic.  mathematical  mechanism  model  nanoscale  nanostructured  nature  near-critical  negligible;  of  of  of  of  of  of  of  of  of  of  on  optoelectronic  order  order  order  order  order  order  order  order  order.  order.  ordering  photodetectors  potential  present  presented.  presents  previous  process,  quantify  quantum  quantum  random  regarding  reinforces  relatively  result  SAQD  SAQD  SAQD  SAQD  SAQDs  SAQDs  self-assembled  size  size  small  Spatial  spatial  spatial  spatial  statistical  stochastic  strong  strongly  study  study  such  surface  that  that  that  the  the  The  the  these  thus,  to  to  transparent  two  two  types  undertaken  uniqueness  usable  used  using  various  wetting  when  when  will  with 
++++++
+0704.0068
+A Note About the {Ki(z)} Functions
+Branko J. Malesevic
+58     
+  $K_{i}(z)$  $K_{i}(z)$  1971]  2006],  2006].  [Kurepa  [Petojevic  [Petojevic  A.  and  answer  article  c  differential  discuss  dots)  factorial  Finally,  function.  functions  functions.  generalize  In  In  in  Kurepa's  left  note,  of  of  of  of  open  Petojevi\'  present  proofs  properties  question  results  simplified  stated  the  the  the  the  the  these  this  transcendency  two  useful  verified  we  we  we 
++++++
+0704.0069
+Dynamical Objects for Cohomologically Expanding Maps
+John W. Robertson
+245     
+  "marching  (not  (say  a  a  a  A  a  a  a  a  a  a  advantage  allows  allows  and  and  and  any  applied  are  argument  as  be  be  Because  big  both  can  can  canonically  circumstances  class  class  classes  classes  cohomological  cohomological  cohomological  cohomological  cohomology  cohomology  cohomology  compact  compared  conditions  consideration  construct  construct  constructed  containing  create  current  currents  currents  currents  currents  deRham  differences  dimensional  dynamical  dynamical  dynamically  exact  expanding  expansion  finite  for  formation  from  give  given  given  gives  goal  groups.  growth  growth  have  have  holomorphic  identified  if  important.  in  in  in  including  interesting  invariant  invariant  invariant  invariant  invariant  invariant  invariant  invertible)  is  is  is  It  it.  lifts  local  local  long  main  manifold.  map  map  may  means  measures  measures,  necessarily  not  objects  of  of  of  of  of  of  of  of  of  of  of  of  of  of  of  of  of  of  of  one  orders"  other  Our  paper  plethora  preceding  prohibit  prove  pullback.  rate  rates  represent  result  right  same  same  self  self  sequence  sequence  setting.  sheaf  sheaf  sheaf  sheaf  show  smooth  smooth  smoothing  so  some  subsheaf  subsheaves  subspaces  subspaces  subsystem).  such  sufficient  system  take  takes  term  term.  terms  that  that  that  that  the  the  the  the  the  The  the  the  the  the  the  the  the  the  the  the  the  the  the  the  then  theorem  this  This  this  those  to  to  to  to  to  to  to  to  too  type  type,  type,  under  under  under  under  unique  unique  unique  uniquess  us  us  use  Using  we  We  we  which  will  with 
++++++
+0704.0070
+Coincidence of the oscillations in the dipole transition and in the   persistent current of narrow quantum rings with two electrons
+He Yanzhang and Bao Chengguang
+83     
+  (FABO)  A  against  Aharonov-Bohm  amplitudes  an  an  analytical  and  and  and  appears  as  be  been  been  been  can  current  described.  difference  dipole  dynamical  electrons  equalities  essentially  evolution  exactly  exactly.  explained  field  found  found.  fractional  frequencies,  Furthermore,  ground  has  has  have  have  have  in  magnetic  matching  narrow  number  observables  of  of  of  of  of  oscillation  oscillation  oscillation  parameters  period  persistent  quantum  relating  rings  state  studied  the  the  the  the  the  the  The  the  the  their  to  transition  two  two  was  way, 
++++++
+0704.0071
+Pairwise comparisons of typological profiles (of languages)
+S. Wichmann and E.W. Holman
+16     
+  abstract  Atlas  be  compares  from  given;  Language  languages  No  of  of  pairs  Structures. 
++++++
+0704.0072
+The decomposition method and Maple procedure for finding first integrals   of nonlinear PDEs of any order with any number of independent variables
+Yu.N. Kosovtsov
+149         
+  a  automatic  auxiliary  based  be  by  calculated  can  can  closed  decomposable  decomposition  decomposition  demonstrate  dependent  derivatives.  developed  different  different  done  each  Examples  explicit  expression  find  finding  first  first-order  first-order  for  for  for  for  form.  general  highest  if  implemented  in  In  in  in  independent  initial  initial  integral  is  is  is  is  is  is  It  iterative  its  linear  linear  lower  many  Maple  method  method  method  method  Moreover,  new  nonlinear  nonlinear  nonlinear  number  of  of  of  of  of  of  of  of  of  of  of  of  of  of  on  on  on  one  operators  operators  order  orders.  paper  PDE  PDE  PDE(s)  PDE.  PDEs  PDEs  PDEs  PDEs  PDEs.  potential  present  procedure(s),  procedure,  process  propose  pullback.  really  reduced  Remarkably  seemingly  sequence  shown  solution  solutions  solutions  solve  solving  some  some  step  system(s)  that  that  the  the  The  The  the  their  this  this  to  types  variable.  variables.  way  we  we  which  which  with 
++++++
+0704.0073
+A transcendental approach to Koll\'ar's injectivity theorem
+Osamu Fujino
+69     
+  (or  a  a  a  a  analytic  but  cohomology  compact  complete  condition  covering  curvature  desingularizations,  differential  for  forms  formulated  from  geometric)  give  harmonic  implies  injectivity  injectivity  is  K\"ahler  K\"ahler  Koll\'ar  Koll\'ar's  Leray's  main  manifold,  metric.  More  Moreover,  need  neither  nor  of  on  open  Our  precisely,  proof  sequence.  set  space  spectral  suitable  the  the  the  theorem  theorem  theorems.  treat  tricks,  type  uses  viewpoint.  We  We  we  which  with 
++++++
+0704.0074
+Injective Morita contexts (revisited)
+J. Y. Abuhlail, S. K. Nauman
+128     
+  $\alpha$-contexts  $\alpha$contexts  $\ast$-modules  (in  (in  (with  a  action,  adstatic  an  and  and  and  and  and  applications  are  are  be  between  between  bimodule  bimodule  bimodules  by  by  colocalized  compatibility  connecting  connecting  contexts  contexts.  data  data,  datum.  end  enjoy  equivalences  establish  exposition  help  ideal  ideals  in  in  in  injective  injective  Injective  injective)  intersecting  introduce  investigate  is  is  is  local  localized  modules  modules)  Morita  Morita  Morita  Morita  Morita  Morita  Morita  Morita  morphisms  morphisms  Motivated  needed,  not  notions  of  of  of  of  of  of  of  one  only  or  or  paper  projectivity  related  right  semi-contexts  sense  situations  so-called  some  some  static  subcategories  subcategories  system(s)  that  the  the  the  the  the  the  the  the  them.  This  to  to  to  trace  trace  up  used  We  we  which  which  which  wide  will  with 
++++++
+0704.0075
+Strong decays of charmed baryons
+Chong Chen, Xiao-Lin Chen, Xiang Liu, Wei-Zhen Deng and Shi-Lin Zhu
+67     
+  $^3P_0$  After  and  and  and  available  baryons  baryons  baryons  been  calculated  charmed  charmed  comparing  D-wave  data,  decay  decays  discuss  excited  experimental  has  heavy  important  in  in  internal  model.  Morita  numbers  observed  of  of  of  P-wave,  past  pattern  possible  progress  quantum  radially  recently.  S-wave,  sector  several  strong  structure  study  the  the  the  the  the  the  the  the  There  those  total  using  We  we  width  with 
++++++
+0704.0076
+CP violation in beauty decays
+Michael Gronau
+39     
+  accurate  and  are  CP  CP  current  discussed,  flavor-changing  for  for  is  Kobayashi-Maskawa  model  most  new  of  of  of  of  operators.  other  out  pattern  pointing  possible  Precision  signatures  sources  status  summarized.  tests  tests  the  the  The  violation 
++++++
+0704.0077
+Universal Forces and the Dark Energy Problem
+Afsar Abbas
+75     
+  a  a  a  addition  allows  an  and  and  and  and  be  Dark  Dark  Einstein's  Energy  Energy  Equation  Forces  forcing  from  Fundamental  General  Here  how  idea  improved  In  introduced.  is  is  it  it  leads  models  new  not  novel  of  of  of  of  of  our  our  perceive  pesrpective.  problem  problem.  providing  re-examine  relativity  Relativity  resolution  shown  space  space-time.  the  the  The  Theory  This  time,  to  to  to  to  understanding  understanding  us  us  us  will 
++++++
+0704.0078
+Linear perturbations of matched spacetimes: the gauge problem and   background symmetries
+Marc Mars, Filipe C. Mena, Raul Vera
+60     
+  a  about  analyse  analysis  and  and  as  background  boundary  brane  by  case  cosmologies.  critical  freedom  gauge  in  in  includes  including  introduced  layers  linear  matched  matching  models  n-dimensions.  of  of  of  of  particular  perturbations  perturbed  presence  present  problems.  review  revisit  settings  shell  spacetimes  spherically  study  such  symmetries  symmetry  the  the  the  the  the  the  This  We  We  with 
++++++
+0704.0079
+Operator algebras associated with unitary commutation relations
+Stephen C. Power (Lancaster University), Baruch Solel (Technion)
+66     
+  $L_{e_1},...,  $nm  $u$.  $u=  (u_{i,j,k,l})$  2  =  \[  \sum_{k,l}  \times  a  algebras  algebras  algebras,  an  analytic  are  classified  commutation  define  form  generalise  generators  graphs  in  is  isometric  isomorphism  L_{e_i}L_{f_j}  L_{e_n},  L_{f_1},...,L_{f_m}$  L_{f_l}L_{e_k}\]  matrix  matrix.  nm$  nonselfadjoint  of  of  of  operator  rank  relations  single  subject  terms  the  the  the  the  These  to  to  to  Toeplitz  u_{i,j,k,l}  unitary  unitary  up  vertex,  We  where  which  with 
++++++
+0704.0080
+Shaping the Globular Cluster Mass Function by Stellar-Dynamical   Evaporation
+Dean E. McLaughlin and S. Michael Fall
+280     
+  (although  (GCMF)  (rho_h)  (rho_t  --  --  --  --  --  -dM/dt  =  ``universality''  a  a  a  a  a  about  agreement  all  alternative  analysis  and  and  and  anisotropy  any  approximated  are  are  are  are  are  are  argue  as  as  as  as  as  assumed  assumptions  between  but  but  by  by  c,  cases,  central  cluster  cluster  cluster  cluster  cluster  cluster  cluster  clusters  clusters  concentration  conclusions  decreases.  defined  densities  density  density  depend  depend  dependence  depends  derive  disruption  distance  does  does  driven  end  erosion  evaporation  evaporation  excellent  expected  expected  falling  feature  find  fit  from  from  function  function  function  Galactocentric  GCMF  GCMF  GCMF  GCMF  globular  globular  half-mass  if  implies  in  in  in  in  In  In  in  including  increases  information  initially  insensitivity  inside  instead  internal  internal  involve  is  its  lifetimes  literal  low  low  M_TO  M_TO  M_TO  mass  mass  mass  mass,  mass-loss  masses,  mean  Milky  model  motivated  mu_ev  mu_ev  mu_ev  mu_ev  normalization  not  not  not  observable  observed  of  of  of  of  of  of  of  of  of  of  of  of  of  on  on  on  on  or  or  or  or  Our  Our  outcome  particular,  physically  plus  predominantly  prescriptions  properties  r_gc  r_gc.  r_gc.  radii,  range  range).  rates  rates  rather  readily  recover  relaxation-driven  relaxation-driven  relaxation.  required  rho_h  rho_h  rho_h  rho_h,  rho_h.  rho_h^{1/2}.  rho_t^{1/2}  rose  same  scatter  sense  show  Sigma_t)  Sigma_t^{3/4}  signature  significant  significant  simple  slow  standard  surface  system.  that  that  that  that  that  that  that  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  their  This  this  this  through  tidal  to  to  to  towards  towards  turnover  turnover  two-body  values  variation  velocity  volume  Way  We  We  we  We  well  well-known  which  while  width  with  with  within  YSO's  ~  ~ 
++++++
+0704.0081
+Quantum Deformations of Relativistic Symmetries
+V.N. Tolstoy (INP, Moscow State University)
+56     
+  A  Abelian  algebra  algebras.  all  almost  and  and  are  case  classical  classification  classification  cluster  correspond  corresponding  D=4  deformations  deformations  discussed  explicit  form.  given  In  in  is  it  Jordanian  Lorentz  of  of  of  of  of  of  part  Poincare  Poincare  quantum  r-matrices  r-matrices  S.  shown  that  the  the  to  to  twisted  twists  types.  We  Zakrzewski 
++++++
+0704.0082
+Matter-Wave Bright Solitons with a Finite Background in Spinor   Bose-Einstein Condensates
+Tetsuo Kurosaki, Miki Wadati
+176     
+  (BEC),  (DW)  (PS)  a  a  a  a  a  According  also  amounts  an  an  and  and  and  and  apply  are  are  are  As  as  at  background  based  be  BECs.  behaviors  Bose-Einstein  boundary  boundary  boundary  bright  bright  can  classified  collision  collisions.  condensate  conditions  conditions.  conditions.  confirmed  consistent  dark  derived  discuss  domain-wall  DW-type  DW-type.  dynamical  equation  equivalent  establish  explicit  F=1  ferromagnetic  finite  for  for  formulated  generalization  implies  implies  In  in  in  in  in  infinity,  integrable  into  inverse  investigate  involving  is  is  kinds,  manner.  matrix  matter-wave  method  model  multiple  nonlineality.  nonlinear  nonvanishing  nonzero  of  of  of  of  on  One-soliton  particular,  phase-shift  phenomenon  physically  polar  previous  properties  PS-type  regarded  result,  resulting  results  robustness  scattering  Schr\"{o}dinger  self-focusing  soliton  solitons  solitons  solitons  solitons.  solutions  solutions  spin  spin  spin-mixing  spinor  spinor  spinor  state  state,  studies  the  the  the  the  the  the  the  the  The  the  the  the  the  the  the  The  the  the  The  they  those  those  to  to  to  total  total  two  two-soliton  type  type.  under  under  usefulness  vanishing  vanishing  We  We  we  We  where  which  with  with  with  with 
++++++
+0704.0083
+Why there is something rather than nothing (out of everything)?
+A.O.Barvinsky
+157     
+  (weight  a  a  a  a  about  acceleration  and,  are  at  attained  be  bounded  bounded  but  by  by  can  complex  concept  constant,  constant.  constraining  corresponds  cosmological  cosmological  cosmological  cosmological  cosmologies  cosmology.  dark  decay  density  describe  dimensions.  distribution  dynamically  early  energy  ensemble  ensemble  ensemble  Euclidean  evolving  expansion  extra  for  form  generated  geometries  geometry  in  in  in  in  Inflationary  instantons  instantons  integral  integral.  is  is  it  landscape  late  limited  Lorentzian}  low-energy  matrix  mechanism  microcanonical  microcanonical  observable  obtained  of  of  of  of  of  of  of  of  of  of  of  of  of  one)  over  path  path  peaked  phase  physical  possible  problem  quantum  quasi-equilibrium  range  range  recently  recently  represented  saddle-points  scale  shown  simultaneously,  solution  space  spacetime  stages  state  string  suggested  suggests  terms  the  the  the  the  the  the  The  the  the  the  the  the  the  the  the  the  the  these  They  This  this  Thus,  to  to  to  to  together  true  two  undergo  uniform  Universe  Universe.  vacua  variables,  whose  with  within 
++++++
+0704.0084
+Formation of density singularities in ideal hydrodynamics of freely   cooling inelastic gases: a family of exact solutions
+Itzhak Fouxon, Baruch Meerson, Michael Assaf, Eli Livne
+261     
+  "ordinary"  $\sim  $\sim  $t_c$  (rather  (t_c-t)^{-1}$  (t_c-t)^{-2}$.  -  a  a  a  a  a  a  a  a  additional  additional  an  An  an  analytical  and  and  and  and  and  and  and  and  approached,  approximately  are  arrives  As  as  at  at  at  at  be  blow-up  blows  blows  blowup  blowup,  blowups  boundary  broad  bulk  but  by  can  close  close-packed  clustering  clusters  coexist  collisions.  conditions.  conditions.  conduction  confirm  consider  constant  continuous  cooling  coordinate.  coordinates  cusp  density  density  density  density  density  density  depend  derive  describing  details  develops  dilute  discontinuity)  discontinuous  due  dynamics  employ  employ  energy  equations  equations  exact  exact  exact  exhibit  exhibits  family  features  fields  finite  finite  finite.  follows  formation  freely  from  Furthermore,  gas  gas  gas  gas  gas.  gradient  granular  granular  heat  hold  hydrodynamic  hydrodynamic  hydrodynamic  hydrodynamics  ideal  ideal  in  in  in  in  independently  inelastic  initial  initial  investigate  is  isobaric  itself  Lagrangian  large-scale  law  local  losses  maximum  may  motions  neglected,  new  non-stationary  numerical  numerically.  of  of  of  of  of  of  of  of  of  of  of  of  on  one  one  one-dimensional  only  paradigmatic  particles  particles.  perturbations  power  pressure  problem  remains  remains  respect  same  scenario:  shock  shock,  show  shows  signal  singularity  singularity,  singularity,  singularity.  singularity.  small  smooth  solution  solutions  solutions  solutions  solutions  solving  space  spatial  stability  starting  temperature  term  than  that  that  that  The  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  The  The  the  These  time  time  time  to  to  to  to  type  type,  uniform  universally,  up  up  vanishes  variation  velocity  velocity  viscosity  We  We  We  We  when  where  where  which  while  with  with 
++++++
+0704.0085
+A Universality in PP-Waves
+Partha Mukhopadhyay
+241     
+  (CSFT).  a  a  a  According  all  All  all  also  also  an  an  analyses  and  and  and  and  and  ansatz  any  are  argue  argue  around  around  at  background  background  backgrounds.  be  be  be  be  Because  been  bosonic  bosonic  called  can  can  can  closed  common  computing  configurations,  configurations,  conformal  consider  context  coordinates  correlation  covariant  CSFT  CSFT  density  dilaton  discuss  discussed.  discussion  effective  energy  equations  evaluated  even  existence  expanded  expected  field  field  field  field  field  field  field  fields  fields.  flat  flux.  for  for  for  functions  Furthermore,  gauge  generalised  given  has  higher  identified  In  in  in  In  in  In  independent  insensitive  integrated  is  is  it  iterative  lagrangian  low  massive  massive  massless  method  metric  modes  modes  most  motion  nature  Neveu-Schwarz  non-polynomial  of  of  of  of  of  of  of  of  of  of  off-shell  off-shell  off-shell,  on  on  on-shell  only.  operators  our  our  out  out  paper  particular,  pp-wave  pp-wave  pp-wave  pp-wave  pp-waves  pp-waves  pp-waves  pp-waves,  profiles  property  property  quadratic  redefinition  relating  reproduced  requires  restrict  restricted  results  same  same  same  scalars.  sector  sector  sector,  set  sides.  simplification  space  space  space-time  space-time  string  string  string  study  such  Such  superstrings.  tensorial  that  that  that  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  theory  theory  theory  theory  theory  theory.  this  this  this  to  to  to  to  to  transverse  transverse  transverse  turns  two  uniform  universal  universal  universality  universality  using  using  We  We  we  we  we  whose  with  with  with  world-sheet 
++++++
+0704.0086
+Clustering in a stochastic model of one-dimensional gas
+Vladislav V. Vysotsky
+142     
+  $K_n(t)$  $K_n(t)$  $K_n(t)$.  $n$  $n$  $n\to  $t$  \infty$,  a  a  a  a  aggregation  analysis  and  and  are  are  are  as  asymptotic  At  at  attraction.  based  begin  behavior  behavior  by  by  called  cluster,  clustering  clusters  collide,  conservation.  consists  defined  defined  denotes  discovered  distributed  each  essentially  for  forces  forming  functional  gas  gas.  give  have  identical  in  in  in  initial  initial  interested  is  is  is  Its  laws  limit  line  localization  main  mass  model  motion  move  mutual  neighbor  new  number  of  of  of  of  of  of  of  of  of  of  on  on  one-dimensional  Our  particle  particle,  particles  Particles  particles  particles.  particles.  particular,  process,  proof  property  quantitative  randomly  real  result  speed  speeds.  states  stick  stochastic  system  that  that  the  the  the  the  the  the  the  the  the  the  the  theorem  they  time  time  to  together  under  We  We  When  where  which  whose  with  zero 
++++++
+0704.0087
+Approximate solutions to the Dirichlet problem for harmonic maps between   hyperbolic spaces
+Duong Minh Duc and Truong Trung Tuyen
+66     
+  $\epsilon  $f=(s^1,...,f^{n-1}):\partial  $H^m$  $H^m,  $H^n$.  $m$  $n$  $u:H^m\to  $u|_{\partial  (in  >0$  \partial  a  a  and  and  and  and  between  boundaries  boundary  continuous  corresponding,  dimensional  each  Euclidean)  exists  following:  for  function  geometric  Given  given  H^m\to  H^m}=(f^1,...,f^{n-1},\epsilon)$.  H^n$  H^n$  H^n$  harmonic  Holder  hyperbolic  in  is  is  laws  main  map  of  of  of  Our  paper  result  sense  spaces  the  the  the  Then  there  this  to  up 
++++++
+0704.0088
+Some new experimental photonic flame effect features
+N.V.Tcherniega
+163     
+  (77  a  a  Analogous  and  and  antistocks  appeared  are  are  area  Artificial  artificial  as  at  being  being  blue  boiling  bright  bright  by  case  case  changed.  characteristics  characteristics  Cu  Cu  delay  different  disribution  duration  effect  emmiting  energetical  finely  flame  frozen  frozen  in  in  in  In  in  in  In  infiltrated  irradiated  is  is  K)  laser  liquid  liquids  liquids  liquids.  long-  long-term  luminescence  luminiscence  luminiscence  luminiscence  luminiscence  manifesting  matrixes.  nanosecond  nearly  nitrogen  nonlinear  nonlinear  of  of  of  of  of  of  of  of  of  of  of  of  on  on  on  on  opal  opal  opal  opal  opals  other  part  photonic  place  plate  plate  plate.  point  posed  posed  presence  presented.  produces  pulse  putting  radiation  reduced  results  ruby  same  same  same  samples  seconds  spatial  species  spectral,  spectrum  spectrum.  structured  surface  temperature  temporal  Temporal  ten  term  the  the  the  the  the  The  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  this  threshold  till  time  took  visible  with  with 
++++++
+0704.0089
+A general approach to statistical modeling of physical laws:   nonparametric regression
+I. Grabec
+169     
+  A  a  a  a  a  a  a  and  are  average  based  between  Both  by  by  by  by  by  calibration  chaotic  chaotic  conditional  corresponds  cost  cost  data  data  data  data  data  data.  definition  definition  demonstrated  density  derived  determined  directly  distance  during  error  estimated.  estimator  estimator.  estimator.  example,  experimental  experimental  experimental  experimental  expressed  expressed  extracted  from  from  From  from  function  function,  function.  future  general  in  in  In  in  is  is  is  is  is  is  is  is  is  is  It  It  kernel  kernel  kernel  law,  laws  map  mean  mean  measured  measured  method  minimum  model  modeling  modeling  new  noisy  nonparametric  nonparametric  number  objectively  of  of  of  of  of  of  of  of  of  of  of  on  one.  optimally  physical  physical  points.  predict  predictor  predictor  predictor  predictor  present  probability  proper  proposed  quality,  redundancy  regression  regression.  relates  return  scattering  series  set  setup.  square  Statistical  statistics  the  the  The  the  the  the  the  the  The  the  the  the  the  the  the  The  this  time  to  to  used  used  used  value  variables,  variables.  via  which 
++++++
+0704.0090
+Real Options for Project Schedules (ROPS)
+Lester Ingber
+79     
+  (ASA)  (ROPS)  (TRD)  a  A  Adaptive  Algorithms  among  An  An  analysis  Annealing  applied  are  containing  containing  costs  develop  develop  Dimensions  distributions  distributions  durations  for  for  has  in  inner  is  It  middle  multiple  of  of  of  of  of  on  optimization  optimizes  Options  options  ordered  outer  parameters  PATHTREE  Plans  probability  probability  Project  Projects  projects.  Real  recursive  relative  risk  Risk  samples  samples  sampling/optimization  Schedules  schedules..  shell  shell  shell  shells.  Simulated  strategic  Tasks.  Tasks.  Tasks.  three  to  to  Trading  used 
++++++
+0704.0091
+Groups with finitely many conjugacy classes and their automorphisms
+Ashot Minasyan
+91         
+  $C$  $N$  $N$,  (T)  a  a  a  and  another  application  As  as  automorphisms  be  can  cancellations  classes  classes.  classical  combinatorial  combine  concerning  conjugacy  conjugate  construct  containing  countable  elements.  embeddings  every  exactly  finitely  finitely  finitely  generated  generated  group  group  group  group  group  groups  groups  groups.  have  having  hyperbolic  into  is  Kazhdan's  many  method  methods  Moreover,  of  of  of  of  of  of  only  outer  over  present  property  prove  realized  relatively  results  several  small  such  techniques,  that  that  the  theory  theory  these  to  torsion-free  two  we  we  We  where 
++++++
+0704.0092
+Energy density for chiral lattice fermions with chemical potential
+Christof Gattringer and Ludovit Liptak
+46     
+  a  a  and  as  at  behavior.  chemical  chemical  compute  continuum  correct  density  density.  energy  fermions  fermions  finite  formulation  function  groups  In  is  It  of  of  overlap  overlap  particular  potential  potential  proposed  recently  reproduce  shown  study  temperature.  that  the  the  the  the  we  We 
++++++
+0704.0093
+Aspects of Electron-Phonon Self-Energy Revealed from Angle-Resolved   Photoemission Spectroscopy
+W.S. Lee, S. Johnston, T.P. Devereaux, and Z.-X. Shen
+111     
+  (ARPES),  a  a  Al,  analyze  and  and  and  angle  are  arguments  arguments  as  be  bilayer  cannot  certain  claiming  complex  contribution  correlated  correlated  cuprate  dependence  dependence,  detailed  discussions.  doping  effects  effects  effects,  electron-phonon  electronic  evidences  Expectations  experimental  experiments  fascinating  for  founded.  has  have  Here  high-$T_c$  impurity  in  in  in  in  in  in  including  inter-band  is  lately  Lattice  light  lively  materials,  misconceptions  not  number  of  of  of  of  of  of  origin  oxides  oxides.  Pd  phonons  photoemission  renormalization  resolved  resulted  scattering  seen  self-energy  self-energy  self-energy  several  show  simpler  simulations,  stimulated  strongly  subject  substitution.  such  superconductors  systems,  temperature  that  that  that  the  the  the  the  the  the  these  to  via  We  we 
++++++
+0704.0094
+Timing and Lensing of the Colliding Bullet Clusters: barely enough time   and gravity to accelerate the bullet
+HongSheng Zhao (SUPA, St Andrews)
+218     
+  "bullet"  $4500\kms$  $\le  $M_{HDM}  (2007).  (5000-5400km/s),  0.6\times  1  10^{14}Msun  10^{15}\msun$  10^{15}\msun$  10^{15}Msun  10^{15}Msun  1\times  4500km/s  =  \le  a  a  a  a  a  accelerable  adopts  al.  amount  amount  and  and  and  and  Angus  are  are  are  are  are  arguments.  barely  bars  be  beyond  bound  breaks  bullet  bullet  bullet  bullet  by  by  can  can  CDM  CDM  CDM  CDM  classical  cluster  cluster  Cold  consider  Consistency  consistent  consistent}  constraint  containing  dark  dark  data.  data.  DM:  down  e.g.,  easily  end  error  et  even  fit  for  for  for  found  galaxy  gas  gas  gas  gas.  General  generalisable  gravity  gravity  Group  halo  halo  halos  higher  hot  However,  Hubble  Hubble  if  in  in  in  in  in  invoke  is  large  lensing  lensing  lensing  little  Local  M_{CDM}  M_{CDM}=7x  Marginally  mass  mass  matter  matter  maximum  merging  model  model  model  models  Models  models  MONDian  MONDian  move  move  nearly  Newtonian  not  obtained  of  of  of  of  of  of  of  of  on  one  only  orbits  Our  particle  potential  present  pressure.  ram  relativistic  Relativity,  results  semi-analytical  small  speed  speed  speeds}  sub-cluster  subhalo  that  the  the  the  the  the  the  the  the  the  the  the  the  the  the  the  These  time  time.  timing  to  total  truncated  two  unrealistic  using  V_{DM}=3000km/s,  V_{DM}~  V_{gas}  V_{gas}=4200km/s.  velocity  We  We  which  with  with  with  with  with  with  with  without  would  would  x  X-ray  {\it  {\it  ~ 
++++++
+0704.0095
+Geometry of Locally Compact Groups of Polynomial Growth and Shape of   Large Balls
+Emmanuel Breuillard
+136     
+  a  a  a  a  a  about  after  also  also  an  an  an  and  and  and  answer  any  application  arbitrary  asymptotic  asymptotics  balls  balls  be  Burago  can  commensurable  compact  compact  connected  converge  convergence,  discuss  done  ergodic  examples  for  G  G  G  G  G.  generalization  geometrically.  geometry  get  give  group  group  groups.  growth  growth.  have  i.e.  in  In  in  interpreted  invariant  irrationality  is  is  large  large  left  Lie  Lie  limiting  locally  metrics  move  nilpotent  of  of  of  of  of  of  of  of  of  of  on  P.  Pansu's  particular,  polynomial  question  recover  renormalization,  results  S,  series  set  shadow  shape,  show  show  simply  solvable  some  some  some  speed  Stoll  study  such  suitable  that  that  the  the  the  the  the  then  theory.  thesis.  they  This  to  to  to  treat  via  volume  We  We  We  We  we  weakly  which 
++++++
+0704.0096
+Much ado about 248
+M.C. Nucci and P.G.L. Leach
+66     
+  248-dimensional  a  a  a  admitted  admitted  admitted  algebra  algebra,  and  and  by  by  by  differential  differential  differential  each  each  equation  equations  equations  five  forty-four,  forty-four.  hundred  In  large  Lie  Lie  namely  note  of  of  of  of  of  of  of  one  order  order  order  ordinary  ordinary  ordinary  point  present  representations  seven  symmetries  system  system  that  that  the  this  three  trivial  trivial  trivial  twenty-eight  two 
++++++
+0704.0097
+Conformal Field Theory and Operator Algebras
+Yasuyuki Kawahigashi
+39     
+  a  algebraic  approach  based  classification  conformal  emphasis  field  in  in  is  is  joint  Longo.  of  of  of  on  on  operator  Our  progress  quantum  R.  recent  representation  review  series  theory  theory.  theory.  This  to  use  We  with 
++++++
+0704.0098
+Sparsely-spread CDMA - a statistical mechanics based analysis
+Jack Raymond, David Saad
+91     
+  (BIAWGN)  (CDMA),  (dense)  (signature)  a  a  a  Access  additive  analysed  analysis  and  and  binary  both  canonical  cases  CDMA  channel  Code  code.  codes  comparison  contains  decoding  Division  elements,  for  for  for  Gaussian  in  in  irregular  is  large  likelihood  limit.  matrices  matrix  maximum  method  methods  Multiple  noise  non-zero  number  of  of  of  of  on  on  only  performance  physics.  present  presented  provides  random  recover  regular  relatively  results  results  small  sparse  Sparse  spreading  spreading  spreading  spreading  standard  statistical  system  the  The  the  the  the  the  the  to  using  variation  We  which  white 
++++++
+0704.0099
+On Ando's inequalities for convex and concave functions
+Koenraad M.R. Audenaert and Jaspal Singh Aujla
+193             
+  $[0,\infty)$  $A$  $A\ge  $B$,  $f$  $f$  $f$  $f$  $g$,  $g$,  $g$.  $g$.  $Y$  $Y$-dominated  $|||  $|||  $|||  $|||  \ge  \ge  \le  \le  a  a  a  above.  affirmatively  allows  also  and  and  and  and  and  and  and  and  and  and  and  and  Ando  Ando,  answer  any  any  been  between  Bourin  Bourin-Uchiyama  by  by  case  certain  concave  concave  consider  convex  convex  course  exactly  f(A)+f(B)  f(A)-f(B)  f(A+B)  f(|A-B|)  for  for  for  For  for  function  functions  functions  g(A)+g(B)  g(A)-g(B)  g(A+B)  g(|A-B|)  general  generalisation  generalised  have  have  Hermitian  Hermitian  In  in  in  In  inequalities  inequalities  inequalities  introduce  invariant  inverse  inverse  is  itself  Kosem,  Kosem,  majorisation  matrices  matrices,  matrices,  matrix,  mentioned  monotone  monotone  negative  non-negative  non-negative  non-negative  non-negative  norm,  notion  novel  obtained  of  of  of  of  of  on  operator  operator  paper  positive  property  prove  proved  question  question,  recently  related  relation  respectively.  results  semidefinite  similar  special  spectra  strengthen  that  the  the  the  the  the  the  the  the  the  These  this  this  this  this  to  to  to  two  Uchiyama,  unitarily  unrealistic  very  we  We  we  when  where  whether  with  with  work,  Zhan  ||B||$.  |||  |||  |||  |||  |||  |||  |||  |||  |||$  |||$,  |||$, 
++++++
+0704.0100
+Topology Change of Black Holes
+Daisuke Ida and Masaru Siino
+131     
+  (i)  (ii)  (iii)  (n+1)-dimensional  a  a  a  always  an  an  an  and  appear  are  are  are  As  as  as  asymptotically  attachment.  attachments  be  be  been  been  black  black  black  black  black  black  black  can  certain  classified  connected.  constraints  corollary,  either  elementary  event  evolution  evolution:  exterior  flat  formation  found  from  further  handle  handle  handles  Handles  has  has  hole  hole  hole  hole  hole  horizon  horizon  horizon  in  in  in  in  investigated  is  is  it  It  kinds  Morse  must  n  nature  non-axisymmetric  of  of  of  of  of  of  of  of  of  on  only  or  paper  process  real  region  S**(n-1)  S**(n-2)  S**1  section  shown  space-times.  space-times.  space-times.  spatial  structure  terms  that  that  that  the  the  The  the  The  the  the  The  theory.  There  there  topological  topological  topological  type,  understood  white  with  with 

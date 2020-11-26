@@ -113,4 +113,11 @@ char ** get_user_input(int * word_count) {
 
 }
 
+
+/*
+ * ASSIGN SCORES FUNCTION.
+ * 
+ * 
+*/
+
 #endif
