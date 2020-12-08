@@ -31,4 +31,5 @@ This repository will include any labs, homeworks, projects, or other material re
 ### Simulated Annealing.
 
 Serial implementation complete for SA on the Traveling Salesman Problem.
+
 TODO: Increase visuals for the timing of serial.
