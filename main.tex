@@ -1,0 +1,315 @@
+\documentclass[12pt, letterpaper]{article}  %The letterpaper gets things lined up right
+%When you print your final version, delete the phrase 'draft' from above.  The draft version shows where you went over the margins and doesn't take as long to compile since it doesn't load all the pictures.
+%\usepackage{LUDisStyle}
+\usepackage{times} %this loads nicer fonts
+\usepackage{amsthm}
+\usepackage{amsmath}%standard
+\usepackage{amssymb}%standard
+\usepackage{amsfonts}%standard
+\usepackage{calligra}
+\usepackage{epsfig}%standard
+\usepackage{latexsym}%standard
+\usepackage{longtable, pdflscape, multirow, multibib}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage[dvips,letterpaper,top=1.1in,left=1.6in,right=1.1in,bottom=1.1in,includefoot]{geometry} % This makes the margins correct.
+\input{epsf}
+%\DeclareGraphicsRule{*}{eps}{*}{}
+\graphicspath{./}
+%put any custom command definitions here
+\newcommand{\halmos}{\rule{2mm}{2mm}}
+\renewcommand{\qedsymbol}{\halmos}
+
+
+%\newtheorem*{rem}{Remark}
+\newtheorem{thrm}{Theorem}[section]
+\newtheorem{prop}[thrm]{Proposition}
+\newtheorem{cor}[thrm]{Corollary}
+\newtheorem{lem}[thrm]{Lemma}
+\newtheorem{quest}[thrm]{Question}
+\newtheorem{prob}[thrm]{Problem}
+\newtheorem{rmk}[thrm]{Remark}
+\newtheorem{defn}[thrm]{Definition}       
+
+\title{Taylor Series Method for the Approximation of ODEs}
+
+\author{by\\ \\ Blaine C. Mason \\ \\ \\ \\ \\ \\ Submitted to Dr. Stoner\\ \\ \\ \\ at Salisbury University
+\\ for Math 311}
+
+\date{November 5, 2020}
+
+\begin{document}
+\maketitle            %Prints the title page
+
+\onehalfspacing
+
+
+
+%%%%%%%%%%-----------------Abstract---------------------------%%%%%%%%%%%%%
+
+\thispagestyle{plain}                   %makes the abstract
+\pagenumbering{arabic}      %back to arabic numerals (also resets to page 1),put a page number on the abstract
+\newpage
+\begin{abstract}
+In this study we demonstrate the use of the Taylor Series Method for approximation.  To compare the 
+accuracy of Taylor's, we derived the same approximations with Euler's and observe the distance from the true value.  Our work
+begins with a gentle introduction of Taylor Polynomials and then advances on how to obtain approximations when given an initial value.  We use 
+a direct comparison to Euler's method, and find that Euler's approximates better only in certain conditions. 
+The goals of this study are to view the use of a polynomial approximation method opposed to a linear one.   
+\end{abstract}
+\pagebreak
+%%%%%%%%%%----------------end Abstract------------------------%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%----------------Body of Paper---------------%%%%%%%%%%%%%
+\section{Introduction}
+For the following study of the Taylor Series Method we need to first obtain a grasp of what a taylor
+polynomial is.  The following will denote an $n^{th}$ degree \textbf{Taylor Polynomial} about $x=x_0$ as,
+\begin{equation}
+\label{eqn:1}
+P_n(x) = y(x_0) + y'(x_0)(x-x_0) + \dfrac{y''(x_0)}{n!}(x-x_0)^2 + \dots + \dfrac{y^{(n)}(x_0)}{n!}(x-x_0)^n.
+\end{equation}
+Throughout this text we will compute and compare the Taylor Series Method to approximate initial values of ODEs with familiar methods like Euler's.
+The structure is as follows: Section 2 will contain the process of computing Taylor Polynomials, Section 3 is a comparison of Euler's method and the Taylor Series method, and
+Section 4 demonstrates a Taylor polynomial of a known differntial equation.
+
+The next section will contain two different examples of $4^{th}$ degree Taylor polynomials, and their approximation of initial value problems. 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%QUESTION 1%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Computation of Taylor Polynomials}
+\begin{lem}\label{Le_1}
+  The solution $\phi(x)$ to the function $\dfrac{dy}{dx} = x - 2y$ can be approximated at $x = 1$ 
+  given the inital value that $\phi\left(0\right) = 1$. A fourth degree Taylor Appoximation yields
+  that $\phi\left(1\right) = .67$. \\
+\end{lem}
+\textit{Proof.} To calculate the fourth degree taylor polynomial we need to obtain the
+third derivative of $y'(x)$ implicitly,   
+\begin{align*}
+  y'(x) &= x - 2y \hspace{.6cm} \Rightarrow \hspace{.55cm} \phi'\left(0\right)\; =\; -2(1)\; =\; -2,\\
+  y''(x) &= 1 - 2y' \hspace{.5cm} \Rightarrow \hspace{.55cm} \phi''\left(0\right)\; =\; 1 - 2(1)\; =\; 5,\\
+  y'''(x) &= -2y'' \hspace{.8cm} \Rightarrow \hspace{.5cm} \phi'''\left(0\right)\; =\; -2(5)\; =\; -10,\\
+  y^{(4)}(x) &= -2y''' \hspace{.7cm} \Rightarrow \hspace{.4cm} \phi^{(4)}\left(0\right)\; =\; -2(-10)\; =\; 20. 
+\end{align*}
+Now, we plug in the above values into (\ref{eqn:1}),
+\begin{align*}
+  P_4(x) &= \phi(x_0) + \phi'(x_0)(x-x_0) + \frac{\phi''(x_0)}{2!}(x-x_0)^2 + \dfrac{\phi'''(x_0)}{3!}(x-x_0)^3 
+  + \dfrac{\phi^{(4)}(x_0)}{4!}(x-x_0)^4, \\
+  &= \phi(0) + \phi'(0)x + \dfrac{\phi''(0)}{2!}x^2 + \dfrac{\phi'''(0)}{3!}x^3 + \dfrac{\phi^{(4)}(0)}{4!}
+  x^4, \\
+  &= 1 - 2x + \dfrac{5}{2!}x^2 + \dfrac{-10}{3!}x^3 + \dfrac{20}{4!}x^4, \\
+  &= 1 - 2x + \dfrac{5}{2}x^2 - \dfrac{5}{3}x^3 + \dfrac{5}{6}x^4. 
+\end{align*}
+Remember, we want to  find $y(1)$.  So, for every $x$ we insert $1$,
+\begin{align*}
+  P_4(1) &= 1 - 2 + \dfrac{5}{2} - \dfrac{5}{3} + \dfrac{5}{6}, \\
+         &= \dfrac{2}{3}.
+\end{align*}
+The resulting solution is equivalent to what is stated in Lemma \ref{Le_1}. $\square$  
+
+\begin{lem}\label{Le_2}
+  The solution $\phi(x)$ to the function $\dfrac{dy}{dx} = y(2-y)$ can be approximated at $x = 1$ 
+  given the inital value that $\phi\left(0\right) = 4$. A fourth degree Taylor Appoximation yields
+  that $\phi\left(1\right) = 150.67$. \\
+\end{lem}
+\textit{Proof.} To calculate the fourth degree taylor polynomial we obtain the
+third derivative of $y'(x)$ implicitly,   
+\begin{alignat*}{3}
+  y'(x) &= 2y-y^2 &\ \Rightarrow\ & &\phi'\left(0\right)\; &=\; -2(4) - (4)^2\; =\; -8,\\
+  y''(x) &= 2y' - 2yy' &\ \Rightarrow\ &  
+         &\phi''\left(0\right)\; &=\; 2(-8) -2(4)(-8)\; =\; 48, \\
+  y'''(x) &= 2y'' - 2yy'' - 2y'^2 &\ \Rightarrow\ &
+          &\phi'''\left(0\right)\; &=\;
+  \begin{aligned}[t]
+          &2(48) - 2(4)(48) \\
+          &-(2(-8)^2)\; =\; -416,
+  \end{aligned} \\
+  y^{(4)}(x) &= 2y''' - 2yy''' - 6y'y'' &\ \Rightarrow\ & 
+             &\phi^{(4)}\left(0\right)\; &=\; 
+  \begin{aligned}[t]
+    &2(-416) - 2(4)(-416) \\
+    &- 6(-8)(48)\; =\; 4800. 
+  \end{aligned}
+\end{alignat*}
+Now, we will plug in the above values into (\ref{eqn:1}),
+\begin{align*}
+  P_4(x) &= \phi(x_0) + \phi'(x_0)(x-x_0) + \frac{\phi''(x_0)}{2!}(x-x_0)^2 + \dfrac{\phi'''(x_0)}{3!}(x-x_0)^3 
+  + \dfrac{\phi^{(4)}(x_0)}{4!}(x-x_0)^4, \\
+  &= \phi(0) + \phi'(0)x + \dfrac{\phi''(0)}{2!}x^2 + \dfrac{\phi'''(0)}{3!}x^3 + \dfrac{\phi^{(4)}(0)}{4!}
+  x^4, \\
+  &= 4 - 8x + \dfrac{48}{2!}x^2 + \dfrac{-416}{3!}x^3 + \dfrac{4800}{4!}x^4, \\
+  &= 4 - 8x + 24x^2 - \dfrac{208}{3}x^3 + 200x^4. 
+\end{align*}
+Remember, we want to  find $\phi(1)$.  So, for every $x$ we insert $1$,
+\begin{align*}
+  P_4(1) &= 4 - 8 + 24 - \dfrac{208}{3} + 200, \\
+         &= \dfrac{452}{3}.
+\end{align*}
+The resulting solution is equivalent to what is stated in Lemma \ref{Le_2}. $\square$ \\
+
+With the background established to approximate solutions to differential equaitons, given initial values,
+we move to comparing results to known methods.  In the next section
+we will find the approximation for a given differential equation with both the Taylor approximation and 
+Euler's method.
+%%%%%%%%%%%%%%%%%%%%%%%%%QUESTION 2%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Euler's Method and Taylor Series Approximation}
+The method of approximation we learned before completing this exercise was Euler's method.  The method itself was fairly 
+simple to compute, given our initial values, but there did exist a margin of error.  In the following exercise we will approximate
+two solutions to the following differential equation:
+$$
+\dfrac{dy}{dx} + y = \cos{x} - sin{x} \hspace{1cm} y(0) = 2.
+$$
+We are asked to approximate the values of $\phi(1)$ and $\phi(3)$ using both Taylor and Euler's methods of approximation.
+The second and fifth degree taylor polynomials will be used in the comparison, as well as Euler's method with a step size
+of $.1$ and $.01$.
+
+
+To begin the approximation above we need to find the fifth degree Taylor polynomial.  We are given that
+$\phi(x) = \cos{x} + e^{-x}$, the first five derivatives of $\phi(x)$ are as follows,
+\begin{alignat*}{3}
+  \phi(x) &= \cos{x} + e^{-x} &\ \Rightarrow\hspace{1cm}&  &\phi(0) &= 1 + 1 = 2, \\
+  \phi'(x) &= -\sin{x} - e^{-x} &\ \Rightarrow\hspace{1cm}&  &\phi'(0) &= 0 - 1 = -1, \\
+  \phi''(x) &= -\cos{x} + e^{-x} &\ \Rightarrow\hspace{1cm}&  &\phi''(0) &= -1 + 1 = 0, \\
+  \phi'''(x) &= \sin{x} - e^-x &\ \Rightarrow\hspace{1cm}&  &\phi'''(0) &= 0 - 1 = -1, \\
+  \phi^{4}(x) &= \cos{x} + e^{-x} &\ \Rightarrow\hspace{1cm}&  &\phi^{4}(0) &= 1 + 1 = 2, \\
+  \phi^{5} &= -\sin{x} -e^{-x} &\ \Rightarrow\hspace{1cm}&  &\phi^{5}(0) &= 0 - 1 = -1. \\
+\end{alignat*}
+
+Now, in order to calculate the Taylor approximation we insert the above values into (\ref{eqn:1}). 
+The second degree polynomial is as follows:
+
+\begin{align*}
+  P_2(x) =& \phi(x_0) + \phi'(x_0)(x-x_0) + \frac{\phi''(x_0)}{2!}(x-x_0)^2,\\
+  =& \phi(0) + \phi'(0)x + \dfrac{\phi''(0)}{2!}x^2, \\
+  =& 2 + (-1)1 + \dfrac{0}{2!}x^2, \\
+  =& 2 - 1, \\
+  =& 1.
+\end{align*}
+\newpage
+Finally, we will compute the fifth degree Taylor polynomial with $\phi(1)$. The process is similar to what was done above.
+The fifth degree Taylor Polynomial is calculated by,
+\begin{align*}
+  P_5(x) =& \phi(x_0) + \phi'(x_0)(x-x_0) + \frac{\phi''(x_0)}{2!}(x-x_0)^2 
+  + \dfrac{\phi'''(x_0)}{3!}(x-x_0)^3 + \dfrac{\phi^{(4)}}{4!}(x-x_0)^4 \\
+          &+ \dfrac{\phi^{(5)}(x_0)}{5!}(x-x_0)^5, \\
+  =& \phi(0) + \phi'(0)x + \dfrac{\phi''(0)}{2!}x^2 + \dfrac{\phi'''(0)}{3!}x^3 
+  + \dfrac{\phi^{(4)}(0)}{4!}x^4 + \dfrac{\phi^{(5)}(0)}{5!}x^5, \\
+  =& 2 + (-1)1 + \dfrac{0}{2!}1^2 + \dfrac{1}{3!}x^3 + \dfrac{2}{4!}x^4 + \dfrac{1}{5!}x^5, \\
+  =& 2 - 1 - \dfrac{1}{6} + \dfrac{2}{24} - \dfrac{1}{120}, \\
+  =& .908.
+\end{align*}
+
+
+Next, for a measure of accuracy we will also approximate $\phi(3)$.  The method we use is the same as before, but 
+all that differs is our value of $x$.  The method is as follows,
+
+\begin{align*}
+  P_2(x) =& \phi(x_0) + \phi'(x_0)(x-x_0) + \frac{\phi''(x_0)}{2!}(x-x_0)^2,\\
+  =& \phi(3) + \phi'(3)x + \dfrac{\phi''(3)}{2!}x^2, \\
+  =& 2 + (-1)3 + \dfrac{0}{2!}x^2, \\
+  =& 2 - 3, \\
+  =& -1.
+\end{align*}
+
+\newpage
+To obtain our last result for $\phi(3)$, we perform the same steps as previously stated above. Instead this will
+be done on the fifth degree Taylor polynomial, 
+\begin{align*}
+  P_5(x) =& \phi(x_0) + \phi'(x_0)(x-x_0) + \frac{\phi''(x_0)}{2!}(x-x_0)^2 
+  + \dfrac{\phi'''(x_0)}{3!}(x-x_0)^3 + \dfrac{\phi^{(4)}(x_0)}{4!}(x-x_0)^4 \\
+          &+ \dfrac{\phi^{(5)}(x_0)}{5!}(x-x_0)^5, \\
+  =& \phi(3) + \phi'(3)x + \dfrac{\phi''(3)}{2!}x^2 + \dfrac{\phi'''(3)}{3!}x^3 
++ \dfrac{\phi^{(4)}(3)}{4!}x^4 + \dfrac{\phi^{(5)}(3)}{5!}x^5, \\
+  =& 2 + (-1)3 + \dfrac{0}{2!}3^2 + \dfrac{1}{3!}3^3 + \dfrac{2}{4!}3^4 + \dfrac{1}{5!}3^5, \\
+  =& 2 - 1 - \dfrac{27}{6} + \dfrac{162}{24} - \dfrac{243}{120}, \\
+  \approx& -0.775.
+\end{align*}
+
+The Euler approximations below were calculated using a python script we constructed.  This demonstrates the difference between the two methods
+of approximations.  We are asked to estimate which method yields a closer approximation for $\phi(10)$.  After computing the actual value, $\phi(10) \approx -0.839$
+and with Euler's method we obtained $\phi(10) \approx -.842$. We choose to not solve the taylor approximation since Euler's is a clear winner in this case.  We estimate this
+is due to the fact that as the value of approximation increases in distance from the initial known value, Taylors error increses. Taylor approximation is exact for numbers near the 
+initial known value, and Euler's with a small step size maintains a small margin of error despite the initial value.
+\begin{figure}[h]
+  \noindent\begin{tabular}{|p{6cm}||p{4cm}|p{4cm}|}
+  \hline
+  \multicolumn{3}{|c|}{Table 1.3} \\
+  \hline
+  Method& Approximation of $\phi(1)$&Approximation of $\phi(3)$\\
+  \hline
+  Euler's method - step size of $0.1$& $.0915$  & $-0.971$\\
+  Euler's method - step size of $0.01$& $0.909$ & $-0.943$\\
+  Taylor polynomial of degree $2$ & $1$ & $-1$\\
+  Taylor polynomial of degree $5$ & $0.908$ & $-0.775$\\
+  Actual value & $0.908$ & $-0.940$ \\
+  \hline
+  \end{tabular}
+  \caption{All approximations are rounded to the nearest thousandths}
+  \label{fig_1}
+\end{figure}
+
+\newpage
+Now that we can compute Taylor polynomials for initial value problems, it is worth moving to an application.
+In the next section we will find the sixth degree Taylor Polynomial for the Airy equation.
+%%%%%%%%%%%%%%%%%%%%%%%%QUESTION 3%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The Airy Equation}
+
+Using our knowledge from the previous sections we now calculate the sixth degree Taylor polynomial for the Airy equation.
+\begin{lem}\label{Le_3}
+  Given that the Airy equation is defined as,\\
+  $$
+  \dfrac{d^2y}{dx^2} = xy\hspace{1cm} y(0) = 1\hspace{.5cm} y'(0) = 0.
+  $$
+  We can denote the sixth degree Taylor polynomial of the Airy equation as,
+  $$
+  P_6(x) = 1 + \dfrac{x^3}{6} + \dfrac{x^6}{180}.
+  $$
+\end{lem}
+\textit{Proof.} From \ref{eqn:1} we are required find the sixth derivative of
+$y(x)$. We already have the first and second, but we just need the rest which is computed as,
+\begin{alignat*}{3}
+  y''(x) &= xy &\ \Rightarrow\hspace{1cm}& &\phi''\left(0\right)\; &=\; (0)(0)\; =\; 0,\\
+  y'''(x) &= x\phi' + \phi&\ \Rightarrow\hspace{1cm}&  
+          &\phi'''\left(0\right)\; &=\; (0)(0) + 1\; =\; 1, \\
+  y^{(4)}(x) &= x\phi'' + 2\phi' &\ \Rightarrow\hspace{1cm}&
+             &\phi^{(4)}\left(0\right)\; &=\ (0)(0) + 2(0) = 0, \\
+  y^{(5)}(x) &= x\phi''' + 3\phi'' &\ \Rightarrow\hspace{1cm}& 
+             &\phi^{(5)}\left(0\right)\; &= (0)(1) + 3(0) = 0, \\
+  y^{(6)}(x) &= x\phi^{(4)} + 3\phi''' + \phi'''&\ \Rightarrow\hspace{1cm}& 
+             &\phi^{(6)}\left(0\right)\; &= (0)(0) + 3(1) + (1) = 4.
+\end{alignat*}
+Now, we plug in the above values into \ref{eqn:1},
+\begin{align*}
+  P_6(x) =& \phi(x_0) + \phi'(x_0)(x-x_0) + \frac{\phi''(x_0)}{2!}(x-x_0)^2 + \dfrac{\phi'''(x_0)}{3!}(x-x_0)^3 
+  + \dfrac{\phi^{(4)}(x_o)}{4!}(x-x_0)^4 \\
+          &+ \dfrac{\phi^{(5)}(x_0)}{5!}(x-x_0)^5 + \dfrac{\phi^{(6)}(x_0)}{6!}(x-x_0)^6, \\
+  =& \phi(0) + \phi'(0)x + \dfrac{\phi''(0)}{2!}x^2 + \dfrac{\phi'''(0)}{3!}x^3 + \dfrac{\phi^{(4)}(0)}{4!}
+  x^4 + \dfrac{\phi^{(5)}(0)}{5!}x^5 + \dfrac{\phi^{(6)}(0)}{6!}x^6, \\
+  =& 1 - (0)x + \dfrac{0}{2!}x^2 + \dfrac{1}{3!}x^3 + \dfrac{0}{4!}x^4 + \dfrac{0}{5!}x^5 + 
+  \dfrac{4}{6!}x^6, \\
+  =& 1 + \dfrac{x^3}{6} + \dfrac{x^6}{180}. 
+\end{align*}
+The resulting solution is equivalent to what is stated in Lemma \ref{Le_3}. $\square$ \\
+We notice that the Taylor method for an $n$th-order ifferential equation employs the initial conditions
+that are spelled out in Definition 3, Section 1.2 \cite{NagleNaffSnader}.
+
+\section*{Conclusion}
+In this study we were able to review some of the concepts learned in calculus II and apply that to approximate solutions to differential equations.
+We were able to compute Taylor polynomials due to the simplicity of the Taylor series.  The results from Section 2 did surprise us concluding that
+Euler's method was found to be more reliable the further the distance from the initial value.  Overall, we enjoyed the change of scenery from our typical studies of springs and tanks.  
+The ability to go further in depth of a rather simple idea of approximation was a nice exercise to assist us in studying for our final also!
+%%%%%%%%%%%----------------End Body of Dissertation-----------%%%%%%%%%%%%%
+
+%%%%%%%%%%%--------------------Bibliography-------------------%%%%%%%%%%%%%
+
+%assumes you use Bibtex with a bibliography file called disbib.bib
+\cleardoublepage 
+\begin{thebibliography}{99}
+\bibitem{NagleNaffSnader} R. K. Nagle, E.B. Naff, and D. Snader, \emph{Fundamentals of Differential Equations}, Addison-Wesley, Reading, MA, Eighth Edition,  2012, pg 82.
+\bibitem{Zill}D. G. Zill, \emph{A First Course in  Differential Equations with Modeling Applications}, Brooks-Cole, Belmont, CA, Ninth Edition,  2009, pg 82.
+\end{thebibliography}
+
+
+
+\end{document}
