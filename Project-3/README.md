@@ -8,7 +8,9 @@ by Justin Ventura & Blaine Mason
 
 <code>
 module load mpi/mpich-3.2-x86_64
+  
 mpiexec -n 1 python parallel.py
+
 mpiexec -n x python parallel.py s.t.(x >=3)
 </code>
 
