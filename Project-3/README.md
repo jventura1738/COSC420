@@ -6,7 +6,9 @@ by Justin Ventura & Blaine Mason
 
 ### How to run:
 
+<code>
 x, y, z.
+</code>
 
 ## Problem Description:
 
