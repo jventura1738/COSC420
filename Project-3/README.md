@@ -7,14 +7,16 @@ by Justin Ventura & Blaine Mason
 ### How to run:
 
 <code>
-x, y, z.
+module load mpi/mpich-3.2-x86_64
+mpiexec -n 1 python parallel.py
+mpiexec -n x python parallel.py s.t.(x >=3)
 </code>
 
 ## Problem Description:
 
-Imagine a salesman planning to market some product in various locations on some network (with only vertices at start).  His/her goal is to visit a set of some cities, and to do so such that he spends minimal time traveling (assume shorter distance is *always* optimal for simplicity).  This clearly becomes a problem easily solved with graph theory.  The idea is to formulate edges between all vertices with the following constraints:
+Imagine a salesman planning to market some product in various locations on some network (with only vertices at start).  His/her goal is to visit a set of some cities, and to do so, such that he spends minimal time traveling (assume shorter distance is *always* optimal for simplicity).  This clearly becomes a problem easily solved with graph theory.  The idea is to formulate edges between all vertices with the following constraints:
 
-- He want to start and end in the same city.
+- He wants to start and end in the same city.
 - He must visit each city exacly once.
 - His goal is to travel minimal distance.
 
@@ -30,5 +32,7 @@ With the previous algorithm in mind, we can attempt to avoid these 'local minima
 
 ### Simulated Annealing in Parallel.
 
-We can improve this process by have P nodes perform the algorithm at the same time, which gives a perfect speedup in proportion to P.  This not only speeds things up, but will also improve the likelihood of reaching a more optimal solution.  Continue ...
+We can improve this process by having P nodes perform the algorithm at the same time, which gives a perfect speedup in proportion to P.  This not only speeds things up, but will also improve the likelihood of reaching a more optimal solution.  Each node will communicate their best solution, and at the end of the annealing, hopefully, the globaly minimum has been found. If the returned results is not the global minimum, then it is with high probability within a low distance away from the global minimum.  The algorithm we implemented can be found in the pdf attached in the zip file.  
+
+
 

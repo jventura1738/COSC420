@@ -145,6 +145,19 @@ def main():
     comm = MPI.COMM_WORLD
     rank = comm.Get_rank()
     world_size = comm.Get_size()
+    if(rank == 0 and world_size == 1):
+        verts = []
+        n = int(input("Enter number of cities: "))
+        for i in range(1, n+1):
+            temp = Vertex(rand.randint(0,50+n), rand.randint(0,50+n))
+            verts.append(temp)
+        graph = Graph()
+        for i in range(0,len(verts)):
+            graph.add_node(verts[i])
+        with open("test.txt", "wb") as fp:   #Pickling
+            pickle.dump(verts, fp)
+        print("Now run with nodes >= 3")
+        return 0
     with open("test.txt", "rb") as fp:   # Unpickling
         verts = pickle.load(fp)
     sum_ = 0
@@ -177,9 +190,9 @@ def main():
         if(rank == world_size - 1):
             pbar.update(.995)
         current_temp -= .995
-        if(rank == world_size - 1):
-            pbar.close()
-            pbar.clear()
+    if(rank == world_size - 1):
+        pbar.close()
+        pbar.clear()
     # Print Results
     if(rank == world_size - 1):
         anneal_ = Graph()
