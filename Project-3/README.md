@@ -7,12 +7,14 @@ by Justin Ventura & Blaine Mason
 ### How to run:
 
 <code>
-module load mpi/mpich-3.2-x86_64
-  
+module load mpi/mpich-3.2-x86_64 
+</code>  
+<code>
 mpiexec -n 1 python parallel.py
-
-mpiexec -n x python parallel.py s.t.(x >=3)
-</code>
+</code> 
+<code>
+mpiexec -n x python parallel.py s.t.(x >=3)  
+</code> 
 
 ## Problem Description:
 
